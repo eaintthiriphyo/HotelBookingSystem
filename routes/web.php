@@ -1,7 +1,8 @@
 <?php
 
+use App\Http\Controllers\RoomController;
 use Illuminate\Support\Facades\Route;
-
+use Illuminate\Support\Facades\Auth;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,3 +21,29 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::middleware(['auth','role:admin'])
+->prefix('admin')
+->name('admin.')
+->group(function(){
+    Route::get('/dashboard',function(){
+        return view ('admin.dashboard');
+    })->name('dashboard');
+
+    Route::get('/rooms',[RoomController::class,'index'])->name('room.index');
+
+
+
+
+});
+Route::middleware(['auth','role:user'])
+->prefix('user')
+->name('user.')
+->group(function(){
+    Route::get('/dashboard',function(){
+        return view ('user.dashboard');
+    })->name('dashboard');
+
+
+
+});
