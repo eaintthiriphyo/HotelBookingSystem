@@ -9,15 +9,13 @@
         </div>
         <div class="col-8">
             <div class="card p-3">
-                <div class="card-header"><h3><b>Room List</b></h3></div>
+                <div class="card-header"><h3><b> Rooms Lists</b></h3></div>
                 <div class="card-body">
 
-              <a href="">
-                <button class="btn btn-success">Add New Course</button>
+              <a href="{{route('admin.room.create')}}">
+                <button class="btn btn-success">Add Rooms</button>
               </a>
-                <a href="" class="float-end">
-                <button class="btn btn-warning">Pending Course</button>
-              </a>
+               
 
               <table class="table mt-3">
                  
@@ -25,12 +23,36 @@
           
               <thead>
                 <tr>
-                    <th>Course Name</th>
-                    <th>Duration</th>
+                    <th>Room Number</th>
+                    <th>Room Type</th>
+                    
                     <th>Action</th>
                 </tr>
               </thead>
            
+              <tbody>
+                @foreach($rooms as $room)
+                
+
+                <tr>
+
+                <td>{{$room->room_number}}</td>
+                <td>{{$room->room_type->room_type}}</td>
+                <!-- <td>{{$room->is_avaliable ? 'avaliable' : 'full'}}</td> -->
+
+                <td>
+                      <a href=""><button>View</button>
+                    </a>
+                    <a href=""><button>Edit</button>
+                    </a>
+                      <a href=""><button>Delete</button>
+                    </a>
+                </td>
+                </tr>
+                
+                @endforeach
+              </tbody>
+             
               
               </table>
                 </div>

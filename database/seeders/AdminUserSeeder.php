@@ -19,7 +19,8 @@ class AdminUserSeeder extends Seeder
             'email'=>'admin@example.com',
             'password'=>Hash::make('password'),
             'phone'=>'097833333',
-            'role'=>'admin'
+            'role'=>'admin',
+            'status'=>0,
         ]);
     }
 }

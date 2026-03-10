@@ -3,6 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\RoomType;
+use App\Models\Room;
+use Illuminate\Support\Facades\Validator;
+
+
 
 class RoomController extends Controller
 {
@@ -13,7 +18,8 @@ class RoomController extends Controller
      */
     public function index()
     {
-        return view('admin.room.index');
+        $rooms=Room::all();
+        return view('admin.room.index',compact('rooms'));
     }
 
     /**
@@ -23,7 +29,8 @@ class RoomController extends Controller
      */
     public function create()
     {
-        //
+        $roomType=RoomType::all();
+        return view('admin.room.create',compact('roomType'));
     }
 
     /**
@@ -34,7 +41,15 @@ class RoomController extends Controller
      */
     public function store(Request $request)
     {
-        //
+       
+        $this->validator($request->all())->validate();
+        // return $request;
+        $room=new Room();
+        $room->room_number='R_' . $request->room_number;
+        $room->room_type_id=$request->room_type_id;
+        $room->save();
+        return redirect()->route('admin.room.index')->with('sucessRoom','Room Created Successfully!!');
+
     }
 
     /**
@@ -80,5 +95,23 @@ class RoomController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    protected function validator(array $data,$id = null)
+    
+    {
+        return Validator::make($data,[
+            'room_number'=>[
+                    'required',
+                    'string',
+                    'max:255',
+                    'unique:rooms,room_number'.($id ? ',' . $id :'')
+                    ],
+            'room_type_id'=>[
+                'required',
+                'integer',
+                'exists:room_types,id'
+            ]
+        ]);
     }
 }

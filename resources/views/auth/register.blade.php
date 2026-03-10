@@ -39,11 +39,10 @@
                             </div>
                         </div>
 
-<<<<<<< HEAD
-=======
 
 
 
+                        
                            <div class="row mb-3">
                             <label for="phone" class="col-md-4 col-form-label text-md-end">{{ __('Phone') }}</label>
 
@@ -58,8 +57,6 @@
                             </div>
                         </div>
 
-
->>>>>>> 129cc68091511040976c13d9875fe44470ae6264
                         <div class="row mb-3">
                             <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
 

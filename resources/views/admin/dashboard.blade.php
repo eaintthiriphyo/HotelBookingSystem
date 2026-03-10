@@ -13,7 +13,7 @@
                 <div class="card-body">
 
               <a href="">
-                <button class="btn btn-success">Add New Course</button>
+                <button class="btn btn-success"></button>
               </a>
                 <a href="" class="float-end">
                 <button class="btn btn-warning">Pending Course</button>

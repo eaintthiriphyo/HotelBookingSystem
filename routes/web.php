@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\RoomController;
+use App\Http\Controllers\RoomTypeController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 /*
@@ -30,11 +31,16 @@ Route::middleware(['auth','role:admin'])
         return view ('admin.dashboard');
     })->name('dashboard');
 
-    Route::get('/rooms',[RoomController::class,'index'])->name('room.index');
+    Route::get('/room',[RoomController::class,'index'])->name('room.index');
+    Route::get('/room/create',[RoomController::class,'create'])->name('room.create');
+    Route::post('/room/create',[RoomController::class,'store'])->name('room.store');
+    // Route::get('/roomTypes/show/{id}',[RoomTypeController::class,'show'])->name('roomType.show');
+    // Route::get('/roomTypes/edit/{id}',[RoomTypeController::class,'edit'])->name('roomType.edit');
+    // Route::put('/roomTypes/update/{id}',[RoomTypeController::class,'update'])->name('roomType.update');
+    // Route::delete('/roomTypes/destroy/{id}',[RoomTypeController::class,'destroy'])->name('roomType.destroy');
 
 
-
-
+Route::resource('roomType', RoomTypeController::class);
 });
 Route::middleware(['auth','role:user'])
 ->prefix('user')
