@@ -174,7 +174,7 @@ class RoomTypeController extends Controller
       protected function validator(array $data, $id = null)
     {
         return Validator::make($data, [
- 'room_type' => [
+            'room_type' => [
             'required',
             'string',
             'max:255',

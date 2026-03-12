@@ -1,15 +1,7 @@
-@extends('layouts.app')
+@extends('layouts.adminLayout')
 
 @section('content')
 
-<div class="container">
-    <div class="row">
-        <div class="col-3">
-            @include('layouts.sidebar')
-        </div>
-        <div class="col-8">
-            <h3>User Dashboard</h3>
-        </div>
-    </div>
+<h3>User Dashboard</h3>
 </div>
 @endsection

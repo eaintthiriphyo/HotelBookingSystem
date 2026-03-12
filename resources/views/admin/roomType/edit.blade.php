@@ -1,8 +1,7 @@
-@extends('layouts.app')
+@extends('layouts.adminLayout')
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
+<div class="container pt-4">
+   
             <a href="{{route('admin.roomType.index')}}" class="btn btn-dark ">Back</a>
             <div class="card p-3 my-2">
 
@@ -60,6 +59,5 @@
             </div>
 
         </div>
-    </div>
-</div>
+   
 @endsection

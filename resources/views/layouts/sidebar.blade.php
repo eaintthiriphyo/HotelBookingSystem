@@ -25,13 +25,13 @@
         <li class="mb-2">
             <a href=""
                 class="d-block p-2 text-decoration-none text-dark rounded  ">
-                Students
+                Booking
             </a>
         </li>
         <li class="mb-2">
             <a href=""
                 class="d-block p-2 text-decoration-none text-dark rounded ">
-                Course
+                Admin Management
             </a>
         </li>
 

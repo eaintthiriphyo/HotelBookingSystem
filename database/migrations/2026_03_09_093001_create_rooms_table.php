@@ -17,7 +17,7 @@ class CreateRoomsTable extends Migration
             $table->id();
             $table->string('room_number')->unique();
             $table->foreignId('room_type_id')->constrained()->cascadeOnDelete();
-            $table->boolean('is_avaliable')->default(true);
+            $table->string('is_avaliable')->default('avaliable');
             $table->timestamps();
         });
     }

@@ -1,8 +1,9 @@
-@extends('layouts.app')
+@extends('layouts.adminLayout')
 @section('content')
-<div class="container">
+<div class="container pt-4">
     <div class="row justify-content-center">
-      
+      <a href="{{route('admin.room.index')}}" class="btn btn-dark">Back</a>
+
         <div class="col-md-8">
 
             <div class="card p-3 ">

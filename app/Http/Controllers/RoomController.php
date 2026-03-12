@@ -60,7 +60,8 @@ class RoomController extends Controller
      */
     public function show($id)
     {
-        //
+        $room=Room::findOrFail($id);
+        return view('admin.room.view',compact('room'));
     }
 
     /**
@@ -71,7 +72,9 @@ class RoomController extends Controller
      */
     public function edit($id)
     {
-        //
+        $room=Room::findOrFail($id);
+        $roomType=RoomType::all();
+        return view('admin.room.edit',compact('room','roomType'));
     }
 
     /**
@@ -83,7 +86,13 @@ class RoomController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
+        $room=Room::findOrFail($id);
+        $room->room_number=$request->room_number;
+        $room->room_type_id=$request->room_type;
+    
+        $room->update();
+        return redirect()->route('admin.room.index');
     }
 
     /**
@@ -94,7 +103,12 @@ class RoomController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $room=Room::findOrFail($id);
+        if($room->is_avaliable=="booked" || $room->is_avaliable=='unavaliable'){
+        return redirect()->back()->with('errMessage','Can not delete this room');
+        }
+        $room->delete();
+        return redirect()->back();
     }
 
     protected function validator(array $data,$id = null)
@@ -114,4 +128,66 @@ class RoomController extends Controller
             ]
         ]);
     }
+
+
+
+    public function avaliableList(){
+        $room=Room::all();
+        return view('admin.room.avaliableList',compact('room'));
+    }
+
+    public function avaliableListUpdate(Request $request,$id){
+        $room=Room::findOrFail($id);
+
+        if($request->is_avaliable=='booked'){
+          
+          return view('admin.room.booking',compact('room'));
+        }
+        $room->is_avaliable=$request->is_avaliable;
+       
+        $room->update();
+        return redirect()->back();
+    }
+
+     public function pendingList(){
+        $room=Room::all();
+        return view('admin.room.pendingList',compact('room'));
+    }
+
+     public function pendingListUpdate(Request $request,$id){
+        $roomStatus=Room::findOrFail($id);
+
+      
+        $roomStatus->is_avaliable=$request->is_avaliable;
+
+        $roomStatus->update();
+        return redirect()->back();
+    }
+
+     public function bookingList(){
+        $room=Room::all();
+        return view('admin.room.bookingList',compact('room'));
+    }
+
+     public function bookingListUpdate(Request $request,$id){
+        $roomStatus=Room::findOrFail($id);
+        $roomStatus->is_avaliable=$request->is_avaliable;
+        $roomStatus->update();
+        return redirect()->back();
+    }
+
+
+    public function unavaliableList(){
+        $room=Room::all();
+        return view('admin.room.unavaliableList',compact('room'));
+    }
+
+     public function unavaliableListUpdate(Request $request,$id){
+        $roomStatus=Room::findOrFail($id);
+        $roomStatus->is_avaliable=$request->is_avaliable;
+        $roomStatus->update();
+        return redirect()->back();
+    }
+
+    
 }

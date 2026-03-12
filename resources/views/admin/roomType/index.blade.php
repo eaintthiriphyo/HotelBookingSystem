@@ -1,13 +1,9 @@
-@extends('layouts.app')
+@extends('layouts.adminLayout')
 
 @section('content')
 
-<div class="container">
-    <div class="row">
-        <div class="col-3">
-            @include('layouts.sidebar')
-        </div>
-        <div class="col-8">
+<div class="container pt-4">
+   
             <div class="card p-3">
                 <div class="card-header"><h3><b> Room Types</b></h3></div>
                 <div class="card-body">
@@ -56,7 +52,6 @@
               </table>
                 </div>
             </div>
-        </div>
-    </div>
+      
 </div>
 @endsection
