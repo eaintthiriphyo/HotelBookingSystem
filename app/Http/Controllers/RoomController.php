@@ -141,7 +141,7 @@ class RoomController extends Controller
 
         if($request->is_avaliable=='booked'){
           
-          return view('admin.room.booking',compact('room'));
+        return redirect()->route('admin.booking.index', ['room_id' => $room->id]);
         }
         $room->is_avaliable=$request->is_avaliable;
        

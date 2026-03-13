@@ -41,11 +41,11 @@
                         <i class="fas fa-chart-area fa-fw me-3"></i><span>Room Type </span>
                     </a>
                     <a href="{{route('admin.room.index')}}" class="list-group-item list-group-item-action py-2   {{request()->routeIs('admin.room.*') ? 'bg-primary text-white' : ''}}" data-mdb-ripple-init><i
-                            class="fas fa-lock fa-fw me-3"></i><span>Room</span></a>
-                    <a href="#" class="list-group-item list-group-item-action py-2" data-mdb-ripple-init><i
-                            class="fas fa-chart-line fa-fw me-3"></i><span>Analytics</span></a>
-                    <a href="#" class="list-group-item list-group-item-action py-2" data-mdb-ripple-init>
-                        <i class="fas fa-chart-pie fa-fw me-3"></i><span>SEO</span>
+                            class="fas fa-lock fa-fw me-3"></i><span>Rooms</span></a>
+                    <a href="{{route('admin.bookingList.index')}}" class="list-group-item list-group-item-action py-2 {{request()->routeIs('admin.bookingList.*') ? 'bg-primary text-white' : ''}}" data-mdb-ripple-init><i
+                            class="fas fa-chart-line fa-fw me-3"></i><span>Booking Lists</span></a>
+                    <a href="{{route('admin.checkInList.index')}}" class="list-group-item list-group-item-action py-2 {{request()->routeIs('admin.checkInList.*') ? 'bg-primary text-white' : ''}}" data-mdb-ripple-init>
+                        <i class="fas fa-chart-pie fa-fw me-3"></i><span>Check In Lists</span>
                     </a>
                     <a href="#" class="list-group-item list-group-item-action py-2" data-mdb-ripple-init><i
                             class="fas fa-chart-bar fa-fw me-3"></i><span>Orders</span></a>

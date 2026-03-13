@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Booking;
 use App\Models\Room;
+use Illuminate\Support\Facades\Auth;
+
 
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -18,9 +20,16 @@ class BookingController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+           $room = null;
+
+    if($request->has('room_id')){
+        $room = Room::find($request->room_id);
+    }
+
+    return view('admin.room.booking', compact('room'));
+
     }
 
     /**
@@ -43,45 +52,62 @@ class BookingController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-   public function store(Request $request)
+  public function store(Request $request)
 {
+    $email = $request->email; 
 
-return $request->email;
-
-    $userEmail=$request->email ;
-            return $userEmail;
-
-        $user = User::where('email', $userEmail)->first();
-        if(!$user){
+    $userCount = User::where('email', $email)->count();
+    
+    if ($userCount==0) {
+       
      $this->userValidator($request->all())->validate();
-  $user = User::create([
-        'name' => $request->name,
-        'email' => $request->email,
-        'phone' => $request->phone,
-        'credential' => $request->credential,
-        'status' => "2",
-        'password' => Hash::make("12345678"),
-    ]);
-        }
 
-     $this->bookingValidator($request->all())->validate();
-$status = $user->status == 2 ? 'pending' : 'booked';
+    $user=new User();
+       $user->name=$request->name;
+       $user->email=$request->email;
+       $user->phone=$request->phone;
+       $user->role="user";
+       $user->credential=$request->credential;
+       $user->status="2";
+       $user->password=Hash::make("12345678");
 
+        $user->save();
+          
+      
+    }
+   
+
+     $user = User::where('email', $email)->first();
+     $uId=$user->id;
+     
+
+  
+
+    $this->bookingValidator($request->all())->validate();
+
+    //Set booking status
+    $status = (Auth::check() && Auth::user()->status == '2') ? 'pending' : 'booked';
+
+    
+
+    //Create booking
     Booking::create([
-        'user_id' => $user->id,
+        'user_id' => $uId,
         'room_id' => $request->room_id,
         'check_in' => $request->check_in,
         'check_out' => $request->check_out,
-        'status' => $status, 
+        'status' => $status,
         'booked_date' => now(),
     ]);
-        $room = Room::find($request->room_id);
+
+      $room = Room::find($request->room_id);
          $room->is_avaliable = 'booked';
          $room->update();
+   
+    return redirect()->route('admin.room.bookingList');
+     }
 
-
-    return redirect()->back();
-}
+// return response()->json(['message' => 'Room booked successfully', 'user' => $user]);}
 
     /**
      * Display the specified resource.
@@ -91,7 +117,7 @@ $status = $user->status == 2 ? 'pending' : 'booked';
      */
     public function show($id)
     {
-        //
+        
     }
 
     /**
@@ -136,9 +162,8 @@ $status = $user->status == 2 ? 'pending' : 'booked';
             'required',
             'string',
             'max:255',
-            'unique:room_types,room_type' ,
+            'unique:users,email' ,
         ],           
-         'price' => ['required', 'string', 'max:255'],
         'phone'=>['required','string'],
         'credential' => ['required','string'],
          
@@ -148,11 +173,10 @@ $status = $user->status == 2 ? 'pending' : 'booked';
     protected function bookingValidator(array $data)
     {
         return Validator::make($data, [
-        'email'=>['required','string','max:255'],    
-        'phone' => ['required', 'string', 'max:255'],
+       
         'check_in' => 'required|date|after_or_equal:today',  
         'check_out' => 'required|date|after:check_in',
-        'credential' => ['required','string'],
+       
          
         ]);
     }

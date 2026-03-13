@@ -60,5 +60,19 @@
                 </div>
             </div>
         </div>
+        <script>
+            $.ajax({
+    url: "{{ route('admin.room.avaliableListUpdate', $r->id) }}",
+    type: "POST",
+    data: {
+        _method: "PUT",
+        _token: "{{ csrf_token() }}",
+        is_avaliable: 'booked'
+    },
+    success: function(response){
+        console.log(response);
+    }
+});
+        </script>
    
 @endsection

@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\BookingController;
+use App\Http\Controllers\BookingListController;
+use App\Http\Controllers\CheckInListController;
 use App\Http\Controllers\RoomController;
 use App\Http\Controllers\RoomTypeController;
 use App\Models\Room;
@@ -42,7 +44,7 @@ Route::middleware(['auth','role:admin'])
     Route::delete('/room/destroy/{id}',[RoomController::class,'destroy'])->name('room.destroy');
 
     Route::get('/room/avaliableList',[RoomController::class,'avaliableList'])->name('room.avaliableList');
-    Route::put('/room/avaliableList/{id}',[RoomController::class,'avaliableListUpdate'])->name('room.avaliableListUpdate');
+    Route::put('/room/avaliableListUpdate/{id}',[RoomController::class,'avaliableListUpdate'])->name('room.avaliableListUpdate');
 
 
     Route::get('/room/pendingList',[RoomController::class,'pendingList'])->name('room.pendingList');
@@ -55,8 +57,17 @@ Route::middleware(['auth','role:admin'])
     Route::get('/room/unavaliableList',[RoomController::class,'unavaliableList'])->name('room.unavaliableList');
     Route::put('/room/unavaliableListUpdate/{id}',[RoomController::class,'unavaliableListUpdate'])->name('room.unavaliableListUpdate');
 
+    Route::get('/booking',[BookingController::class,'index'])->name('booking.index');
     Route::post('/booking',[BookingController::class,'store'])->name('booking.store');
     Route::get('/booking/check-user', [BookingController::class, 'checkUser'])->name('booking.checkUser');
+    Route::get('/booking/details/{id}', [BookingController::class, 'show'])->name('booking.details');
+
+    Route::get('/bookingList',[BookingListController::class,'index'])->name('bookingList.index');
+    Route::put('/bookingList/update/{id}',[BookingListController::class,'update'])->name('bookingList.update');
+
+     Route::get('/checkInList',[CheckInListController::class,'index'])->name('checkInList.index');
+    Route::put('/checkInList/update/{id}',[CheckInListController::class,'update'])->name('checkInList.update');
+
 
 
 Route::resource('roomType', RoomTypeController::class);
