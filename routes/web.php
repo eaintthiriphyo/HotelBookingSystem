@@ -5,7 +5,11 @@ use App\Http\Controllers\BookingListController;
 use App\Http\Controllers\CheckInListController;
 use App\Http\Controllers\RoomController;
 use App\Http\Controllers\RoomTypeController;
-use App\Models\Room;
+use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\DepartmentController;
+use App\Http\Controllers\StaffController;
+
+
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 /*
@@ -58,8 +62,12 @@ Route::middleware(['auth','role:admin'])
     Route::put('/room/unavaliableListUpdate/{id}',[RoomController::class,'unavaliableListUpdate'])->name('room.unavaliableListUpdate');
 
     Route::get('/booking',[BookingController::class,'index'])->name('booking.index');
+    Route::get('/booking/create',[BookingController::class,'create'])->name('booking.create');
+
     Route::post('/booking',[BookingController::class,'store'])->name('booking.store');
     Route::get('/booking/check-user', [BookingController::class, 'checkUser'])->name('booking.checkUser');
+    Route::get('booking/available-rooms', [BookingController::class, 'availableRooms'])->name('booking.availableRooms');
+
     Route::get('/booking/details/{id}', [BookingController::class, 'show'])->name('booking.details');
 
     Route::get('/bookingList',[BookingListController::class,'index'])->name('bookingList.index');
@@ -67,6 +75,37 @@ Route::middleware(['auth','role:admin'])
 
      Route::get('/checkInList',[CheckInListController::class,'index'])->name('checkInList.index');
     Route::put('/checkInList/update/{id}',[CheckInListController::class,'update'])->name('checkInList.update');
+
+Route::get('customers',[CustomerController::class,'index'])->name('customer.index');
+Route::get('customers/create',[CustomerController::class,'create'])->name('customer.create');
+
+Route::post('customers/create',[CustomerController::class,'store'])->name('customer.store');
+
+
+Route::get('departments',[DepartmentController::class,'index'])->name('department.index');
+Route::get('departments/create',[DepartmentController::class,'create'])->name('department.create');
+Route::post('departments/create',[DepartmentController::class,'store'])->name('department.store');
+Route::get('departments/edit/{id}',[DepartmentController::class,'edit'])->name('department.edit');
+Route::put('departments/update/{id}',[DepartmentController::class,'update'])->name('department.update');
+Route::delete('departments/destroy/{id}',[DepartmentController::class,'destroy'])->name('department.destroy');
+
+
+Route::get('staff',[StaffController::class,'index'])->name('staff.index');
+Route::get('staff/create',[StaffController::class,'create'])->name('staff.create');
+Route::post('staff/create',[StaffController::class,'store'])->name('staff.store');
+Route::get('staff/edit//{id}',[StaffController::class,'edit'])->name('staff.edit');
+
+
+Route::get('staff/viewProfile/{email}',[StaffController::class,'viewProfile'])->name('staff.viewProfile');
+Route::get('staff/viewEditProfile/{email}',[StaffController::class,'viewEditProfile'])->name('staff.viewEditProfile');
+Route::put('staff/profileUpdate/{email}',[StaffController::class,'profileUpdate'])->name('staff.profileUpdate');
+Route::get('staff/profile/changePassword/{email}',[StaffController::class,'viewChangePassword'])->name('staff.viewChangePassword');
+Route::put('staff/profile/changePassword',[StaffController::class,'ChangePassword'])->name('staff.changePassword');
+
+
+
+
+
 
 
 
@@ -81,5 +120,15 @@ Route::middleware(['auth','role:user'])
     })->name('dashboard');
 
 
+    Route::get('/viewProfile/{email}',[CustomerController::class,'viewProfile'])->name('viewProfile');
+Route::get('/viewEditProfile/{email}',[CustomerController::class,'viewEditProfile'])->name('viewEditProfile');
+Route::put('/profileUpdate/{email}',[CustomerController::class,'profileUpdate'])->name('profileUpdate');
+Route::get('/profile/changePassword/{email}',[CustomerController::class,'viewChangePassword'])->name('viewChangePassword');
+Route::put('staff/profile/changePassword',[CustomerController::class,'ChangePassword'])->name('changePassword');
+
 
 });
+
+Auth::routes();
+
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

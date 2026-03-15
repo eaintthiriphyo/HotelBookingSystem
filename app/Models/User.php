@@ -23,8 +23,10 @@ class User extends Authenticatable
         'password',
         'phone',
         'role',
-        'status'
-        
+        'status',
+        'department_id',
+        'image'
+
     ];
 
     public function isAdmin(){
@@ -52,5 +54,8 @@ class User extends Authenticatable
      public function bookings(){
        return $this->hasMany(Booking::class);
     }
-    
+     public function department()
+    {
+        return $this->belongsTo(Department::class);
+    }
 }

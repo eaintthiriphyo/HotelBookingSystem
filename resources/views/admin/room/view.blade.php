@@ -1,92 +1,68 @@
 @extends('layouts.adminLayout')
 
 @section('content')
-
 <div class="container pt-4">
-    
-            <div class="card p-3">
-                <div class="card-header">
-                    <h3><b>Room Type's Details</b></h3>
+
+
+    <div class="row justify-content-center">
+        <div class="col-md-10">
+    <a href="{{ route('admin.room.index') }}" class="btn btn-dark mb-3">Back</a>
+
+            <div class="card shadow p-3 mb-4">
+                <div class="card-header bg-light">
+                    <h3 class="mb-0"><b>Room Details: {{ $room->room_number }}</b></h3>
                 </div>
+
                 <div class="card-body">
-                    <div class="col-10">
-                        <table class="table">
-                            <tr>
-                                <td><b>Room Number</b> </td>
-                                <td>{{$room->room_number}}</td>
-                            </tr>
-                            <tr>
-                                <td><b>Room Type</b> </td>
-                                <td>{{$room->room_type->room_type}}</td>
-                            </tr>
-                            <tr>
-                                <td><b>Room Status</b> </td>
 
-                                <td>
-                                    @if($room->is_avaliable == 'avaliable')
-                                    <span class=" bg-primary text-white px-2 rounded">Available</span>
-
-                                    @elseif($room->is_avaliable == 'pending')
-                                    <span class=" bg-warning text-white px-2 rounded">Pending</span>
-
-                                    @elseif($room->is_avaliable == 'booked')
-                                    <span class=" bg-success text-white px-2 rounded">Booked</span>
-
-                                    @elseif($room->is_avaliable == 'unavailable')
-                                    <span class=" bg-danger text-white px-2 rounded">Unavailable</span>
-
-                                    @endif
-                                </td>
-                              
-                            </tr>
-                            <tr>
-                                <td><b>Kitchen</b> </td>
-                                <td>
-                                    @if($room->room_type->kitchen && $room->room_type->kitchen != 'default.jpg')
-                                    <img src="{{ asset('images/'.$room->room_type->kitchen) }}" width="150">
-                                    @else
-                                    <span>Kitchen not include</span>
-
-                                    @endif
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><b>Bed Room</b> </td>
-                                <td>
-                                    @if($room->room_type->bedroom && $room->room_type->bedroom != 'default.jpg')
-                                    <img src="{{ asset('images/'.$room->room_type->bedroom) }}" width="150">
-
-                                    @endif
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td><b>Bath Room</b> </td>
-                                <td>
-                                    @if($room->room_type->bathroom && $room->room_type->bathroom != 'default.jpg')
-                                    <img src="{{ asset('images/'.$room->room_type->bathroom) }}" width="150">
-
-
-                                    @endif
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><b>View</b> </td>
-                                <td>
-                                    @if($room->room_type->view && $room->room_type->view != 'default.jpg')
-                                    <img src="{{ asset('images/'.$room->room_type->view) }}" width="150">
-
-
-                                    @endif
-                                </td>
-                            </tr>
-
-                        </table>
-                        <a href="{{route('admin.room.index')}}"> <button class="btn btn-primary">Back</button><a>
-
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <h5>Room Type:</h5>
+                            <p>{{ $room->room_type->room_type }}</p>
+                        </div>
+                        <div class="col-md-6">
+                            <h5>Status:</h5>
+                            @if($room->is_avaliable == 'avaliable')
+                                <span class="badge bg-primary text-white">Available</span>
+                            @elseif($room->is_avaliable == 'pending')
+                                <span class="badge bg-warning text-white">Pending</span>
+                            @elseif($room->is_avaliable == 'booked')
+                                <span class="badge bg-success text-white">Booked</span>
+                            @elseif($room->is_avaliable == 'unavailable')
+                                <span class="badge bg-danger">Unavailable</span>
+                            @endif
+                        </div>
                     </div>
+
+                    <h5>Room Features:</h5>
+                    <div class="row">
+                        @php
+                            $features = ['kitchen', 'bedroom', 'bathroom', 'view'];
+                        @endphp
+
+                        @foreach($features as $feature)
+                        <div class="col-md-3 mb-3">
+                            <div class="card h-100 text-center shadow-sm">
+                                <div class="card-header">
+                                    <b>{{ ucfirst($feature) }}</b>
+                                </div>
+                                <div class="card-body">
+                                    @if($room->room_type->$feature && $room->room_type->$feature != 'default.jpg')
+                                        <img src="{{ asset('images/'.$room->room_type->$feature) }}" class="img-fluid rounded mb-2">
+                                    @else
+                                        <p class="text-muted">Not included</p>
+                                    @endif
+                                </div>
+                            </div>
+                        </div>
+                        @endforeach
+                    </div>
+
                 </div>
             </div>
+
         </div>
-   
+    </div>
+
+</div>
 @endsection

@@ -6,6 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
+use Illuminate\Validation\ValidationException;
+use App\Models\User;
+
 
 class LoginController extends Controller
 {
@@ -27,8 +30,8 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
- 
+    // protected $redirectTo = RouteServiceProvider::HOME;
+
     /**
      * Create a new controller instance.
      *
@@ -45,4 +48,21 @@ class LoginController extends Controller
         }
         return redirect()->route('user.dashboard');
     }
+
+    protected function sendFailedLoginResponse(Request $request)
+{
+   $user = User::where('email', $request->email)->first();
+
+    // Email not exist
+    if(!$user){
+        throw ValidationException::withMessages([
+            'email' => ['Email not found.']
+        ]);
+    }
+
+    // Password wrong
+    throw ValidationException::withMessages([
+        'password' => ['Password is incorrect.']
+    ]);
+}
 }

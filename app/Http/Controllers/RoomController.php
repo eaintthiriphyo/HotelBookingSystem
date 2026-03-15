@@ -18,7 +18,7 @@ class RoomController extends Controller
      */
     public function index()
     {
-        $rooms=Room::all();
+    $rooms = Room::orderBy('room_number', 'asc')->get();
         return view('admin.room.index',compact('rooms'));
     }
 
@@ -41,14 +41,15 @@ class RoomController extends Controller
      */
     public function store(Request $request)
     {
-       
+
         $this->validator($request->all())->validate();
         // return $request;
         $room=new Room();
         $room->room_number='R_' . $request->room_number;
         $room->room_type_id=$request->room_type_id;
+        $room->is_avaliable = "avaliable";
         $room->save();
-        return redirect()->route('admin.room.index')->with('sucessRoom','Room Created Successfully!!');
+        return redirect()->back()->with('successRoom','Room Created Successfully!!');
 
     }
 
@@ -90,7 +91,7 @@ class RoomController extends Controller
         $room=Room::findOrFail($id);
         $room->room_number=$request->room_number;
         $room->room_type_id=$request->room_type;
-    
+
         $room->update();
         return redirect()->route('admin.room.index');
     }
@@ -112,7 +113,7 @@ class RoomController extends Controller
     }
 
     protected function validator(array $data,$id = null)
-    
+
     {
         return Validator::make($data,[
             'room_number'=>[
@@ -140,11 +141,11 @@ class RoomController extends Controller
         $room=Room::findOrFail($id);
 
         if($request->is_avaliable=='booked'){
-          
+
         return redirect()->route('admin.booking.index', ['room_id' => $room->id]);
         }
         $room->is_avaliable=$request->is_avaliable;
-       
+
         $room->update();
         return redirect()->back();
     }
@@ -157,7 +158,7 @@ class RoomController extends Controller
      public function pendingListUpdate(Request $request,$id){
         $roomStatus=Room::findOrFail($id);
 
-      
+
         $roomStatus->is_avaliable=$request->is_avaliable;
 
         $roomStatus->update();
@@ -189,5 +190,5 @@ class RoomController extends Controller
         return redirect()->back();
     }
 
-    
+
 }

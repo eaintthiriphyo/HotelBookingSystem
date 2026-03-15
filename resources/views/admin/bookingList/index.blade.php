@@ -2,34 +2,30 @@
 
 @section('content')
 
-<div class="container-fluid >
-   
-            <div class="card ">
-                <div class="card-header">
-                    <h3><b>Booking Details</b></h3>
-                </div>
-                <div class="card-body">
+<div class="container-fluid ">
 
-                    <a href="">
-                        <button class="btn btn-success">Back</button>
-                    </a>
+           <div class="container pt-4">
 
-                    <br><br>
+        <div class="card p-3">
 
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h3 class="mb-0"><b>Bookings Lists</b></h3>
+                <a href="{{route('admin.booking.index')}}" class="btn btn-dark btn-sm">Add New</a>
+            </div>
 
-                    <table class="table mt-3">
-
-                        <thead>
+                  <div class="table-responsive ">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead class="table-dark">
                             <tr>
-                              
+
                                 <th>User Eamil</th>
                                 <th>User Name</th>
                                 <th>Room Number</th>
                                  <th>Room Type</th>
                                  <th>Booking Date</th>
-                                 <th>Check In </th> 
-                                 <th>Check Out </th> 
-                                 <th>Details</th> 
+                                 <th>Check In </th>
+                                 <th>Check Out </th>
+                                 <th>Details</th>
 
                             </tr>
                         </thead>
@@ -37,7 +33,7 @@
 
                         @foreach($bookList as $bl)
                        <tr>
-                       
+
                        <td>{{$bl->user->email}}</td>
                       <td>{{$bl->user->name}}</td>
                     <td>{{$bl->room->room_number}}</td>
@@ -76,6 +72,6 @@
                 </div>
             </div>
         </div>
-       
-   
+
+
 @endsection

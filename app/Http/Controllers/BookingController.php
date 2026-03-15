@@ -39,7 +39,7 @@ class BookingController extends Controller
      */
     public function create()
     {
-        //
+          return view('admin.room.booking');
     }
  public function checkUser(Request $request)
     {
@@ -52,60 +52,95 @@ class BookingController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-  public function store(Request $request)
-{
-    $email = $request->email; 
 
-    $userCount = User::where('email', $email)->count();
-    
-    if ($userCount==0) {
-       
-     $this->userValidator($request->all())->validate();
 
-    $user=new User();
-       $user->name=$request->name;
-       $user->email=$request->email;
-       $user->phone=$request->phone;
-       $user->role="user";
-       $user->credential=$request->credential;
-       $user->status="2";
-       $user->password=Hash::make("12345678");
+      public function availableRooms(Request $request)
+    {
+        $check_in = $request->check_in;
+        $check_out = $request->check_out;
 
-        $user->save();
-          
-      
+        // Get rooms that are NOT booked in this date range
+        $bookedRoomIds = Booking::where(function($q) use($check_in, $check_out) {
+            $q->whereBetween('check_in', [$check_in, $check_out])
+              ->orWhereBetween('check_out', [$check_in, $check_out])
+              ->orWhere(function($q2) use ($check_in, $check_out) {
+                  $q2->where('check_in', '<=', $check_in)
+                     ->where('check_out', '>=', $check_out);
+              });
+        })->pluck('room_id')->toArray();
+
+        $availableRooms = Room::whereNotIn('id', $bookedRoomIds)->get();
+
+        $rooms = $availableRooms->map(function($room) {
+            return [
+                'id' => $room->id,
+                'room_number' => $room->room_number,
+                'room_type' => $room->room_type->room_type ?? ''
+            ];
+        });
+
+        return response()->json(['rooms' => $rooms]);
     }
-   
 
-     $user = User::where('email', $email)->first();
-     $uId=$user->id;
-     
 
-  
 
-    $this->bookingValidator($request->all())->validate();
 
-    //Set booking status
-    $status = (Auth::check() && Auth::user()->status == '2') ? 'pending' : 'booked';
+    public function store(Request $request)
+    {
+        $email = $request->email;
+        $user = User::where('email', $email)->first();
 
-    
+        // Validation rules
+        $rules = [
+            'check_in' => 'required|date|after_or_equal:today',
+            'check_out' => 'required|date|after:check_in',
+            'room_id' => 'required|exists:rooms,id',
+        ];
 
-    //Create booking
-    Booking::create([
-        'user_id' => $uId,
-        'room_id' => $request->room_id,
-        'check_in' => $request->check_in,
-        'check_out' => $request->check_out,
-        'status' => $status,
-        'booked_date' => now(),
-    ]);
+        if(!$user){
+            $rules = array_merge($rules, [
+                'name' => 'required|string',
+                'email' => 'required|email|unique:users,email',
+                'phone' => 'required|string',
+                'credential' => 'required|string',
+            ]);
+        }
 
-      $room = Room::find($request->room_id);
-         $room->is_avaliable = 'booked';
-         $room->update();
-   
-    return redirect()->route('admin.room.bookingList');
-     }
+        $validated = $request->validate($rules);
+
+        // Create user if new
+        if(!$user){
+            $user = User::create([
+                'name' => $request->name,
+                'email' => $request->email,
+                'phone' => $request->phone,
+                'credential' => $request->credential,
+                'role' => 'user',
+                'status' => '2',
+                'password' => Hash::make('12345678'),
+            ]);
+        }
+
+        // Booking status
+        $status = (Auth::check() && Auth::user()->status == '2') ? 'pending' : 'booked';
+
+        // Create booking
+        Booking::create([
+            'user_id' => $user->id,
+            'room_id' => $request->room_id,
+            'check_in' => $request->check_in,
+            'check_out' => $request->check_out,
+            'status' => $status,
+            'booked_date' => now(),
+        ]);
+
+        // Update room availability
+        $room = Room::find($request->room_id);
+        $room->is_avaliable = 'booked';
+        $room->save();
+
+        return redirect()->back()->with('succBook','Booking successfully');
+    }
 
 // return response()->json(['message' => 'Room booked successfully', 'user' => $user]);}
 
@@ -117,7 +152,7 @@ class BookingController extends Controller
      */
     public function show($id)
     {
-        
+
     }
 
     /**
@@ -154,30 +189,5 @@ class BookingController extends Controller
         //
     }
 
-     protected function userValidator(array $data)
-    {
-        return Validator::make($data, [
-            'name'=>['required','string'],
-            'email' => [
-            'required',
-            'string',
-            'max:255',
-            'unique:users,email' ,
-        ],           
-        'phone'=>['required','string'],
-        'credential' => ['required','string'],
-         
-        ]);
-    }
-
-    protected function bookingValidator(array $data)
-    {
-        return Validator::make($data, [
-       
-        'check_in' => 'required|date|after_or_equal:today',  
-        'check_out' => 'required|date|after:check_in',
-       
-         
-        ]);
-    }
+  
 }

@@ -1,488 +1,222 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <title>Hotel Booking</title>
-
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-  <!-- Styles -->
-  <style>
-    /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
-    html {
-      line-height: 1.15;
-      -webkit-text-size-adjust: 100%
-    }
-
-    body {
-      margin: 0
-    }
-
-    a {
-      background-color: transparent
-    }
-
-    [hidden] {
-      display: none
-    }
-
-    html {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
-      line-height: 1.5
-    }
-
-    *,
-    :after,
-    :before {
-      box-sizing: border-box;
-      border: 0 solid #e2e8f0
-    }
-
-    a {
-      color: inherit;
-      text-decoration: inherit
-    }
-
-    svg,
-    video {
-      display: block;
-      vertical-align: middle
-    }
-
-    video {
-      max-width: 100%;
-      height: auto
-    }
-
-    .bg-white {
-      --bg-opacity: 1;
-      background-color: #fff;
-      background-color: rgba(255, 255, 255, var(--bg-opacity))
-    }
-
-    .bg-gray-100 {
-      --bg-opacity: 1;
-      background-color: #f7fafc;
-      background-color: rgba(247, 250, 252, var(--bg-opacity))
-    }
-
-    .border-gray-200 {
-      --border-opacity: 1;
-      border-color: #edf2f7;
-      border-color: rgba(237, 242, 247, var(--border-opacity))
-    }
-
-    .border-t {
-      border-top-width: 1px
-    }
-
-    .flex {
-      display: flex
-    }
-
-    .grid {
-      display: grid
-    }
-
-    .hidden {
-      display: none
-    }
-
-    .items-center {
-      align-items: center
-    }
-
-    .justify-center {
-      justify-content: center
-    }
-
-    .font-semibold {
-      font-weight: 600
-    }
-
-    .h-5 {
-      height: 1.25rem
-    }
-
-    .h-8 {
-      height: 2rem
-    }
-
-    .h-16 {
-      height: 4rem
-    }
-
-    .text-sm {
-      font-size: .875rem
-    }
-
-    .text-lg {
-      font-size: 1.125rem
-    }
-
-    .leading-7 {
-      line-height: 1.75rem
-    }
-
-    .mx-auto {
-      margin-left: auto;
-      margin-right: auto
-    }
-
-    .ml-1 {
-      margin-left: .25rem
-    }
-
-    .mt-2 {
-      margin-top: .5rem
-    }
-
-    .mr-2 {
-      margin-right: .5rem
-    }
-
-    .ml-2 {
-      margin-left: .5rem
-    }
-
-    .mt-4 {
-      margin-top: 1rem
-    }
-
-    .ml-4 {
-      margin-left: 1rem
-    }
-
-    .mt-8 {
-      margin-top: 2rem
-    }
-
-    .ml-12 {
-      margin-left: 3rem
-    }
-
-    .-mt-px {
-      margin-top: -1px
-    }
-
-    .max-w-6xl {
-      max-width: 72rem
-    }
-
-    .min-h-screen {
-      min-height: 100vh
-    }
-
-    .overflow-hidden {
-      overflow: hidden
-    }
-
-    .p-6 {
-      padding: 1.5rem
-    }
-
-    .py-4 {
-      padding-top: 1rem;
-      padding-bottom: 1rem
-    }
-
-    .px-6 {
-      padding-left: 1.5rem;
-      padding-right: 1.5rem
-    }
-
-    .pt-8 {
-      padding-top: 2rem
-    }
-
-    .fixed {
-      position: fixed
-    }
-
-    .relative {
-      position: relative
-    }
-
-    .top-0 {
-      top: 0
-    }
-
-    .right-0 {
-      right: 0
-    }
-
-    .shadow {
-      box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .1), 0 1px 2px 0 rgba(0, 0, 0, .06)
-    }
-
-    .text-center {
-      text-align: center
-    }
-
-    .text-gray-200 {
-      --text-opacity: 1;
-      color: #edf2f7;
-      color: rgba(237, 242, 247, var(--text-opacity))
-    }
-
-    .text-gray-300 {
-      --text-opacity: 1;
-      color: #e2e8f0;
-      color: rgba(226, 232, 240, var(--text-opacity))
-    }
-
-    .text-gray-400 {
-      --text-opacity: 1;
-      color: #cbd5e0;
-      color: rgba(203, 213, 224, var(--text-opacity))
-    }
-
-    .text-gray-500 {
-      --text-opacity: 1;
-      color: #a0aec0;
-      color: rgba(160, 174, 192, var(--text-opacity))
-    }
-
-    .text-gray-600 {
-      --text-opacity: 1;
-      color: #718096;
-      color: rgba(113, 128, 150, var(--text-opacity))
-    }
-
-    .text-gray-700 {
-      --text-opacity: 1;
-      color: #4a5568;
-      color: rgba(74, 85, 104, var(--text-opacity))
-    }
-
-    .text-gray-900 {
-      --text-opacity: 1;
-      color: #1a202c;
-      color: rgba(26, 32, 44, var(--text-opacity))
-    }
-
-    .underline {
-      text-decoration: underline
-    }
-
-    .antialiased {
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale
-    }
-
-    .w-5 {
-      width: 1.25rem
-    }
-
-    .w-8 {
-      width: 2rem
-    }
-
-    .w-auto {
-      width: auto
-    }
-
-    .grid-cols-1 {
-      grid-template-columns: repeat(1, minmax(0, 1fr))
-    }
-
-    @media (min-width:640px) {
-      .sm\:rounded-lg {
-        border-radius: .5rem
-      }
-
-      .sm\:block {
-        display: block
-      }
-
-      .sm\:items-center {
-        align-items: center
-      }
-
-      .sm\:justify-start {
-        justify-content: flex-start
-      }
-
-      .sm\:justify-between {
-        justify-content: space-between
-      }
-
-      .sm\:h-20 {
-        height: 5rem
-      }
-
-      .sm\:ml-0 {
-        margin-left: 0
-      }
-
-      .sm\:px-6 {
-        padding-left: 1.5rem;
-        padding-right: 1.5rem
-      }
-
-      .sm\:pt-0 {
-        padding-top: 0
-      }
-
-      .sm\:text-left {
-        text-align: left
-      }
-
-      .sm\:text-right {
-        text-align: right
-      }
-    }
-
-    @media (min-width:768px) {
-      .md\:border-t-0 {
-        border-top-width: 0
-      }
-
-      .md\:border-l {
-        border-left-width: 1px
-      }
-
-      .md\:grid-cols-2 {
-        grid-template-columns: repeat(2, minmax(0, 1fr))
-      }
-    }
-
-    @media (min-width:1024px) {
-      .lg\:px-8 {
-        padding-left: 2rem;
-        padding-right: 2rem
-      }
-    }
-
-    @media (prefers-color-scheme:dark) {
-      .dark\:bg-gray-800 {
-        --bg-opacity: 1;
-        background-color: #2d3748;
-        background-color: rgba(45, 55, 72, var(--bg-opacity))
-      }
-
-      .dark\:bg-gray-900 {
-        --bg-opacity: 1;
-        background-color: #1a202c;
-        background-color: rgba(26, 32, 44, var(--bg-opacity))
-      }
-
-      .dark\:border-gray-700 {
-        --border-opacity: 1;
-        border-color: #4a5568;
-        border-color: rgba(74, 85, 104, var(--border-opacity))
-      }
-
-      .dark\:text-white {
-        --text-opacity: 1;
-        color: #fff;
-        color: rgba(255, 255, 255, var(--text-opacity))
-      }
-
-      .dark\:text-gray-400 {
-        --text-opacity: 1;
-        color: #cbd5e0;
-        color: rgba(203, 213, 224, var(--text-opacity))
-      }
-
-      .dark\:text-gray-500 {
-        --tw-text-opacity: 1;
-        color: #6b7280;
-        color: rgba(107, 114, 128, var(--tw-text-opacity))
-      }
-    }
-  </style>
-
-  <style>
-    body {
-      font-family: 'Nunito', sans-serif;
-    }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hotel Booking</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+body {
+    font-family: 'Nunito', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+.navbar-custom {
+    background: rgba(0,0,0,0.7);
+}
+.navbar-custom .navbar-brand,
+.navbar-custom .nav-link {
+    color: white !important;
+}
+.hero-section {
+    background: url('https://images.unsplash.com/photo-1566073771259-6a8506099945') no-repeat center center/cover;
+    height: 90vh;
+    position: relative;
+    color: white;
+}
+.hero-section::before {
+    content:'';
+    position:absolute;
+    top:0; left:0; width:100%; height:100%;
+    background: rgba(0,0,0,0.5);
+}
+.hero-content {
+    position: relative;
+    z-index:1;
+    height:100%;
+    display:flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+}
+.hero-content h1 {
+    font-size: 3rem;
+    font-weight:700;
+}
+.hero-content p {
+    font-size: 1.2rem;
+    margin:20px 0;
+}
+.search-bar {
+    max-width:500px;
+    margin:auto;
+}
+.section-title {
+    text-align:center;
+    margin:50px 0 30px;
+    font-weight:700;
+}
+.card-room img {
+    height:200px;
+    object-fit:cover;
+}
+.services {
+    background:#f7f7f7;
+    padding:50px 0;
+}
+.service-item {
+    text-align:center;
+    padding:20px;
+}
+.service-item i {
+    font-size:40px;
+    margin-bottom:15px;
+    color:#007bff;
+}
+.footer {
+    background:#222;
+    color:white;
+    padding:20px 0;
+    text-align:center;
+}
+.btn-custom {
+    border-radius:30px;
+    padding:10px 25px;
+}
+</style>
 </head>
+<body>
 
-<body class="antialiased">
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-custom">
+<div class="container">
+<a class="navbar-brand" href="#">🏨 Hotel Booking</a>
+<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+<span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="navbarNav">
+<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+<li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+<li class="nav-item"><a class="nav-link" href="#rooms">Rooms</a></li>
+<li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+<li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+</ul>
 
+<div>
+@if(Route::has('login'))
+@auth
+@if(Auth::user()->status==2)
+<a href="{{ route('user.dashboard') }}" class="btn btn-primary btn-custom">Dashboard</a>
+@else
+<a href="{{ route('admin.dashboard') }}" class="btn btn-primary btn-custom">Admin</a>
+@endif
+@else
+<a href="{{ route('login') }}" class="btn btn-outline-light btn-custom me-2">Login</a>
+@if(Route::has('register'))
+<a href="{{ route('register') }}" class="btn btn-light btn-custom">Register</a>
+@endif
+@endauth
+@endif
+</div>
+</div>
+</div>
+</nav>
 
-  <nav class="navbar navbar-expand-lg bg-body-tertiary">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">Navbar</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Dropdown
-            </a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Action</a></li>
-              <li><a class="dropdown-item" href="#">Another action</a></li>
-              <li>
-                <hr class="dropdown-divider">
-              </li>
-              <li><a class="dropdown-item" href="#">Something else here</a></li>
-            </ul>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-          </li>
-        </ul>
+<!-- Hero Section -->
+<section class="hero-section">
+<div class="hero-content">
+<h1>Find Your Perfect Hotel</h1>
+<p>Book the best rooms at the best hotels</p>
+<div class="search-bar">
+<form class="d-flex">
+<input class="form-control me-2" type="search" placeholder="Search hotel or room">
+<button class="btn btn-success btn-custom" type="submit">Search</button>
+</form>
+</div>
+</div>
+</section>
 
-        <div class="nav-item">
+<!-- Featured Rooms -->
+<section id="rooms" class="container my-5">
+<h2 class="section-title">Featured Rooms</h2>
+<div class="row g-4">
+<div class="col-md-4">
+<div class="card card-room">
+<img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c" class="card-img-top" alt="Room">
+<div class="card-body">
+<h5 class="card-title">Deluxe Room</h5>
+<p class="card-text">$120/night - King Bed, Sea View</p>
+<a href="#" class="btn btn-primary btn-sm">Book Now</a>
+</div>
+</div>
+</div>
+<div class="col-md-4">
+<div class="card card-room">
+<img src="https://images.unsplash.com/photo-1576671088290-6eac6d1a08c6" class="card-img-top" alt="Room">
+<div class="card-body">
+<h5 class="card-title">Standard Room</h5>
+<p class="card-text">$90/night - Queen Bed, City View</p>
+<a href="#" class="btn btn-primary btn-sm">Book Now</a>
+</div>
+</div>
+</div>
+<div class="col-md-4">
+<div class="card card-room">
+<img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2" class="card-img-top" alt="Room">
+<div class="card-body">
+<h5 class="card-title">Suite</h5>
+<p class="card-text">$200/night - 2 Beds, Ocean View</p>
+<a href="#" class="btn btn-primary btn-sm">Book Now</a>
+</div>
+</div>
+</div>
+</div>
+</section>
 
+<!-- Services -->
+<section id="services" class="services">
+<div class="container">
+<h2 class="section-title">Our Services</h2>
+<div class="row g-4">
+<div class="col-md-4">
+<div class="service-item">
+<i class="fa-solid fa-bed"></i>
+<h5>Comfortable Rooms</h5>
+<p>Luxury rooms with all modern facilities</p>
+</div>
+</div>
+<div class="col-md-4">
+<div class="service-item">
+<i class="fa-solid fa-utensils"></i>
+<h5>Restaurant</h5>
+<p>Delicious cuisines and beverages</p>
+</div>
+</div>
+<div class="col-md-4">
+<div class="service-item">
+<i class="fa-solid fa-spa"></i>
+<h5>Spa & Wellness</h5>
+<p>Relax and rejuvenate in our spa</p>
+</div>
+</div>
+</div>
+</div>
+</section>
 
+<!-- Footer -->
+<footer class="footer" id="contact">
+<p>© 2026 Hotel Booking. All rights reserved.</p>
+<p>Follow us:
+<a href="#" class="text-white me-2"><i class="fab fa-facebook"></i></a>
+<a href="#" class="text-white me-2"><i class="fab fa-twitter"></i></a>
+<a href="#" class="text-white"><i class="fab fa-instagram"></i></a>
+</p>
+</footer>
 
-          <div class="relative flex ">
-            @if (Route::has('login'))
-            <div class=" ">
-              @auth
-              @if(Auth::user()->status == 2)
-              <a href="{{ route('user.dashboard') }}">
-                <button class="btn btn-primary">User Dashboard</button>
-              </a>
-              @else
-              <a href="{{ route('admin.dashboard') }}">
-                <button class="btn btn-primary">Admin Dashboard</button>
-              </a>
-              @endif @else
-              <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline"><button class="btn btn-primary">Login</button></a>
-
-              @if (Route::has('register'))
-              <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline"><button class="btn btn-primary">Register</button></a>
-              @endif
-              @endauth
-            </div>
-            @endif
-
-
-          </div>
-        </div>
-
-
-
-      </div>
-    </div>
-  </nav>
-  <div class="col-md-5 col-8 mx-auto">
-    <form class="d-flex" role="search">
-      <input class="form-control me-2 " type="search" placeholder="Search" aria-label="Search" />
-      <button class="btn btn-outline-success" type="submit">Search</button>
-    </form>
-  </div>
-  </div>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 </body>
-
 </html>

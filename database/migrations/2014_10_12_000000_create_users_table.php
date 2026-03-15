@@ -22,7 +22,12 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->integer('status')->default(2);
             $table->string('credential')->nullable();
-            $table->boolean('vip_status')->default(false);
+            $table->string('acc_status')->default('active');
+            $table->string('address')->nullable();
+                        $table->string('image')->nullable();
+
+$table->foreignId('department_id')->nullable()->constrained()->onDelete('cascade');
+
             $table->rememberToken();
             $table->timestamps();
         });

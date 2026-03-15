@@ -5,9 +5,13 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
 
-            <a href="{{route('admin.room.index')}}" class="btn btn-dark">Back</a>
 
             <div class="card p-3 my-2">
+
+                  <div class="card-header d-flex justify-content-between align-items-center">
+                    <h3 class="mb-0"><b>Edit Room</b></h3>
+                    <a href="{{ route('admin.room.index') }}" class="btn btn-dark btn-sm">View Lists</a>
+                </div>
 
                 <form action="{{route('admin.room.update',$room->id)}}" method="POST">
                     @csrf

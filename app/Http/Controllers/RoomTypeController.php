@@ -87,7 +87,7 @@ class RoomTypeController extends Controller
 
 
         $roomType->save();
-        return redirect()->route('admin.roomType.index');
+        return redirect()->back()->with('succRT',"Room Type created successufully");
     }
 
     /**
@@ -163,10 +163,10 @@ class RoomTypeController extends Controller
                         unlink($path);
                     }
 
-                
+
             }
         }
-                $roomType->delete();        
+                $roomType->delete();
                 return redirect()->route('admin.roomType.index')->with('successRT','Room Type deleted successfully!!');
     }
 
@@ -179,7 +179,7 @@ class RoomTypeController extends Controller
             'string',
             'max:255',
             'unique:room_types,room_type' . ($id ? ',' . $id : ''),
-        ],           
+        ],
          'price' => ['required', 'string', 'max:255'],
             'description'=>['required','string'],
             'kitchen' => ['nullable','image','mimes:jpg,jpeg,png','max:2048'],

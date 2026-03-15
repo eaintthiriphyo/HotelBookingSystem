@@ -2,60 +2,96 @@
 @section('content')
 <div class="container pt-4">
 
-  <a href="{{route('admin.roomType.index')}}" class="btn btn-dark">Back</a>
-  <div class="card p-3 ">
+      @if(session('succRT'))
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {{ session('succRT') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    @endif
 
 
-    <form action="{{route('admin.roomType.store')}}" method="post" enctype="multipart/form-data">
-      @csrf
-      <h3>Add Room Type</h3>
+    <div class="card p-3">
 
-      <label for="room_type" class="form-label">Room Type</label>
+  <div class="card-header d-flex justify-content-between align-items-center">
+                <h3 class="mb-0"><b>Add Room Types</b></h3>
+                <a href="{{ route('admin.roomType.index') }}" class="btn btn-dark btn-sm">View Lists</a>
+            </div>
 
-      <input type="text" name="room_type" class="form-control">
-      @error('room_type')
-      <br>
-      <span class="text-danger">{{$message}}</span>
-      @enderror
-      <br>
+<div class="card-body">
+        <form action="{{ route('admin.roomType.store') }}" method="post" enctype="multipart/form-data">
+            @csrf
 
-      <label for="price" class="form-label">Price</label>
+            <table class="table table-bordered">
+                <tr>
+                    <td><label for="room_type">Room Type</label></td>
+                    <td>
+                        <input type="text" name="room_type" class="form-control">
+                        @error('room_type')
+                        <span class="text-danger">{{ $message }}</span>
+                        @enderror
+                    </td>
+                </tr>
 
-      <input type="text" name="price" class="form-control">
-      @error('price')
-      <br>
-      <span class="text-danger">{{$message}}</span>
-      @enderror
-      <br>
+                <tr>
+                    <td><label for="price">Price</label></td>
+                    <td>
+                        <input type="text" name="price" class="form-control">
+                        @error('price')
+                        <span class="text-danger">{{ $message }}</span>
+                        @enderror
+                    </td>
+                </tr>
 
-      <label for="description" class="form-label">Description</label>
+                <tr>
+                    <td><label for="description">Description</label></td>
+                    <td>
+                        <input type="text" name="description" class="form-control">
+                        @error('description')
+                        <span class="text-danger">{{ $message }}</span>
+                        @enderror
+                    </td>
+                </tr>
 
-      <input type="text" name="description" class="form-control">
-      @error('description')
-      <br>
-      <span class="text-danger">{{$message}}</span>
-      @enderror
-      <br>
-      <label for="kitchen" class="form-label">Kitchen</label>
+                <tr>
+                    <td><label>Kitchen Image</label></td>
+                    <td>
+                        <input type="file" name="kitchen" class="form-control">
+                    </td>
+                </tr>
 
-      <input type="file" name="kitchen" class="form-control"><br>
-      <label for="bedroom" class="form-label">BedRoom</label>
+                <tr>
+                    <td><label>Bedroom Image</label></td>
+                    <td>
+                        <input type="file" name="bedroom" class="form-control">
+                    </td>
+                </tr>
 
-      <input type="file" name="bedroom" class="form-control"><br>
+                <tr>
+                    <td><label>Bathroom Image</label></td>
+                    <td>
+                        <input type="file" name="bathroom" class="form-control">
+                    </td>
+                </tr>
 
-      <label for="bathroom" class="form-label">BathRooom</label>
+                <tr>
+                    <td><label>View Image</label></td>
+                    <td>
+                        <input type="file" name="view" class="form-control">
+                    </td>
+                </tr>
 
-      <input type="file" name="bathroom" class="form-control"><br>
+                <tr>
+                    <td></td>
+                    <td>
+                        <button type="submit" class="btn btn-primary">Create</button>
+                    </td>
+                </tr>
 
-      <label for="bathroom" class="form-label">View</label>
+            </table>
 
-      <input type="file" name="view" class="form-control"><br>
-
-      <button type="submit" class="btn btn-primary">Create</button>
-
-    </form>
-  </div>
+        </form>
+    </div>
 
 </div>
-
+</div>
 @endsection
