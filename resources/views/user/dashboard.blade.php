@@ -83,4 +83,61 @@
     </div>
 </section>
 
+
+<!-- Contact Us Form -->
+<section id="contact" class="py-5">
+<div class="container">
+<h2 class="section-title text-center mb-4">Contact Us</h2>
+<div class="row justify-content-center">
+<div class="col-md-7">
+
+@if(session('success'))
+<div class="alert alert-success">{{ session('success') }}</div>
+@endif
+
+<div class="card shadow border-0">
+<div class="card-body p-4">
+
+<form method="POST" action="">
+@csrf
+<div class="mb-3">
+<label class="form-label">Full Name</label>
+<input type="text" name="name" class="form-control" required>
+</div>
+
+<div class="mb-3">
+<label class="form-label">Email</label>
+<input type="email" name="email" class="form-control" required>
+</div>
+
+<div class="mb-3">
+<label class="form-label">Subject</label>
+<input type="text" name="subject" class="form-control" required>
+</div>
+
+<div class="mb-3">
+<label class="form-label">Message</label>
+<textarea name="message" class="form-control" rows="4" required></textarea>
+</div>
+
+<div class="text-center">
+<button type="submit" class="btn btn-primary px-4">Send Message</button>
+</div>
+</form>
+
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Google Map -->
+<section class="py-5 bg-light">
+<div class="container">
+<h2 class="section-title text-center mb-4">Our Location</h2>
+<div class="ratio ratio-16x9">
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!..." style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+</div>
+</div>
+</section>
 @endsection

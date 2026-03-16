@@ -8,6 +8,9 @@ use App\Http\Controllers\RoomTypeController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\StaffController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\ReviewController;
+
 
 
 use Illuminate\Support\Facades\Route;
@@ -25,9 +28,12 @@ use Illuminate\Support\Facades\Auth;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('welcome');
+
 
 Auth::routes();
+Route::get('/reviews',[ReviewController::class,'index'])->name('viewReview');
+
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
@@ -109,6 +115,8 @@ Route::put('staff/profile/changePassword',[StaffController::class,'ChangePasswor
 
 
 
+
+
 Route::resource('roomType', RoomTypeController::class);
 });
 Route::middleware(['auth','role:user'])
@@ -126,6 +134,7 @@ Route::put('/profileUpdate/{email}',[CustomerController::class,'profileUpdate'])
 Route::get('/profile/changePassword/{email}',[CustomerController::class,'viewChangePassword'])->name('viewChangePassword');
 Route::put('staff/profile/changePassword',[CustomerController::class,'ChangePassword'])->name('changePassword');
 
+Route::get('/contact',[ContactController::class,'index'])->name('contact');
 
 });
 
