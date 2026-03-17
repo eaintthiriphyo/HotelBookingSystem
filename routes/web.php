@@ -10,6 +10,8 @@ use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\StaffController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ReviewController;
+use App\Http\Controllers\HomeController;
+
 
 
 
@@ -112,7 +114,7 @@ Route::put('staff/profile/changePassword',[StaffController::class,'ChangePasswor
 
 
 
-
+Route::get('/dashboard',[HomeController::class,'viewDashboard'])->name('viewDashboard');
 
 
 
