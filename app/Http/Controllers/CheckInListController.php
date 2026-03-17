@@ -19,7 +19,7 @@ class CheckInListController extends Controller
          $checkInList = Booking::where('status', 'check-in')
                         ->orderBy('created_at', 'desc')
                         ->get();        
-        return view('admin.checkInList.index',compact('checkInList'));
+        return view('admin.checkIn.index',compact('checkInList'));
     }
     
 
@@ -92,6 +92,7 @@ class CheckInListController extends Controller
             return redirect()->back();
     }
 
+    
     /**
      * Remove the specified resource from storage.
      *

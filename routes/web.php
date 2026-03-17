@@ -43,9 +43,10 @@ Route::middleware(['auth','role:admin'])
 ->prefix('admin')
 ->name('admin.')
 ->group(function(){
-    Route::get('/dashboard',function(){
-        return view ('admin.dashboard');
-    })->name('dashboard');
+    
+
+    Route::get('/dashboard',[HomeController::class,'viewDashboard'])->name('viewDashboard');
+
 
     Route::get('/room',[RoomController::class,'index'])->name('room.index');
     Route::get('/room/create',[RoomController::class,'create'])->name('room.create');
@@ -76,14 +77,20 @@ Route::middleware(['auth','role:admin'])
     Route::get('/booking/check-user', [BookingController::class, 'checkUser'])->name('booking.checkUser');
     Route::get('booking/available-rooms', [BookingController::class, 'availableRooms'])->name('booking.availableRooms');
 
+
+    
+        Route::get('booking/bookingList', [BookingController::class, 'viewTodayBook'])->name('booking.todayBook');
+
+    Route::put('/booking/checkIn/{id}',[BookingController::class,'update'])->name('booking.checkIn');
+
     Route::get('/booking/details/{id}', [BookingController::class, 'show'])->name('booking.details');
 
     Route::get('/bookingList',[BookingListController::class,'index'])->name('bookingList.index');
     Route::put('/bookingList/update/{id}',[BookingListController::class,'update'])->name('bookingList.update');
 
-     Route::get('/checkInList',[CheckInListController::class,'index'])->name('checkInList.index');
-    Route::put('/checkInList/update/{id}',[CheckInListController::class,'update'])->name('checkInList.update');
-
+     Route::get('/checkin',[CheckInListController::class,'index'])->name('checkin.index');
+    // Route::put('/checkInList/update/{id}',[CheckInListController::class,'update'])->name('checkInList.update');
+Route::put('/checkOut/{id}',[CheckInListController::class,'update'])->name('checkOut');
 Route::get('customers',[CustomerController::class,'index'])->name('customer.index');
 Route::get('customers/create',[CustomerController::class,'create'])->name('customer.create');
 
@@ -114,7 +121,6 @@ Route::put('staff/profile/changePassword',[StaffController::class,'ChangePasswor
 
 
 
-Route::get('/dashboard',[HomeController::class,'viewDashboard'])->name('viewDashboard');
 
 
 

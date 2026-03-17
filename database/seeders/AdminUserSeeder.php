@@ -21,6 +21,7 @@ class AdminUserSeeder extends Seeder
             'phone'=>'097833333',
             'role'=>'admin',
             'status'=>0,
+            'roles'=>'super admin'
         ]);
     }
 }

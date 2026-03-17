@@ -51,8 +51,9 @@ $staff = User::where('status', '!=', '2')->get();
         $staff->name=$request->name;
         $staff->email=$request->email;
         $staff->phone=$request->phone;
-        $staff->role=$request->role;
+        $staff->role='admin';
         $staff->status="1";
+        $staff->roles=$request->role;
         $staff->address=$request->address;
         $staff->credential=$request->credential;
 
@@ -166,8 +167,10 @@ $staff = User::where('status', '!=', '2')->get();
         return back()->withErrors(['current_password' => 'Current password is incorrect']);
          }
 
-          $user->password = Hash::make($request->new_password);
-    $user->save();
+      /** @var \App\Models\User $user */
+$user = Auth::user();
+$user->password = Hash::make($request->new_password);
+$user->save();
         return back()->with('succPass','Password Updated Successfully');
 
 

@@ -17,7 +17,7 @@
                 <div class="card-body">
                     <div class="row align-items-center">
                         <div class="col">
-                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Bookings</div>
+                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Today Bookings</div>
                             <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $bcount }}</div>
                         </div>
                         <div class="col-auto">
@@ -28,14 +28,35 @@
             </div>
         </div>
 
-        <!-- Check In -->
         <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-primary shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row align-items-center">
+                        <div class="col">
+                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                    Bookings ({{ \Carbon\Carbon::now()->format('F') }})
+                            </div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $monthBook }}</div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-calendar-check fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Check In -->
+       
+
+
+          <div class="col-xl-3 col-md-6 mb-4">
             <div class="card border-left-success shadow h-100 py-2">
                 <div class="card-body">
                     <div class="row align-items-center">
                         <div class="col">
-                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Check In</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $checkCount }}</div>
+                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Today Check In</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $todayCheckIn }}</div>
                         </div>
                         <div class="col-auto">
                             <i class="fas fa-sign-in-alt fa-2x text-gray-300"></i>
@@ -51,8 +72,10 @@
                 <div class="card-body">
                     <div class="row align-items-center">
                         <div class="col">
-                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Customers</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $cusCount }}</div>
+  <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                   Monthly Check In ({{ \Carbon\Carbon::now()->format('F') }})
+                            </div>                           
+                             <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $thisMonthCheckIn }}</div>
                         </div>
                         <div class="col-auto">
                             <i class="fas fa-users fa-2x text-gray-300"></i>
@@ -139,7 +162,7 @@
 <script>
     // Monthly Bookings Area Chart
     var ctx = document.getElementById("myAreaChart").getContext('2d');
-    var monthlyData = @json($monthlyBookings);
+    var monthlyData = JSON.parse('@json($monthlyBookings)');
     var chartData = new Array(12).fill(0);
     for (var month in monthlyData) {
         chartData[month - 1] = monthlyData[month];
@@ -148,7 +171,7 @@
     new Chart(ctx, {
         type: 'line',
         data: {
-            labels: ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],
+            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
             datasets: [{
                 label: "Bookings",
                 data: chartData,
@@ -166,71 +189,66 @@
     });
 
 
+    var roomTypes = JSON.parse('@json($roomTypeData)');
+    var labels = [];
+    var data = [];
+    var colors = ['#4e73df', '#1cc88a', '#36b9cc', '#f6c23e', '#e74a3b', '#858796'];
 
+    roomTypes.forEach(function(item) {
+        labels.push(item.room_type);
+        data.push(item.total);
+    });
 
-
-
-
-var roomTypes = @json($roomTypeData);
-var labels = [];
-var data = [];
-var colors = ['#4e73df','#1cc88a','#36b9cc','#f6c23e','#e74a3b','#858796'];
-
-roomTypes.forEach(function(item) {
-    labels.push(item.room_type);
-    data.push(item.total);
-});
-
-// Create Pie Chart
-var pieChart = new Chart(document.getElementById("myPieChart"), {
-    type: 'pie',
-    data: {
-        labels: labels,
-        datasets: [{
-            data: data,
-            backgroundColor: colors
-        }]
-    },
-    options: {
-        responsive: true,
-        plugins: {
-            legend: {
-                display: false // hide default legend
+    // Create Pie Chart
+    var pieChart = new Chart(document.getElementById("myPieChart"), {
+        type: 'pie',
+        data: {
+            labels: labels,
+            datasets: [{
+                data: data,
+                backgroundColor: colors
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    display: false
+                }
             }
         }
-    }
-});
+    });
 
-// Custom Legend
-var legend = document.getElementById("pieLegend");
-legend.innerHTML = ""; // Clear existing legend
 
-labels.forEach(function(label, i) {
-    var color = colors[i % colors.length];
+    var legend = document.getElementById("pieLegend");
+    legend.innerHTML = ""; // Clear existing legend
 
-    // Legend container
-    var item = document.createElement("div");
-    item.style.display = "flex";
-    item.style.alignItems = "center";
-    item.style.marginBottom = "5px";
+    labels.forEach(function(label, i) {
+        var color = colors[i % colors.length];
 
-    // Color box
-    var box = document.createElement("span");
-    box.style.display = "inline-block";
-    box.style.width = "20px";
-    box.style.height = "20px";
-    box.style.backgroundColor = color;
-    box.style.marginRight = "8px";
-    box.style.borderRadius = "4px";
+        // Legend container
+        var item = document.createElement("div");
+        item.style.display = "flex";
+        item.style.alignItems = "center";
+        item.style.marginBottom = "5px";
 
-    // Text
-    var text = document.createElement("span");
-    text.innerText = label + " (" + data[i] + " booked)";
+        // Color box
+        var box = document.createElement("span");
+        box.style.display = "inline-block";
+        box.style.width = "20px";
+        box.style.height = "20px";
+        box.style.backgroundColor = color;
+        box.style.marginRight = "8px";
+        box.style.borderRadius = "4px";
 
-    // Append to legend
-    item.appendChild(box);
-    item.appendChild(text);
-    legend.appendChild(item);
-});
+        // Text
+        var text = document.createElement("span");
+        text.innerText = label + " (" + data[i] + " booked)";
+
+        // Append to legend
+        item.appendChild(box);
+        item.appendChild(text);
+        legend.appendChild(item);
+    });
 </script>
 @endsection

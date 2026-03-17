@@ -21,10 +21,12 @@ class CreateUsersTable extends Migration
             $table->string('phone');
             $table->string('password');
             $table->integer('status')->default(2);
+         $table->string('roles')->nullable();
+
             $table->string('credential')->nullable();
             $table->string('acc_status')->default('active');
             $table->string('address')->nullable();
-                        $table->string('image')->nullable();
+             $table->string('image')->nullable();
 
 $table->foreignId('department_id')->nullable()->constrained()->onDelete('cascade');
 

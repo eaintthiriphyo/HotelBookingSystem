@@ -17,9 +17,10 @@ class CustomerController extends Controller
      */
     public function index()
     {
- $customers = User::where('role', 'user')->get();
+        $customers = User::where('role', 'user')->get();
 
-        return view('admin.customer.index', compact('customers'));    }
+        return view('admin.customer.index', compact('customers'));
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -29,8 +30,7 @@ class CustomerController extends Controller
     public function create()
     {
 
-         return view('admin.customer.create');
-
+        return view('admin.customer.create');
     }
 
     /**
@@ -41,30 +41,30 @@ class CustomerController extends Controller
      */
     public function store(Request $request)
     {
-          $this->userValidator($request->all())->validate();
+        $this->userValidator($request->all())->validate();
 
-    $user=new User();
-       $user->name=$request->name;
-       $user->email=$request->email;
-       $user->phone=$request->phone;
-       $user->role="user";
-       $user->credential=$request->credential;
-       $user->status="2";
-       $user->password=Hash::make("12345678");
+        $user = new User();
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->phone = $request->phone;
+        $user->role = "user";
+        $user->credential = $request->credential;
+        $user->status = "2";
+        $user->roles="user";
+        $user->password = Hash::make("12345678");
 
-if($request->hasFile('image')){
-    $userImage = $request->file('image');
-    $imgPath = time().'_'.$userImage->getClientOriginalName();
-    $userImage->move(public_path('images/user'), $imgPath);
-    $user->image = $imgPath;
-} else {
-    $user->image = 'default.png';
-}
+        if ($request->hasFile('image')) {
+            $userImage = $request->file('image');
+            $imgPath = time() . '_' . $userImage->getClientOriginalName();
+            $userImage->move(public_path('images/user'), $imgPath);
+            $user->image = $imgPath;
+        } else {
+            $user->image = 'default.png';
+        }
 
         $user->save();
 
         return redirect()->back()->with('succCus', 'Customer Created Successfully');
-
     }
 
 
@@ -85,10 +85,7 @@ if($request->hasFile('image')){
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
-    {
-
-    }
+    public function edit($id) {}
 
     /**
      * Update the specified resource in storage.
@@ -114,86 +111,92 @@ if($request->hasFile('image')){
     }
 
 
-    public function viewProfile($email){
+    public function viewProfile($email)
+    {
 
 
-          $profile=User::where('email',$email)->firstOrFail();
+        $profile = User::where('email', $email)->firstOrFail();
         // return $profile;
-        return view('user.viewProfile',compact('profile'));
-     }
-
-      public function viewEditProfile($email){
-        $profile=User::where('email',$email)->firstOrFail();
-
-        return view('user.viewEditProfile',compact('profile'));
-     }
-
-
-      public function profileUpdate(Request $request,$email){
-        $profile=User::where('email',$email)->firstOrFail();
-
-         $request->validate([
-        'name' => 'required|string|max:255',
-        'phone' => 'required|string',
-        'address' => 'required|string',
-        'credential' => 'required|string',
-        'image' => 'nullable|image|mimes:jpg,jpeg,png|max:2048'
-    ]);
-     if ($request->hasFile('image')) {
-
-        $file = $request->file('image');
-        $filename = time().'.'.$file->getClientOriginalExtension();
-
-        $file->move(public_path('images/user'), $filename);
-
-        $profile->image = $filename;
-        $profile->name = $request->name;
-    $profile->phone = $request->phone;
-    $profile->credential = $request->credential;
-    $profile->update();
-
+        return view('user.viewProfile', compact('profile'));
     }
-        return redirect()->back()->with('succUpdateProfile',"Profile Update Successfully");
-     }
+
+    public function viewEditProfile($email)
+    {
+        $profile = User::where('email', $email)->firstOrFail();
+
+        return view('user.viewEditProfile', compact('profile'));
+    }
 
 
-     public function viewChangePassword($email){
+    public function profileUpdate(Request $request, $email)
+    {
+        $profile = User::where('email', $email)->firstOrFail();
+
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'phone' => 'required|string',
+            'address' => 'required|string',
+            'credential' => 'required|string',
+
+            'image' => 'nullable|image|mimes:jpg,jpeg,png|max:2048'
+        ]);
+        if ($request->hasFile('image')) {
+
+            $file = $request->file('image');
+            $filename = time() . '.' . $file->getClientOriginalExtension();
+
+            $file->move(public_path('images/user'), $filename);
+
+            $profile->image = $filename;
+            $profile->name = $request->name;
+            $profile->phone = $request->phone;
+            $profile->credential = $request->credential;
+            $profile->update();
+        }
+        return redirect()->back()->with('succUpdateProfile', "Profile Update Successfully");
+    }
+
+
+    public function viewChangePassword($email)
+    {
         return view('user.viewChangePassword');
-     }
+    }
 
 
 
-     public function changePassword(Request $request ){
-           $request->validate([
-        'current_password' => 'required',
-        'new_password' => 'required|min:6',
-        'confirm_password' => 'required|same:new_password'
-    ]);
-        $user=Auth::user();
-         if (!Hash::check($request->current_password, $user->password)) {
-        return back()->withErrors(['current_password' => 'Current password is incorrect']);
-         }
+    public function changePassword(Request $request)
+    {
+        $request->validate([
+            'current_password' => 'required',
+            'new_password' => 'required|min:6',
+            'confirm_password' => 'required|same:new_password'
+        ]);
+        $user = Auth::user();
+        if (!Hash::check($request->current_password, $user->password)) {
+            return back()->withErrors(['current_password' => 'Current password is incorrect']);
+        }
 
-          $user->password = Hash::make($request->new_password);
-    $user->save();
-        return back()->with('succPass','Password Updated Successfully');
+      /** @var \App\Models\User $user */
+$user = Auth::user();
+$user->password = Hash::make($request->new_password);
+$user->save();
 
+        return back()->with('succPass', 'Password Updated Successfully');
+    }
 
-     }
-
-      protected function userValidator(array $data, $id = null)
+    protected function userValidator(array $data, $id = null)
     {
         return Validator::make($data, [
-            'name'=>['required','string'],
+            'name' => ['required', 'string'],
             'email' => [
-            'required',
-            'string',
-            'max:255',
-            'unique:users,email'.($id ? ',' . $id :'') ,
-        ],
-        'phone'=>['required','string'],
-        'credential' => ['required','string'],
-        'image' => ['nullable','image','mimes:jpg,jpeg,png','max:2048'],
+                'required',
+                'string',
+                'max:255',
+                'unique:users,email' . ($id ? ',' . $id : ''),
+            ],
+            'phone' => ['required', 'string'],
+            'credential' => ['required', 'string'],
+            'image' => ['nullable', 'image', 'mimes:jpg,jpeg,png', 'max:2048'],
 
         ]);
     }

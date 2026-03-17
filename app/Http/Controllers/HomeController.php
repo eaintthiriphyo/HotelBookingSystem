@@ -7,6 +7,8 @@ use App\Models\Booking;
 use App\Models\User;
 use App\Models\Room;
 use App\Models\RoomType;
+use Carbon\Carbon;
+
 
 use Illuminate\Support\Facades\DB;
 
@@ -34,11 +36,33 @@ class HomeController extends Controller
     }
 
     public function viewDashboard(){
-    $bcount = Booking::where('status','booked')->count();
-    $checkCount = Booking::where('status','check-in')->count();
+$bcount = Booking::where('status', 'booked')
+    ->whereDate('created_at', Carbon::today())
+    ->count();  
+    
+
+
+$monthBook = Booking::whereBetween('created_at', [
+        Carbon::now()->startOfMonth(),
+        Carbon::now()->endOfMonth()
+    ])
+    ->where('status', '!=', 'cancelled') 
+    ->count();
+    
+$todayCheckIn = Booking::where('status', 'check-in')
+    ->whereDate('created_at', Carbon::today())
+    ->count();   
+    
     $cusCount = User::where('status', "2")
                      ->where('acc_status', 'active')
                      ->count();
+
+      $thisMonthCheckIn = Booking::where('status', 'check-out')
+    ->whereBetween('created_at', [
+        Carbon::now()->startOfMonth(),
+        Carbon::now()->endOfMonth()
+    ])
+    ->count();
 
      $roomCount = Room::all()->count();
 
@@ -51,7 +75,7 @@ class HomeController extends Controller
         DB::raw("MONTH(created_at) as month")
     )
     ->groupBy('month')
-    ->pluck('total','month');
+    ->pluck('total','month')->toArray();
 
 
 $roomTypeData = DB::table('room_types')
@@ -62,6 +86,6 @@ $roomTypeData = DB::table('room_types')
     ->get();
 
 
-    return view('admin.dashboard', compact('bcount','checkCount','cusCount','roomCount','staffCount','monthlyBookings','roomTypeData'));
+    return view('admin.dashboard', compact('bcount','monthBook','todayCheckIn','thisMonthCheckIn','cusCount','roomCount','staffCount','monthlyBookings','roomTypeData'));
 }
 }

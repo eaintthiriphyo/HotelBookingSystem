@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Booking;
 use App\Models\Room;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 
 
@@ -116,6 +117,7 @@ class BookingController extends Controller
                 'phone' => $request->phone,
                 'credential' => $request->credential,
                 'role' => 'user',
+                'roles'=>'user',
                 'status' => '2',
                 'password' => Hash::make('12345678'),
             ]);
@@ -142,6 +144,13 @@ class BookingController extends Controller
         return redirect()->back()->with('succBook','Booking successfully');
     }
 
+
+    public function viewTodayBook(){
+$todayDay = Carbon::today();
+
+$todayBooks = Booking::where('check_in', $todayDay)->get();
+return view('admin.checkList.index',compact('todayBooks'));
+}
 // return response()->json(['message' => 'Room booked successfully', 'user' => $user]);}
 
     /**
@@ -175,7 +184,14 @@ class BookingController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $checkInRoom=Booking::findOrFail($id);
+        $checkInRoom->status="check-in";
+        $room = Room::find($request->room_id);
+        $room->is_avaliable = 'check-in';
+        $checkInRoom->update();
+        $room->update();
+        return redirect()->back();
+
     }
 
     /**

@@ -113,7 +113,7 @@ body {
 @if(Auth::user()->status==2)
 <a href="{{ route('user.dashboard') }}" class="btn btn-primary btn-custom">Dashboard</a>
 @else
-<a href="{{ route('admin.dashboard') }}" class="btn btn-primary btn-custom">Admin</a>
+<a href="{{ route('admin.viewDashboard') }}" class="btn btn-primary btn-custom">Admin</a>
 @endif
 @else
 <a href="{{ route('login') }}" class="btn btn-outline-light btn-custom me-2">Login</a>

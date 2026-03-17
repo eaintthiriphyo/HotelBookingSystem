@@ -23,6 +23,23 @@
     <!-- Chart -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
 
+    <style>
+        .sidebar .nav-item.active>.nav-link {
+            background-color: #ffffff !important;
+            color: #4e73df !important;
+        }
+
+        .sidebar .nav-item.active>.nav-link i {
+            color: #4e73df !important;
+        }
+
+        .collapse-inner .collapse-item.active {
+            color: #4e73df;
+            font-weight: 600;
+        }
+    </style>
+
+
 </head>
 
 
@@ -39,15 +56,15 @@
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
 
-                <div class="sidebar-brand-text mx-1">Hotel Booking  </div>
+                <div class="sidebar-brand-text mx-1">Hotel Booking </div>
             </a>
 
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
 
             <!-- Nav Item - Dashboard -->
-            <li class="nav-item active">
-                <a class="nav-link" href="{{route('admin.viewDashboard')}}">
+            <li class="nav-item {{ request()->routeIs('admin.viewDashboard') ? 'active' : '' }}">
+                <a class="nav-link  " href="{{route('admin.viewDashboard')}}">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
@@ -60,178 +77,183 @@
                 Interface
             </div>
 
-            <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseRoomType"
-                    aria-expanded="true" aria-controls="collapseRoomType">
+            <li class="nav-item {{ request()->routeIs('admin.roomType.*') ? 'active' : '' }}">
+                <a class="nav-link {{ request()->routeIs('admin.roomType.*') ? '' : 'collapsed' }}"
+                    href="#"
+                    data-toggle="collapse"
+                    data-target="#collapseRoomType"
+                    aria-expanded="{{ request()->routeIs('admin.roomType.*') ? 'true' : 'false' }}"
+                    aria-controls="collapseRoomType">
                     <i class="fas fa-fw fa-cog"></i>
                     <span>Room Type</span>
                 </a>
 
-                <div id="collapseRoomType" class="collapse" data-parent="#accordionSidebar">
+                <div id="collapseRoomType" class="collapse {{ request()->routeIs('admin.roomType.*') ? 'show' : '' }}" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Room Types</h6>
-                        <a class="collapse-item" href="{{ route('admin.roomType.index') }}">Room Type</a>
-                        <a class="collapse-item" href="{{ route('admin.roomType.create') }}">Add Room Type</a>
+                        <a class="collapse-item {{ request()->routeIs('admin.roomType.index') ? 'active' : '' }}"
+                            href="{{ route('admin.roomType.index') }}">Room Type</a>
+                        <a class="collapse-item {{ request()->routeIs('admin.roomType.create') ? 'active' : '' }}"
+                            href="{{ route('admin.roomType.create') }}">Add Room Type</a>
                     </div>
                 </div>
             </li>
 
-
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseRoom"
-                    aria-expanded="true" aria-controls="collapseRoom">
+            <li class="nav-item {{ request()->routeIs('admin.room.*') ? 'active' : '' }}">
+                <a class="nav-link {{ request()->routeIs('admin.room.*') ? '' : 'collapsed' }}"
+                    href="#"
+                    data-toggle="collapse"
+                    data-target="#collapseRoom"
+                    aria-expanded="{{ request()->routeIs('admin.room.*') ? 'true' : 'false' }}"
+                    aria-controls="collapseRoom">
                     <i class="fas fa-fw fa-bed"></i>
                     <span>Rooms</span>
                 </a>
 
-                <div id="collapseRoom" class="collapse" data-parent="#accordionSidebar">
+                <div id="collapseRoom" class="collapse {{ request()->routeIs('admin.room.*') ? 'show' : '' }}" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Rooms</h6>
-                        <a class="collapse-item" href="{{ route('admin.room.index') }}">Rooms</a>
-                        <a class="collapse-item" href="{{ route('admin.room.create') }}">Add Room</a>
+                        <a class="collapse-item {{ request()->routeIs('admin.room.index') ? 'active' : '' }}"
+                            href="{{ route('admin.room.index') }}">Rooms</a>
+                        <a class="collapse-item {{ request()->routeIs('admin.room.create') ? 'active' : '' }}"
+                            href="{{ route('admin.room.create') }}">Add Room</a>
                     </div>
                 </div>
             </li>
 
 
-       <li class="nav-item">
-    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBooking"
-        aria-expanded="true" aria-controls="collapseBooking">
-        <i class="fas fa-fw fa-calendar-check"></i>
-        <span>Booking Management</span>
-    </a>
+            <li class="nav-item {{ request()->routeIs('admin.booking*') ? 'active' : '' }}">
+                <a class="nav-link {{ request()->routeIs('admin.booking*') ? '' : 'collapsed' }}"
+                    href="#"
+                    data-toggle="collapse"
+                    data-target="#collapseBooking"
+                    aria-expanded="{{ request()->routeIs('admin.booking*') ? 'true' : 'false' }}"
+                    aria-controls="collapseBooking">
+                    <i class="fas fa-fw fa-calendar-check"></i>
+                    <span>Bookings</span>
+                </a>
 
-    <div id="collapseBooking" class="collapse" data-parent="#accordionSidebar">
-        <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Booking Management</h6>
+                <div id="collapseBooking" class="collapse {{ request()->routeIs('admin.booking*') ? 'show' : '' }}" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Bookings</h6>
 
-            <a class="collapse-item" href="{{ route('admin.bookingList.index') }}">
-                Booking List
-            </a>
+                        <a class="collapse-item {{ request()->routeIs('admin.bookingList.*') ? 'active' : '' }}"
+                            href="{{ route('admin.bookingList.index') }}">
+                            All Booking List
+                        </a>
 
-            <a class="collapse-item" href="{{ route('admin.booking.create') }}">
-                Add Booking
-            </a>
-        </div>
-    </div>
-</li>
+                         <a class="collapse-item {{ request()->routeIs('admin.booking.booking.todayBook') ? 'active' : '' }}"
+                            href="{{ route('admin.booking.todayBook') }}">
+                            Today Booking List
+                        </a>
+                        <a class="collapse-item {{ request()->routeIs('admin.booking.create') ? 'active' : '' }}"
+                            href="{{ route('admin.booking.create') }}">
+                            Add Booking
+                        </a>
+                    </div>
+                </div>
+            </li>
 
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseCustomers"
-                    aria-expanded="true" aria-controls="collapseCustomers">
+
+            <li class="nav-item {{ request()->routeIs('admin.checkin.*') ? 'active' : '' }}">
+                <a class="nav-link {{ request()->routeIs('admin.checkin.*') ? '' : 'collapsed' }}"
+                    href="#"
+                    data-toggle="collapse"
+                    data-target="#collapseCheckIn"
+                    aria-expanded="{{ request()->routeIs('admin.checkin.*') ? 'true' : 'false' }}"
+                    aria-controls="collapseCheckIn">
+                    <i class="fas fa-fw {{ request()->routeIs('admin.checkin.*') ? 'fa-calendar-day' : 'fa-calendar-check' }}"></i>
+                    <span>Check In</span>
+                </a>
+
+                <div id="collapseCheckIn" class="collapse {{ request()->routeIs('admin.checkin.*') ? 'show' : '' }}" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Check In</h6>
+
+                        <a class="collapse-item {{ request()->routeIs('admin.checkin.list') ? 'active' : '' }}"
+                            href="{{ route('admin.checkin.index') }}">
+                            CheckIn List
+                        </a>
+
+                    </div>
+                </div>
+            </li>
+
+            <li class="nav-item {{ request()->routeIs('admin.customer.*') ? 'active' : '' }}">
+                <a class="nav-link {{ request()->routeIs('admin.customer.*') ? '' : 'collapsed' }}"
+                    href="#"
+                    data-toggle="collapse"
+                    data-target="#collapseCustomers"
+                    aria-expanded="{{ request()->routeIs('admin.customer.*') ? 'true' : 'false' }}"
+                    aria-controls="collapseCustomers">
                     <i class="fas fa-fw fa-users"></i>
                     <span>Customers</span>
                 </a>
-                <div id="collapseCustomers" class="collapse" data-parent="#accordionSidebar">
+
+                <div id="collapseCustomers" class="collapse {{ request()->routeIs('admin.customer.*') ? 'show' : '' }}" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Customers</h6>
-                        <a class="collapse-item" href="{{ route('admin.customer.index') }}">Customer List</a>
-                        <a class="collapse-item" href="{{route('admin.customer.create')}}">Add Customer</a>
+                        <a class="collapse-item {{ request()->routeIs('admin.customer.index') ? 'active' : '' }}"
+                            href="{{ route('admin.customer.index') }}">Customer List</a>
+                        <a class="collapse-item {{ request()->routeIs('admin.customer.create') ? 'active' : '' }}"
+                            href="{{ route('admin.customer.create') }}">Add Customer</a>
                     </div>
                 </div>
             </li>
 
 
-          @auth
-    @if(Auth::user()->status =="0")
-        <li class="nav-item">
-            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseDepartments"
-                aria-expanded="true" aria-controls="collapseDepartments">
-                <i class="fas fa-fw fa-building"></i>
-                <span>Departments</span>
-            </a>
-            <div id="collapseDepartments" class="collapse" data-parent="#accordionSidebar">
-                <div class="bg-white py-2 collapse-inner rounded">
-                    <h6 class="collapse-header">Departments</h6>
-                    <a class="collapse-item" href="{{route('admin.department.index')}}">Department List</a>
-                    <a class="collapse-item" href="{{route('admin.department.create')}}">Add Department</a>
-                </div>
-            </div>
-        </li>
-
-
-        <li class="nav-item">
-            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseStaff"
-                aria-expanded="true" aria-controls="collapseStaff">
-                <i class="fas fa-fw fa-users"></i>
-                <span>Staff Management</span>
-            </a>
-            <div id="collapseStaff" class="collapse" data-parent="#accordionSidebar">
-                <div class="bg-white py-2 collapse-inner rounded">
-                    <h6 class="collapse-header">Staff Management</h6>
-                    <a class="collapse-item" href="{{route('admin.staff.index')}}">Staff List</a>
-                    <a class="collapse-item" href="{{route('admin.staff.create')}}">Add Staff</a>
-                </div>
-            </div>
-        </li>
-    @endif
-@endauth
-
-
-
-            <!-- Nav Item - Utilities Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
-                    aria-expanded="true" aria-controls="collapseUtilities">
-                    <i class="fas fa-fw fa-wrench"></i>
-                    <span>Utilities</span>
+            @auth
+            @if(Auth::user()->status =="0")
+            <li class="nav-item {{ request()->routeIs('admin.department.*') ? 'active' : '' }}">
+                <a class="nav-link {{ request()->routeIs('admin.department.*') ? '' : 'collapsed' }}"
+                    href="#"
+                    data-toggle="collapse"
+                    data-target="#collapseDepartments"
+                    aria-expanded="{{ request()->routeIs('admin.department.*') ? 'true' : 'false' }}"
+                    aria-controls="collapseDepartments">
+                    <i class="fas fa-fw fa-building"></i>
+                    <span>Departments</span>
                 </a>
-                <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
-                    data-parent="#accordionSidebar">
+
+                <div id="collapseDepartments" class="collapse {{ request()->routeIs('admin.department.*') ? 'show' : '' }}" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Custom Utilities:</h6>
-                        <a class="collapse-item" href="utilities-color.html">Colors</a>
-                        <a class="collapse-item" href="utilities-border.html">Borders</a>
-                        <a class="collapse-item" href="utilities-animation.html">Animations</a>
-                        <a class="collapse-item" href="utilities-other.html">Other</a>
+                        <h6 class="collapse-header">Departments</h6>
+                        <a class="collapse-item {{ request()->routeIs('admin.department.index') ? 'active' : '' }}"
+                            href="{{ route('admin.department.index') }}">Department List</a>
+                        <a class="collapse-item {{ request()->routeIs('admin.department.create') ? 'active' : '' }}"
+                            href="{{ route('admin.department.create') }}">Add Department</a>
                     </div>
                 </div>
             </li>
 
-            <!-- Divider -->
-            <hr class="sidebar-divider">
 
-            <!-- Heading -->
-            <div class="sidebar-heading">
-                Addons
-            </div>
-
-            <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
-                    aria-expanded="true" aria-controls="collapsePages">
-                    <i class="fas fa-fw fa-folder"></i>
-                    <span>Pages</span>
+            <li class="nav-item {{ request()->routeIs('admin.staff.*') ? 'active' : '' }}">
+                <a class="nav-link {{ request()->routeIs('admin.staff.*') ? '' : 'collapsed' }}"
+                    href="#"
+                    data-toggle="collapse"
+                    data-target="#collapseStaff"
+                    aria-expanded="{{ request()->routeIs('admin.staff.*') ? 'true' : 'false' }}"
+                    aria-controls="collapseStaff">
+                    <i class="fas fa-fw fa-users"></i>
+                    <span>Staff Management</span>
                 </a>
-                <div id="collapsePages" class="collapse" aria-labelledby="headingPages"
-                    data-parent="#accordionSidebar">
+
+                <div id="collapseStaff" class="collapse {{ request()->routeIs('admin.staff.*') ? 'show' : '' }}" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Login Screens:</h6>
-                        <a class="collapse-item" href="login.html">Login</a>
-                        <a class="collapse-item" href="register.html">Register</a>
-                        <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
-                        <div class="collapse-divider"></div>
-                        <h6 class="collapse-header">Other Pages:</h6>
-                        <a class="collapse-item" href="404.html">404 Page</a>
-                        <a class="collapse-item" href="blank.html">Blank Page</a>
+                        <h6 class="collapse-header">Staff Management</h6>
+                        <a class="collapse-item {{ request()->routeIs('admin.staff.index') ? 'active' : '' }}"
+                            href="{{ route('admin.staff.index') }}">Staff List</a>
+                        <a class="collapse-item {{ request()->routeIs('admin.staff.create') ? 'active' : '' }}"
+                            href="{{ route('admin.staff.create') }}">Add Staff</a>
                     </div>
                 </div>
             </li>
+            @endif
+            @endauth
 
-            <!-- Nav Item - Charts -->
-            <li class="nav-item">
-                <a class="nav-link" href="charts.html">
-                    <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Charts</span></a>
-            </li>
 
-            <!-- Nav Item - Tables -->
-            <li class="nav-item">
-                <a class="nav-link" href="tables.html">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Tables</span></a>
-            </li>
+
+
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
@@ -241,14 +263,7 @@
                 <button class="rounded-circle border-0" id="sidebarToggle"></button>
             </div>
 
-            <!-- Sidebar Message -->
-            <div class="sidebar-card d-none d-lg-flex">
-                <img class="sidebar-card-illustration mb-2" src="img/undraw_rocket.svg" alt="...">
-                <p class="text-center mb-2"><strong>SB Admin Pro</strong> is packed with premium features, components,
-                    and more!</p>
-                <a class="btn btn-success btn-sm" href="https://startbootstrap.com/theme/sb-admin-pro">Upgrade to
-                    Pro!</a>
-            </div>
+
 
         </ul>
         <!-- End of Sidebar -->
@@ -429,50 +444,50 @@
                         <div class="topbar-divider d-none d-sm-block"></div>
 
                         @auth
-                            <li class="nav-item dropdown no-arrow">
-                                <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
-                                    data-toggle="dropdown">
-                                    <img class="img-profile rounded-circle"
-                                        src="{{ Auth::user()->image ? asset('images/user/' . Auth::user()->image) : asset('img/undraw_profile.svg') }}"
-                                        width="40" height="40">
-                                </a>
-                                <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in">
-                                    <div class="text-center p-3 border-bottom">
-                                        <img class="rounded-circle mb-2"
-                                            src="{{ Auth::user()->image ? asset('images/user/' . Auth::user()->image) : asset('img/undraw_profile.svg') }}"
-                                            width="60" height="60">
-                                        <div class="fw-bold">{{ Auth::user()->name }}</div>
-                                        <div class="text-muted small">{{ Auth::user()->email }}</div>
-                                    </div>
-                                    <a class="dropdown-item" href="{{route('admin.staff.viewProfile',Auth::user()->email)}}"><i
-                                            class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>Profile</a>
-
-
-                                    <a class="dropdown-item" href="{{route('admin.staff.viewEditProfile',Auth::user()->email)}}"><i
-                                            class="fas fa-edit fa-sm fa-fw mr-2 text-gray-400"></i>Edit Profile</a>
-
-
-                                             <a class="dropdown-item" href="{{route('admin.staff.viewChangePassword',Auth::user()->email)}}"><i
-                                            class="fas fa-lock fa-sm fa-fw mr-2 text-gray-400"></i>Change Password</a>
-                                    <div class="dropdown-divider"></div>
-
-                                    <div class="dropdown-divider"> </div> <a class="dropdown-item"
-                                        href="{{ route('logout') }}"
-                                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i> Logout
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                                        class="d-none">
-                                        @csrf
-                                    </form>
-
+                        <li class="nav-item dropdown no-arrow">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                                data-toggle="dropdown">
+                                <img class="img-profile rounded-circle"
+                                    src="{{ Auth::user()->image ? asset('images/user/' . Auth::user()->image) : asset('images/user/default.png') }}"
+                                    width="40" height="40">
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in">
+                                <div class="text-center p-3 border-bottom">
+                                    <img class="rounded-circle mb-2"
+                                        src="{{ Auth::user()->image ? asset('images/user/' . Auth::user()->image) : asset('images/user/default.png') }}"
+                                        width="60" height="60">
+                                    <div class="fw-bold">{{ Auth::user()->name }}</div>
+                                    <div class="text-muted small">{{ Auth::user()->email }}</div>
                                 </div>
+                                <a class="dropdown-item" href="{{route('admin.staff.viewProfile',Auth::user()->email)}}"><i
+                                        class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>Profile</a>
+
+
+                                <a class="dropdown-item" href="{{route('admin.staff.viewEditProfile',Auth::user()->email)}}"><i
+                                        class="fas fa-edit fa-sm fa-fw mr-2 text-gray-400"></i>Edit Profile</a>
+
+
+                                <a class="dropdown-item" href="{{route('admin.staff.viewChangePassword',Auth::user()->email)}}"><i
+                                        class="fas fa-lock fa-sm fa-fw mr-2 text-gray-400"></i>Change Password</a>
+                                <div class="dropdown-divider"></div>
+
+                                <div class="dropdown-divider"> </div> <a class="dropdown-item"
+                                    href="{{ route('logout') }}"
+                                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i> Logout
+                                </a>
+
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                    class="d-none">
+                                    @csrf
+                                </form>
+
+                            </div>
 
 
 
 
-                            </li>
+                        </li>
                         @endauth
 
 
