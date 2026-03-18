@@ -1,109 +1,114 @@
 @extends('layouts.adminLayout')
 
 @section('content')
+<div class="container pt-4">
 
-<div class="container-fluid pt-4">
+    <!-- Card Header -->
+    <div class="card shadow-sm p-3 border-0">
+        <div class="card-header d-flex justify-content-between align-items-center bg-dark text-white">
+            <h3 class="mb-0 fw-bold" style="color:#f8f9fa; text-shadow:1px 1px 2px #000;">Room Lists</h3>
+            <a href="{{ route('admin.room.create') }}" class="btn btn-light btn-sm">Add New</a>
+        </div>
 
-<div class="card shadow">
+     
+        <div class="card-body mb-3">
+            <div class="d-flex justify-content-between align-items-center gap-3">
+                <form action="{{ route('admin.room.search') }}" method="GET" class="d-flex align-items-center gap-2 flex-wrap">
+                    <select name="room_type_id" class="form-select " style="width:auto;">
+                        <option value="">Select Room Type</option>
+                        @foreach($roomType as $type)
+                            <option value="{{ $type->id }}" {{ request('room_type_id') == $type->id ? 'selected' : '' }}>
+                                {{ $type->room_type }}
+                            </option>
+                        @endforeach
+                    </select>
+                    <button type="submit" class="btn btn-dark btn-sm">Search</button>
+                </form>
+                <a href="{{ route('admin.room.index') }}" class="btn btn-dark btn-sm">All Lists</a>
+            </div>
+        </div>
 
+        <!-- Room Table -->
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover align-middle text-center">
+                <thead class="table-dark">
+                    <tr>
+                        <th class="text-white">Room Number</th>
+                        <th class="text-white">Room Type</th>
+                        <th width="220" class="text-white">Action</th>
+                    </tr>
+                </thead>
+                <tbody class="text-dark">
+                    @forelse($rooms as $room)
+                        <tr>
+                            <td class="fw-bold">{{ $room->room_number }}</td>
+                            <td>{{ $room->room_type->room_type }}</td>
+                            <td>
+                                <div class="btn-group" role="group">
+                                    <a href="{{ route('admin.room.show', $room->id) }}" class="btn btn-sm btn-warning">
+                                        <i class="fas fa-eye"></i>
+                                    </a>
+                                    <a href="{{ route('admin.room.edit', $room->id) }}" class="btn btn-sm btn-primary">
+                                        <i class="fas fa-edit"></i>
+                                    </a>
+                                    <form action="{{ route('admin.room.destroy', $room->id) }}" method="POST" class="d-inline">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button class="btn btn-sm btn-danger" onclick="return confirm('Are you sure?')">
+                                            <i class="fas fa-trash-alt"></i>
+                                        </button>
+                                    </form>
+                                </div>
+                            </td>
+                        </tr>
+                    @empty
+                        <tr>
+                            <td colspan="3" class="text-center text-muted">No rooms found.</td>
+                        </tr>
+                    @endforelse
+                </tbody>
+            </table>
+        </div>
 
-
-</div>
-
-<div class="card-body">
-  <div class="card-header d-flex justify-content-between align-items-center">
-                    <h3 class="mb-0"><b>Room Lists</b></h3>
-                    <a href="{{ route('admin.room.create') }}" class="btn btn-dark btn-sm">Add New</a>
-                </div>
-
-<div class="mb-3">
-
-<a href="{{route('admin.room.avaliableList')}}" class="btn btn-primary btn-sm">Available</a>
-<a href="{{route('admin.room.pendingList')}}" class="btn btn-warning btn-sm">Pending</a>
-<a href="{{route('admin.room.bookingList')}}" class="btn btn-success btn-sm">Booked</a>
-<a href="{{route('admin.room.unavaliableList')}}" class="btn btn-danger btn-sm">Unavailable</a>
-
-</div>
-
-<table class="table table-bordered table-striped text-center">
-
-<thead class="table-dark">
-<tr>
-<th>Room Number</th>
-<th>Room Type</th>
-<th>Status</th>
-<th width="220">Action</th>
-</tr>
-</thead>
-
-<tbody>
-
-@foreach($rooms as $room)
-
-<tr>
-
-<td>{{$room->room_number}}</td>
-
-<td>{{$room->room_type->room_type}}</td>
-
-<td>
-
-@if($room->is_avaliable == 'avaliable')
-
-<span class="badge bg-primary text-white">Available</span>
-
-@elseif($room->is_avaliable == 'pending')
-
-<span class="badge bg-warning text-white">Pending</span>
-
-@elseif($room->is_avaliable == 'booked')
-
-<span class="badge bg-success text-white">Booked</span>
-
-@elseif($room->is_avaliable == 'unavaliable')
-
-<span class="badge bg-dange text-whiter">Unavailable</span>
-
-@endif
-
-</td>
-
-<td>
-
-<div class="btn-group">
-
-<a href="{{route('admin.room.show',$room->id)}}" class="btn btn-sm btn-warning">
-View
-</a>
-
-<a href="{{route('admin.room.edit',$room->id)}}" class="btn btn-sm btn-primary">
-Edit
-</a>
-
-<form action="{{route('admin.room.destroy',$room->id)}}" method="POST">
-@csrf
-@method('DELETE')
-
-<button class="btn btn-sm btn-danger">Delete</button>
-
-</form>
+        <!-- Pagination -->
+        <div class="d-flex justify-content-center mt-3">
+            {{ $rooms->links() }}
+        </div>
+    </div>
 
 </div>
 
-</td>
+<style>
+    body,
+    .text-dark {
+        color: #212529 !important;
+        /* darker text */
+    }
 
-</tr>
 
-@endforeach
+    .table td {
+        vertical-align: middle;
+        color: #212529;
 
-</tbody>
+    }
 
-</table>
+    .btn-dark {
+        background-color: #343a40;
+        border-color: #343a40;
+    }
 
-</div>
+    .btn-dark:hover {
+        background-color: #23272b;
+        border-color: #23272b;
+    }
 
-</div>
+    .form-control.border-dark {
+        border: 1px solid #343a40;
+    }
 
-</div>
-
+    /* Increase spacing between buttons inside table if needed */
+    .btn-group .btn {
+        margin-right: 3px;
+    }
+</style>
 @endsection

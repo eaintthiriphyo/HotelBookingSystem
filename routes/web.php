@@ -56,6 +56,9 @@ Route::middleware(['auth','role:admin'])
     Route::put('/room/update/{id}',[RoomController::class,'update'])->name('room.update');
     Route::delete('/room/destroy/{id}',[RoomController::class,'destroy'])->name('room.destroy');
 
+    Route::get('/room/search',[RoomController::class,'search'])->name('room.search');
+
+
     Route::get('/room/avaliableList',[RoomController::class,'avaliableList'])->name('room.avaliableList');
     Route::put('/room/avaliableListUpdate/{id}',[RoomController::class,'avaliableListUpdate'])->name('room.avaliableListUpdate');
 
@@ -90,6 +93,7 @@ Route::middleware(['auth','role:admin'])
 
      Route::get('/checkin',[CheckInListController::class,'index'])->name('checkin.index');
           Route::get('/checkin/create',[CheckInListController::class,'create'])->name('checkin.create');
+    Route::get('/checkin/check-user', [CheckInListController::class, 'checkUser'])->name('checkin.checkUser');
 
     Route::post('/checkin/create',[CheckInListController::class,'store'])->name('checkin.store');
 Route::put('/checkOut/{id}',[CheckInListController::class,'update'])->name('checkOut');
@@ -110,14 +114,17 @@ Route::delete('departments/destroy/{id}',[DepartmentController::class,'destroy']
 Route::get('staff',[StaffController::class,'index'])->name('staff.index');
 Route::get('staff/create',[StaffController::class,'create'])->name('staff.create');
 Route::post('staff/create',[StaffController::class,'store'])->name('staff.store');
-Route::get('staff/edit//{id}',[StaffController::class,'edit'])->name('staff.edit');
+Route::get('staff/edit/{id}',[StaffController::class,'edit'])->name('staff.edit');
+Route::put('staff/update/{id}',[StaffController::class,'update'])->name('staff.update');
+Route::delete('staff/destroy/{id}',[StaffController::class,'destroy'])->name('staff.destroy');
+
 
 
 Route::get('staff/viewProfile/{email}',[StaffController::class,'viewProfile'])->name('staff.viewProfile');
 Route::get('staff/viewEditProfile/{email}',[StaffController::class,'viewEditProfile'])->name('staff.viewEditProfile');
 Route::put('staff/profileUpdate/{email}',[StaffController::class,'profileUpdate'])->name('staff.profileUpdate');
 Route::get('staff/profile/changePassword/{email}',[StaffController::class,'viewChangePassword'])->name('staff.viewChangePassword');
-Route::put('staff/profile/changePassword',[StaffController::class,'ChangePassword'])->name('staff.changePassword');
+Route::put('staff/profile/changePassword/{id}',[StaffController::class,'ChangePassword'])->name('staff.changePassword');
 
 
 
@@ -128,6 +135,7 @@ Route::put('staff/profile/changePassword',[StaffController::class,'ChangePasswor
 
 
 Route::resource('roomType', RoomTypeController::class);
+Route::get('roomTypes/search', [RoomTypeController::class, 'search'])->name('roomTypes.search');
 });
 Route::middleware(['auth','role:user'])
 ->prefix('user')

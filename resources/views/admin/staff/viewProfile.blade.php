@@ -48,6 +48,10 @@
                                 <th>Address</th>
                                 <td>{{ $profile->address }}</td>
                             </tr>
+                              <tr>
+                                <th>Credential</th>
+                                <td>{{ $profile->credential}}</td>
+                            </tr>
                         </table>
 
 

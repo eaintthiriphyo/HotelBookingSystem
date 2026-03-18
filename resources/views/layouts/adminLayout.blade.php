@@ -26,7 +26,7 @@
     <style>
         .sidebar .nav-item.active>.nav-link {
             background-color: #ffffff !important;
-            color: #4e73df !important;
+            color: #0d1325 !important;
         }
 
         .sidebar .nav-item.active>.nav-link i {
@@ -165,10 +165,7 @@
                     <i class="fas fa-fw {{ request()->routeIs('admin.checkin.*') ? 'fa-calendar-day' : 'fa-calendar-check' }}"></i>
                     <span>Check In</span>
                 </a>
-                     <a class="collapse-item {{ request()->routeIs('admin.booking.create') ? 'active' : '' }}"
-                            href="{{ route('admin.booking.create') }}">
-                            Add Booking
-                        </a>
+                    
 
                 <div id="collapseCheckIn" class="collapse {{ request()->routeIs('admin.checkin.*') ? 'show' : '' }}" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
@@ -203,15 +200,14 @@
                         <h6 class="collapse-header">Customers</h6>
                         <a class="collapse-item {{ request()->routeIs('admin.customer.index') ? 'active' : '' }}"
                             href="{{ route('admin.customer.index') }}">Customer List</a>
-                        <a class="collapse-item {{ request()->routeIs('admin.customer.create') ? 'active' : '' }}"
-                            href="{{ route('admin.customer.create') }}">Add Customer</a>
+                    
                     </div>
                 </div>
             </li>
 
 
             @auth
-            @if(Auth::user()->status =="0")
+            @if(Auth::user()->status =="0" || (Auth::user()->roles!='staff'&& Auth::user()->role!='user'))
             <li class="nav-item {{ request()->routeIs('admin.department.*') ? 'active' : '' }}">
                 <a class="nav-link {{ request()->routeIs('admin.department.*') ? '' : 'collapsed' }}"
                     href="#"

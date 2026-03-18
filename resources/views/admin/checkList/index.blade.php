@@ -66,7 +66,42 @@
                 </table>
             </div>
         </div>
+          <div class="d-flex justify-content-center mt-3">
+       {{ $todayBooks->links() }} 
+    </div>
     </div>
 
+<style>
+    body,
+    .text-dark {
+        color: #212529 !important;
+        /* darker text */
+    }
 
+
+    .table td {
+        vertical-align: middle;
+        color: #212529;
+
+    }
+
+    .btn-dark {
+        background-color: #343a40;
+        border-color: #343a40;
+    }
+
+    .btn-dark:hover {
+        background-color: #23272b;
+        border-color: #23272b;
+    }
+
+    .form-control.border-dark {
+        border: 1px solid #343a40;
+    }
+
+    /* Increase spacing between buttons inside table if needed */
+    .btn-group .btn {
+        margin-right: 3px;
+    }
+</style>
     @endsection

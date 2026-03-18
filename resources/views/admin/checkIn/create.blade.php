@@ -1,7 +1,7 @@
 @extends('layouts.adminLayout')
 @section('content')
 <div class="container pt-4">
-    <h3 class="text-center mb-4">Room checkIn</h3>
+    <h3 class="text-center mb-4">Room Check In</h3>
 
     <!-- Room Details -->
     <div class="card mb-4 shadow-sm">
@@ -9,7 +9,7 @@
         <div class="card-body">
             <table class="table table-bordered mb-0">
                 <tr>
-                    <td><b>checkIn Date</b></td>
+                    <td><b>Booking Date</b></td>
                     <td>{{ \Carbon\Carbon::now()->format('Y-m-d') }}</td>
                 </tr>
             </table>
@@ -31,11 +31,11 @@
         <div id="successMsg" class="alert alert-success alert-dismissible fade show" role="alert" style="display:none;">
             <span id="successText"></span>
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            <p>Check In Successful.</p>
+            <p>Booking Successful.</p>
         </div>
 
-
-        <form id="checkInForm" action="{{ route('admin.checkIn.store') }}" method="post" style="display:none;">
+        <!-- New Customer Form -->
+        <form id="fullBookingForm" action="{{ route('admin.checkin.store') }}" method="post" style="display:none;">
             @csrf
             <input type="hidden" name="room_id" id="fullRoomId">
             <h5 class="mb-3 text-secondary">New Customer Details</h5>
@@ -89,14 +89,14 @@
                 <span class="text-danger error-text room_id_error"></span>
             </div>
 
-            <button type="submit" class="btn btn-dark w-100">Chek In Room</button>
+            <button type="submit" class="btn btn-dark w-100">Book Room</button>
         </form>
 
         <!-- Existing Customer Form -->
-        <form id="quickcheckInForm" action="{{ route('admin.checkIn.store') }}" method="post" style="display:none;">
+        <form id="quickBookingForm" action="{{ route('admin.checkin.store') }}" method="post" style="display:none;">
             @csrf
             <input type="hidden" name="room_id" id="quickRoomId">
-            <h5 class="mb-3 text-secondary">Existing Customer checkIn</h5>
+            <h5 class="mb-3 text-secondary">Existing Customer Booking</h5>
 
             <div class="mb-3">
                 <label>Email</label>
@@ -127,7 +127,7 @@
                 <span class="text-danger error-text room_id_error"></span>
             </div>
 
-            <button type="submit" class="btn btn-dark w-100">Book Room</button>
+            <button type="submit" class="btn btn-dark w-100">Check In Room</button>
         </form>
     </div>
 </div>
@@ -141,11 +141,11 @@ $(document).ready(function(){
     // Show correct form if validation fails (after reload fallback)
     @if($errors->any())
         @if(old('name'))
-            $('#checkInForm').show();
-            $('#quickcheckInForm').hide();
+            $('#fullBookingForm').show();
+            $('#quickBookingForm').hide();
         @else
-            $('#quickcheckInForm').show();
-            $('#checkInForm').hide();
+            $('#quickBookingForm').show();
+            $('#fullBookingForm').hide();
         @endif
     @endif
 
@@ -157,16 +157,16 @@ $(document).ready(function(){
             return;
         }
 
-        $.get("{{ route('admin.checkIn.checkUser') }}", {email: email}, function(data){
+        $.get("{{ route('admin.checkin.checkUser') }}", {email: email}, function(data){
             if(data.user){
-                $('#quickcheckInForm').show();
-                $('#checkInForm').hide();
+                $('#quickBookingForm').show();
+                $('#fullBookingForm').hide();
                 $('#existingUserEmail').val(email);
                 $('#emailStatus').html('<span class="text-success">Existing user! Choose dates and available rooms.</span>');
                 fetchRooms('#quickCheckIn', '#quickCheckOut', '#quickAvailableRooms');
             } else {
-                $('#checkInForm').show();
-                $('#quickcheckInForm').hide();
+                $('#fullBookingForm').show();
+                $('#quickBookingForm').hide();
                 $('#formEmail').val(email);
                 $('#formName').val('');
                 $('#formPhone').val('');
@@ -188,7 +188,7 @@ $(document).ready(function(){
                     return;
                 }
 
-                $.get("{{ route('admin.checkIn.availableRooms') }}", {check_in: checkIn, check_out: checkOut}, function(data){
+                $.get("{{ route('admin.booking.availableRooms') }}", {check_in: checkIn, check_out: checkOut}, function(data){
                     var options = '<option value="">Select Room</option>';
                     data.rooms.forEach(function(room){
                         options += '<option value="'+room.id+'">'+room.room_number+' ('+room.room_type+')</option>';
@@ -202,8 +202,8 @@ $(document).ready(function(){
     fetchRooms('#fullCheckIn', '#fullCheckOut', '#fullAvailableRooms');
     fetchRooms('#quickCheckIn', '#quickCheckOut', '#quickAvailableRooms');
 
-    // AJAX checkIn
-    function ajaxcheckIn(formSelector){
+    // AJAX Booking
+    function ajaxBooking(formSelector){
         $(formSelector).submit(function(e){
             e.preventDefault();
             var form = $(this);
@@ -238,8 +238,8 @@ $(document).ready(function(){
         });
     }
 
-    ajaxcheckIn('#checkInForm');
-    ajaxcheckIn('#quickcheckInForm');
+    ajaxBooking('#fullBookingForm');
+    ajaxBooking('#quickBookingForm');
 
 });
 </script>

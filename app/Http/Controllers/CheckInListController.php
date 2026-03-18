@@ -5,7 +5,12 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Booking;
 use App\Models\Room;
+use App\Models\User;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 
+
+use Illuminate\Support\Facades\Hash;
 
 class CheckInListController extends Controller
 {
@@ -18,7 +23,7 @@ class CheckInListController extends Controller
     {
          $checkInList = Booking::where('status', 'check-in')
                         ->orderBy('created_at', 'desc')
-                        ->get();
+                        ->paginate(5);
         return view('admin.checkIn.index',compact('checkInList'));
     }
 
@@ -41,7 +46,66 @@ class CheckInListController extends Controller
      */
     public function store(Request $request)
     {
-        //
+         $email = $request->email;
+        $user = User::where('email', $email)->first();
+
+        // Validation rules
+        $rules = [
+            'check_in' => 'required|date|after_or_equal:today',
+            'check_out' => 'required|date|after:check_in',
+            'room_id' => 'required|exists:rooms,id',
+        ];
+
+        if(!$user){
+            $rules = array_merge($rules, [
+                'name' => 'required|string',
+                'email' => 'required|email|unique:users,email',
+                'phone' => 'required|string',
+                'credential' => 'required|string',
+            ]);
+        }
+
+        $validated = $request->validate($rules);
+
+        // Create user if new
+        if(!$user){
+            $user = User::create([
+                'name' => $request->name,
+                'email' => $request->email,
+                'phone' => $request->phone,
+                'credential' => $request->credential,
+                'role' => 'user',
+                'roles'=>'user',
+                'status' => '2',
+                'password' => Hash::make('12345678'),
+            ]);
+        }
+
+        // Booking status
+        $status = (Auth::check() && Auth::user()->status == '2') ? 'pending' : 'check-in';
+
+        // Create booking
+        Booking::create([
+            'user_id' => $user->id,
+            'room_id' => $request->room_id,
+            'check_in' => $request->check_in,
+            'check_out' => $request->check_out,
+            'status' => $status,
+            'booked_date' => now(),
+        ]);
+
+        // Update room availability
+        $room = Room::find($request->room_id);
+        $room->is_avaliable = 'booked';
+        $room->save();
+
+        return redirect()->back()->with('succBook','Check In  successfully');
+    }
+
+    public function checkUser(Request $request)
+    {
+        $user = User::where('email', $request->email)->first();
+        return response()->json(['user' => $user]);
     }
 
     /**

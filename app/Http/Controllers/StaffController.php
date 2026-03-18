@@ -19,7 +19,7 @@ class StaffController extends Controller
      */
     public function index()
     {
-$staff = User::where('status', '!=', '2')->get();
+$staff = User::where('status', '!=', '2')->paginate(5);
         return view('admin.staff.index',compact('staff'));
     }
 
@@ -43,6 +43,7 @@ $staff = User::where('status', '!=', '2')->get();
      */
     public function store(Request $request)
     {
+       
 
         $this->userValidator($request->all())->validate();
 
@@ -53,7 +54,7 @@ $staff = User::where('status', '!=', '2')->get();
         $staff->phone=$request->phone;
         $staff->role='admin';
         $staff->status="1";
-        $staff->roles=$request->role;
+        $staff->roles=$request->roles;
         $staff->address=$request->address;
         $staff->credential=$request->credential;
 
@@ -82,7 +83,9 @@ $staff = User::where('status', '!=', '2')->get();
      */
     public function edit($id)
     {
-        return $id;
+        $staff=User::findOrFail($id);
+        $departments=Department::all();
+        return view('admin.staff.edit',compact('staff','departments'));
     }
 
     /**
@@ -94,7 +97,18 @@ $staff = User::where('status', '!=', '2')->get();
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->userValidator($request->all(),$id)->validate();
+         $staff=User::findOrFail($id);
+
+        $staff->name=$request->name;
+        $staff->email=$request->email;
+        $staff->phone=$request->phone;
+        $staff->roles=$request->roles;
+        $staff->address=$request->address;
+        $staff->credential=$request->credential;
+        $staff->department_id=$request->department_id;
+        $staff->update();
+        return redirect()->back()->with('succStaff','Staf Edited Successfully');
     }
 
     /**
@@ -105,7 +119,10 @@ $staff = User::where('status', '!=', '2')->get();
      */
     public function destroy($id)
     {
-        //
+        $staff=User::findOrFail($id);
+        $staff->delete();
+        return redirect()->back();
+
     }
 
     public function viewProfile($email){
@@ -129,6 +146,7 @@ $staff = User::where('status', '!=', '2')->get();
         'phone' => 'required|string',
         'address' => 'required|string',
         'credential' => 'required|string',
+        'roles' => 'required|string',
         'image' => 'nullable|image|mimes:jpg,jpeg,png|max:2048'
     ]);
      if ($request->hasFile('image')) {
@@ -139,14 +157,15 @@ $staff = User::where('status', '!=', '2')->get();
         $file->move(public_path('images/user'), $filename);
 
         $profile->image = $filename;
-        $profile->name = $request->name;
+     
+
+    }
+       $profile->name = $request->name;
     $profile->phone = $request->phone;
     $profile->address = $request->address;
     $profile->credential = $request->credential;
     $profile->update();
-
-    }
-        return redirect()->back()->with('succUpdateProfile',"Profile Update Successfully");
+    return redirect()->back()->with('succUpdateProfile',"Profile Update Successfully");
      }
 
 
@@ -187,7 +206,7 @@ $user->save();
             'unique:users,email'.($id ? ',' . $id :'') ,
         ],
         'phone'=>['required','string'],
-          'role'=>['required','string'],
+          'roles'=>['required','string'],
         'credential' => ['required','string'],
         'image' => ['nullable','image','mimes:jpg,jpeg,png','max:2048'],
         'address'=>['required','string'],

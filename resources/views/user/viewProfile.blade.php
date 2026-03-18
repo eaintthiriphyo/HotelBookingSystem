@@ -36,17 +36,17 @@
 
                     <!-- Profile Details -->
                     <div class="row mb-2">
-                        <div class="col-md-4 fw-bold text-end">Phone:</div>
+                        <div class="col-md-4 fw-bold ">Phone:</div>
                         <div class="col-md-8">{{ $profile->phone }}</div>
                     </div>
 
                     <div class="row mb-2">
-                        <div class="col-md-4 fw-bold text-end">Address:</div>
+                        <div class="col-md-4 fw-bold ">Address:</div>
                         <div class="col-md-8">{{ $profile->address }}</div>
                     </div>
 
                     <div class="row mb-2">
-                        <div class="col-md-4 fw-bold text-end">Credential:</div>
+                        <div class="col-md-4 fw-bold ">Credential:</div>
                         <div class="col-md-8">{{ $profile->credential }}</div>
                     </div>
 

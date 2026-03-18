@@ -15,10 +15,12 @@ class RoomTypeController extends Controller
      */
     public function index()
     {
-        $roomTypes=RoomType::all();
+        $roomTypes=RoomType::paginate(5);
          return view('admin.roomType.index',compact('roomTypes'));
     }
 
+
+    
     /**
      * Show the form for creating a new resource.
      *
@@ -170,6 +172,17 @@ class RoomTypeController extends Controller
                 return redirect()->route('admin.roomType.index')->with('successRT','Room Type deleted successfully!!');
     }
 
+
+    public function search(Request $request){
+        
+            $search = $request->input('search');
+            $roomTypes = RoomType::when($search, function ($query, $search) {
+        $query->where('room_type', 'like', "%{$search}%");
+    })->paginate(5);
+        return view('admin.roomType.index', compact('roomTypes', 'search'));
+
+
+    }
 
       protected function validator(array $data, $id = null)
     {

@@ -18,10 +18,26 @@ class RoomController extends Controller
      */
     public function index()
     {
-    $rooms = Room::orderBy('room_number', 'asc')->get();
-        return view('admin.room.index',compact('rooms'));
+        $roomType=RoomType::all();
+    $rooms = Room::orderBy('room_number', 'asc')->paginate(5);
+        return view('admin.room.index',compact('rooms','roomType'));
     }
 
+    public function search(Request $request){
+        $roomType = RoomType::all();
+        $query = Room::query();
+         if ($request->room_type_id && $request->room_type_id != '') {
+        $query->where('room_type_id', $request->room_type_id);
+          $rooms = $query->paginate(5);
+           if ($request->room_type_id) {
+        $rooms->appends(['room_type_id' => $request->room_type_id]);
+            return view('admin.room.index', compact('rooms', 'roomType'));
+
+    }
+
+    }
+
+    }
     /**
      * Show the form for creating a new resource.
      *

@@ -70,7 +70,7 @@ class BookingController extends Controller
               });
         })->pluck('room_id')->toArray();
 
-        $availableRooms = Room::whereNotIn('id', $bookedRoomIds)->get();
+        $availableRooms = Room::whereNotIn('id', $bookedRoomIds)->paginate(5);
 
         $rooms = $availableRooms->map(function($room) {
             return [
@@ -148,7 +148,7 @@ class BookingController extends Controller
     public function viewTodayBook(){
 $todayDay = Carbon::today();
 
-$todayBooks = Booking::where('check_in', $todayDay)->get();
+$todayBooks = Booking::where('check_in', $todayDay)->paginate(5);
 return view('admin.checkList.index',compact('todayBooks'));
 }
 // return response()->json(['message' => 'Room booked successfully', 'user' => $user]);}

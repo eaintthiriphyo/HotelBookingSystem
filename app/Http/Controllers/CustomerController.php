@@ -17,7 +17,7 @@ class CustomerController extends Controller
      */
     public function index()
     {
-        $customers = User::where('role', 'user')->get();
+        $customers = User::where('role', 'user')->paginate(5);
 
         return view('admin.customer.index', compact('customers'));
     }
@@ -148,11 +148,15 @@ class CustomerController extends Controller
             $file->move(public_path('images/user'), $filename);
 
             $profile->image = $filename;
-            $profile->name = $request->name;
+          
+        }
+
+          $profile->name = $request->name;
             $profile->phone = $request->phone;
+            $profile->address=$request->address;
             $profile->credential = $request->credential;
             $profile->update();
-        }
+        // return $profile;
         return redirect()->back()->with('succUpdateProfile', "Profile Update Successfully");
     }
 

@@ -17,7 +17,7 @@ class BookingListController extends Controller
     {
  $bookList = Booking::where('status', 'booked')
                         ->orderBy('created_at', 'desc')
-                        ->get();        
+                        ->paginate(5);        
         return view('admin.bookingList.index',compact('bookList'));
     }
 

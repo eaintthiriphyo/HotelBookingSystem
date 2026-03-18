@@ -19,7 +19,7 @@
                 <div class="card shadow">
 
                     <div class="card-header d-flex justify-content-between align-items-center">
-                        <h3 class="mb-0"><b>Add Customer</b></h3>
+                        <h3 class="mb-0"><b>Add Ne Staff</b></h3>
                         <a href="{{ route('admin.staff.index') }}" class="btn btn-dark btn-sm">View Lists</a>
                     </div>
 
@@ -88,11 +88,11 @@
 
 
                                 <tr>
-                                    <td><label for="role">Staff Role</label></td>
+                                    <td><label for="roles">Staff Role</label></td>
                                     <td>
-                                        <input type="text" name="role" id="role" class="form-control"
-                                            value="{{ old('role') }}" placeholder="Enter Role">
-                                        @error('role')
+                                        <input type="text" name="roles" id="roles" class="form-control"
+                                            value="{{ old('roles') }}" placeholder="Enter Role">
+                                        @error('roles')
                                             <span class="text-danger">{{ $message }}</span>
                                         @enderror
                                     </td>
