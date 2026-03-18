@@ -18,10 +18,10 @@ class CheckInListController extends Controller
     {
          $checkInList = Booking::where('status', 'check-in')
                         ->orderBy('created_at', 'desc')
-                        ->get();        
+                        ->get();
         return view('admin.checkIn.index',compact('checkInList'));
     }
-    
+
 
     /**
      * Show the form for creating a new resource.
@@ -30,7 +30,7 @@ class CheckInListController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.checkIn.create');
     }
 
     /**
@@ -81,8 +81,8 @@ class CheckInListController extends Controller
             $booking->status=$request->status;
             $booking->update();
             $room=Room::findOrFail($request->room_id);
-           
-          
+
+
              if($booking->status=='check-out'){
                 $room->is_avaliable='avaliable';
                 $room->update();
@@ -92,7 +92,7 @@ class CheckInListController extends Controller
             return redirect()->back();
     }
 
-    
+
     /**
      * Remove the specified resource from storage.
      *

@@ -165,6 +165,10 @@
                     <i class="fas fa-fw {{ request()->routeIs('admin.checkin.*') ? 'fa-calendar-day' : 'fa-calendar-check' }}"></i>
                     <span>Check In</span>
                 </a>
+                     <a class="collapse-item {{ request()->routeIs('admin.booking.create') ? 'active' : '' }}"
+                            href="{{ route('admin.booking.create') }}">
+                            Add Booking
+                        </a>
 
                 <div id="collapseCheckIn" class="collapse {{ request()->routeIs('admin.checkin.*') ? 'show' : '' }}" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
@@ -175,6 +179,10 @@
                             CheckIn List
                         </a>
 
+                           <a class="collapse-item {{ request()->routeIs('admin.checkin.create') ? 'active' : '' }}"
+                            href="{{ route('admin.checkin.create') }}">
+                            Add CheckIn
+                        </a>
                     </div>
                 </div>
             </li>

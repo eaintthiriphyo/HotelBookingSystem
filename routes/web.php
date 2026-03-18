@@ -43,7 +43,7 @@ Route::middleware(['auth','role:admin'])
 ->prefix('admin')
 ->name('admin.')
 ->group(function(){
-    
+
 
     Route::get('/dashboard',[HomeController::class,'viewDashboard'])->name('viewDashboard');
 
@@ -78,7 +78,7 @@ Route::middleware(['auth','role:admin'])
     Route::get('booking/available-rooms', [BookingController::class, 'availableRooms'])->name('booking.availableRooms');
 
 
-    
+
         Route::get('booking/bookingList', [BookingController::class, 'viewTodayBook'])->name('booking.todayBook');
 
     Route::put('/booking/checkIn/{id}',[BookingController::class,'update'])->name('booking.checkIn');
@@ -89,7 +89,9 @@ Route::middleware(['auth','role:admin'])
     Route::put('/bookingList/update/{id}',[BookingListController::class,'update'])->name('bookingList.update');
 
      Route::get('/checkin',[CheckInListController::class,'index'])->name('checkin.index');
-    // Route::put('/checkInList/update/{id}',[CheckInListController::class,'update'])->name('checkInList.update');
+          Route::get('/checkin/create',[CheckInListController::class,'create'])->name('checkin.create');
+
+    Route::post('/checkin/create',[CheckInListController::class,'store'])->name('checkin.store');
 Route::put('/checkOut/{id}',[CheckInListController::class,'update'])->name('checkOut');
 Route::get('customers',[CustomerController::class,'index'])->name('customer.index');
 Route::get('customers/create',[CustomerController::class,'create'])->name('customer.create');
