@@ -33,9 +33,39 @@
             color: #4e73df !important;
         }
 
+        .sidebar{
+            background-color: navy;
+          
+        }
+
         .collapse-inner .collapse-item.active {
             color: #4e73df;
             font-weight: 600;
+        }
+
+        footer{
+            background-color:navy;
+           color: black;
+        }
+       footer ul li {
+        margin-bottom: 0.5rem;
+    }
+
+      .hover-underline:hover {
+            text-decoration: underline;
+            color: #ffcd00;
+        }
+
+        
+        footer i {
+            width: 20px;
+        }
+
+        
+        @media (max-width: 768px) {
+            footer .col-md-4 {
+                text-align: center;
+            }
         }
     </style>
 
@@ -51,7 +81,7 @@
     <div id="wrapper">
 
         <!-- Sidebar -->
-        <ul class="navbar-nav bg-gradient-dark sidebar sidebar-dark accordion" id="accordionSidebar">
+        <ul class="navbar-nav  sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
@@ -142,7 +172,7 @@
                             All Booking List
                         </a>
 
-                         <a class="collapse-item {{ request()->routeIs('admin.booking.booking.todayBook') ? 'active' : '' }}"
+                        <a class="collapse-item {{ request()->routeIs('admin.booking.booking.todayBook') ? 'active' : '' }}"
                             href="{{ route('admin.booking.todayBook') }}">
                             Today Booking List
                         </a>
@@ -165,7 +195,7 @@
                     <i class="fas fa-fw {{ request()->routeIs('admin.checkin.*') ? 'fa-calendar-day' : 'fa-calendar-check' }}"></i>
                     <span>Check In</span>
                 </a>
-                    
+
 
                 <div id="collapseCheckIn" class="collapse {{ request()->routeIs('admin.checkin.*') ? 'show' : '' }}" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
@@ -176,7 +206,7 @@
                             CheckIn List
                         </a>
 
-                           <a class="collapse-item {{ request()->routeIs('admin.checkin.create') ? 'active' : '' }}"
+                        <a class="collapse-item {{ request()->routeIs('admin.checkin.create') ? 'active' : '' }}"
                             href="{{ route('admin.checkin.create') }}">
                             Add CheckIn
                         </a>
@@ -200,7 +230,7 @@
                         <h6 class="collapse-header">Customers</h6>
                         <a class="collapse-item {{ request()->routeIs('admin.customer.index') ? 'active' : '' }}"
                             href="{{ route('admin.customer.index') }}">Customer List</a>
-                    
+
                     </div>
                 </div>
             </li>
@@ -286,19 +316,6 @@
                         <i class="fa fa-bars"></i>
                     </button>
 
-                    <!-- Topbar Search -->
-                    <form
-                        class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-                        <div class="input-group">
-                            <input type="text" class="form-control bg-light border-0 small"
-                                placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
-                            <div class="input-group-append">
-                                <button class="btn btn-primary" type="button">
-                                    <i class="fas fa-search fa-sm"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </form>
 
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
@@ -503,25 +520,67 @@
 
 
 
-                @yield('content')
+                <div class="mb-5">
+                    @yield('content')
+                </div>
                 <!-- End of Main Content -->
 
                 <!-- Footer -->
-                <footer class="sticky-footer bg-white">
-                    <div class="container my-auto">
-                        <div class="copyright text-center my-auto">
-                            <span>Copyright &copy; Your Website 2021</span>
-                        </div>
-                    </div>
-                </footer>
+                
                 <!-- End of Footer -->
 
             </div>
             <!-- End of Content Wrapper -->
+<footer class=" text-white mt-auto pt-5 pb-4">
+    <div class="container ">
+        <div class="row mt-5">
+
+            <!-- About / Hotel Name -->
+            <div class="col-md-4 mb-4">
+                <h5 class="fw-bold mb-3" style="font-size: 1.3rem;">Hotel Paradise</h5>
+                <p style="font-size: 0.95rem; line-height: 1.6;">
+                    Your luxurious stay in the heart of the city. Experience comfort, elegance, and exceptional service at our hotel.
+                </p>
+            </div>
+
+            <!-- Contact Info -->
+            <div class="col-md-4 mb-4">
+                <h5 class="fw-bold mb-3" style="font-size: 1.3rem;">Contact</h5>
+                <ul class="list-unstyled" style="font-size: 0.95rem; line-height: 2;">
+                    <li><i class="fas fa-phone-alt me-2"></i> +95 123 456 789</li>
+                    <li><i class="fas fa-envelope me-2"></i> info@hotelparadise.com</li>
+                    <li><i class="fab fa-facebook me-2"></i> facebook.com/hotelparadise</li>
+                    <li><i class="fab fa-instagram me-2"></i> @hotelparadise</li>
+                </ul>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="col-md-4 mb-4">
+                <h5 class="fw-bold mb-3" style="font-size: 1.3rem;">Quick Links</h5>
+                <ul class="list-unstyled" style="font-size: 0.95rem; line-height: 2;">
+                    <li><a href="#" class="text-white text-decoration-none hover-underline">Home</a></li>
+                    <li><a href="#" class="text-white text-decoration-none hover-underline">Services</a></li>
+                    <li><a href="#" class="text-white text-decoration-none hover-underline">Reviews</a></li>
+                    <li><a href="#" class="text-white text-decoration-none hover-underline">Email & Address</a></li>
+                </ul>
+            </div>
+
+        </div>
+
+        <hr class="bg-light">
+
+        <div class="text-center" style="font-size: 0.9rem;">
+            <span>&copy; {{ date('Y') }} Hotel Paradise. All rights reserved.</span>
+        </div>
+    </div>
+
+   
+</footer>
 
         </div>
         <!-- End of Page Wrapper -->
 
+      
         <!-- Scroll to Top Button-->
         <a class="scroll-to-top rounded" href="#page-top">
             <i class="fas fa-angle-up"></i>

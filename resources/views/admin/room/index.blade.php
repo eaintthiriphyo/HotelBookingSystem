@@ -7,7 +7,7 @@
     <div class="card shadow-sm p-3 border-0">
         <div class="card-header d-flex justify-content-between align-items-center bg-dark text-white">
             <h3 class="mb-0 fw-bold" style="color:#f8f9fa; text-shadow:1px 1px 2px #000;">Room Lists</h3>
-            <a href="{{ route('admin.room.create') }}" class="btn btn-light btn-sm">Add New</a>
+            <a href="{{ route('admin.room.create') }}" class="btn btn-light btn-sm"><i class="fas fa-plus"></i>Add New</a>
         </div>
 
      
@@ -24,7 +24,7 @@
                     </select>
                     <button type="submit" class="btn btn-dark btn-sm">Search</button>
                 </form>
-                <a href="{{ route('admin.room.index') }}" class="btn btn-dark btn-sm">All Lists</a>
+                <a href="{{ route('admin.room.index') }}" class="btn btn-dark btn-sm"><i class="fas fa-list"></i>All Lists</a>
             </div>
         </div>
 

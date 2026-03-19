@@ -1,7 +1,7 @@
 @extends('layouts.adminLayout')
 @section('content')
 <div class="container pt-4">
-    <h3 class="text-center mb-4">Room Check In</h3>
+    <h2 class="fw-bold text-dark mb-4">Room Check In</h2>
 
     <!-- Room Details -->
     <div class="card mb-4 shadow-sm">
@@ -9,7 +9,7 @@
         <div class="card-body">
             <table class="table table-bordered mb-0">
                 <tr>
-                    <td><b>Booking Date</b></td>
+                    <td><b>Check-In Date</b></td>
                     <td>{{ \Carbon\Carbon::now()->format('Y-m-d') }}</td>
                 </tr>
             </table>
@@ -22,7 +22,7 @@
             <label for="checkEmail" class="form-label"><b>Check Customer Email</b></label>
             <div class="d-flex">
                 <input type="email" name="email" id="checkEmail" class="form-control me-2" placeholder="Enter email">
-                <button type="button" id="checkEmailBtn" class="btn btn-primary">Check</button>
+                <button type="button" id="checkEmailBtn" class="btn btn-dark"><i class="fa fa-search"></i></button>
             </div>
             <div id="emailStatus" class="mt-2"></div>
         </div>

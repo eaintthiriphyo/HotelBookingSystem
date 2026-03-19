@@ -1,93 +1,86 @@
 @extends('layouts.adminLayout')
 @section('content')
-<div class="container ">
+<div class="container pt-4">
 
-    <div class="card p-3 my-2">
- <div class="card-header d-flex justify-content-between align-items-center">
-                <h3 class="mb-0"><b>Edit Room Type</b></h3>
-                <a href="{{ route('admin.roomType.index') }}" class="btn btn-dark btn-sm">View Lists</a>
-            </div>
-            <div class="card-body">
+    <div class="card shadow-sm border-0">
+        <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center">
+            <h3 class="mb-0"><b>Edit Room Type</b></h3>
+            <a href="{{ route('admin.roomType.index') }}" class="btn btn-light btn-sm">
+                <i class="fas fa-list"></i> View Lists
+            </a>
+        </div>
 
-        <form action="{{route('admin.roomType.update',$roomType->id)}}" method="post" enctype="multipart/form-data">
-            @csrf
-            @method('PUT')
+        <div class="card-body">
+            <form action="{{ route('admin.roomType.update', $roomType->id) }}" method="post" enctype="multipart/form-data">
+                @csrf
+                @method('PUT')
 
-            <table class="table table-bordered">
+                <div class="row g-3">
 
-                <tr>
-                    <td>Room Type</td>
-                    <td>
-                        <input type="text" name="room_type" class="form-control" value="{{$roomType->room_type}}">
-                    </td>
-                </tr>
+                    <div class="col-md-6">
+                        <label for="room_type" class="form-label">Room Type</label>
+                        <input type="text" name="room_type" id="room_type" class="form-control" value="{{ old('room_type', $roomType->room_type) }}" placeholder="Enter Room Type">
+                        @error('room_type') <span class="text-danger">{{ $message }}</span> @enderror
+                    </div>
 
-                <tr>
-                    <td>Price</td>
-                    <td>
-                        <input type="text" name="price" class="form-control" value="{{$roomType->price}}">
-                    </td>
-                </tr>
+                    <div class="col-md-6">
+                        <label for="price" class="form-label">Price</label>
+                        <input type="text" name="price" id="price" class="form-control" value="{{ old('price', $roomType->price) }}" placeholder="Enter Price">
+                        @error('price') <span class="text-danger">{{ $message }}</span> @enderror
+                    </div>
 
-                <tr>
-                    <td>Description</td>
-                    <td>
-                        <input type="text" name="description" class="form-control" value="{{$roomType->description}}">
-                    </td>
-                </tr>
+                    <div class="col-12">
+                        <label for="description" class="form-label">Description</label>
+                        <input type="text" name="description" id="description" class="form-control" value="{{ old('description', $roomType->description) }}" placeholder="Enter Description">
+                        @error('description') <span class="text-danger">{{ $message }}</span> @enderror
+                    </div>
 
-                <tr>
-                    <td>Kitchen Image</td>
-                    <td>
-                        <input type="file" name="kitchen" class="form-control"><br>
-                        @if($roomType->kitchen)
-                            <img src="{{ asset('images/'.$roomType->kitchen) }}" width="100">
-                        @endif
-                    </td>
-                </tr>
+                    @php
+                        $images = ['kitchen', 'bedroom', 'bathroom', 'view'];
+                    @endphp
 
-                <tr>
-                    <td>Bedroom Image</td>
-                    <td>
-                        <input type="file" name="bedroom" class="form-control"><br>
-                        @if($roomType->bedroom)
-                            <img src="{{ asset('images/'.$roomType->bedroom) }}" width="100">
-                        @endif
-                    </td>
-                </tr>
+                    @foreach ($images as $img)
+                        <div class="col-md-6">
+                            <label for="{{ $img }}" class="form-label">{{ ucfirst($img) }} Image</label>
+                            <input type="file" name="{{ $img }}" id="{{ $img }}" class="form-control mb-2">
+                            @if($roomType->$img)
+                                <img src="{{ asset('images/' . $roomType->$img) }}" width="120" class="img-thumbnail">
+                            @endif
+                        </div>
+                    @endforeach
 
-                <tr>
-                    <td>Bathroom Image</td>
-                    <td>
-                        <input type="file" name="bathroom" class="form-control"><br>
-                        @if($roomType->bathroom)
-                            <img src="{{ asset('images/'.$roomType->bathroom) }}" width="100">
-                        @endif
-                    </td>
-                </tr>
+                    <div class="col-12 text-center mt-3">
+                        <button type="submit" class="btn btn-primary px-5">
+                            <i class="fas fa-save"></i> Update
+                        </button>
+                    </div>
 
-                <tr>
-                    <td>View Image</td>
-                    <td>
-                        <input type="file" name="view" class="form-control"><br>
-                        @if($roomType->view)
-                            <img src="{{ asset('images/'.$roomType->view) }}" width="100">
-                        @endif
-                    </td>
-                </tr>
-
-                <tr>
-                    <td></td>
-                    <td>
-                        <button type="submit" class="btn btn-primary">Update</button>
-                    </td>
-                </tr>
-
-            </table>
-
-        </form>
-
+                </div>
+            </form>
+        </div>
     </div>
+
 </div>
-</div>
+
+<style>
+    .card {
+        border-radius: 12px;
+    }
+
+    .form-label {
+        font-weight: 500;
+    }
+
+    .btn-primary {
+        font-weight: 500;
+    }
+
+    .text-danger {
+        font-size: 0.85rem;
+    }
+
+    .img-thumbnail {
+        border-radius: 8px;
+    }
+</style>
 @endsection

@@ -2,99 +2,89 @@
 
 @section('content')
 <div class="container pt-4">
-
-    <div class="card p-3">
-
-        <div class="card-header d-flex justify-content-between align-items-center">
+    <div class="card shadow-sm border-0">
+        <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center">
             <h3 class="mb-0"><b>Customers Lists</b></h3>
-            <a href="{{ route('admin.customer.create') }}" class="btn btn-dark btn-sm">Add New</a>
         </div>
 
-
-
-
-        <div class="table-responsive ">
-            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+        <div class="table-responsive p-3">
+            <table class="table table-hover table-bordered align-middle text-center">
                 <thead class="table-dark">
-                    <>
+                    <tr>
                         <th>Image</th>
                         <th>Customer Name</th>
                         <th>Customer Email</th>
                         <th>Customer Phone</th>
                         <th>Customer Credential</th>
-                        <th>Status</th>
-
-                        </tr>
+                       
+                    </tr>
                 </thead>
-
                 <tbody>
-
-                    @foreach ($customers as $c)
+                    @forelse($customers as $c)
                     <tr>
                         <td>
-
-
-                            @if ($c->image)
-                            <img src="{{ asset('images/user/' . $c->image) }}" width="60"
-                                class="img-fluid rounded shadow">
+                            @if($c->image)
+                            <img src="{{ asset('images/user/' . $c->image) }}" width="60" class="img-fluid rounded-circle shadow">
                             @else
-                            <img src="{{ asset('images/user/default.png') }}" width="60"
-                                class="img-fluid rounded shadow">
+                            <img src="{{ asset('images/user/default.png') }}" width="60" class="img-fluid rounded-circle shadow">
                             @endif
                         </td>
                         <td>{{ $c->name }}</td>
                         <td>{{ $c->email }}</td>
                         <td>{{ $c->phone }}</td>
                         <td>{{ $c->credential }}</td>
-                        <td>{{$c->acc_status}}</td>
+                      
                     </tr>
-                    @endforeach
-
-
+                    @empty
+                    <tr>
+                        <td colspan="6" class="text-center">No customers found.</td>
+                    </tr>
+                    @endforelse
                 </tbody>
             </table>
-
         </div>
 
+        <!-- Pagination -->
+        <div class="d-flex justify-content-center mt-3">
+            {{ $customers->links() }}
+        </div>
     </div>
-    <div class="d-flex justify-content-center mt-3">
-       {{ $customers->links() }} 
-    </div>
-</div>
-
 </div>
 
 <style>
     body,
     .text-dark {
         color: #212529 !important;
-        /* darker text */
     }
 
-
-    .table td {
+    .table td,
+    .table th {
         vertical-align: middle;
-        color: #212529;
-
     }
 
-    .btn-dark {
+    .table td{
+        color:black;
+    }
+    .table-hover tbody tr:hover {
+        background-color: #f1f1f1;
+        transition: 0.3s;
+    }
+
+    .card {
+        border-radius: 12px;
+    }
+
+    .img-fluid.rounded-circle {
+        object-fit: cover;
+    }
+
+    .pagination .page-link {
+        color: #343a40;
+    }
+
+    .pagination .page-item.active .page-link {
         background-color: #343a40;
         border-color: #343a40;
-    }
-
-    .btn-dark:hover {
-        background-color: #23272b;
-        border-color: #23272b;
-    }
-
-    .form-control.border-dark {
-        border: 1px solid #343a40;
-    }
-
-    /* Increase spacing between buttons inside table if needed */
-    .btn-group .btn {
-        margin-right: 3px;
     }
 </style>
 @endsection

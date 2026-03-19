@@ -33,9 +33,12 @@ Route::get('/', function () {
 })->name('welcome');
 
 
+
+
+
 Auth::routes();
 Route::get('/reviews',[ReviewController::class,'index'])->name('viewReview');
-
+Route::post('/reviews',[ReviewController::class,'store'])->name('review.store');
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
@@ -158,4 +161,3 @@ Route::get('/contact',[ContactController::class,'index'])->name('contact');
 
 Auth::routes();
 
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

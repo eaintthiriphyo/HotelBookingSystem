@@ -119,6 +119,7 @@ $staff = User::where('status', '!=', '2')->paginate(5);
      */
     public function destroy($id)
     {
+        
         $staff=User::findOrFail($id);
         $staff->delete();
         return redirect()->back();

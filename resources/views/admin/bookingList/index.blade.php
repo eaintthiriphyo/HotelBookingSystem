@@ -2,112 +2,132 @@
 
 @section('content')
 
-<div class="container-fluid ">
+<div class="container pt-4">
 
-           <div class="container pt-4">
+    <div class="card shadow border-0 rounded-3">
 
-        <div class="card p-3">
+        <!-- Header -->
+        <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center rounded-top">
+            <h4 class="mb-0 fw-bold">Bookings Lists</h4>
 
-            <div class="card-header d-flex justify-content-between align-items-center">
-                <h3 class="mb-0"><b>Bookings Lists</b></h3>
-                <a href="{{route('admin.booking.index')}}" class="btn btn-dark btn-sm">Add New</a>
-                 <a href="{{route('admin.booking.todayBook')}}" class="btn btn-dark btn-sm">Today Booking List</a>
+            <div>
+                <a href="{{ route('admin.booking.index') }}" class="btn btn-light btn-sm me-2">
+                    <i class="fa fa-plus"></i> Add New
+                </a>
 
+                <a href="{{ route('admin.booking.todayBook') }}" class="btn btn-outline-light btn-sm">
+                    <i class="fa fa-list"></i>Today Booking Lists
+                </a>
             </div>
+        </div>
 
-                  <div class="table-responsive ">
-                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+        <!-- Table -->
+        <div class="card-body bg-white">
+
+            <div class="table-responsive">
+                <table class="table table-hover align-middle text-center">
+
                     <thead class="table-dark">
-                            <tr>
+                        <tr>
+                            <th>User Email</th>
+                            <th>User Name</th>
+                            <th>Room No</th>
+                            <th>Room Type</th>
+                            <th>Booking Date</th>
+                            <th>Check In</th>
+                            <th>Check Out</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
 
-                                <th>User Eamil</th>
-                                <th>User Name</th>
-                                <th>Room Number</th>
-                                 <th>Room Type</th>
-                                 <th>Booking Date</th>
-                                 <th>Check In </th>
-                                 <th>Check Out </th>
-                                 <th>Details</th>
-
-                            </tr>
-                        </thead>
-                     <tbody>
-
+                    <tbody>
                         @foreach($bookList as $bl)
-                       <tr>
+                        <tr>
 
-                       <td>{{$bl->user->email}}</td>
-                      <td>{{$bl->user->name}}</td>
-                    <td>{{$bl->room->room_number}}</td>
-                     <td>{{$bl->room->room_type->room_type}}</td>
+                            <td>{{ $bl->user->email }}</td>
+                            <td>{{ $bl->user->name }}</td>
+                            <td><span class="badge bg-secondary">{{ $bl->room->room_number }}</span></td>
+                            <td>{{ $bl->room->room_type->room_type }}</td>
+                            <td>{{ $bl->created_at->format('d M Y') }}</td>
+                            <td>{{ $bl->check_in }}</td>
+                            <td>{{ $bl->check_out }}</td>
 
-                     <td>{{$bl->created_at}}</td>
-                    <td>{{$bl->check_in}}</td>
-                    <td>{{$bl->check_out}}</td>
-                      <td>
-                                <form action="{{route('admin.booking.checkIn',$bl->id)}}" method="POST">
+                            <td>
+                                <form action="{{ route('admin.booking.checkIn', $bl->id) }}" method="POST">
                                     @csrf
                                     @method('PUT')
-                                   <input type="hidden" name="room_id" value="{{$bl->room->id}}">
 
-                                    <select name="status" class="form-control" onchange="this.form.submit()">
+                                    <input type="hidden" name="room_id" value="{{ $bl->room->id }}">
 
-                                        <option value="">Change Status</option>
-                                        <option value="check-in" {{$bl->status=='check-in' ? 'selected':''}}>Check In</option>
+                                    <select name="status"
+                                        class="form-select form-select-sm border-dark"
+                                        onchange="this.form.submit()">
 
+                                        <option value="">Change</option>
 
-
-
+                                        <option value="check-in"
+                                            {{ $bl->status == 'check-in' ? 'selected' : '' }}>
+                                            ✔ Check In
+                                        </option>
 
                                     </select>
                                 </form>
                             </td>
 
-
-
-                       </tr>
-
+                        </tr>
                         @endforeach
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-              <div class="d-flex justify-content-center mt-3">
-       {{ $bookList->links() }} 
-    </div>
-        </div>
+                    </tbody>
 
+                </table>
+            </div>
+
+            <!-- Pagination -->
+            <div class="d-flex justify-content-center mt-3">
+                {{ $bookList->links() }}
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- Style -->
 <style>
-    body,
-    .text-dark {
-        color: #212529 !important;
-        /* darker text */
+    body {
+        color: #212529;
     }
 
+    .card {
+        border-radius: 10px;
+    }
 
-    .table td {
+    .table td
+    {
         vertical-align: middle;
         color: #212529;
-
     }
 
-    .btn-dark {
-        background-color: #343a40;
-        border-color: #343a40;
+    .table-hover tbody tr:hover {
+        background-color: #f8f9fa;
     }
 
-    .btn-dark:hover {
-        background-color: #23272b;
-        border-color: #23272b;
+    .badge {
+        font-size: 13px;
+        padding: 6px 10px;
+        color:white;
     }
 
-    .form-control.border-dark {
-        border: 1px solid #343a40;
+    .form-select {
+        cursor: pointer;
     }
 
-    /* Increase spacing between buttons inside table if needed */
-    .btn-group .btn {
-        margin-right: 3px;
+    .btn-light {
+        font-weight: 500;
+    }
+
+    .btn-outline-light:hover {
+        background-color: #fff;
+        color: #000;
     }
 </style>
+
 @endsection

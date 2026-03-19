@@ -55,7 +55,7 @@
             position: absolute;
             width: 100%;
             height: 100%;
-            background: rgba(0,0,0,0.6);
+            background: rgba(0, 0, 0, 0.6);
             top: 0;
             left: 0;
             z-index: 1;
@@ -187,7 +187,7 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
         <div class="container">
-            <a class="navbar-brand fw-bold" href="#">🏨 Hotel Booking</a>
+            <a class="navbar-brand fw-bold" href="#">🏨 Paradise</a>
             <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -197,35 +197,44 @@
                     <li class="nav-item"><a class="nav-link" href="{{route('user.dashboard')}}">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="#rooms">Rooms</a></li>
                     <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{route('viewReview')}}">Reviews</a></li>
+
+
+                    @auth
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                    @endauth
                 </ul>
 
                 <!-- Auth User -->
                 <ul class="navbar-nav ms-auto">
                     @auth
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" role="button" data-bs-toggle="dropdown">
-                                <img class="profile-img me-2" src="{{ Auth::user()->image ? asset('images/user/' . Auth::user()->image) : asset('img/undraw_profile.svg') }}">
-                                <span class="text-white">{{ Auth::user()->name }}</span>
-                            </a>
-                            <ul class="dropdown-menu dropdown-menu-end shadow">
-                                <li class="text-center p-3 border-bottom">
-                                    <img class="rounded-circle mb-2" src="{{ Auth::user()->image ? asset('images/user/' . Auth::user()->image) : asset('img/undraw_profile.svg') }}" width="60">
-                                    <div class="fw-bold">{{ Auth::user()->name }}</div>
-                                    <div class="text-muted small">{{ Auth::user()->email }}</div>
-                                </li>
-                                <li><a class="dropdown-item" href="{{ route('user.viewProfile', Auth::user()->email) }}"><i class="fa fa-user me-2"></i>Profile</a></li>
-                                <li><a class="dropdown-item" href="{{ route('user.viewEditProfile', Auth::user()->email) }}"><i class="fa fa-edit me-2"></i>Edit Profile</a></li>
-                                <li><a class="dropdown-item" href="{{ route('user.viewChangePassword', Auth::user()->email) }}"><i class="fa fa-lock me-2"></i>Change Password</a></li>
-                                <li><hr class="dropdown-divider"></li>
-                                <li>
-                                    <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
-                                        <i class="fa fa-sign-out-alt me-2"></i>Logout
-                                    </a>
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST">@csrf</form>
-                                </li>
-                            </ul>
-                        </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" role="button" data-bs-toggle="dropdown">
+                            <img class="profile-img me-2" src="{{ Auth::user()->image ? asset('images/user/' . Auth::user()->image) : asset('images/user/default.png') }}">
+                            <span class="text-white">{{ Auth::user()->name }}</span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end shadow">
+                            <li class="text-center p-3 border-bottom">
+                                <img class="rounded-circle mb-2" src="{{ Auth::user()->image ? asset('images/user/' . Auth::user()->image) : asset('images/user/default.png') }}" width="60">
+                                <div class="fw-bold">{{ Auth::user()->name }}</div>
+                                <div class="text-muted small">{{ Auth::user()->email }}</div>
+                            </li>
+                            <li><a class="dropdown-item" href="{{ route('user.viewProfile', Auth::user()->email) }}"><i class="fa fa-user me-2"></i>Profile</a></li>
+                            <li><a class="dropdown-item" href="{{ route('user.viewEditProfile', Auth::user()->email) }}"><i class="fa fa-edit me-2"></i>Edit Profile</a></li>
+                            <li><a class="dropdown-item" href="{{ route('user.viewChangePassword', Auth::user()->email) }}"><i class="fa fa-lock me-2"></i>Change Password</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+                                    <i class="fa fa-sign-out-alt me-2"></i>Logout
+                                </a>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST">@csrf</form>
+                            </li>
+                        </ul>
+                    </li>
                     @endauth
                 </ul>
             </div>

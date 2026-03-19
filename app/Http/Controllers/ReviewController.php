@@ -1,6 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\Validator;
+use App\Models\Review;
+
 
 use Illuminate\Http\Request;
 
@@ -34,7 +37,18 @@ class ReviewController extends Controller
      */
     public function store(Request $request)
     {
-        //
+         $request->validate([
+        'rating' => 'required|integer|min:1|max:5',
+        'comment' => 'required|string|max:1000',
+    ]);
+        
+        $review=new Review();
+        $review->rating=(int)$request->rating;
+        $review->comment=$request->comment;
+        $review->user_id=$request->user_id;
+        $review->save();
+        return redirect()->back();
+        
     }
 
     /**
@@ -68,7 +82,7 @@ class ReviewController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        
     }
 
     /**
@@ -80,5 +94,20 @@ class ReviewController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+          protected function validator(array $data)
+    {
+        return Validator::make($data, [
+            'rating'=>['required'],
+            'comment' => [
+            'required',
+            'string',
+            'max:255',
+           
+        ],
+        
+
+        ]);
     }
 }

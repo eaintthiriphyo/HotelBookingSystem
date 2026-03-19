@@ -5,41 +5,66 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
 
-
-            <div class="card p-3 my-2">
-
-                  <div class="card-header d-flex justify-content-between align-items-center">
-                    <h3 class="mb-0"><b>Edit Room</b></h3>
-                    <a href="{{ route('admin.room.index') }}" class="btn btn-dark btn-sm">View Lists</a>
+            <div class="card shadow-sm border-0 mb-4">
+                <!-- Card Header -->
+                <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center">
+                    <h3 class="mb-0 fw-bold"><b>Edit Room</b></h3>
+                    <a href="{{ route('admin.room.index') }}" class="btn btn-light btn-sm">
+                        <i class="fas fa-list"></i> View Lists
+                    </a>
                 </div>
 
-                <form action="{{route('admin.room.update',$room->id)}}" method="POST">
-                    @csrf
-                    @method('PUT')
+                <!-- Card Body -->
+                <div class="card-body">
+                    <form action="{{ route('admin.room.update', $room->id) }}" method="POST">
+                        @csrf
+                        @method('PUT')
 
-                    <label class="form-label">Room Number</label>
-                    <input type="text" name="room_number" class="form-control" value="{{$room->room_number}}">
-                    <br>
+                        <div class="mb-3">
+                            <label class="form-label" for="room_number">Room Number</label>
+                            <input type="text" name="room_number" id="room_number" class="form-control" value="{{ $room->room_number }}">
+                            @error('room_number') <span class="text-danger">{{ $message }}</span> @enderror
+                        </div>
 
-                    <label class="form-label">Room Type</label>
-                    <select name="room_type" class="form-control">
-                    <option value="{{$room->room_type_id}}" >{{$room->room_type->room_type}}</option>
+                        <div class="mb-3">
+                            <label class="form-label" for="room_type">Room Type</label>
+                            <select name="room_type" id="room_type" class="form-select form-control">
+                                <option value="{{ $room->room_type_id }}" selected>{{ $room->room_type->room_type }}</option>
+                                @foreach($roomType as $rt)
+                                    @if($rt->id != $room->room_type_id)
+                                        <option value="{{ $rt->id }}">{{ $rt->room_type }}</option>
+                                    @endif
+                                @endforeach
+                            </select>
+                            @error('room_type') <span class="text-danger">{{ $message }}</span> @enderror
+                        </div>
 
-                        @foreach($roomType as $rt)
-                        <option value="{{$rt->id}}" >
-                            {{$rt->room_type}}
-                        </option>
-                        @endforeach
-                    </select>
-                    <br>
+                        <div class="d-flex justify-content-end">
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-save"></i> Update Room
+                            </button>
+                        </div>
 
-                    <button type="submit" class="btn btn-primary">Update</button>
-
-                </form>
-
+                    </form>
+                </div>
             </div>
 
         </div>
     </div>
 </div>
+
+<style>
+    .card {
+        border-radius: 0.6rem;
+    }
+    .form-label {
+        font-weight: 500;
+    }
+    .btn-primary i {
+        margin-right: 5px;
+    }
+    .form-select, .form-control {
+        border-radius: 0.4rem;
+    }
+</style>
 @endsection

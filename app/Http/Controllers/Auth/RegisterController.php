@@ -29,7 +29,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    // protected $redirectTo = RouteServiceProvider::HOME;
+    protected $redirectTo = '/login';
 
     /**
      * Create a new controller instance.
@@ -41,6 +41,7 @@ class RegisterController extends Controller
         $this->middleware('guest');
     }
 
+     
     /**
      * Get a validator for an incoming registration request.
      *
@@ -79,7 +80,7 @@ class RegisterController extends Controller
 
       protected function registered(Request $request, $user)
     {
+        
         // Since you only register users here, redirect to user dashboard
-        return redirect()->route('user.dashboard');
-    }
+return view('auth.login');    }
 }

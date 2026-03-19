@@ -7,8 +7,8 @@
 
         <!-- Header -->
         <div class="card-header d-flex justify-content-between align-items-center bg-dark text-white">
-            <h3 class="mb-0 fw-bold">Room Types</h3>
-            <a href="{{ route('admin.roomType.create') }}" class="btn btn-light btn-sm">Add New</a>
+            <h3 class="mb-0 fw-bold fw-semibold">Room Types</h3>
+            <a href="{{ route('admin.roomType.create') }}" class="btn btn-light btn-sm"><i class="fas fa-plus"></i>Add New</a>
         </div>
 
         <!-- Search & Filter -->
@@ -20,7 +20,7 @@
         <button type="submit" class="btn btn-dark ms-2">Search</button>
     </form>
 
-    <a href="{{ route('admin.roomType.index') }}" class="btn btn-dark ms-3">All Lists</a>
+    <a href="{{ route('admin.roomType.index') }}" class="btn btn-dark ms-3"><i class="fas fa-list"></i>All </a>
 </div>
 
             <!-- Room Types Table -->
