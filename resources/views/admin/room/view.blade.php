@@ -18,11 +18,11 @@
             <div class="row mb-4">
                 <div class="col-md-6">
                     <h5 class="fw-bold">
-                        Room Type: 
+                        Room Type:
                         <span class="badge bg-dark text-white">{{ $room->room_type->room_type }}</span>
                     </h5>
                 </div>
-              
+
             </div>
 
             <h5 class="fw-bold mb-3">Room Features:</h5>
@@ -30,20 +30,20 @@
                 @php $features = ['kitchen', 'bedroom', 'bathroom', 'view']; @endphp
 
                 @foreach($features as $feature)
+                @if(!empty($room->room_type->$feature) && $room->room_type->$feature != 'default.jpg')
                 <div class="col-md-3 col-sm-6">
                     <div class="card h-100 text-center shadow-sm hover-effect">
                         <div class="card-header bg-secondary text-white">
                             <b>{{ ucfirst($feature) }}</b>
                         </div>
+
                         <div class="card-body d-flex align-items-center justify-content-center" style="min-height:120px;">
-                            @if($room->room_type->$feature && $room->room_type->$feature != 'default.jpg')
-                                <img src="{{ asset('images/'.$room->room_type->$feature) }}" class="img-fluid rounded shadow feature-img">
-                            @else
-                                <span class="text-muted">Not included</span>
-                            @endif
+                            <img src="{{ asset('images/'.$room->room_type->$feature) }}"
+                                class="img-fluid rounded shadow feature-img">
                         </div>
                     </div>
                 </div>
+                @endif
                 @endforeach
             </div>
 

@@ -38,22 +38,25 @@
                     <h5 class="mb-3">Room Features:</h5>
                     <div class="row g-3">
                         @php
-                            $features = ['kitchen', 'bedroom', 'bathroom', 'view'];
+                        $features = ['kitchen', 'bedroom', 'bathroom', 'view'];
                         @endphp
 
                         @foreach($features as $feature)
-                            <div class="col-md-3 col-sm-6">
-                                <div class="card h-100 shadow-sm text-center">
-                                    <div class="card-header bg-light"><b>{{ ucfirst($feature) }}</b></div>
-                                    <div class="card-body d-flex align-items-center justify-content-center p-2">
-                                        @if($roomType->$feature && $roomType->$feature != 'default.jpg')
-                                            <img src="{{ asset('images/' . $roomType->$feature) }}" class="img-fluid rounded shadow" style="max-height:120px;">
-                                        @else
-                                            <span class="text-danger fw-bold">Not included</span>
-                                        @endif
-                                    </div>
+                        @if(!empty($roomType->$feature) && $roomType->$feature != 'default.jpg')
+                        <div class="col-md-3 col-sm-6">
+                            <div class="card h-100 shadow-sm text-center">
+                                <div class="card-header bg-light">
+                                    <b>{{ ucfirst($feature) }}</b>
+                                </div>
+
+                                <div class="card-body d-flex align-items-center justify-content-center p-2">
+                                    <img src="{{ asset('images/' . $roomType->$feature) }}"
+                                        class="img-fluid rounded shadow"
+                                        style="max-height:120px;">
                                 </div>
                             </div>
+                        </div>
+                        @endif
                         @endforeach
                     </div>
                 </div>
@@ -68,19 +71,24 @@
     .card {
         border-radius: 0.6rem;
     }
+
     .badge {
         padding: 0.5rem 0.8rem;
     }
+
     .card-body p {
         margin-bottom: 0;
     }
+
     .card-header {
         font-size: 1rem;
     }
+
     .img-fluid {
         border-radius: 0.5rem;
         max-width: 100%;
     }
+
     h5 {
         font-weight: 600;
     }

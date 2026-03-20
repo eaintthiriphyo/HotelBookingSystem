@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Booking;
 use App\Models\Room;
+use App\Models\RoomType;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 
@@ -21,16 +22,10 @@ class BookingController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
-           $room = null;
-
-    if($request->has('room_id')){
-        $room = Room::find($request->room_id);
-    }
-
-    return view('admin.room.booking', compact('room'));
-
+        $roomTypes=RoomType::all();
+return view('user.roomBooking',compact('roomTypes'));
     }
 
     /**
@@ -40,7 +35,8 @@ class BookingController extends Controller
      */
     public function create()
     {
-          return view('admin.room.booking');
+            $roomTypes=RoomType::all();
+          return view('admin.room.booking',compact('roomTypes'));
     }
  public function checkUser(Request $request)
     {
@@ -60,7 +56,30 @@ class BookingController extends Controller
         $check_in = $request->check_in;
         $check_out = $request->check_out;
 
-        // Get rooms that are NOT booked in this date range
+
+        if($request->room_type_id){
+
+            $checkIn = $request->check_in;
+    $checkOut = $request->check_out;
+    $roomTypeId = $request->room_type_id;
+
+    // Fetch rooms of this type that are NOT booked during this period
+    $rooms = Room::where('room_type_id', $roomTypeId)
+        ->whereDoesntHave('bookings', function ($query) use ($checkIn, $checkOut) {
+            $query->where(function ($q) use ($checkIn, $checkOut) {
+                $q->where(function($qq) use ($checkIn, $checkOut) {
+                    $qq->where('check_in', '<', $checkOut)
+                       ->where('check_out', '>', $checkIn);
+                });
+            });
+        })
+        ->get();
+
+    return response()->json(['rooms' => $rooms]);
+
+         
+}
+        
         $bookedRoomIds = Booking::where(function($q) use($check_in, $check_out) {
             $q->whereBetween('check_in', [$check_in, $check_out])
               ->orWhereBetween('check_out', [$check_in, $check_out])
@@ -84,6 +103,7 @@ class BookingController extends Controller
     }
 
 
+    
 
 
     public function store(Request $request)

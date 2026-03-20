@@ -204,6 +204,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#contact">Contact</a>
                     </li>
+                     <li class="nav-item">
+                        <a class="nav-link" href="{{route('user.bookingRoom')}}">Booking</a>
+                    </li>
                     @endauth
                 </ul>
 

@@ -156,6 +156,9 @@ Route::get('/profile/changePassword/{email}',[CustomerController::class,'viewCha
 Route::put('staff/profile/changePassword',[CustomerController::class,'ChangePassword'])->name('changePassword');
 
 Route::get('/contact',[ContactController::class,'index'])->name('contact');
+Route::get('/booking/room',[BookingController::class,'index'])->name('bookingRoom');
+ Route::get('booking/available-rooms', [BookingController::class, 'availableRooms'])->name('booking.availableRooms');
+
 
 });
 
