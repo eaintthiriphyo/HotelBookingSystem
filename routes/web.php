@@ -83,9 +83,11 @@ Route::middleware(['auth','role:admin'])
     Route::get('/booking/check-user', [BookingController::class, 'checkUser'])->name('booking.checkUser');
     Route::get('booking/available-rooms', [BookingController::class, 'availableRooms'])->name('booking.availableRooms');
 
+    Route::get('/booking/pending',[BookingController::class,'pendingList'])->name('booking.pending');
+    Route::put('/booking/changePending/{id}',[BookingController::class,'changePending'])->name('booking.changePending');
 
 
-        Route::get('booking/bookingList', [BookingController::class, 'viewTodayBook'])->name('booking.todayBook');
+    Route::get('booking/bookingList', [BookingController::class, 'viewTodayBook'])->name('booking.todayBook');
 
     Route::put('/booking/checkIn/{id}',[BookingController::class,'update'])->name('booking.checkIn');
 
@@ -149,7 +151,7 @@ Route::middleware(['auth','role:user'])
     })->name('dashboard');
 
 
-    Route::get('/viewProfile/{email}',[CustomerController::class,'viewProfile'])->name('viewProfile');
+ Route::get('/viewProfile/{email}',[CustomerController::class,'viewProfile'])->name('viewProfile');
 Route::get('/viewEditProfile/{email}',[CustomerController::class,'viewEditProfile'])->name('viewEditProfile');
 Route::put('/profileUpdate/{email}',[CustomerController::class,'profileUpdate'])->name('profileUpdate');
 Route::get('/profile/changePassword/{email}',[CustomerController::class,'viewChangePassword'])->name('viewChangePassword');
@@ -158,6 +160,8 @@ Route::put('staff/profile/changePassword',[CustomerController::class,'ChangePass
 Route::get('/contact',[ContactController::class,'index'])->name('contact');
 Route::get('/booking/room',[BookingController::class,'index'])->name('bookingRoom');
  Route::get('booking/available-rooms', [BookingController::class, 'availableRooms'])->name('booking.availableRooms');
+  Route::post('booking/store', [BookingController::class, 'store'])->name('booking.store');
+
 
 
 });

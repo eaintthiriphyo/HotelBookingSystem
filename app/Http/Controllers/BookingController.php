@@ -127,6 +127,15 @@ return view('user.roomBooking',compact('roomTypes'));
             ]);
         }
 
+        if($user){
+            $rules = array_merge($rules, [
+                
+                // 'phone' => 'required|string',
+                // 'credential' => 'required|string',
+                // 'address'=>'required|string'
+            ]);
+        }
+
         $validated = $request->validate($rules);
 
         // Create user if new
@@ -147,7 +156,7 @@ return view('user.roomBooking',compact('roomTypes'));
         $status = (Auth::check() && Auth::user()->status == '2') ? 'pending' : 'booked';
 
         // Create booking
-        Booking::create([
+        $booking=Booking::create([
             'user_id' => $user->id,
             'room_id' => $request->room_id,
             'check_in' => $request->check_in,
@@ -161,8 +170,11 @@ return view('user.roomBooking',compact('roomTypes'));
         $room->is_avaliable = 'booked';
         $room->save();
 
-        return redirect()->back()->with('succBook','Booking successfully');
-    }
+  return response()->json([
+        'message' => 'Booking successfully!',
+        'booking' => $booking
+    ]);  
+      }
 
 
     public function viewTodayBook(){
@@ -171,6 +183,36 @@ $todayDay = Carbon::today();
 $todayBooks = Booking::where('check_in', $todayDay)->paginate(5);
 return view('admin.checkList.index',compact('todayBooks'));
 }
+
+
+
+public function pendingList(){
+
+$pending=Booking::where('status','pending')->paginate(5);
+return view('admin.room.pendingList',compact('pending'));
+}
+
+
+public function changePending(Request $request,$id){
+
+$pendingList=Booking::findOrFail($id);
+$room=Room::findOrFail($request->room_id);
+if($request->status=="booked"){
+$room->is_avaliable="booked";
+$pendingList->status='booked';
+}
+if($request->status=="cancle"){
+$room->is_avaliable="avaliable";
+$pendingList->status='cancle';
+}
+
+$pendingList->update();
+$room->update();
+
+return redirect()->back();
+}
+
+
 // return response()->json(['message' => 'Room booked successfully', 'user' => $user]);}
 
     /**
