@@ -16,7 +16,8 @@ class ReviewController extends Controller
      */
     public function index()
     {
-        return view('user.review');
+        $review=Review::all();
+        return view('user.review',compact('review'));
     }
 
     /**
@@ -41,14 +42,14 @@ class ReviewController extends Controller
         'rating' => 'required|integer|min:1|max:5',
         'comment' => 'required|string|max:1000',
     ]);
-        
+
         $review=new Review();
         $review->rating=(int)$request->rating;
         $review->comment=$request->comment;
         $review->user_id=$request->user_id;
         $review->save();
         return redirect()->back();
-        
+
     }
 
     /**
@@ -82,7 +83,7 @@ class ReviewController extends Controller
      */
     public function update(Request $request, $id)
     {
-        
+
     }
 
     /**
@@ -104,9 +105,9 @@ class ReviewController extends Controller
             'required',
             'string',
             'max:255',
-           
+
         ],
-        
+
 
         ]);
     }

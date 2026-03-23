@@ -7,9 +7,8 @@
     <h2 class="section-title text-center mb-5">Guest Reviews</h2>
 
     <div class="row">
-        <!-- Example of one review card -->
-        @foreach($reviews ?? [] as $review)
-        <div class="col-md-6 mb-4">
+        @foreach($review ?? [] as $review)
+        <div class="col mb-4">
             <div class="card shadow-sm border-0 h-100 hover-card">
                 <div class="card-body">
                     <div class="d-flex align-items-center mb-3">
@@ -27,15 +26,16 @@
                                         <i class="far fa-star"></i>
                                         @endfor
                             </div>
+
                         </div>
                     </div>
-                    <p class="mb-0">{{ $review->message }}</p>
+                    <p class="mb-0">{{ $review->comment }}</p>
                 </div>
             </div>
         </div>
         @endforeach
 
-        @if(empty($reviews) || count($reviews) === 0)
+        @if(empty($review) )
         <div class="col-12">
             <p class="text-center text-muted">No reviews yet. Be the first to leave a review!</p>
         </div>
@@ -46,10 +46,11 @@
 <!-- Write Review -->
 <section class="py-5 bg-light">
     <div class="container">
+        <div class="card p-5">
         <h3 class="text-center mb-4">Write a Review</h3>
 
         @auth
-        <div class="row justify-content-center">
+        <div class="row ">
             <div class="col-md-6">
                 <form method="POST" action="{{route('review.store')}}">
                     @csrf
@@ -84,6 +85,7 @@
 
         <button class="btn btn-primary w-100" type="submit">Submit Review</button>
         </form>
+    </div>
     </div>
     </div>
     @else
@@ -140,7 +142,7 @@
         const ratingInput = document.getElementById('rating-value');
         let selectedRating = 1;
 
-    ratingInput.value = selectedRating; 
+    ratingInput.value = selectedRating;
     highlightStars(selectedRating);
 
         stars.forEach(star => {

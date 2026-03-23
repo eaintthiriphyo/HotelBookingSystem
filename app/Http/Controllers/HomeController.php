@@ -25,6 +25,8 @@ class HomeController extends Controller
         $this->middleware('auth');
     }
 
+
+    
     /**
      * Show the application dashboard.
      *
@@ -32,27 +34,41 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+
+    $roomType=RoomType::all();
+     $roomType->map(function($type){
+            $type->images=collect([
+                $type->kitchen,
+                $type->bedroom,
+                $type->bathroom,
+                $type->view,
+           ])->filter(function ($img){
+            return $img && $img!=='default.jpg';
+           })->values();
+            return $type;
+        });
+    $room=Room::all();
+        return view('user.dashboard',compact('roomType','room'));
     }
 
     public function viewDashboard(){
 $bcount = Booking::where('status', 'booked')
     ->whereDate('created_at', Carbon::today())
-    ->count();  
-    
+    ->count();
+
 
 
 $monthBook = Booking::whereBetween('created_at', [
         Carbon::now()->startOfMonth(),
         Carbon::now()->endOfMonth()
     ])
-    ->where('status', '!=', 'cancelled') 
+    ->where('status', '!=', 'cancelled')
     ->count();
-    
+
 $todayCheckIn = Booking::where('status', 'check-in')
     ->whereDate('created_at', Carbon::today())
-    ->count();   
-    
+    ->count();
+
     $cusCount = User::where('status', "2")
                      ->where('acc_status', 'active')
                      ->count();
@@ -85,7 +101,15 @@ $roomTypeData = DB::table('room_types')
     ->groupBy('room_types.room_type')
     ->get();
 
+  $newBookingsCount = Booking::where('status', 'pending')->count();
 
-    return view('admin.dashboard', compact('bcount','monthBook','todayCheckIn','thisMonthCheckIn','cusCount','roomCount','staffCount','monthlyBookings','roomTypeData'));
+
+         $newBookings = Booking::where('status', 'pending')
+                          ->orderBy('created_at', 'desc')
+                          ->take(5)
+                          ->get();
+
+
+    return view('admin.dashboard', compact('bcount','monthBook','todayCheckIn','thisMonthCheckIn','cusCount','roomCount','staffCount','monthlyBookings','roomTypeData','newBookingsCount','newBookings'));
 }
 }

@@ -8,7 +8,11 @@ use App\Models\Booking;
 use App\Models\Room;
 use App\Models\RoomType;
 use Carbon\Carbon;
+use App\Mail\SendMail;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
+
+use Illuminate\Support\Facades\View;
 
 
 use Illuminate\Support\Facades\Hash;
@@ -22,10 +26,25 @@ class BookingController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+
+
+    public function index(Request $request)
     {
         $roomTypes=RoomType::all();
-return view('user.roomBooking',compact('roomTypes'));
+        $roomTypes->map(function($type){
+            $type->images=collect([
+                $type->kitchen,
+                $type->bedroom,
+                $type->bathroom,
+                $type->view,
+           ])->filter(function ($img){
+            return $img && $img!=='default.jpg';
+           })->values();
+            return $type;
+        });
+        $initialRoomTypeId=$request->query('room_type_id');
+
+return view('user.roomBooking',compact('roomTypes','initialRoomTypeId'));
     }
 
     /**
@@ -63,7 +82,6 @@ return view('user.roomBooking',compact('roomTypes'));
     $checkOut = $request->check_out;
     $roomTypeId = $request->room_type_id;
 
-    // Fetch rooms of this type that are NOT booked during this period
     $rooms = Room::where('room_type_id', $roomTypeId)
         ->whereDoesntHave('bookings', function ($query) use ($checkIn, $checkOut) {
             $query->where(function ($q) use ($checkIn, $checkOut) {
@@ -77,9 +95,9 @@ return view('user.roomBooking',compact('roomTypes'));
 
     return response()->json(['rooms' => $rooms]);
 
-         
+
 }
-        
+
         $bookedRoomIds = Booking::where(function($q) use($check_in, $check_out) {
             $q->whereBetween('check_in', [$check_in, $check_out])
               ->orWhereBetween('check_out', [$check_in, $check_out])
@@ -103,7 +121,7 @@ return view('user.roomBooking',compact('roomTypes'));
     }
 
 
-    
+
 
 
     public function store(Request $request)
@@ -129,7 +147,7 @@ return view('user.roomBooking',compact('roomTypes'));
 
         if($user){
             $rules = array_merge($rules, [
-                
+
                 // 'phone' => 'required|string',
                 // 'credential' => 'required|string',
                 // 'address'=>'required|string'
@@ -170,26 +188,33 @@ return view('user.roomBooking',compact('roomTypes'));
         $room->is_avaliable = 'booked';
         $room->save();
 
-  return response()->json([
-        'message' => 'Booking successfully!',
-        'booking' => $booking
-    ]);  
+    return redirect()->back()->with('success', 'Booking Request send!');
+
       }
 
 
-    public function viewTodayBook(){
+ public function viewTodayBook(){
 $todayDay = Carbon::today();
 
-$todayBooks = Booking::where('check_in', $todayDay)->paginate(5);
+$todayBooks = Booking::where('check_in', $todayDay)
+ ->where('status', 'booked')
+->paginate(5);
 return view('admin.checkList.index',compact('todayBooks'));
 }
 
 
 
-public function pendingList(){
+public function pendingList(Request $request){
+
+    $highlightId = $request->query('highlight');
 
 $pending=Booking::where('status','pending')->paginate(5);
-return view('admin.room.pendingList',compact('pending'));
+$highlightBooking = null;
+    if ($highlightId) {
+        $highlightBooking = Booking::with(['user', 'room.room_type'])
+            ->find($highlightId);
+    }
+return view('admin.room.pendingList',compact('pending','highlightId','highlightBooking'));
 }
 
 
@@ -200,10 +225,34 @@ $room=Room::findOrFail($request->room_id);
 if($request->status=="booked"){
 $room->is_avaliable="booked";
 $pendingList->status='booked';
-}
+
+  $details = [
+            'greeting' => "Hello ".$pendingList->user->name,
+            'body' => "Your booking for room ".$room->name." has been successfully confirmed.",
+            'action_text' => "View Booking",
+'action_url' => url('/user/booking/'.$pendingList->id),
+
+'end_line' => "Thank you for choosing our hotel!",
+            'subject' => "Booking Confirmed"
+        ];
+
+        Mail::to($pendingList->user->email)->send(new SendMail($details));
+    }
+
 if($request->status=="cancle"){
 $room->is_avaliable="avaliable";
 $pendingList->status='cancle';
+
+ $details = [
+            'greeting' => "Hello ".$pendingList->user->name,
+            'body' => "Your booking for room ".$room->name." has been cancelled.",
+            'action_text' => "Contact Us",
+'action_url' => url('/#contact'),
+            'end_line' => "We hope to serve you next time.",
+            'subject' => "Booking Cancelled"
+        ];
+
+        Mail::to($pendingList->user->email)->send(new SendMail($details));
 }
 
 $pendingList->update();
@@ -223,7 +272,8 @@ return redirect()->back();
      */
     public function show($id)
     {
-
+        $pending = Booking::find($id);
+       return redirect()->route('admin.booking.pending',compact('pending'));
     }
 
     /**
@@ -267,5 +317,5 @@ return redirect()->back();
         //
     }
 
-  
+
 }

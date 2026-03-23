@@ -7,18 +7,23 @@ use Illuminate\Http\Request;
 
 class RoleMiddleware
 {
-    /**
-     * Handle an incoming request.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Closure(\Illuminate\Http\Request): (\Illuminate\Http\Response|\Illuminate\Http\RedirectResponse)  $next
-     * @return \Illuminate\Http\Response|\Illuminate\Http\RedirectResponse
-     */
-    public function handle(Request $request, Closure $next,string $role)
+    public function handle(Request $request, Closure $next, $role)
     {
-        if(!auth()->check() || auth()->user()->role !==$role){
-            abort(403,'Unathorized Access');
+        // If user is not logged in, redirect to welcome page
+        if (! $request->user()) {
+            return redirect()->route('/');
         }
+
+        // If user is logged in but role doesn't match
+        if ($request->user()->role !== $role) {
+            if ($request->user()->role === 'admin') {
+                return redirect()->route('admin.viewDashboard');
+            } else {
+                return redirect()->route('user.dashboard');
+            }
+        }
+
+        // If role matches, allow access
         return $next($request);
     }
 }

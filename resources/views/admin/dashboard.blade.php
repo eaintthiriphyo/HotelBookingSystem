@@ -47,7 +47,7 @@
         </div>
 
         <!-- Check In -->
-       
+
 
 
           <div class="col-xl-3 col-md-6 mb-4">
@@ -74,7 +74,7 @@
                         <div class="col">
   <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                    Monthly Check In ({{ \Carbon\Carbon::now()->format('F') }})
-                            </div>                           
+                            </div>
                              <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $thisMonthCheckIn }}</div>
                         </div>
                         <div class="col-auto">
@@ -220,35 +220,40 @@
     });
 
 
-    var legend = document.getElementById("pieLegend");
-    legend.innerHTML = ""; // Clear existing legend
 
-    labels.forEach(function(label, i) {
-        var color = colors[i % colors.length];
 
-        // Legend container
-        var item = document.createElement("div");
-        item.style.display = "flex";
-        item.style.alignItems = "center";
-        item.style.marginBottom = "5px";
 
-        // Color box
-        var box = document.createElement("span");
-        box.style.display = "inline-block";
-        box.style.width = "20px";
-        box.style.height = "20px";
-        box.style.backgroundColor = color;
-        box.style.marginRight = "8px";
-        box.style.borderRadius = "4px";
 
-        // Text
-        var text = document.createElement("span");
-        text.innerText = label + " (" + data[i] + " booked)";
+  var legend = document.getElementById("pieLegend");
+        var row = document.createElement("div");
+        row.className = "row";
 
-        // Append to legend
-        item.appendChild(box);
-        item.appendChild(text);
-        legend.appendChild(item);
-    });
+        labels.forEach(function(label, i) {
+            var col = document.createElement("div");
+            col.className = "col-6 mb-2";
+
+            var item = document.createElement("div");
+            item.style.display = "flex";
+            item.style.alignItems = "center";
+            item.style.background = "#f8f9fc";
+            item.style.padding = "6px 10px";
+            item.style.borderRadius = "6px";
+
+            var box = document.createElement("span");
+            box.style.width = "20px";
+            box.style.height = "20px";
+            box.style.backgroundColor = colors[i];
+            box.style.marginRight = "8px";
+
+            var text = document.createElement("span");
+            text.innerText = label + " ( booked" + data[i] + ")";
+
+            item.appendChild(box);
+            item.appendChild(text);
+            col.appendChild(item);
+            row.appendChild(col);
+        });
+
+        legend.appendChild(row);
 </script>
 @endsection

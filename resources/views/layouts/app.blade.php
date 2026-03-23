@@ -47,7 +47,7 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-lightshadow-sm navbar-custom">
             <div class="container">
-                <a class="navbar-brand" href="{{route('welcome')}}">🏨 Hotel Booking</a>
+                <a class="navbar-brand" href="{{route('welcome')}}">🏨 Pardise</a>
 
                 <button class="navbar-toggler bg-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>

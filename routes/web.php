@@ -27,7 +27,6 @@ use Illuminate\Support\Facades\Auth;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
@@ -35,11 +34,13 @@ Route::get('/', function () {
 
 
 
-
 Auth::routes();
+Route::get('/',function(){
+    return view('welcome');
+});
 Route::get('/reviews',[ReviewController::class,'index'])->name('viewReview');
 Route::post('/reviews',[ReviewController::class,'store'])->name('review.store');
-
+  Route::post('/contact',[ContactController::class,'store'])->name('contact.store');
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::middleware(['auth','role:admin'])
@@ -85,7 +86,7 @@ Route::middleware(['auth','role:admin'])
 
     Route::get('/booking/pending',[BookingController::class,'pendingList'])->name('booking.pending');
     Route::put('/booking/changePending/{id}',[BookingController::class,'changePending'])->name('booking.changePending');
-
+    // Route::get('/booking/show/{id}',[BookingController::class,'show'])->name('booking.show');
 
     Route::get('booking/bookingList', [BookingController::class, 'viewTodayBook'])->name('booking.todayBook');
 
@@ -133,22 +134,27 @@ Route::put('staff/profile/changePassword/{id}',[StaffController::class,'ChangePa
 
 
 
+Route::get('/contact',[ContactController::class,'index'])->name('contact.index');
 
+Route::get('/contact/show/{id}',[ContactController::class,'show'])->name('contact.show');
+Route::get('/contact/view/{id}',[ContactController::class,'view'])->name('contact.view');
 
+Route::delete('/contact/destroy/{id}',[ContactController::class,'destroy'])->name('contact.destroy');
 
+Route::get('/viewMail/{id}',[ContactController::class,'viewMail'])->name('Mail');
 
+Route::post('/sendMail/{id}',[ContactController::class,'sendMail'])->name('sendMail');
 
 
 Route::resource('roomType', RoomTypeController::class);
 Route::get('roomTypes/search', [RoomTypeController::class, 'search'])->name('roomTypes.search');
 });
+Auth::routes();
 Route::middleware(['auth','role:user'])
 ->prefix('user')
 ->name('user.')
 ->group(function(){
-    Route::get('/dashboard',function(){
-        return view ('user.dashboard');
-    })->name('dashboard');
+    Route::get('/dashboard',[HomeController::class,'index'])->name('dashboard');
 
 
  Route::get('/viewProfile/{email}',[CustomerController::class,'viewProfile'])->name('viewProfile');
@@ -161,6 +167,7 @@ Route::get('/contact',[ContactController::class,'index'])->name('contact');
 Route::get('/booking/room',[BookingController::class,'index'])->name('bookingRoom');
  Route::get('booking/available-rooms', [BookingController::class, 'availableRooms'])->name('booking.availableRooms');
   Route::post('booking/store', [BookingController::class, 'store'])->name('booking.store');
+
 
 
 
