@@ -12,7 +12,7 @@
 
     <div class="card shadow-sm border-0">
         <!-- Card Header -->
-        <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center">
+        <div class="card-header d-flex justify-content-between align-items-center" style="background-color:navy;color:white">
             <h3 class="mb-0 fw-bold" style="text-shadow:1px 1px 2px #000;">Add Room Type</h3>
             <a href="{{ route('admin.roomType.index') }}" class="btn btn-light btn-sm">
                 <i class="fas fa-list"></i> View Lists
@@ -47,7 +47,7 @@
                     @php $images = ['kitchen', 'bedroom', 'bathroom', 'view']; @endphp
                     @foreach ($images as $img)
                         <div class="col-md-6">
-                            <label for="{{ $img }}" class="form-label">{{ ucfirst($img) }} Image</label>
+                            <label for="{{ $img }}" class="form-label"> Image</label>
                             <input type="file" name="{{ $img }}" id="{{ $img }}" class="form-control mb-2">
                             <img id="{{ $img }}Preview" src="#" alt="Preview" class="img-thumbnail d-none" width="120">
                         </div>
@@ -55,7 +55,7 @@
                 </div>
 
                 <div class="d-flex justify-content-end mt-3">
-                    <button type="submit" class="btn btn-primary">
+                    <button type="submit" class="btn "style="background-color:navy;color:white">
                         <i class="fas fa-plus"></i> Create Room Type
                     </button>
                 </div>

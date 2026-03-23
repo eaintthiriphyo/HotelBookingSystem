@@ -6,7 +6,7 @@
     <div class="card shadow-sm p-3 border-0">
 
         <!-- Header -->
-        <div class="card-header d-flex justify-content-between align-items-center bg-dark text-white">
+        <div class="card-header d-flex justify-content-between align-items-center "style="background-color:navy;color:white">
             <h3 class="mb-0 fw-bold fw-semibold">Room Types</h3>
             <a href="{{ route('admin.roomType.create') }}" class="btn btn-light btn-sm"><i class="fas fa-plus"></i>Add New</a>
         </div>
@@ -20,14 +20,14 @@
         <button type="submit" class="btn btn-dark ms-2">Search</button>
     </form>
 
-    <a href="{{ route('admin.roomType.index') }}" class="btn btn-dark ms-3"><i class="fas fa-list"></i>All </a>
+    <a href="{{ route('admin.roomType.index') }}" class="btn ms-3" style="background-color:navy;color:white"><i class="fas fa-list"></i>All </a>
 </div>
 
             <!-- Room Types Table -->
             <div class="table-responsive">
                 <table class="table table-bordered table-hover align-middle text-center">
-                    <thead class="table-dark">
-                        <tr class="text-white">
+                    <thead style="background-color:navy;color:white">
+                        <tr >
                             <th>Room Type</th>
                             <th>Price</th>
                             <th>Description</th>

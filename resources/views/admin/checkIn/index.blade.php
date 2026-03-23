@@ -7,7 +7,7 @@
     <div class="card shadow-sm border-0 rounded-3">
 
         <!-- Header -->
-        <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center">
+        <div class="card-header d-flex justify-content-between align-items-center" style="background-color:navy;color:white">
             <h4 class="mb-0 fw-bold">Check-In Lists</h4>
         </div>
 
@@ -16,7 +16,7 @@
             <div class="table-responsive">
                 <table class="table table-hover table-bordered align-middle text-center">
 
-                    <thead class="table-dark">
+                    <thead style="background-color:navy;color:white">
                         <tr>
                             <th>User Email</th>
                             <th>User Name</th>

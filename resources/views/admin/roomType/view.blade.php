@@ -12,7 +12,7 @@
 
             <div class="card shadow-sm border-0">
                 <!-- Card Header -->
-                <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center">
+                <div class="card-headerd-flex justify-content-between align-items-center" style="background-color:navy;color:white">
                     <h4 class="mb-0"><b>Room Type Details</b></h4>
                 </div>
 
@@ -46,7 +46,7 @@
                         <div class="col-md-3 col-sm-6">
                             <div class="card h-100 shadow-sm text-center">
                                 <div class="card-header bg-light">
-                                    <b>{{ ucfirst($feature) }}</b>
+                                    <b>Image</b>
                                 </div>
 
                                 <div class="card-body d-flex align-items-center justify-content-center p-2">

@@ -5,7 +5,7 @@
 
     <div class="card shadow-sm p-3 mb-4">
         <!-- Card Header -->
-        <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center">
+        <div class="card-header d-flex justify-content-between align-items-center" style="background-color:navy;color:white">
             <h3 class="mb-0"><b>Room Details: {{ $room->room_number }}</b></h3>
             <a href="{{ route('admin.room.index') }}" class="btn btn-sm btn-light">
                 <i class="fas fa-arrow-left"></i> Back

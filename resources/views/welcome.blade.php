@@ -11,22 +11,48 @@
 
     <style>
         body {
-            font-family: 'Nunito', sans-serif;
+            font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
+            color: #333;
+            line-height: 1.6;
         }
 
         .navbar-custom {
-            background: rgba(0, 0, 0, 0.7);
+            background: navy;
+            border-bottom: 10px solid navy;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
+
+
 
         .navbar-custom .navbar-brand,
         .navbar-custom .nav-link {
             color: white !important;
+            border-radius: 5px;
+            padding: 5px 10px;
+            text-decoration: none;
+        }
+
+        .navbar-custom .nav-link:hover {
+            background-color: white;
+            color: navy !important;
+            border-radius: 5px;
+            padding: 5px 10px;
+        }
+
+        /* Active link */
+        .navbar-custom .nav-link.active {
+            background-color: #ff4500;
+            /* highlight active page */
+            color: white !important;
+            border-radius: 5px;
         }
 
         .hero-section {
-            background: url('https://images.unsplash.com/photo-1566073771259-6a8506099945') no-repeat center center/cover;
+
             height: 90vh;
             position: relative;
             color: white;
@@ -63,11 +89,6 @@
             margin: 20px 0;
         }
 
-        .search-bar {
-            max-width: 500px;
-            margin: auto;
-        }
-
         .section-title {
             text-align: center;
             margin: 50px 0 30px;
@@ -79,32 +100,23 @@
             object-fit: cover;
         }
 
-        .services {
-            background: #f7f7f7;
-            padding: 50px 0;
+        .about-section img {
+            max-width: 100%;
+            border-radius: 15px;
         }
 
-        .service-item {
-            text-align: center;
-            padding: 20px;
+        .services .card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .service-item i {
-            font-size: 40px;
-            margin-bottom: 15px;
-            color: #007bff;
-        }
-
-        .footer {
-            background: #222;
-            color: white;
-            padding: 20px 0;
-            text-align: center;
+        .services .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
         }
 
         .btn-custom {
-            border-radius: 30px;
-            padding: 10px 25px;
+            border-radius: 10px;
+            padding: 5px 15px;
         }
     </style>
 </head>
@@ -112,25 +124,41 @@
 <body>
 
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-custom">
-        <div class="container">
-            <a class="navbar-brand" href="#">🏨Paradise</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+    <nav class="navbar navbar-expand-lg navbar-custom mb-3 shadow-lg ">
+        <div class="container pt-3">
+            <a class="navbar-brand" href="{{ route('welcome') }}">
+                <h4>Hotel</h4>
+                <p>Luxury Hotel</p>
+            </a>
+            <button class="navbar-toggler bg-white" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#rooms">Rooms</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link {{ request()->is('/') ? 'active' : '' }}" href="{{ url('/') }}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{ request()->is('*#about') ? 'active' : '' }}" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{ request()->is('*#rooms') ? 'active' : '' }}" href="#rooms">Rooms</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{ request()->is('*#services') ? 'active' : '' }}"
+                            href="#services">Services</a>
+                    </li>
                     <li class="nav-item"><a class="nav-link" href="{{ route('viewReview') }}">Reviews</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link {{ request()->is('*#contact') ? 'active' : '' }}" href="#contact">Contact</a>
+                    </li>
                 </ul>
 
                 <div>
                     @if (Route::has('login'))
                         @auth
-                            @if (Auth::user()->status == 2)
+                            @if (Auth::user()->status == 2 && (Auth::user()->role = 'user'))
                                 <a href="{{ route('user.dashboard') }}" class="btn btn-primary btn-custom">Dashboard</a>
                             @else
                                 <a href="{{ route('admin.viewDashboard') }}" class="btn btn-primary btn-custom">Admin</a>
@@ -148,28 +176,54 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero-section">
-        <div class="hero-content">
-            <h1>Find Your Perfect Hotel</h1>
-            <p>Book the best rooms at the best hotels</p>
-            <div class="search-bar">
-                <form class="d-flex">
-                    <input class="form-control me-2" type="search" placeholder="Search hotel or room">
-                    <button class="btn btn-success btn-custom" type="submit">Search</button>
-                </form>
+    <div class="container">
+        <section class="hero-section"
+            style="background-image: url('{{ asset('images/banner.jpg') }}');
+           background-size: cover;
+           background-position: center;
+           background-repeat: no-repeat;">
+
+            <div class="hero-content">
+                <h1>Find Your Perfect Room</h1>
+                <p>Book the best rooms</p>
+            </div>
+
+        </section>
+    </div>
+    <!-- About Us -->
+    <section id="about" class="about-section py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <!-- Image Column -->
+                <div class="col-md-6 mb-4 mb-md-0">
+                    <img src="{{ asset('images/about2.jpg') }}" alt="Hotel Paradise" class="img-fluid rounded shadow">
+                </div>
+                <!-- Text Column -->
+                <div class="col-md-6">
+                    <h2 class="mb-4 fw-bold">About Us</h2>
+                    <p>
+                        Welcome to <strong>Hotel Paradise</strong>! We offer luxurious rooms, exquisite dining,
+                        and world-class service to make your stay unforgettable.
+                        Located in the heart of the city, we provide comfort, elegance, and a perfect getaway
+                        for travelers and families alike.
+                    </p>
+                    <p>
+                        Experience our modern amenities, relaxing spa, fine dining, and personalized services
+                        designed to create memorable moments.
+                    </p>
+                    <a href="#rooms" class="btn  btn-custom mt-3"  style="background-color:orangered;color:white">Explore Rooms</a>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Featured Rooms -->
-    <section id="rooms" class="container">
-        <h2 class="section-title">Featured Rooms</h2>
+    <section id="rooms" class="container my-3">
+        <h1 class="section-title">Featured Rooms</h1>
         <div class="row g-4">
             @foreach ($roomType as $rt)
                 <div class="col-md-4">
                     <div class="card card-room">
-
-                        <!-- Carousel -->
                         <div id="roomCarousel{{ $rt->id }}" class="carousel slide" data-bs-ride="carousel">
                             <div class="carousel-inner">
                                 @if ($rt->images->count() > 0)
@@ -195,48 +249,114 @@
                             </button>
                         </div>
 
-                        <!-- Card Body -->
                         <div class="card-body">
                             <h5 class="card-title">{{ $rt->room_type }}</h5>
                             <p>$ {{ $rt->price }}</p>
                             <p>{{ $rt->description }}</p>
-
-                                <a href="{{ route('login') }}" class="btn btn-primary btn-sm">Book Now</a>
-
+                            <a href="{{ route('login') }}" class="btn " style="background-color:orangered;color:white">Book Now</a>
                         </div>
-
                     </div>
                 </div>
             @endforeach
         </div>
     </section>
 
+
     <!-- Services -->
-    <section id="services" class="services">
+    <section id="services" class="services py-5">
         <div class="container">
-            <h2 class="section-title">Our Services</h2>
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="service-item">
-                        <i class="fa-solid fa-bed"></i>
-                        <h5>Comfortable Rooms</h5>
-                        <p>Luxury rooms with modern facilities.</p>
+            <h1 class="section-title mb-5">Our Services</h1>
+
+            <div class="row g-4">
+
+                <!-- Service 1 -->
+                <div class="col-md-3 col-sm-6">
+                    <div class="card shadow-lg h-100 text-center shadow-sm border-0">
+                        <div class="card-body">
+                            <i class="fa-solid fa-bed fa-3x mb-3 " style="color: navy"></i>
+                            <h5 class="card-title">Comfortable Rooms</h5>
+                            <p class="card-text">Luxury rooms with modern facilities.</p>
+                        </div>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="service-item">
-                        <i class="fa-solid fa-utensils"></i>
-                        <h5>Restaurant</h5>
-                        <p>Enjoy delicious food and drinks.</p>
+
+                <!-- Service 2 -->
+                <div class="col-md-3 col-sm-6">
+                    <div class="card shadow-lg  h-100 text-center shadow-sm border-0">
+                        <div class="card-body">
+                            <i class="fa-solid fa-utensils fa-3x mb-3 " style="color: navy"></i>
+                            <h5 class="card-title">Restaurant</h5>
+                            <p class="card-text">Enjoy delicious food and drinks.</p>
+                        </div>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="service-item">
-                        <i class="fa-solid fa-spa"></i>
-                        <h5>Spa & Wellness</h5>
-                        <p>Relax and refresh your mind.</p>
+
+                <!-- Service 3 -->
+                <div class="col-md-3 col-sm-6">
+                    <div class="card shadow-lg  h-100 text-center shadow-sm border-0">
+                        <div class="card-body">
+                            <i class="fa-solid fa-spa fa-3x mb-3 " style="color: navy"></i>
+                            <h5 class="card-title">Spa & Wellness</h5>
+                            <p class="card-text">Relax and refresh your mind.</p>
+                        </div>
                     </div>
                 </div>
+
+                <!-- Service 4 -->
+                <div class="col-md-3 col-sm-6">
+                    <div class="card shadow-lg  h-100 text-center shadow-sm border-0">
+                        <div class="card-body">
+                            <i class="fa-solid fa-wifi fa-3x mb-3 " style="color: navy"></i>
+                            <h5 class="card-title">Free Wi-Fi</h5>
+                            <p class="card-text">Stay connected during your stay.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service 5 -->
+                <div class="col-md-3 col-sm-6">
+                    <div class="card shadow-lg  h-100 text-center shadow-sm border-0">
+                        <div class="card-body">
+                            <i class="fa-solid fa-bus fa-3x mb-3 " style="color: navy"></i>
+                            <h5 class="card-title">Airport Shuttle</h5>
+                            <p class="card-text">Convenient transfers to/from airport.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service 6 -->
+                <div class="col-md-3 col-sm-6">
+                    <div class="card shadow-lg  h-100 text-center shadow-sm border-0">
+                        <div class="card-body">
+                            <i class="fa-solid fa-car fa-3x mb-3 " style="color: navy"></i>
+                            <h5 class="card-title">Parking</h5>
+                            <p class="card-text">Secure parking for guests.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service 7 -->
+                <div class="col-md-3 col-sm-6">
+                    <div class="card shadow-lg  h-100 text-center shadow-sm border-0">
+                        <div class="card-body">
+                            <i class="fa-solid fa-dumbbell fa-3x mb-3 " style="color: navy"></i>
+                            <h5 class="card-title">Gym</h5>
+                            <p class="card-text">Modern fitness center for all guests.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service 8 -->
+                <div class="col-md-3 col-sm-6">
+                    <div class="card shadow-lg  h-100 text-center shadow-sm border-0">
+                        <div class="card-body">
+                            <i class="fa-solid fa-cocktail fa-3x mb-3" style="color: navy"></i>
+                            <h5 class="card-title">Bar & Lounge</h5>
+                            <p class="card-text">Relax with cocktails and beverages.</p>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
@@ -244,7 +364,7 @@
     <!-- Contact Form -->
     <section id="contact" class="py-5">
         <div class="container">
-            <h2 class="section-title text-center mb-4">Contact Us</h2>
+            <h1 class="section-title text-center mb-4">Contact Us</h1>
             <div class="row justify-content-center">
                 <div class="col-md-7">
                     @if (session('success'))
@@ -268,7 +388,7 @@
                                     <textarea name="message" class="form-control" rows="4" required></textarea>
                                 </div>
                                 <div class="text-center">
-                                    <button type="submit" class="btn btn-primary px-4">Send Message</button>
+                                    <button type="submit" class="btn px-4" style="background-color:orangered;color:white">Send Message</button>
                                 </div>
                             </form>
                         </div>
@@ -280,26 +400,90 @@
 
     <!-- Google Map -->
     <section class="py-5 bg-light">
-        <div class="container">
-            <h2 class="section-title text-center mb-4">Our Location</h2>
+        <div class="container col-8 mx-auto">
+            <h1 class="section-title text-center mb-4">Our Location</h1>
             <div class="ratio ratio-16x9">
-                <iframe src="https://www.google.com/maps/embed?pb=YOUR_FULL_EMBED_LINK_HERE"
-                    style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=YOUR_FULL_EMBED_LINK_HERE" style="border:0;"
+                    allowfullscreen="" loading="lazy"></iframe>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="footer" id="footer">
-        <p>© 2026 Hotel Booking. All rights reserved.</p>
-        <p>Follow us:
-            <a href="#" class="text-white me-2"><i class="fab fa-facebook"></i></a>
-            <a href="#" class="text-white me-2"><i class="fab fa-twitter"></i></a>
-            <a href="#" class="text-white"><i class="fab fa-instagram"></i></a>
-        </p>
+    <footer class="text-white py-5" style="background-color: navy; margin-top:150px;">
+        <div class="container text-center">
+            <div class="row mt-5">
+                <div class="col-md-4 mb-4">
+                    <h5 class="fw-bold mb-3" style="font-size: 1.3rem;">Hotel Paradise</h5>
+                    <p style="font-size: 0.95rem; line-height: 1.6;">
+                        Your luxurious stay in the heart of the city. Experience comfort, elegance, and exceptional
+                        service at our hotel.
+                    </p>
+                </div>
+
+                <div class="col-md-4 mb-4">
+                    <h5 class="fw-bold mb-3" style="font-size: 1.3rem;">Contact</h5>
+                    <ul class="list-unstyled" style="font-size: 0.95rem; line-height: 2;">
+                        <li><i class="fas fa-phone-alt me-2"></i> +95 123 456 789</li>
+                        <li><i class="fas fa-envelope me-2"></i> info@hotelparadise.com</li>
+                        <li><i class="fab fa-facebook me-2"></i> facebook.com/hotelparadise</li>
+                        <li><i class="fab fa-instagram me-2"></i> @hotelparadise</li>
+                    </ul>
+                </div>
+
+                <div class="col-md-4 mb-4">
+                    <h5 class="fw-bold mb-3" style="font-size: 1.3rem;">Quick Links</h5>
+                    <ul class="list-unstyled" style="font-size: 0.95rem; line-height: 2;">
+                        <li><a href="#" class="text-white text-decoration-none hover-underline">Home</a></li>
+                        <li><a href="#" class="text-white text-decoration-none hover-underline">Services</a>
+                        </li>
+                        <li><a href="#" class="text-white text-decoration-none hover-underline">Reviews</a></li>
+                        <li><a href="#" class="text-white text-decoration-none hover-underline">Email &
+                                Address</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <hr class="bg-light">
+
+            <div class="text-center" style="font-size: 0.9rem;">
+                <span>&copy; {{ date('Y') }} Hotel Paradise. All rights reserved.</span>
+            </div>
+        </div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+    // Select all navbar links
+    const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+
+    navLinks.forEach(link => {
+        link.addEventListener('click', function () {
+            // Remove active from all links
+            navLinks.forEach(l => l.classList.remove('active'));
+            this.classList.add('active');
+        });
+    });
+
+    // Optional: Highlight based on scroll
+    const sections = document.querySelectorAll('section');
+    window.addEventListener('scroll', () => {
+        let current = '';
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop - 80;
+            if (pageYOffset >= sectionTop) {
+                current = section.getAttribute('id');
+            }
+        });
+
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === '#' + current) {
+                link.classList.add('active');
+            }
+        });
+    });
+</script>
 </body>
 
 </html>

@@ -3,20 +3,20 @@
 @section('content')
 <div class="container pt-4">
     <div class="card shadow-sm border-0">
-        <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center">
+        <div class="card-header d-flex justify-content-between align-items-center" style="background-color:navy;color:white">
             <h3 class="mb-0"><b>Customers Lists</b></h3>
         </div>
 
         <div class="table-responsive p-3">
             <table class="table table-hover table-bordered align-middle text-center">
-                <thead class="table-dark">
+                <thead style="background-color:navy;color:white">
                     <tr>
                         <th>Image</th>
                         <th>Customer Name</th>
                         <th>Customer Email</th>
                         <th>Customer Phone</th>
                         <th>Customer Credential</th>
-                       
+
                     </tr>
                 </thead>
                 <tbody>
@@ -33,7 +33,7 @@
                         <td>{{ $c->email }}</td>
                         <td>{{ $c->phone }}</td>
                         <td>{{ $c->credential }}</td>
-                      
+
                     </tr>
                     @empty
                     <tr>

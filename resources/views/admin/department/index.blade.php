@@ -4,7 +4,7 @@
 <div class="container-fluid pt-4">
 
     <div class="card shadow-sm border-0">
-        <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center">
+        <div class="card-header  d-flex justify-content-between align-items-center" style="background-color:navy;color:white">
             <h3 class="mb-0"><b>Department Lists</b></h3>
             <a href="{{ route('admin.department.create') }}" class="btn btn-light btn-sm">
                 <i class="fas fa-plus"></i> Add New
@@ -14,7 +14,7 @@
         <div class="card-body p-3">
             <div class="table-responsive">
                 <table class="table table-hover table-bordered align-middle text-center">
-                    <thead class="table-dark">
+                    <thead style="background-color:navy;color:white">
                         <tr>
                             <th>Department Title</th>
                             <th>Details</th>
@@ -29,19 +29,19 @@
                             <td>
                                 <div  class="btn-group" role="group">
                                     <a href="{{ route('admin.department.edit', $d->id) }}" class="btn btn-sm btn-primary" title="Edit">
-                                        <i class="fas fa-edit"></i> 
+                                        <i class="fas fa-edit"></i>
                                     </a>
                                     <form action="{{ route('admin.department.destroy', $d->id) }}" method="POST" class="d-inline" >
                                         @csrf
                                         @method('DELETE')
                                         <button class="btn btn-sm btn-danger" onsubmit="return confirm('Are you sure you want to delete this department?');">
-                                            <i class="fas fa-trash-alt"></i> 
+                                            <i class="fas fa-trash-alt"></i>
                                         </button>
                                     </form>
                                 </div>
 
 
-                                 
+
                             </td>
                         </tr>
                         @empty

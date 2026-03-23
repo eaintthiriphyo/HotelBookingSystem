@@ -5,7 +5,7 @@
 
     <div class="card shadow-sm border-0 rounded-3">
         <!-- Header -->
-        <div class="card-header bg-dark text-white text-center">
+        <div class="card-header  text-center" style="background-color:navy;color:white">
             <h2 class="mb-0">Send Email to {{ $mail->name }}</h2>
         </div>
 
@@ -56,7 +56,7 @@
 
                 <!-- Submit -->
                 <div class="text-center mt-4">
-                    <button type="submit" class="btn btn-primary px-5">Send Email</button>
+                    <button type="submit" class="btn  px-5" style="background-color:navy;color:white">Send Email</button>
                 </div>
 
             </form>

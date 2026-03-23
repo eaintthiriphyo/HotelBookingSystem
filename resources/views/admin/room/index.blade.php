@@ -5,12 +5,12 @@
 
     <!-- Card Header -->
     <div class="card shadow-sm p-3 border-0">
-        <div class="card-header d-flex justify-content-between align-items-center bg-dark text-white">
+        <div class="card-header d-flex justify-content-between align-items-center " style="background-color:navy;color:white">
             <h3 class="mb-0 fw-bold" style="color:#f8f9fa; text-shadow:1px 1px 2px #000;">Room Lists</h3>
             <a href="{{ route('admin.room.create') }}" class="btn btn-light btn-sm"><i class="fas fa-plus"></i>Add New</a>
         </div>
 
-     
+
         <div class="card-body mb-3">
             <div class="d-flex justify-content-between align-items-center gap-3">
                 <form action="{{ route('admin.room.search') }}" method="GET" class="d-flex align-items-center gap-2 flex-wrap">
@@ -22,16 +22,16 @@
                             </option>
                         @endforeach
                     </select>
-                    <button type="submit" class="btn btn-dark btn-sm">Search</button>
+                    <button type="submit" class="btn  btn-sm" style="background-color:navy;color:white">Search</button>
                 </form>
-                <a href="{{ route('admin.room.index') }}" class="btn btn-dark btn-sm"><i class="fas fa-list"></i>All Lists</a>
+                <a href="{{ route('admin.room.index') }}" class="btn btn-sm" style="background-color:navy;color:white"><i class="fas fa-list"></i>All Lists</a>
             </div>
         </div>
 
         <!-- Room Table -->
         <div class="table-responsive">
             <table class="table table-bordered table-hover align-middle text-center">
-                <thead class="table-dark">
+                <thead style="background-color:navy;color:white">
                     <tr>
                         <th class="text-white">Room Number</th>
                         <th class="text-white">Room Type</th>

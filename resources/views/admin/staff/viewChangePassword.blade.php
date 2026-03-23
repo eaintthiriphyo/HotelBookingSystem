@@ -60,7 +60,7 @@
 
                             <tr>
                                 <td colspan="2" class="text-center">
-                                    <button type="submit" class="btn btn-primary px-4">
+                                    <button type="submit" class="btn px-4" style="background-color:navy;color:white">
                                         Update Password
                                     </button>
                                 </td>

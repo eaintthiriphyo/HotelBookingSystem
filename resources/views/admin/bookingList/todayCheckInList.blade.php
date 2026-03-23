@@ -8,16 +8,16 @@
 
     <div class="card p-3">
 
-        <div class="card-header d-flex justify-content-between align-items-center">
+        <div class="card-header d-flex justify-content-between align-items-center" style="background-color:navy;color:white">
             <h3 class="mb-0"><b>Bookings Lists</b></h3>
-            <a href="{{route('admin.booking.index')}}" class="btn btn-dark btn-sm">Add New</a>
-            <a href="{{route('admin.booking.todayBook')}}" class="btn btn-dark btn-sm">Today Booking List</a>
+            <a href="{{route('admin.booking.index')}}" class="btn  btn-sm" style="background-color:white;color:navy">Add New</a>
+            <a href="{{route('admin.booking.todayBook')}}" class="btn  btn-sm" style="background-color:white;color:navy">Today Booking List</a>
 
         </div>
 
         <div class="table-responsive ">
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                <thead class="table-dark">
+                <thead style="background-color:navy;color:white">
                     <tr>
 
                         <th>User Eamil</th>
@@ -74,7 +74,7 @@
         </div>
     </div>
       <div class="d-flex justify-content-center mt-3">
-       {{ $bookList->links() }} 
+       {{ $bookList->links() }}
     </div>
 </div>
 

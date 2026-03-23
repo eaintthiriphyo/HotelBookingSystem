@@ -6,7 +6,7 @@
     <div class="card shadow border-0 rounded-3">
 
         <!-- Header -->
-        <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center rounded-top">
+        <div class="card-header d-flex justify-content-between align-items-center rounded-top" style="background-color:navy;color:white">
             <h4 class="mb-0 fw-bold">Bookings Lists</h4>
 
             <div>
@@ -25,7 +25,7 @@
             <div class="table-responsive">
                 <table class="table table-hover align-middle text-center">
 
-                    <thead class="table-dark">
+                    <thead style="background-color:navy;color:white">
                         <tr>
                             <th>User Email</th>
                             <th>User Name</th>

@@ -13,11 +13,11 @@
 
         <!-- Bookings -->
         <div class="col-xl-3 col-md-6 mb-4">
-            <div class="card border-left-primary shadow h-100 py-2">
+            <div class="card border-left-primary shadow h-100 py-3">
                 <div class="card-body">
                     <div class="row align-items-center">
                         <div class="col">
-                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Today Bookings</div>
+                            <div class="text-s font-weight-bold text-primary text-uppercase mb-1">Today Bookings</div>
                             <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $bcount }}</div>
                         </div>
                         <div class="col-auto">
@@ -29,11 +29,11 @@
         </div>
 
         <div class="col-xl-3 col-md-6 mb-4">
-            <div class="card border-left-primary shadow h-100 py-2">
+            <div class="card border-left-primary shadow h-100 py-3">
                 <div class="card-body">
                     <div class="row align-items-center">
                         <div class="col">
-                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                            <div class="text-s font-weight-bold text-primary text-uppercase mb-1">
                                     Bookings ({{ \Carbon\Carbon::now()->format('F') }})
                             </div>
                             <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $monthBook }}</div>
@@ -51,11 +51,11 @@
 
 
           <div class="col-xl-3 col-md-6 mb-4">
-            <div class="card border-left-success shadow h-100 py-2">
+            <div class="card border-left-success shadow h-100 py-3">
                 <div class="card-body">
                     <div class="row align-items-center">
                         <div class="col">
-                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Today Check In</div>
+                            <div class="text-s font-weight-bold text-success text-uppercase mb-1">Today Check In</div>
                             <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $todayCheckIn }}</div>
                         </div>
                         <div class="col-auto">
@@ -68,12 +68,12 @@
 
         <!-- Customers -->
         <div class="col-xl-3 col-md-6 mb-4">
-            <div class="card border-left-info shadow h-100 py-2">
+            <div class="card border-left-info shadow h-100 py-3">
                 <div class="card-body">
                     <div class="row align-items-center">
                         <div class="col">
-  <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                   Monthly Check In ({{ \Carbon\Carbon::now()->format('F') }})
+  <div class="text-s font-weight-bold text-primary text-uppercase mb-1">
+                                  Monthly Check In ({{ \Carbon\Carbon::now()->format('F') }})
                             </div>
                              <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $thisMonthCheckIn }}</div>
                         </div>
@@ -87,12 +87,12 @@
 
         <!-- Rooms -->
         <div class="col-xl-3 col-md-6 mb-4">
-            <div class="card border-left-warning shadow h-100 py-2">
+            <div class="card border-left-warning shadow h-100 py-3">
                 <div class="card-body">
                     <div class="row align-items-center">
                         <div class="col">
-                            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Rooms</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $roomCount }}</div>
+                            <div class="text-s font-weight-bold text-warning text-uppercase mb-1">Rooms</div>
+                            <div class=" mb-0 font-weight-bold text-gray-800">{{ $roomCount }}</div>
                         </div>
                         <div class="col-auto">
                             <i class="fas fa-bed fa-2x text-gray-300"></i>
@@ -104,12 +104,12 @@
 
         <!-- Staff -->
         <div class="col-xl-3 col-md-6 mb-4">
-            <div class="card border-left-dark shadow h-100 py-2">
+            <div class="card border-left-dark shadow h-100 py-3">
                 <div class="card-body">
                     <div class="row align-items-center">
                         <div class="col">
-                            <div class="text-xs font-weight-bold text-dark text-uppercase mb-1">Staff</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $staffCount }}</div>
+                            <div class="text-s font-weight-bold text-dark text-uppercase mb-1">Staff</div>
+                            <div class="mb-0 font-weight-bold text-gray-800">{{ $staffCount }}</div>
                         </div>
                         <div class="col-auto">
                             <i class="fas fa-user-tie fa-2x text-gray-300"></i>

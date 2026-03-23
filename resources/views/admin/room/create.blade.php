@@ -15,7 +15,7 @@
 
             <div class="card shadow-sm border-0">
 
-                <div class="card-header d-flex justify-content-between align-items-center bg-dark text-white">
+                <div class="card-header d-flex justify-content-between align-items-center" style="background-color:navy;color:white">
                     <h3 class="mb-0 fw-bold" style="color:#f8f9fa; text-shadow:1px 1px 2px #000;">Add Room</h3>
                     <a href="{{ route('admin.room.index') }}" class="btn btn-light btn-sm">View Lists</a>
                 </div>
@@ -48,7 +48,7 @@
                         </div>
 
                         <div class="d-flex justify-content-end">
-                            <button type="submit" class="btn btn-primary px-5">Create Room</button>
+                            <button type="submit" class="btn  px-5" style="background-color:navy;color:white">Create Room</button>
                         </div>
 
                     </form>
@@ -64,15 +64,15 @@
 <style>
     .form-label {
         font-weight: 500;
-        color: #212529; 
+        color: #212529;
     }
-    .card-body input, 
+    .card-body input,
     .card-body select {
         padding: 8px 10px;
-        color: #212529; 
+        color: #212529;
     }
     ::placeholder {
-        color: #495057; 
+        color: #495057;
         opacity: 1;
     }
 </style>

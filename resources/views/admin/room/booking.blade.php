@@ -5,7 +5,7 @@
 
     <!-- Room Details -->
     <div class="card mb-4 shadow-sm">
-        <div class="card-header bg-dark text-white"><b>Room Details</b></div>
+        <div class="card-header " style="background-color:navy;color:white"><b>Room Details</b></div>
         <div class="card-body">
             <table class="table table-bordered mb-0">
                 <tr>
@@ -22,7 +22,7 @@
             <label for="checkEmail" class="form-label"><b>Check Customer Email</b></label>
             <div class="d-flex">
                 <input type="email" name="email" id="checkEmail" class="form-control me-2" placeholder="Enter email">
-                <button type="button" id="checkEmailBtn" class="btn btn-dark"><i class="fa fa-search"></i></button>
+                <button type="button" id="checkEmailBtn" class="btn " style="background-color:navy;color:white"><i class="fa fa-search"></i></button>
             </div>
             <div id="emailStatus" class="mt-2"></div>
         </div>
@@ -38,7 +38,7 @@
         <form id="fullBookingForm" action="{{ route('admin.booking.store') }}" method="post" style="display:none;">
             @csrf
             <input type="hidden" name="room_id" id="fullRoomId">
-            <h5 class="mb-3 text-secondary">New Customer Details</h5>
+            <h5 class="mb-3 text-dark">New Customer Details</h5>
 
             <div class="row">
                 <div class="col-md-6 mb-3">
@@ -53,19 +53,25 @@
                 </div>
             </div>
 
-            <div class="row">
-                <div class="col-md-6 mb-3">
-                    <label>Phone</label>
-                    <input type="text" name="phone" class="form-control" value="{{ old('phone') }}">
-                    <span class="text-danger error-text phone_error"></span>
-                </div>
-                <div class="col-md-6 mb-3">
-                    <label>NRC/Passport</label>
-                    <input type="text" name="credential" class="form-control" value="{{ old('credential') }}">
-                    <span class="text-danger error-text credential_error"></span>
-                </div>
+                <div class="row">
+              <div class="col-md-6 mb-3">
+                <label>Phone</label>
+                <input type="tet" name="phone" id="existingUserphone" class="form-control" >
+                <span class="text-danger error-text phone_error"></span>
             </div>
 
+ <div class="col-md-6 mb-3">
+                <label>NRC/Passort</label>
+                <input type="text" name="credential" id="existingUsercredential" class="form-control" >
+                <span class="text-danger error-text credential_error"></span>
+            </div>
+           </div>
+
+            <div class=" mb-3">
+                <label>Address</label>
+                <input type="text" name="address" id="existingUseraddress" class="form-control" >
+                <span class="text-danger error-text address_error"></span>
+            </div>
             <div class="row">
                 <div class="col-md-6 mb-3">
                     <label>Check-In</label>
@@ -89,7 +95,7 @@
                 <span class="text-danger error-text room_id_error"></span>
             </div>
 
-            <button type="submit" class="btn btn-dark w-100">Book Room</button>
+            <button type="submit" class="btn w-100" style="background-color:navy;color:white">Book Room</button>
         </form>
 
         <!-- Existing Customer Form -->
@@ -100,10 +106,28 @@
 
             <div class="mb-3">
                 <label>Email</label>
-                <input type="email" name="email" id="existingUserEmail" class="form-control" readonly>
+                <input type="email" name="email" id="existingUserEmail" class="form-control" readonly >
                 <span class="text-danger error-text email_error"></span>
             </div>
+           <div class="row">
+              <div class="col-md-6 mb-3">
+                <label>Phone</label>
+                <input type="tet" name="phone" id="existingUserphone" class="form-control" >
+                <span class="text-danger error-text phone_error"></span>
+            </div>
 
+ <div class="col-md-6 mb-3">
+                <label>NRC/Passpord</label>
+                <input type="text" name="credential" id="existingUsercredential" class="form-control" >
+                <span class="text-danger error-text credential_error"></span>
+            </div>
+           </div>
+
+            <div class=" mb-3">
+                <label>Address</label>
+                <input type="text" name="address" id="existingUseraddress" class="form-control" >
+                <span class="text-danger error-text address_error"></span>
+            </div>
             <div class="row">
                 <div class="col-md-6 mb-3">
                     <label>Check-In</label>
@@ -127,7 +151,7 @@
                 <span class="text-danger error-text room_id_error"></span>
             </div>
 
-            <button type="submit" class="btn btn-dark w-100">Book Room</button>
+            <button type="submit" class="btn w-100" style="background-color:navy;color:white">Book Room</button>
         </form>
     </div>
 </div>

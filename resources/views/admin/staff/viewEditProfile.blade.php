@@ -16,7 +16,7 @@
                 <div class="card shadow">
                      <div class="card-header d-flex justify-content-between align-items-center">
                 <h3 class="mb-0"><b>Profile's Edit</b></h3>
-                <a href="{{ route('admin.staff.viewProfile',Auth::user()->email) }}" class="btn btn-dark btn-sm">Profile</a>
+                <a href="{{ route('admin.staff.viewProfile',Auth::user()->email) }}" class="btn  btn-sm" style="background-color:navy;color:white">Profile</a>
             </div>
 
                     <div class="card-body">
@@ -98,7 +98,7 @@
 
                                 <tr>
                                     <td colspan="2" class="text-center">
-                                        <button type="submit" class="btn btn-primary px-5">
+                                        <button type="submit" class="btn px-5" style="background-color:navy;color:white">
                                             Update Profile
                                         </button>
                                     </td>

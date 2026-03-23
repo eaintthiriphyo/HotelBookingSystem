@@ -148,9 +148,9 @@ return view('user.roomBooking',compact('roomTypes','initialRoomTypeId'));
         if($user){
             $rules = array_merge($rules, [
 
-                // 'phone' => 'required|string',
-                // 'credential' => 'required|string',
-                // 'address'=>'required|string'
+                'phone' => 'required|string',
+                'credential' => 'required|string',
+                'address'=>'required|string'
             ]);
         }
 
@@ -163,11 +163,20 @@ return view('user.roomBooking',compact('roomTypes','initialRoomTypeId'));
                 'email' => $request->email,
                 'phone' => $request->phone,
                 'credential' => $request->credential,
+                'address'=>$request->address,
                 'role' => 'user',
                 'roles'=>'user',
                 'status' => '2',
                 'password' => Hash::make('12345678'),
             ]);
+        }else{
+            $user->name=$request->name;
+            $user->email=$request->email;
+            $user->phone=$request->phone;
+            $user->address=$request->address;
+            $user->credential=$request->credential;
+            $user->update();
+
         }
 
         // Booking status
@@ -179,6 +188,7 @@ return view('user.roomBooking',compact('roomTypes','initialRoomTypeId'));
             'room_id' => $request->room_id,
             'check_in' => $request->check_in,
             'check_out' => $request->check_out,
+
             'status' => $status,
             'booked_date' => now(),
         ]);
@@ -186,6 +196,7 @@ return view('user.roomBooking',compact('roomTypes','initialRoomTypeId'));
         // Update room availability
         $room = Room::find($request->room_id);
         $room->is_avaliable = 'booked';
+
         $room->save();
 
     return redirect()->back()->with('success', 'Booking Request send!');
@@ -315,6 +326,14 @@ return redirect()->back();
     public function destroy($id)
     {
         //
+    }
+    public function viewAllList($id){
+        $list=Booking::where('user_id',$id)->get();
+        return view('user.allBooking',compact('list'));
+    }
+      public function viewbooking($id){
+        $item=Booking::findOrFail($id);
+        return view('user.bookingList',compact('item'));
     }
 
 

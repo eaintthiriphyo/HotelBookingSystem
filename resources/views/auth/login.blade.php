@@ -3,7 +3,6 @@
 @section('content')
     <style>
         body {
-            background: url('https://images.unsplash.com/photo-1566073771259-6a8506099945') no-repeat center center/cover;
             height: 100vh;
         }
 
@@ -34,7 +33,16 @@
         }
     </style>
 
-    <div class="container d-flex justify-content-center align-items-center" style="height:90vh;">
+        <section class="hero-section"
+            style="background-image: url('{{ asset('images/banner.jpg') }}');
+           background-size: cover;
+           background-position: center;
+           background-repeat: no-repeat;">
+
+
+
+
+ <div class=" d-flex justify-content-center align-items-center" style="height:90vh; ">
         <div class="col-md-5">
             <div class="card login-card p-3">
                 <div class="card-body">
@@ -76,7 +84,7 @@
                             <label class="form-check-label">Remember Me</label>
                         </div>
 
-                        <button type="submit" class="btn btn-primary w-100">
+                        <button type="submit" class="btn w-100" style="background-color:orangered;color:white">
                             Login
                         </button>
 
@@ -94,4 +102,7 @@
             </div>
         </div>
     </div>
+
+        </section>
+
 @endsection

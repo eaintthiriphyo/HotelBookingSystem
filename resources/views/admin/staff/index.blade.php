@@ -5,7 +5,7 @@
 
     <div class="card p-3">
 
-        <div class="card-header d-flex justify-content-between align-items-center bg-dark text-white">
+        <div class="card-header d-flex justify-content-between align-items-center" style="background-color:navy;color:white">
             <h3 class="mb-0 fw-bold">Staff Lists</h3>
             <a href="{{ route('admin.staff.create') }}" class="btn btn-light btn-sm">
                 <i class="fas fa-plus"></i> Add New
@@ -14,7 +14,7 @@
 
         <div class="table-responsive mt-3">
             <table class="table table-bordered table-hover text-center">
-                <thead class="table-dark text-white">
+                <thead style="background-color:navy;color:white">
                     <tr>
                         <th>Image</th>
                         <th>Staff Name</th>

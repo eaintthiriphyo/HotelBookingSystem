@@ -4,15 +4,15 @@
 <div class="container-fluid">
     <div class="container pt-4">
         <div class="card shadow-sm border-0">
-            <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center">
+            <div class="card-header  d-flex justify-content-between align-items-center" style="background-color:navy;color:white">
                 <h3 class="mb-0"><b>Today Booking Lists</b></h3>
-              
-                
+
+
             </div>
 
             <div class="table-responsive p-3">
                 <table class="table table-hover table-bordered align-middle text-center">
-                    <thead class="table-dark">
+                    <thead style="background-color:navy;color:white">
                         <tr>
                             <th>User Email</th>
                             <th>User Name</th>

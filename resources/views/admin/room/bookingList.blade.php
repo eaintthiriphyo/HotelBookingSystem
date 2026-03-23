@@ -6,7 +6,7 @@
     <div class="card shadow border-0 rounded-4">
 
         <!-- Header -->
-        <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center px-4 py-3 rounded-top-4">
+        <div class="card-header  d-flex justify-content-between align-items-center px-4 py-3 rounded-top-4" style="background-color:navy;color:white">
             <h4 class="mb-0 fw-semibold">Booked Rooms</h4>
 
             <a href="{{ route('admin.room.index') }}" class="btn btn-light btn-sm px-3">
@@ -20,7 +20,7 @@
             <div class="table-responsive">
                 <table class="table table-hover align-middle text-center mb-0">
 
-                    <thead class="bg-dark text-white">
+                    <thead style="background-color:navy;color:white">
                         <tr>
                             <th>Room No</th>
                             <th>Room Type</th>

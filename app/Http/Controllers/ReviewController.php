@@ -20,6 +20,12 @@ class ReviewController extends Controller
         return view('user.review',compact('review'));
     }
 
+     public function indexReview()
+    {
+        $review=Review::all();
+        return view('review',compact('review'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *

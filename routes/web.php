@@ -11,6 +11,7 @@ use App\Http\Controllers\StaffController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\AdminController;
 
 
 
@@ -27,18 +28,27 @@ use Illuminate\Support\Facades\Auth;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', function () {
-    return view('welcome');
-})->name('welcome');
 
 
+
+
+use App\Http\Controllers\Auth\ForgotPasswordController;
+use App\Http\Controllers\Auth\ResetPasswordController;
 
 
 Auth::routes();
-Route::get('/',function(){
-    return view('welcome');
-});
-Route::get('/reviews',[ReviewController::class,'index'])->name('viewReview');
+Route::get('password/reset', [ForgotPasswordController::class, 'showLinkRequestForm'])->name('password.request');
+Route::post('password/email', [ForgotPasswordController::class, 'sendResetLinkEmail'])->name('password.email');
+
+Route::get('password/reset/{token}', [ResetPasswordController::class, 'showResetForm'])->name('password.reset');
+Route::post('password/reset', [ResetPasswordController::class, 'reset'])->name('password.update');
+
+// Route::get('/',function(){
+//     return view('welcome');
+// });
+
+Route::get('/',[AdminController::class,'welcome'])->name('welcome');
+Route::get('/reviews',[ReviewController::class,'indexReview'])->name('viewReview');
 Route::post('/reviews',[ReviewController::class,'store'])->name('review.store');
   Route::post('/contact',[ContactController::class,'store'])->name('contact.store');
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
@@ -168,7 +178,10 @@ Route::get('/booking/room',[BookingController::class,'index'])->name('bookingRoo
  Route::get('booking/available-rooms', [BookingController::class, 'availableRooms'])->name('booking.availableRooms');
   Route::post('booking/store', [BookingController::class, 'store'])->name('booking.store');
 
-
+Route::get('/booing/List/{id}',[BookingController::class,'viewAllList'])->name('booking.viewAllList');
+Route::get('/booking/{id}',[BookingController::class,'viewbooking'])->name('booking');
+Route::get('/reviews',[ReviewController::class,'index'])->name('viewReview');
+Route::post('/reviews',[ReviewController::class,'store'])->name('review.store');
 
 
 });

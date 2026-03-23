@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Room;
+use App\Models\RoomType;
 
 class AdminController extends Controller
 {
@@ -11,9 +13,29 @@ class AdminController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+
+     public function welcome()
+    {
+
+    $roomType=RoomType::all();
+     $roomType->map(function($type){
+            $type->images=collect([
+                $type->kitchen,
+                $type->bedroom,
+                $type->bathroom,
+                $type->view,
+           ])->filter(function ($img){
+            return $img && $img!=='default.jpg';
+           })->values();
+            return $type;
+        });
+    $room=Room::all();
+        return view('welcome',compact('roomType','room'));
+    }
     public function index()
     {
-        //
+        
     }
 
     /**

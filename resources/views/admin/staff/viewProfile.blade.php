@@ -10,7 +10,7 @@
 
                    <div class="card-header d-flex justify-content-between align-items-center">
                 <h3 class="mb-0"><b>Profile's Details</b></h3>
-                <a href="{{ route('admin.staff.viewEditProfile',Auth::user()->email) }}" class="btn btn-dark btn-sm">Edit</a>
+                <a href="{{ route('admin.staff.viewEditProfile',Auth::user()->email) }}" class="btn  btn-sm" style="background-color:navy;color:white">Edit</a>
             </div>
 
 

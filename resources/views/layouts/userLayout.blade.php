@@ -4,180 +4,96 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <title>Hotel Booking</title>
 
-    <!-- Bootstrap & Font Awesome -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap & FontAwesome -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
     <style>
         body {
-            font-family: 'Segoe UI', sans-serif;
-            background: #f8f9fa;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
         }
 
-        /* Navbar */
         .navbar-custom {
-            background: rgba(0, 0, 0, 0.85);
-            backdrop-filter: blur(6px);
+            background: navy;
+            border-bottom: 10px solid navy;
             position: sticky;
             top: 0;
             z-index: 1000;
         }
 
+        .navbar-custom .navbar-brand,
         .navbar-custom .nav-link {
             color: white !important;
-            font-weight: 500;
-            margin-right: 15px;
+            border-radius: 5px;
+            padding: 5px 10px;
+            text-decoration: none;
         }
 
         .navbar-custom .nav-link:hover {
-            color: #ffc107 !important;
+            background-color: white;
+            color: navy !important;
         }
 
-        /* Hero Section */
+        .navbar-custom .nav-link.active {
+            background-color: #ff4500;
+            color: white !important;
+        }
+
         .hero-section {
-            position: relative;
             height: 90vh;
-            background: url('https://images.unsplash.com/photo-1566073771259-6a8506099945') no-repeat center center/cover;
+            position: relative;
             color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
         }
 
         .hero-section::before {
             content: '';
             position: absolute;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.6);
             top: 0;
             left: 0;
-            z-index: 1;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
         }
 
         .hero-content {
             position: relative;
-            z-index: 2;
+            z-index: 1;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             text-align: center;
-            width: 100%;
-            max-width: 700px;
         }
 
         .hero-content h1 {
-            font-size: 3.5rem;
+            font-size: 3rem;
             font-weight: 700;
         }
 
         .hero-content p {
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             margin: 20px 0;
         }
 
-        .search-bar {
-            max-width: 500px;
-            margin: 20px auto 0;
-        }
-
-        .search-bar input {
-            border-radius: 30px 0 0 30px;
-        }
-
-        .search-bar button {
-            border-radius: 0 30px 30px 0;
-        }
-
-        /* Rooms & Services */
-        .section-title {
-            text-align: center;
-            margin: 60px 0 40px;
-            font-weight: 700;
-        }
-
-        .section-title:after {
-            content: '';
-            width: 80px;
-            height: 3px;
-            background: #0d6efd;
-            display: block;
-            margin: 10px auto;
-        }
-
-        .card-room {
-            border: none;
-            border-radius: 12px;
-            overflow: hidden;
-            transition: 0.3s;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        .card-room img {
-            height: 220px;
-            object-fit: cover;
-            transition: 0.4s;
-        }
-
-        .card-room:hover img {
-            transform: scale(1.1);
-        }
-
-        .card-room:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-        }
-
-        .services {
-            background: white;
-            padding: 60px 0;
-        }
-
-        .service-item {
-            text-align: center;
-            padding: 30px;
-            border-radius: 10px;
-            transition: 0.3s;
-        }
-
-        .service-item i {
-            font-size: 40px;
-            color: #0d6efd;
-            margin-bottom: 15px;
-        }
-
-        .service-item:hover {
-            background: #f1f1f1;
-            transform: translateY(-5px);
-        }
-
-        /* Footer */
         .footer {
-            background: #111;
-            color: #ccc;
-            padding: 30px 0;
-            text-align: center;
-            margin-top: auto;
+            background-color: navy;
+            color: white;
+            padding: 50px 0;
         }
 
         .footer a {
             color: white;
-            margin: 0 10px;
+            text-decoration: none;
         }
 
         .footer a:hover {
-            color: #ffc107;
-        }
-
-        /* Profile Image */
-        .profile-img {
-            width: 35px;
-            height: 35px;
-            border-radius: 50%;
-            object-fit: cover;
+            text-decoration: underline;
         }
     </style>
 </head>
@@ -185,40 +101,66 @@
 <body>
 
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
+    <nav class="navbar navbar-expand-lg navbar-custom mb-3 shadow-lg">
         <div class="container">
-            <a class="navbar-brand fw-bold" href="#">🏨 Paradise</a>
-            <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <a class="navbar-brand" href="{{ route('welcome') }}">
+                <h4>Paradise</h4>
+                <p>Luxury Hotel</p>
+            </a>
+            <button class="navbar-toggler bg-white" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
             <div class="collapse navbar-collapse" id="navbarNav">
+                <!-- Left Links -->
                 <ul class="navbar-nav me-auto">
-                    <li class="nav-item"><a class="nav-link" href="{{ route('user.dashboard') }}">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{ route('user.dashboard') }}#rooms">Rooms</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{ route('viewReview') }}">Reviews</a></li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#contact">Contact</a>
+                        <a class="nav-link {{ request()->routeIs('user.dashboard') ? 'active' : '' }}"
+                            href="{{ route('user.dashboard') }}">Home</a>
                     </li>
 
-                    @auth
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('user.dashboard') }}#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('user.dashboard') }}#rooms">Rooms</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('user.dashboard') }}#services">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('user.dashboard') }}#contact">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{ request()->routeIs('user.viewReview') ? 'active' : '' }}"
+                            href="{{ route('user.viewReview') }}">Reviews</a>
+                    </li>
 
+
+                    @auth
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('user.bookingRoom') }}">Booking</a>
+                            <a class="nav-link {{ request()->routeIs('user.bookingRoom') ? 'active' : '' }}"
+                                href="{{ route('user.bookingRoom') }}">Booking</a>
                         </li>
                     @endauth
                 </ul>
 
-                <!-- Auth User -->
+                <!-- Right Auth -->
                 <ul class="navbar-nav ms-auto">
-                    @auth
+                    @guest
+                        <li class="nav-item"><a class="nav-link" href="{{ route('login') }}">Login</a></li>
+                        @if (Route::has('register'))
+                            <li class="nav-item"><a class="nav-link" href="{{ route('register') }}">Register</a></li>
+                        @endif
+                    @else
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" role="button"
                                 data-bs-toggle="dropdown">
-                                <img class="profile-img me-2"
-                                    src="{{ Auth::user()->image ? asset('images/user/' . Auth::user()->image) : asset('images/user/default.png') }}">
-                                <span class="text-white">{{ Auth::user()->name }}</span>
+                                <img class="profile-img me-2 rounded-circle"
+                                    src="{{ Auth::user()->image ? asset('images/user/' . Auth::user()->image) : asset('images/user/default.png') }}"
+                                    width="35">
+                                <span>{{ Auth::user()->name }}</span>
                             </a>
                             <ul class="dropdown-menu dropdown-menu-end shadow">
                                 <li class="text-center p-3 border-bottom">
@@ -248,7 +190,7 @@
                                 </li>
                             </ul>
                         </li>
-                    @endauth
+                    @endguest
                 </ul>
             </div>
         </div>
@@ -256,22 +198,66 @@
 
     <!-- Main Content -->
     <div class="main-content">
-        <div class="containe-fluidr">
-            @yield('content')
-        </div>
+        @yield('content')
     </div>
 
     <!-- Footer -->
-    <footer class="footer" id="contact">
-        <p>© 2026 Hotel Booking. All rights reserved.</p>
-        <p>
-            <a href="#"><i class="fab fa-facebook"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
-        </p>
+    <footer class="footer">
+        <div class="container text-center">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <h5 class="fw-bold">Hotel Paradise</h5>
+                    <p>Your luxurious stay in the heart of the city. Comfort, elegance, and exceptional service.</p>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5 class="fw-bold">Contact</h5>
+                    <p><i class="fas fa-phone-alt me-2"></i>+95 123 456 789</p>
+                    <p><i class="fas fa-envelope me-2"></i>info@hotelparadise.com</p>
+                    <p><i class="fab fa-facebook me-2"></i>facebook.com/hotelparadise</p>
+                    <p><i class="fab fa-instagram me-2"></i>@hotelparadise</p>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5 class="fw-bold">Quick Links</h5>
+                    <a href="{{ route('welcome') }}">Home</a><br>
+                    <a href="{{ route('welcome') }}#services">Services</a><br>
+                    <a href="{{ route('viewReview') }}">Reviews</a><br>
+                    <a href="{{ route('welcome') }}#contact">Contact</a>
+                </div>
+            </div>
+            <hr class="bg-light">
+            <div>&copy; {{ date('Y') }} Hotel Paradise. All rights reserved.</div>
+        </div>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Scroll-based section highlighting
+        const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+        const sections = document.querySelectorAll('section[id]');
+
+        function setActiveLink() {
+            let scrollPos = window.pageYOffset || document.documentElement.scrollTop;
+
+            sections.forEach(section => {
+                let top = section.offsetTop - 100;
+                let bottom = top + section.offsetHeight;
+
+                const id = section.getAttribute('id');
+                if (scrollPos >= top && scrollPos < bottom) {
+                    navLinks.forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href').includes('#' + id)) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        }
+
+        window.addEventListener('scroll', setActiveLink);
+        window.addEventListener('load', setActiveLink);
+    </script>
 </body>
 
 </html>

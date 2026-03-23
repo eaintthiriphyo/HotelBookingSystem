@@ -15,7 +15,7 @@
         <div class="col-md-8">
 
             <div class="card shadow-sm border-0">
-                <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center">
+                <div class="card-header d-flex justify-content-between align-items-center" style="background-color:navy;color:white">
                     <h3 class="mb-0"><b>Add New Staff</b></h3>
                     <a href="{{ route('admin.staff.index') }}" class="btn btn-light btn-sm">
                         <i class="fas fa-list"></i> View Lists
@@ -77,7 +77,7 @@
                             </div>
 
                             <div class="col-12 text-center">
-                                <button type="submit" class="btn btn-primary px-5 mt-3">
+                                <button type="submit" class="btn px-5 mt-3"style="background-color:navy;color:white">
                                     <i class="fas fa-plus-circle"></i> Create
                                 </button>
                             </div>
@@ -112,6 +112,6 @@
     .alert {
         border-radius: 10px;
     }
-   
+
 </style>
 @endsection
