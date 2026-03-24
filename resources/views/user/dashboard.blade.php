@@ -86,7 +86,7 @@
                             <h5 class="card-title">{{ $rt->room_type }}</h5>
                             <p>$ {{ $rt->price }}</p>
                             <p>{{ $rt->description }}</p>
-                            <a href="{{ route('login') }}" class="btn " style="background-color: orangered;color:white">Book Now</a>
+                            <a href="{{ route('user.bookingRoom') }}" class="btn " style="background-color: orangered;color:white">Book Now</a>
                         </div>
                     </div>
                 </div>
@@ -215,6 +215,10 @@
                                 <div class="mb-3">
                                     <label class="form-label">Email</label>
                                     <input type="email" name="email" class="form-control" required>
+                                </div>
+                                  <div class="mb-3">
+                                    <label class="form-label">Phone</label>
+                                    <input type="text" name="phone" class="form-control" required>
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label">Message</label>
