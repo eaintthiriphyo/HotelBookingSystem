@@ -31,6 +31,7 @@
                             <th>Room Type</th>
                             <th>Price</th>
                             <th>Description</th>
+                            <th>Status</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -40,6 +41,8 @@
                             <td class="fw-semibold">{{ $rt->room_type }}</td>
                             <td>${{ number_format($rt->price, 2) }}</td>
                             <td>{{ $rt->description }}</td>
+                            <td>{{ $rt->status }}</td>
+
                             <td>
                                 <div class="btn-group" role="group">
                                     <!-- View Icon -->
@@ -51,12 +54,21 @@
                                         <i class="fas fa-edit"></i>
                                     </a>
                                     <!-- Delete Icon -->
-                                    <form action="{{ route('admin.roomType.destroy', $rt->id) }}" method="POST" class="d-inline">
+                                    <form action="{{ route('admin.roomTypes.delete', $rt->id) }}" method="POST" class="d-inline">
                                         @csrf
-                                        @method('DELETE')
+                                        @method('PUT')
+                                      @if($rt->status==="active")
+                                      <input type="hidden" value="inactive" name="status" id="">
                                         <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure?')" title="Delete">
-                                            <i class="fas fa-trash-alt"></i>
+                                            <i class="fas fa-trash-alt"></i>Inactive
                                         </button>
+                                        @else
+                                              <input type="hidden" value="active" name="status" id="">
+
+                                         <button type="submit" class="btn btn-sm btn-success" onclick="return confirm('Are you sure?')" title="Delete">
+                                            <i class="fas fa-trash-alt"></i>active
+                                        </button>
+                                      @endif
                                     </form>
                                 </div>
                             </td>

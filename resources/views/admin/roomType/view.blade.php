@@ -37,6 +37,10 @@
                             <h5>Description:</h5>
                             <p>{{ $roomType->description }}</p>
                         </div>
+                        <div class="col-12 mb-3">
+                            <h5>Status:</h5>
+                            <p>{{ $roomType->status }}</p>
+                        </div>
                     </div>
 
                     <!-- Room Features -->

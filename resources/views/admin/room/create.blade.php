@@ -37,9 +37,11 @@
                             <select name="room_type_id" class="form-select form-control">
                                 <option value="">Select Room Type</option>
                                 @foreach($roomType as $type)
+                                    @if($type->status==="active")
                                     <option value="{{ $type->id }}" {{ old('room_type_id') == $type->id ? 'selected' : '' }}>
                                         {{ $type->room_type }}
                                     </option>
+                                    @endif
                                 @endforeach
                             </select>
                             @error('room_type_id')

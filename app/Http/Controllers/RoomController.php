@@ -58,10 +58,16 @@ class RoomController extends Controller
     public function store(Request $request)
     {
 
-        $this->validator($request->all())->validate();
-        // return $request;
+         $data = $request->all();
+         $data['room_number'] = 'R_' . $request->room_number; 
+        
+          Validator::make($data, [
+        'room_number' => ['required','string','max:255','unique:rooms,room_number'],
+        'room_type_id'=> ['required','integer','exists:room_types,id'],
+    ])->validate();
+
         $room=new Room();
-        $room->room_number='R_' . $request->room_number;
+        $room->room_number= $data['room_number'];
         $room->room_type_id=$request->room_type_id;
         $room->is_avaliable = "avaliable";
         $room->save();

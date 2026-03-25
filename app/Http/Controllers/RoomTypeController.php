@@ -157,19 +157,22 @@ class RoomTypeController extends Controller
      */
     public function destroy($id)
     {
+     ;
+    }
+
+     public function delete(Request $request,$id)
+    {
         $roomType=RoomType::findOrFail($id);
-        $imageFields=['kitchen','bedroom','bathroom','view'];
-        foreach($imageFields as $img){
-            if($roomType->$img && $roomType->$img !='default.jpg'){
-                $path = public_path('images/'.$roomType->$img);                    if(file_exists($path)){
-                        unlink($path);
-                    }
-
-
-            }
+       $status=$request->status;
+       if($status=="inactive"){
+        $roomType->status=$status;
+       }
+        if($status=="active"){
+            $roomType->status=$status;
         }
-                $roomType->delete();
-                return redirect()->route('admin.roomType.index')->with('successRT','Room Type deleted successfully!!');
+    
+                $roomType->update();
+                return redirect()->route('admin.roomType.index');
     }
 
 

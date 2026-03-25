@@ -158,6 +158,8 @@ Route::post('/sendMail/{id}',[ContactController::class,'sendMail'])->name('sendM
 
 Route::resource('roomType', RoomTypeController::class);
 Route::get('roomTypes/search', [RoomTypeController::class, 'search'])->name('roomTypes.search');
+Route::put('roomTypes/delete/{id}', [RoomTypeController::class, 'delete'])->name('roomTypes.delete');
+
 });
 Auth::routes();
 Route::middleware(['auth','role:user'])
