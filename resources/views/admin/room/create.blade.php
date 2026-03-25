@@ -25,7 +25,7 @@
                         @csrf
 
                         <div class="mb-3">
-                            <label for="room_number" class="form-label text-dark">Room Number</label>
+                            <label for="room_number" class="form-label ">Room Number</label>
                             <input type="text" name="room_number" class="form-control text-dark" value="{{ old('room_number') }}" placeholder="Enter room number">
                             @error('room_number')
                                 <span class="text-danger">{{ $message }}</span>
@@ -34,7 +34,7 @@
 
                         <div class="mb-3">
                             <label for="room_type_id" class="form-label text-dark">Room Type</label>
-                            <select name="room_type_id" class="form-select text-dark form-control">
+                            <select name="room_type_id" class="form-select form-control">
                                 <option value="">Select Room Type</option>
                                 @foreach($roomType as $type)
                                     <option value="{{ $type->id }}" {{ old('room_type_id') == $type->id ? 'selected' : '' }}>
@@ -74,6 +74,9 @@
     ::placeholder {
         color: #495057;
         opacity: 1;
+    }
+    label{
+        color: black;
     }
 </style>
 @endsection

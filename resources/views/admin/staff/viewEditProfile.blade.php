@@ -14,9 +14,9 @@
             <div class="col-md-8">
 
                 <div class="card shadow">
-                     <div class="card-header d-flex justify-content-between align-items-center">
+                     <div class="card-header  d-flex justify-content-between align-items-center" style="background-color:navy;color:white">
                 <h3 class="mb-0"><b>Profile's Edit</b></h3>
-                <a href="{{ route('admin.staff.viewProfile',Auth::user()->email) }}" class="btn  btn-sm" style="background-color:navy;color:white">Profile</a>
+                <a href="{{ route('admin.staff.viewProfile',Auth::user()->email) }}" class="btn  btn-sm" style="background-color:white;color:navy">Profile</a>
             </div>
 
                     <div class="card-body">
@@ -46,10 +46,10 @@
                             <table class="table">
 
                                 <tr>
-                                    <th width="30%">Staff Name</th>
-                                    <td>
+                                    <th width="30%" style="color: black">Staff Name</th>
+                                    <td >
                                         <input type="text" name="name" class="form-control"
-                                            value="{{ $profile->name }}">
+                                            value="{{ $profile->name }}" style="color: black">
                                         @error('name')
                                             <span class="text-danger">{{ $message }}</span>
                                         @enderror
@@ -57,17 +57,17 @@
                                 </tr>
 
                                 <tr>
-                                    <th>Email</th>
-                                    <td>
-                                        <input type="email" class="form-control" value="{{ $profile->email }}" disabled>
+                                    <th style="color: black">Email</th>
+                                    <td >
+                                        <input type="email" class="form-control" value="{{ $profile->email }}" disabled style="color: black">
                                     </td>
                                 </tr>
 
                                 <tr>
-                                    <th>Phone</th>
-                                    <td>
+                                    <th style="color: black">Phone</th>
+                                    <td >
                                         <input type="text" name="phone" class="form-control"
-                                            value="{{ $profile->phone }}">
+                                            value="{{ $profile->phone }}" style="color: black">
                                         @error('phone')
                                             <span class="text-danger">{{ $message }}</span>
                                         @enderror
@@ -75,10 +75,10 @@
                                 </tr>
 
                                 <tr>
-                                    <th>Address</th>
-                                    <td>
+                                    <th style="color: black">Address</th>
+                                    <td >
                                         <input type="text" name="address" class="form-control"
-                                            value="{{ $profile->address }}">
+                                            value="{{ $profile->address }}" style="color: black">
                                         @error('address')
                                             <span class="text-danger">{{ $message }}</span>
                                         @enderror
@@ -86,10 +86,10 @@
                                 </tr>
 
                                 <tr>
-                                    <th>Credential</th>
-                                    <td>
+                                    <th style="color: black">Credential</th>
+                                    <td >
                                         <input type="text" name="credential" class="form-control"
-                                            value="{{ $profile->credential }}">
+                                            value="{{ $profile->credential }}" style="color: black">
                                         @error('credential')
                                             <span class="text-danger">{{ $message }}</span>
                                         @enderror
@@ -97,7 +97,7 @@
                                 </tr>
 
                                 <tr>
-                                    <td colspan="2" class="text-center">
+                                    <td  colspan="2" class="text-center">
                                         <button type="submit" class="btn px-5" style="background-color:navy;color:white">
                                             Update Profile
                                         </button>
@@ -115,4 +115,7 @@
         </div>
 
     </div>
+    <style>
+
+    </style>
 @endsection

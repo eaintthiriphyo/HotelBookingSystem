@@ -17,7 +17,7 @@
     <form action="{{ route('admin.roomTypes.search') }}" method="GET" class="d-flex">
         <input type="text" name="search" value="{{ request('search') }}"
             class="form-control border-dark" placeholder="Search room type...">
-        <button type="submit" class="btn btn-dark ms-2">Search</button>
+        <button type="submit" class="btn  ms-2"style="background-color:navy;color:white" >Search</button>
     </form>
 
     <a href="{{ route('admin.roomType.index') }}" class="btn ms-3" style="background-color:navy;color:white"><i class="fas fa-list"></i>All </a>

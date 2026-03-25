@@ -45,14 +45,8 @@
                                     @method('PUT')
                                     <input type="hidden" name="room_id" value="{{ $c->room->id }}">
 
-                                    <select name="status" class="form-select form-select-sm border-dark"
-                                        onchange="this.form.submit()">
-
-                                        <option value="">Change Status</option>
-                                        <option value="check-out" {{ $c->status=='check-out' ? 'selected':'' }}>
-                                            Check Out
-                                        </option>
-                                    </select>
+                                    <input type="hidden" name="status" value="check-out">
+                                   <button class="btn btn-primary" type="submit">Check-out</button>
                                 </form>
                             </td>
                         </tr>

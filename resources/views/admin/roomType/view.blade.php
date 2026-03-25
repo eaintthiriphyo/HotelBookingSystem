@@ -6,22 +6,27 @@
     <div class="row justify-content-center">
         <div class="col-md-10">
 
-            <a href="{{ route('admin.room.index') }}" class="btn btn-dark mb-3">
-                <i class="fas fa-arrow-left"></i> Back
-            </a>
+
 
             <div class="card shadow-sm border-0">
                 <!-- Card Header -->
-                <div class="card-headerd-flex justify-content-between align-items-center" style="background-color:navy;color:white">
-                    <h4 class="mb-0"><b>Room Type Details</b></h4>
-                </div>
+                <div class="card-header d-flex justify-content-between align-items-center py-4"
+     style="background-color:navy; color:white">
+
+    <h4 class="mb-0"><b>Room Type Details</b></h4>
+
+    <a href="{{ route('admin.roomType.index') }}" class="btn"  style="background-color:white; color:navy;">
+        <i class="fas fa-arrow-left"></i> Back
+    </a>
+
+</div>
 
                 <!-- Card Body -->
                 <div class="card-body">
                     <!-- Room Info -->
                     <div class="row mb-4">
                         <div class="col-md-6 mb-2">
-                            <h5>Room Type:</h5>
+                            <h5 >Room Type:</h5>
                             <p class="badge bg-dark text-white fs-3">{{ $roomType->room_type }}</p>
                         </div>
                         <div class="col-md-6 mb-2">
@@ -43,7 +48,7 @@
 
                         @foreach($features as $feature)
                         @if(!empty($roomType->$feature) && $roomType->$feature != 'default.jpg')
-                        <div class="col-md-3 col-sm-6">
+                        <div class="col-md-3 col-sm-6 mb-3">
                             <div class="card h-100 shadow-sm text-center">
                                 <div class="card-header bg-light">
                                     <b>Image</b>
@@ -91,6 +96,7 @@
 
     h5 {
         font-weight: 600;
+        color: black;
     }
 </style>
 @endsection

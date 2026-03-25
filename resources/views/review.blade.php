@@ -44,7 +44,7 @@
 </section>
 
 <!-- Write Review -->
-<section class="py-5 bg-light">
+<section class="py-5 bg-light" id="reviews">
     <div class="container">
         <div class="card p-5">
         <h3 class="text-center mb-4">Write a Review</h3>
@@ -91,7 +91,7 @@
     @else
     <div class="text-center">
         <p>Please login to write a review</p>
-        <a href="{{ route('login') }}" class="btn btn-primary">Login</a>
+        <a href="{{ route('login') }}" class="btn " style="background-color:orangered;color:white">Login</a>
     </div>
     @endauth
     </div>
@@ -172,6 +172,34 @@
                 }
             });
         }
+    });
+       const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+
+    navLinks.forEach(link => {
+        link.addEventListener('click', function () {
+            // Remove active from all links
+            navLinks.forEach(l => l.classList.remove('active'));
+            this.classList.add('active');
+        });
+    });
+
+    // Optional: Highlight based on scroll
+    const sections = document.querySelectorAll('section');
+    window.addEventListener('scroll', () => {
+        let current = '';
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop - 80;
+            if (pageYOffset >= sectionTop) {
+                current = section.getAttribute('id');
+            }
+        });
+
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === '#' + current) {
+                link.classList.add('active');
+            }
+        });
     });
 </script>
 @endsection

@@ -8,9 +8,9 @@
 
                 <div class="card shadow">
 
-                   <div class="card-header d-flex justify-content-between align-items-center">
+                   <div class="card-header d-flex justify-content-between align-items-center" style="background-color:navy;color:white">
                 <h3 class="mb-0"><b>Profile's Details</b></h3>
-                <a href="{{ route('admin.staff.viewEditProfile',Auth::user()->email) }}" class="btn  btn-sm" style="background-color:navy;color:white">Edit</a>
+                <a href="{{ route('admin.staff.viewEditProfile',Auth::user()->email) }}" class="btn  btn-sm" style="background-color:white;color:navy">Edit</a>
             </div>
 
 
@@ -18,7 +18,7 @@
 
 
                         <div class="mb-4">
-                            <h5>Profile Image:</h5>
+                            <h5 style="color: black">Profile Image:</h5>
                             <div class="d-flex align-items-center justify-content-center">
                                 @if ($profile->image && $profile->image != 'default.png')
                                     <img src="{{ asset('images/user/' . $profile->image) }}"
@@ -33,24 +33,24 @@
 
                         <table class="table ">
                             <tr>
-                                <th width="30%">Name</th>
-                                <td>{{ $profile->name }}</td>
+                                <th width="30%" style="color: black">Name</th>
+                                <td style="color: black">{{ $profile->name }}</td>
                             </tr>
                             <tr>
-                                <th>Email</th>
-                                <td>{{ $profile->email }}</td>
+                                <th style="color: black">Email</th>
+                                <td style="color: black">{{ $profile->email }}</td>
                             </tr>
                             <tr>
-                                <th>Phone</th>
-                                <td>{{ $profile->phone }}</td>
+                                <th style="color: black">Phone</th>
+                                <td style="color: black">{{ $profile->phone }}</td>
                             </tr>
                             <tr>
-                                <th>Address</th>
-                                <td>{{ $profile->address }}</td>
+                                <th style="color: black">Address</th>
+                                <td style="color: black">{{ $profile->address }}</td>
                             </tr>
                               <tr>
-                                <th>Credential</th>
-                                <td>{{ $profile->credential}}</td>
+                                <th style="color: black">Credential</th>
+                                <td style="color: black">{{ $profile->credential}}</td>
                             </tr>
                         </table>
 
@@ -63,4 +63,5 @@
         </div>
 
     </div>
+
 @endsection

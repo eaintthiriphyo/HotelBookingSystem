@@ -15,8 +15,8 @@
         <div class="col-md-8">
 
             <div class="card shadow-sm border-0">
-                <div class="card- d-flex justify-content-between align-items-center" style="background-color:navy;color:white">
-                    <h3 class="mb-0"><b>Add Department</b></h3>
+                <div class="card-header d-flex justify-content-between align-items-center" style="background-color:navy;color:white">
+                    <h3 class="mb-0" ><b>Add Department</b></h3>
                     <a href="{{ route('admin.department.index') }}" class="btn btn-light btn-sm">
                         <i class="fas fa-list"></i> View Lists
                     </a>
@@ -74,6 +74,9 @@
 
     .alert {
         border-radius: 10px;
+    }
+    label{
+        color: black;
     }
 </style>
 @endsection

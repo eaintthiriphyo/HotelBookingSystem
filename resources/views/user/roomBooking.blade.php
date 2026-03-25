@@ -179,6 +179,9 @@ font-size: 1rem;
                 <input type="text" id="inputName" class="form-control form-control-lg"
                     placeholder="Enter your name"
                     value="{{ Auth::user()->name }}">
+                    @error('name')
+                    <p class="text-danger">{{$message}}</p>
+                    @enderror
             </div>
 
             <!-- Email -->
@@ -186,31 +189,43 @@ font-size: 1rem;
                 <label class="form-label fw-bold">Email Address</label>
                 <input type="email" id="inputEmail" class="form-control form-control-lg"
                     placeholder="example@gmail.com" name="email"
-                    value="{{ Auth::user()->email }}">
+                    value="{{ Auth::user()->email }}" >
+                    @error('email')
+                    <p class="text-danger">{{$message}}</p>
+                    @enderror
             </div>
 
             <!-- Phone -->
             <div class="col-md-6">
                 <label class="form-label fw-bold">Phone Number</label>
-                <input type="text" id="inputPhone" class="form-control form-control-lg"
+                <input type="number" id="inputPhone" class="form-control form-control-lg"
                     placeholder="09xxxxxxxxx" name="phone"
-                    value="{{ Auth::user()->phone }}">
+                    value="{{ Auth::user()->phone }}"  required>
+                    @error('phone')
+                    <p class="text-danger">{{$message}}</p>
+                    @enderror
             </div>
 
             <!-- NRC -->
             <div class="col-md-6">
                 <label class="form-label fw-bold">NRC / Passport</label>
                 <input type="text" id="inputCredential" class="form-control form-control-lg"
-                    placeholder="Enter NRC or Passport" name="credential"
+                    placeholder="Enter NRC or Passport" name="credential"  required
                     value="{{ Auth::user()->credential }}">
+                    @error('credential')
+                    <p class="text-danger">{{$message}}</p>
+                    @enderror
             </div>
 
             <!-- Address -->
             <div class="col-12">
                 <label class="form-label fw-bold">Address</label>
                 <textarea id="inputAddress" rows="2" name="address"
-                    class="form-control form-control-lg"
+                    class="form-control form-control-lg" required
                     placeholder="Enter your address">{{ Auth::user()->address }}</textarea>
+                    @error('address')
+                    <p class="text-danger">{{$message}}</p>
+                    @enderror
             </div>
 
         </div>
@@ -229,9 +244,13 @@ font-size: 1rem;
          <div class="card shadow-sm mb-4 border-0" id="bookingSummary" style="display:none; border-radius:12px;">
 
     <!-- Header -->
-    <div class="card-header text-white" style="background-color: navy; border-top-left-radius:12px; border-top-right-radius:12px;">
-        <h4 class="mb-0">Booking Summary</h4>
-    </div>
+      <div class="card-header text-white d-flex justify-content-between align-items-center" style="background-color: navy;">
+        <h3 class="mb-0">Booking Summary</h3>
+        <a href="{{ route('user.bookingRoom') }}" class="btn  " style="background-color: orangered ;color:white">
+            Back
+        </a>
+
+        </div>
 
     <div class="card-body">
 

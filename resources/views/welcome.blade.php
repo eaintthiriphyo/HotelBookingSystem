@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Hotel Booking</title>
+    <title>Paradise Hotel Booking</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -127,7 +127,7 @@
     <nav class="navbar navbar-expand-lg navbar-custom mb-3 shadow-lg ">
         <div class="container pt-3">
             <a class="navbar-brand" href="{{ route('welcome') }}">
-                <h4>Hotel</h4>
+                <h4>Paradise</h4>
                 <p>Luxury Hotel</p>
             </a>
             <button class="navbar-toggler bg-white" type="button" data-bs-toggle="collapse"
@@ -149,10 +149,11 @@
                         <a class="nav-link {{ request()->is('*#services') ? 'active' : '' }}"
                             href="#services">Services</a>
                     </li>
-                    <li class="nav-item"><a class="nav-link" href="{{ route('viewReview') }}">Reviews</a></li>
                     <li class="nav-item">
                         <a class="nav-link {{ request()->is('*#contact') ? 'active' : '' }}" href="#contact">Contact</a>
                     </li>
+                                        <li class="nav-item"><a class="nav-link" href="{{ route('viewReview') }}">Reviews</a></li>
+
                 </ul>
 
                 <div>
@@ -377,19 +378,28 @@
                                 @csrf
                                 <div class="mb-3">
                                     <label class="form-label">Full Name</label>
-                                    <input type="text" name="name" class="form-control" required>
+                                    <input type="text" name="name" class="form-control" >
+                                   @error('name')
+                                    <p class="text-danger">{{$message}}</p>
+                                    @enderror
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label">Email</label>
-                                    <input type="email" name="email" class="form-control" required>
+                                    <input type="email" name="email" class="form-control" >
+                                    @error('email')
+                                    <p class="text-danger">{{$message}}</p>
+                                    @enderror
                                 </div>
                                     <div class="mb-3">
                                     <label class="form-label">Phone</label>
-                                    <input type="text" name="phone" class="form-control" required>
+                                    <input type="text" name="phone" class="form-control" >
+                                    @error('phone')
+                                    <p class="text-danger">{{$message}}</p>
+                                    @enderror
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label">Message</label>
-                                    <textarea name="message" class="form-control" rows="4" required></textarea>
+                                    <textarea name="message" class="form-control" rows="4" ></textarea>
                                 </div>
                                 <div class="text-center">
                                     <button type="submit" class="btn px-4" style="background-color:orangered;color:white">Send Message</button>

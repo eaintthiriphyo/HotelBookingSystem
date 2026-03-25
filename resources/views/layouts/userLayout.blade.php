@@ -159,7 +159,7 @@
                                 data-bs-toggle="dropdown">
                                 <img class="profile-img me-2 rounded-circle"
                                     src="{{ Auth::user()->image ? asset('images/user/' . Auth::user()->image) : asset('images/user/default.png') }}"
-                                    width="35">
+                                    width="35" height="30">
                                 <span>{{ Auth::user()->name }}</span>
                             </a>
                             <ul class="dropdown-menu dropdown-menu-end shadow">

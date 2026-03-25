@@ -16,7 +16,7 @@
 
             <div class="card shadow">
 
-                <div class="card-header d-flex justify-content-between align-items-center">
+                <div class="card-header d-flex justify-content-between align-items-center" style="background-color:navy;color:white">
                     <h4 class="mb-0"><b>Change Password</b></h4>
                 </div>
 
@@ -29,9 +29,9 @@
                         <table class="table table-bordered">
 
                             <tr>
-                                <th width="35%">Current Password</th>
+                                <th width="35%"  style="color:black">Current Password</th>
                                 <td>
-                                    <input type="password" name="current_password" class="form-control" placeholder="Enter Current Password">
+                                    <input type="password" name="current_password" class="form-control" placeholder="Enter Current Password" style="color:black">
                                     @error('current_password')
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror
@@ -39,9 +39,9 @@
                             </tr>
 
                             <tr>
-                                <th>New Password</th>
+                                <th style="color:black">New Password</th>
                                 <td>
-                                    <input type="password" name="new_password" class="form-control" placeholder="Enter New Password">
+                                    <input type="password" name="new_password" class="form-control" placeholder="Enter New Password" style="color:black">
                                     @error('new_password')
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror
@@ -49,9 +49,9 @@
                             </tr>
 
                             <tr>
-                                <th>Confirm Password</th>
+                                <th style="color:black">Confirm Password</th>
                                 <td>
-                                    <input type="password" name="confirm_password" class="form-control" placeholder="Confirm New Password">
+                                    <input type="password" name="confirm_password" class="form-control" placeholder="Confirm New Password" style="color:black">
                                     @error('confirm_password')
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror
@@ -78,4 +78,5 @@
     </div>
 
 </div>
+
 @endsection

@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Booking;
 use App\Models\Room;
+use App\Models\RoomType;
+
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
@@ -35,7 +37,8 @@ class CheckInListController extends Controller
      */
     public function create()
     {
-        return view('admin.checkIn.create');
+        $roomTypes=RoomType::all();
+        return view('admin.checkIn.create',compact('roomTypes'));
     }
 
     /**

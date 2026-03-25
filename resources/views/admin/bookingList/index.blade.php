@@ -58,19 +58,12 @@
                                     @method('PUT')
 
                                     <input type="hidden" name="room_id" value="{{ $bl->room->id }}">
+    <input type="hidden" name="status" value="check-in">
 
-                                    <select name="status"
-                                        class="form-select form-select-sm border-dark"
-                                        onchange="this.form.submit()">
 
-                                        <option value="">Change</option>
-
-                                        <option value="check-in"
-                                            {{ $bl->status == 'check-in' ? 'selected' : '' }}>
-                                            ✔ Check In
-                                        </option>
-
-                                    </select>
+    <button type="submit" class="btn btn-primary">
+         Check In
+    </button>
                                 </form>
                             </td>
 

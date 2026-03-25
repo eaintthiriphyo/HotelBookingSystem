@@ -82,5 +82,8 @@
     .img-thumbnail {
         border-radius: 8px;
     }
+    label{
+        color: black;
+    }
 </style>
 @endsection

@@ -142,6 +142,7 @@ return view('user.roomBooking',compact('roomTypes','initialRoomTypeId'));
                 'email' => 'required|email|unique:users,email',
                 'phone' => 'required|string',
                 'credential' => 'required|string',
+                 'address' => 'required|string',
             ]);
         }
 
@@ -199,7 +200,7 @@ return view('user.roomBooking',compact('roomTypes','initialRoomTypeId'));
 
         $room->save();
 
-    return redirect()->back()->with('success', 'Booking Request send!');
+    return redirect()->back()->with('success', 'Booking Complete!');
 
       }
 
@@ -328,8 +329,10 @@ return redirect()->back();
         //
     }
     public function viewAllList($id){
-        $list=Booking::where('user_id',$id)->get();
-        return view('user.allBooking',compact('list'));
+$list = Booking::where('user_id', $id)
+        ->orderBy('created_at', 'desc')
+        ->get();
+                return view('user.allBooking',compact('list'));
     }
       public function viewbooking($id){
         $item=Booking::findOrFail($id);

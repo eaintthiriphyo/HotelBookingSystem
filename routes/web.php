@@ -140,7 +140,7 @@ Route::get('staff/viewProfile/{email}',[StaffController::class,'viewProfile'])->
 Route::get('staff/viewEditProfile/{email}',[StaffController::class,'viewEditProfile'])->name('staff.viewEditProfile');
 Route::put('staff/profileUpdate/{email}',[StaffController::class,'profileUpdate'])->name('staff.profileUpdate');
 Route::get('staff/profile/changePassword/{email}',[StaffController::class,'viewChangePassword'])->name('staff.viewChangePassword');
-Route::put('staff/profile/changePassword/{id}',[StaffController::class,'ChangePassword'])->name('staff.changePassword');
+Route::put('staff/profile/changePassword',[StaffController::class,'ChangePassword'])->name('staff.changePassword');
 
 
 
@@ -151,7 +151,7 @@ Route::get('/contact/view/{id}',[ContactController::class,'view'])->name('contac
 
 Route::delete('/contact/destroy/{id}',[ContactController::class,'destroy'])->name('contact.destroy');
 
-Route::get('/viewMail/{id}',[ContactController::class,'viewMail'])->name('Mail');
+Route::get('/viewMail/{id}',[ContactController::class,'viewMail'])->name('viewMail');
 
 Route::post('/sendMail/{id}',[ContactController::class,'sendMail'])->name('sendMail');
 
