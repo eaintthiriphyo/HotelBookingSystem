@@ -38,7 +38,9 @@ class CheckInListController extends Controller
     public function create()
     {
         $roomTypes=RoomType::all();
-        return view('admin.checkIn.create',compact('roomTypes'));
+         $json = file_get_contents(public_path('json/nrc.json'));
+    $nrcData = json_decode($json, true);
+        return view('admin.checkIn.create',compact('roomTypes','nrcData'));
     }
 
     /**
@@ -143,19 +145,19 @@ class CheckInListController extends Controller
     public function update(Request $request, $id)
     {
 
+    // return $request;
 
             $booking=Booking::findOrFail($id);
-            $booking->status=$request->status;
-            $booking->update();
+            $status=$request->status;
+            
             $room=Room::findOrFail($request->room_id);
 
 
-             if($booking->status=='check-out'){
-                $room->is_avaliable='avaliable';
-                $room->update();
+             if($status=='check-out'){
+                $booking->status=$status;
+               
             }
-
-
+$booking->update();
             return redirect()->back();
     }
 

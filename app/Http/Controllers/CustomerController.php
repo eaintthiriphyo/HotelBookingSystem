@@ -33,6 +33,11 @@ class CustomerController extends Controller
         return view('admin.customer.create');
     }
 
+    public function inactiveList(){
+         $customers = User::where('role', 'user')->paginate(5);
+
+        return view('admin.customer.inactiveList', compact('customers'));
+    }
     /**
      * Store a newly created resource in storage.
      *

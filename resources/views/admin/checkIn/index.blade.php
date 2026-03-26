@@ -40,7 +40,7 @@
                             <td>{{ $c->check_in }}</td>
                             <td>{{ $c->check_out }}</td>
                             <td>
-                                <form action="{{ route('admin.checkOut', $c->id) }}" method="POST">
+                                <form action="{{ route('admin.checkOut.update', $c->id) }}" method="POST">
                                     @csrf
                                     @method('PUT')
                                     <input type="hidden" name="room_id" value="{{ $c->room->id }}">

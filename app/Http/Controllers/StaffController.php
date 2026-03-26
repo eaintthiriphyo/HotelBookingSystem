@@ -19,7 +19,8 @@ class StaffController extends Controller
      */
     public function index()
     {
-$staff = User::where('status', '!=', '2')->paginate(5);
+        $staff = User::where('status', '!=', '2')->paginate(5);
+        
         return view('admin.staff.index',compact('staff'));
     }
 
@@ -31,7 +32,8 @@ $staff = User::where('status', '!=', '2')->paginate(5);
     public function create()
     {
 
-    $department=Department::all();
+           $department=Department::where('status','active')->get();
+
         return view('admin.staff.create',compact('department'));
     }
 
@@ -84,7 +86,7 @@ $staff = User::where('status', '!=', '2')->paginate(5);
     public function edit($id)
     {
         $staff=User::findOrFail($id);
-        $departments=Department::all();
+        $departments=Department::where('status','active')->get();
         return view('admin.staff.edit',compact('staff','departments'));
     }
 

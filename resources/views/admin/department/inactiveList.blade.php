@@ -12,7 +12,7 @@
         </div>
 
          <div class="mt-3">
-            <a href="{{route('admin.department.inactiveList')}}" class="btn "style="background-color:navy;color:white">Inactive List</a>
+            <a href="{{route('admin.department.index')}}" class="btn "style="background-color:navy;color:white">Active List</a>
         </div>
         <div class="card-body p-3">
             <div class="table-responsive">
@@ -28,7 +28,7 @@
                     </thead>
                     <tbody>
                         @forelse($dep as $d)
-                       @if($d->status=="active")
+                       @if($d->status=="inactive")
                         <tr>
                             <td>{{ $d->title }}</td>
                             <td>{{ $d->details }}</td>

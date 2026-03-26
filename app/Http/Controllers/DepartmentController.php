@@ -32,6 +32,13 @@ class DepartmentController extends Controller
 
     }
 
+
+    public function inactiveList(){
+        
+ $dep = Department::orderBy('title', 'asc')->paginate(5);
+
+        return view ('admin.department.inactiveList',compact('dep'));
+    }
     /**
      * Store a newly created resource in storage.
      *
@@ -97,8 +104,22 @@ class DepartmentController extends Controller
      */
     public function destroy($id)
     {
+       
+    }
+
+      public function delete(Request $request ,$id)
+    {
+        // return $request;
+        $status=$request->status;
         $dep=Department::findOrFail($id);
-        $dep->delete();
+        if($status==="active"){
+            $dep->status="active";
+        }
+        else if($status==="inactive"){
+            $dep->status="inactive";
+        }
+
+        $dep->update();
         return redirect()->back();
     }
 

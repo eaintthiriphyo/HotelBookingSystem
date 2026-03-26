@@ -207,15 +207,41 @@ font-size: 1rem;
             </div>
 
             <!-- NRC -->
-            <div class="col-md-6">
-                <label class="form-label fw-bold">NRC / Passport</label>
-                <input type="text" id="inputCredential" class="form-control form-control-lg"
-                    placeholder="Enter NRC or Passport" name="credential"  required
-                    value="{{ Auth::user()->credential }}">
-                    @error('credential')
-                    <p class="text-danger">{{$message}}</p>
-                    @enderror
-            </div>
+          
+                <div class="col-md-6 mb-3">
+                    <label>NRC</label>
+                    <div class="row g-2">
+                        <div class="col-3">
+                            <select id="fullNrcCode" class="form-control">
+                                <option value="">State/Region</option>
+                                @for($i=1; $i<=14; $i++)
+                                    <option value="{{ $i }}" {{ old('nrc_code')==$i ? 'selected' : '' }}>{{ $i }}/</option>
+                                @endfor
+                            </select>
+                        </div>
+                        <div class="col-5">
+                            <select id="fullNrcTownship" class="form-control">
+                                <option value="">Township</option>
+                                @foreach($nrcData['data'] as $item)
+                                    <option value="{{ $item['name_en'] }}" data-state="{{ $item['nrc_code'] }}" {{ old('nrc_township')==$item['name_en'] ? 'selected' : '' }}>
+                                        {{ $item['name_mm'] }}
+                                    </option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="col-2">
+                            <select id="fullNrcType" class="form-control">
+                                <option value="N" {{ old('nrc_type')=='N' ? 'selected' : '' }}>(N)</option>
+                                <option value="E" {{ old('nrc_type')=='E' ? 'selected' : '' }}>(E)</option>
+                                <option value="P" {{ old('nrc_type')=='P' ? 'selected' : '' }}>(P)</option>
+                            </select>
+                        </div>
+                        <div class="col-2">
+                            <input type="text" id="inputCredential" class="form-control" maxlength="6" placeholder="123456" value="{{ old('nrc_number') }}">
+                        </div>
+                        @error('credential') <span class="text-danger mt-1">{{ $message }}</span> @enderror
+                    </div>
+                </div>
 
             <!-- Address -->
             <div class="col-12">
@@ -320,15 +346,30 @@ font-size: 1rem;
 <script>
 $(document).ready(function() {
 
-    $(document).on('click', '.room-type-btn', function () {
 
-    // remove active from all
-    $('.room-type-btn').removeClass('active');
 
-    // add active to clicked button
-    $(this).addClass('active');
+ // Generate NRC
+    function generateNRC(){
+        const code = $('#fullNrcCode').val();
+        const township = $('#fullNrcTownship').val();
+        const type = $('#fullNrcType').val();
+        const number = $('#fullNrcNumber').val();
+        if(code && township && type && number){
+            $('#fullCredential').val(`${code}/${township}(${type})${number}`);
+        }
+    }
+    $('#fullNrcCode, #fullNrcTownship, #fullNrcType, #fullNrcNumber').on('change keyup', generateNRC);
 
-});
+    // Filter Townships by State
+    $('#fullNrcCode').on('change', function(){
+        const code = $(this).val();
+        $('#fullNrcTownship option').each(function(){
+            const state = $(this).data('state');
+            $(this).toggle(state == code || $(this).val() == '');
+        });
+    });
+
+
 
     let selectedRoomType = null;
     let selectedRoomId = null;

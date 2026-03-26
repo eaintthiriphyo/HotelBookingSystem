@@ -187,6 +187,11 @@ class RoomTypeController extends Controller
 
     }
 
+    public function inactiveList(){
+         $roomTypes=RoomType::paginate(5);
+         return view('admin.roomType.inactiveroomType',compact('roomTypes'));
+    }
+
       protected function validator(array $data, $id = null)
     {
         return Validator::make($data, [

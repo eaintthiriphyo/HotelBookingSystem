@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\RoomType;
 use App\Models\Room;
+use App\Models\Booking;
+
 use Illuminate\Support\Facades\Validator;
 
 
@@ -124,16 +126,31 @@ class RoomController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
-        $room=Room::findOrFail($id);
-        if($room->is_avaliable=="booked" || $room->is_avaliable=='unavaliable'){
-        return redirect()->back()->with('errMessage','Can not delete this room');
-        }
-        $room->delete();
-        return redirect()->back();
+  public function destroy($id)
+{
+    $room = Room::findOrFail($id);
+    $today = now()->format('Y-m-d');
+
+    $hasActiveOrFutureBooking = Booking::where('room_id', $id)
+        ->where(function ($query) use ($today) {
+            $query->where('status', 'check-in') // currently occupied
+                  ->orWhere(function($q) use ($today) {
+                      $q->whereIn('status', ['booked', 'pending'])
+                        ->where('check_in', '>=', $today); // future bookings
+                  });
+        })
+        ->exists();
+
+    if ($hasActiveOrFutureBooking) {
+               return redirect()->back()->with('error', 'This room cannot be deleted because it has active or future bookings.');
+
     }
 
+    $room->delete();
+
+        return redirect()->back()->with('success', 'Room deleted successfully.');
+
+}
     protected function validator(array $data,$id = null)
 
     {

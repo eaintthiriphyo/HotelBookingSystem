@@ -7,8 +7,7 @@
 
         <!-- Header -->
         <div class="card-header d-flex justify-content-between align-items-center "style="background-color:navy;color:white">
-            <h3 class="mb-0 fw-bold fw-semibold">Room Types</h3>
-            <a href="{{ route('admin.roomType.create') }}" class="btn btn-light btn-sm"><i class="fas fa-plus"></i>Add New</a>
+            <h3 class="mb-0 fw-bold fw-semibold">Inaactive Room Types</h3>
         </div>
 
         <!-- Search & Filter -->
@@ -23,7 +22,6 @@
     <a href="{{ route('admin.roomType.index') }}" class="btn ms-3" style="background-color:navy;color:white"><i class="fas fa-list"></i>All </a>
 
 </div>
-        <a href="{{ route('admin.roomTypes.inactiveList') }}" class="btn  ms-3" style="background-color:navy;color:white" ><i class="fas fa-list"></i>Inactive List </a>
 
             <!-- Room Types Table -->
             <div class="table-responsive">
@@ -39,7 +37,7 @@
                     </thead>
                     <tbody class="text-dark">
                         @forelse ($roomTypes as $rt)
-                       @if($rt->status=="active")
+                       @if($rt->status=="inactive")
                         <tr>
                             <td class="fw-semibold">{{ $rt->room_type }}</td>
                             <td>${{ number_format($rt->price, 2) }}</td>

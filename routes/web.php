@@ -105,26 +105,26 @@ Route::middleware(['auth','role:admin'])
     Route::get('/booking/details/{id}', [BookingController::class, 'show'])->name('booking.details');
 
     Route::get('/bookingList',[BookingListController::class,'index'])->name('bookingList.index');
-    Route::put('/bookingList/update/{id}',[BookingListController::class,'update'])->name('bookingList.update');
+    Route::put('/bookingList/update/{id}',[BookingController::class,'update'])->name('booking.update');
 
      Route::get('/checkin',[CheckInListController::class,'index'])->name('checkin.index');
           Route::get('/checkin/create',[CheckInListController::class,'create'])->name('checkin.create');
     Route::get('/checkin/check-user', [CheckInListController::class, 'checkUser'])->name('checkin.checkUser');
 
     Route::post('/checkin/create',[CheckInListController::class,'store'])->name('checkin.store');
-Route::put('/checkOut/{id}',[CheckInListController::class,'update'])->name('checkOut');
+Route::put('/checkOut/{id}',[CheckInListController::class,'update'])->name('checkOut.update');
 Route::get('customers',[CustomerController::class,'index'])->name('customer.index');
 Route::get('customers/create',[CustomerController::class,'create'])->name('customer.create');
 
 Route::post('customers/create',[CustomerController::class,'store'])->name('customer.store');
 
-
+Route::get('departments/inactive',[DepartmentController::class,'inactiveList'])->name('department.inactiveList');
 Route::get('departments',[DepartmentController::class,'index'])->name('department.index');
 Route::get('departments/create',[DepartmentController::class,'create'])->name('department.create');
 Route::post('departments/create',[DepartmentController::class,'store'])->name('department.store');
 Route::get('departments/edit/{id}',[DepartmentController::class,'edit'])->name('department.edit');
 Route::put('departments/update/{id}',[DepartmentController::class,'update'])->name('department.update');
-Route::delete('departments/destroy/{id}',[DepartmentController::class,'destroy'])->name('department.destroy');
+Route::put('departments/delete/{id}',[DepartmentController::class,'delete'])->name('department.delete');
 
 
 Route::get('staff',[StaffController::class,'index'])->name('staff.index');
@@ -159,7 +159,7 @@ Route::post('/sendMail/{id}',[ContactController::class,'sendMail'])->name('sendM
 Route::resource('roomType', RoomTypeController::class);
 Route::get('roomTypes/search', [RoomTypeController::class, 'search'])->name('roomTypes.search');
 Route::put('roomTypes/delete/{id}', [RoomTypeController::class, 'delete'])->name('roomTypes.delete');
-
+Route::get('roomTypes/inactiveList',[RoomTypeController::class,'inactiveList'])->name('roomTypes.inactiveList');
 });
 Auth::routes();
 Route::middleware(['auth','role:user'])

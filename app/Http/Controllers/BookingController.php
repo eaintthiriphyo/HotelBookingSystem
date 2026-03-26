@@ -43,8 +43,10 @@ class BookingController extends Controller
             return $type;
         });
         $initialRoomTypeId=$request->query('room_type_id');
+         $json = file_get_contents(public_path('json/nrc.json'));
+    $nrcData = json_decode($json, true);
 
-return view('user.roomBooking',compact('roomTypes','initialRoomTypeId'));
+return view('user.roomBooking',compact('roomTypes','initialRoomTypeId','nrcData'));
     }
 
     /**
@@ -55,8 +57,10 @@ return view('user.roomBooking',compact('roomTypes','initialRoomTypeId'));
     public function create()
     {
             $roomTypes=RoomType::all();
-          return view('admin.room.booking',compact('roomTypes'));
-    }
+ $json = file_get_contents(public_path('json/nrc.json'));
+    $nrcData = json_decode($json, true);
+
+    return view('admin.room.booking', compact('roomTypes', 'nrcData'));    }
  public function checkUser(Request $request)
     {
         $user = User::where('email', $request->email)->first();
@@ -70,57 +74,30 @@ return view('user.roomBooking',compact('roomTypes','initialRoomTypeId'));
      */
 
 
-      public function availableRooms(Request $request)
-    {
-        $check_in = $request->check_in;
-        $check_out = $request->check_out;
 
-
-        if($request->room_type_id){
-
-            $checkIn = $request->check_in;
+public function availableRooms(Request $request)
+{
+    $checkIn = $request->check_in;
     $checkOut = $request->check_out;
     $roomTypeId = $request->room_type_id;
 
-    $rooms = Room::where('room_type_id', $roomTypeId)
-        ->whereDoesntHave('bookings', function ($query) use ($checkIn, $checkOut) {
-            $query->where(function ($q) use ($checkIn, $checkOut) {
-                $q->where(function($qq) use ($checkIn, $checkOut) {
-                    $qq->where('check_in', '<', $checkOut)
-                       ->where('check_out', '>', $checkIn);
-                });
-            });
-        })
-        ->get();
-
-    return response()->json(['rooms' => $rooms]);
-
-
-}
-
-        $bookedRoomIds = Booking::where(function($q) use($check_in, $check_out) {
-            $q->whereBetween('check_in', [$check_in, $check_out])
-              ->orWhereBetween('check_out', [$check_in, $check_out])
-              ->orWhere(function($q2) use ($check_in, $check_out) {
-                  $q2->where('check_in', '<=', $check_in)
-                     ->where('check_out', '>=', $check_out);
-              });
-        })->pluck('room_id')->toArray();
-
-        $availableRooms = Room::whereNotIn('id', $bookedRoomIds)->paginate(5);
-
-        $rooms = $availableRooms->map(function($room) {
-            return [
-                'id' => $room->id,
-                'room_number' => $room->room_number,
-                'room_type' => $room->room_type->room_type ?? ''
-            ];
-        });
-
-        return response()->json(['rooms' => $rooms]);
+    if (!$checkIn || !$checkOut || !$roomTypeId) {
+        return response()->json(['rooms' => []]);
     }
 
+    // Only consider active bookings
+    $activeStatuses = ['check-in', 'booked', 'pending']; // add other active statuses if needed
 
+    $rooms = Room::where('room_type_id', $roomTypeId)
+        ->whereDoesntHave('bookings', function ($query) use ($checkIn, $checkOut, $activeStatuses) {
+            $query->where('check_in', '<', $checkOut)
+                  ->where('check_out', '>', $checkIn)
+                  ->whereIn('status', $activeStatuses);
+        })
+        ->get(['id', 'room_number']);
+
+    return response()->json(['rooms' => $rooms]);
+}
 
 
 
@@ -184,7 +161,7 @@ return view('user.roomBooking',compact('roomTypes','initialRoomTypeId'));
         $status = (Auth::check() && Auth::user()->status == '2') ? 'pending' : 'booked';
 
         // Create booking
-        $booking=Booking::create([
+       Booking::create([
             'user_id' => $user->id,
             'room_id' => $request->room_id,
             'check_in' => $request->check_in,
@@ -308,12 +285,24 @@ return redirect()->back();
      */
     public function update(Request $request, $id)
     {
+        // return $request;
         $checkInRoom=Booking::findOrFail($id);
+        $status=$request->status;
+         $room = Room::find($request->room_id);
+        if($status=="check-in"){
         $checkInRoom->status="check-in";
-        $room = Room::find($request->room_id);
-        $room->is_avaliable = 'check-in';
-        $checkInRoom->update();
         $room->update();
+
+        }
+
+        if($status=="cancel"){
+        $checkInRoom->status="cancel";
+                $room->update();
+
+
+        }
+       
+        $checkInRoom->update();
         return redirect()->back();
 
     }

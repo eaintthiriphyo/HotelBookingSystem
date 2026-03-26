@@ -5,7 +5,7 @@
     <div class="container pt-4">
         <div class="card shadow-sm border-0">
             <div class="card-header  d-flex justify-content-between align-items-center" style="background-color:navy;color:white">
-                <h3 class="mb-0"><b>Today Booking Lists</b></h3>
+                <h3 class="mb-0"><b>Today Check In Lists</b></h3>
 
 
             </div>
@@ -35,12 +35,21 @@
                             <td>{{ $c->check_in }}</td>
                             <td>{{ $c->check_out }}</td>
                             <td>
-                                <form action="" method="POST">
+                                <form action="{{route('admin.booking.update',$c->id)}}" method="POST">
                                     @csrf
                                     @method('PUT')
                                     <input type="hidden" name="room_id" value="{{ $c->room->id }}">
-                                    <input type="hidden" name="status" value="check-out">
-                                   <button class="btn btn-primary" type="submit">Check-out</button>
+                                   
+                                        <input type="hidden" name="status" id="statusInput" value="">
+
+                                        <button type="submit" class="btn btn-primary" onclick="document.getElementById('statusInput').value='check-in'">
+                                            Check-in
+                                        </button>
+
+                                        <button type="submit" class="btn btn-danger" onclick="document.getElementById('statusInput').value='cancel'">
+                                            Cancel
+                                        </button>
+                                   
                                 </form>
                             </td>
                         </tr>
@@ -72,11 +81,11 @@
         vertical-align: middle;
     }
 
-    .table td
-     {
+    .table td {
         vertical-align: middle;
         color: #212529;
     }
+
     .table-hover tbody tr:hover {
         background-color: #f1f1f1;
         transition: 0.3s;
@@ -90,7 +99,8 @@
         min-width: 120px;
     }
 
-    .btn-light, .btn-outline-light {
+    .btn-light,
+    .btn-outline-light {
         font-size: 0.85rem;
     }
 
