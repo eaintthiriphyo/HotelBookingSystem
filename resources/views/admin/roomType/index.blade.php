@@ -21,9 +21,13 @@
     </form>
 
     <a href="{{ route('admin.roomType.index') }}" class="btn ms-3" style="background-color:navy;color:white"><i class="fas fa-list"></i>All </a>
+
 </div>
 
             <!-- Room Types Table -->
+
+                <a href="{{ route('admin.roomTypes.inactiveList') }}" class="btn ms-3" style="background-color:navy;color:white"><i class="fas fa-list"></i>All Inactive Lists</a>
+
             <div class="table-responsive">
                 <table class="table table-bordered table-hover align-middle text-center">
                     <thead style="background-color:navy;color:white">
@@ -52,11 +56,12 @@
                                         <i class="fas fa-edit"></i>
                                     </a>
                                     <!-- Delete Icon -->
-                                    <form action="{{ route('admin.roomType.destroy', $rt->id) }}" method="POST" class="d-inline">
+                                    <form action="{{ route('admin.roomTypes.delete', $rt->id) }}" method="POST" class="d-inline">
                                         @csrf
-                                        @method('DELETE')
+                                        @method('PUT')
                                         <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure?')" title="Delete">
-                                            <i class="fas fa-trash-alt"></i>
+                                          Inactive
+                                            <input type="hidden" name="status" value="inactive">
                                         </button>
                                     </form>
                                 </div>

@@ -86,9 +86,12 @@ class StaffController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
+
     {
         $staff=User::findOrFail($id);
         $departments=Department::where('status','active')->get();
+         $json = file_get_contents(public_path('json/nrc.json'));
+        $nrcData = json_decode($json, true);
         return view('admin.staff.edit',compact('staff','departments'));
     }
 
@@ -101,8 +104,8 @@ class StaffController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->userValidator($request->all(),$id)->validate();
          $staff=User::findOrFail($id);
+        $this->userValidator($request->all(),$id)->validate();
 
         $staff->name=$request->name;
         $staff->email=$request->email;
@@ -132,52 +135,55 @@ class StaffController extends Controller
 
     public function viewProfile($email){
         $profile=User::where('email',$email)->firstOrFail();
-        // return $profile;
-        return view('admin.staff.viewProfile',compact('profile'));
+         $json = file_get_contents(public_path('json/nrc.json'));
+        $nrcData = json_decode($json, true);
+        return view('admin.staff.viewProfile',compact('profile','nrcData'));
      }
 
       public function viewEditProfile($email){
         $profile=User::where('email',$email)->firstOrFail();
+         $json = file_get_contents(public_path('json/nrc.json'));
+        $nrcData = json_decode($json, true);
 
-        return view('admin.staff.viewEditProfile',compact('profile'));
+        return view('admin.staff.viewEditProfile',compact('profile','nrcData'));
      }
 
 
-      public function profileUpdate(Request $request,$email){
-        $profile=User::where('email',$email)->firstOrFail();
-
-         $request->validate([
-        'name' => 'required|string|max:255',
-        'phone' => 'required|string',
-        'address' => 'required|string',
-        'credential' => 'required|string',
-        'roles' => 'required|string',
-        'image' => 'nullable|image|mimes:jpg,jpeg,png|max:2048'
-    ]);
-     if ($request->hasFile('image')) {
-
-        $file = $request->file('image');
-        $filename = time().'.'.$file->getClientOriginalExtension();
-
-        $file->move(public_path('images/user'), $filename);
-
-        $profile->image = $filename;
-
-
-    }
-       $profile->name = $request->name;
-    $profile->phone = $request->phone;
-    $profile->address = $request->address;
-    $profile->credential = $request->credential;
-    $profile->update();
-    return redirect()->back()->with('succUpdateProfile',"Profile Update Successfully");
-     }
 
 
      public function viewChangePassword($email){
         return view('admin.staff.viewChangePassword');
      }
+public function profileUpdate(Request $request, $email){
+    $profile = User::where('email', $email)->firstOrFail();
 
+    // Image upload
+    if ($request->hasFile('image')) {
+        $file = $request->file('image');
+        $filename = time().'.'.$file->getClientOriginalExtension();
+        $file->move(public_path('images/user'), $filename);
+        $profile->image = $filename;
+    }
+
+    // Validate form
+    $request->validate([
+        'name' => 'required|string|max:255',
+        'phone' => 'required|string|max:20',
+        'address' => 'required|string|max:255',
+        'credential' => 'required|string|max:50',
+        'image' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
+    ]);
+
+    // Update
+    $profile->name = $request->name;
+    $profile->phone = $request->phone;
+    $profile->address = $request->address;
+    $profile->credential = $request->credential;
+
+    $profile->update();
+
+    return redirect()->back()->with('succUpdateProfile', 'Profile Updated Successfully');
+}
 
 
      public function changePassword(Request $request ){

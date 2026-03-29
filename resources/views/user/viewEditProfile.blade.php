@@ -26,6 +26,10 @@
                 @csrf
                 @method('PUT')
 
+                <input type="hidden" value="{{ Auth::user()->email }}" name="email" id="email">
+                <input type="hidden" value="{{ $profile->role }}" name="role" id="role">
+                <input type="hidden" value="{{ $profile->department_id }}" name="department_id" id="department_id">
+
                 <!-- Profile Image -->
                 <div class="text-center mb-4">
                     @if ($profile->image && $profile->image != 'default.png')
@@ -74,15 +78,49 @@
                     @enderror
                 </div>
 
-                <!-- Credential -->
-                <div class="mb-4">
-                    <label class="form-label fw-bold">Credential</label>
-                    <input type="text" name="credential" class="form-control rounded-3 shadow-sm" value="{{ $profile->credential }}">
-                    @error('credential')
-                        <small class="text-danger">{{ $message }}</small>
-                    @enderror
-                </div>
 
+                        {{-- NRC / Credential --}}
+                        <div class="mb-3">
+                            <label class="form-label">Credential / NRC</label>
+                            <div class="row g-2">
+                                {{-- State --}}
+                                <div class="col-3">
+                                    <select id="fullNrcCode" class="form-control">
+                                        <option value="">State/Region</option>
+                                        @for($i=1; $i<=14; $i++)
+                                            <option value="{{ $i }}">{{ $i }}/</option>
+                                        @endfor
+                                    </select>
+                                </div>
+                                {{-- Township --}}
+                                <div class="col-5">
+                                    <select id="fullNrcTownship" class="form-control">
+                                        <option value="">Township</option>
+                                        @foreach($nrcData['data'] as $item)
+                                            <option value="{{ $item['name_en'] }}" data-state="{{ $item['nrc_code'] }}">
+                                                {{ $item['name_mm'] }}
+                                            </option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                {{-- Type --}}
+                                <div class="col-2">
+                                    <select id="fullNrcType" class="form-control">
+                                        <option value="N">(N)</option>
+                                        <option value="E">(E)</option>
+                                        <option value="P">(P)</option>
+                                    </select>
+                                </div>
+                                {{-- Number --}}
+                                <div class="col-2">
+                                    <input type="text" id="fullNrcNumber" class="form-control" maxlength="6" placeholder="123456">
+                                </div>
+                            </div>
+                            @error('credential') <span class="text-danger mt-1">{{ $message }}</span> @enderror
+
+                            {{-- Hidden field for form submission --}}
+                            <input type="hidden" name="credential" id="fullCredential">
+                        </div>
                 <!-- Submit -->
                 <div class="text-center">
                     <button type="submit" class="btn px-5 py-2 shadow-sm rounded-3"  style="background-color:orangered;color:white">
@@ -116,4 +154,50 @@
         box-shadow: 0 5px 15px rgba(0,0,0,0.2);
     }
 </style>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+$(document).ready(function(){
+
+    function generateNRC(){
+        const code = $('#fullNrcCode').val();
+        const township = $('#fullNrcTownship').val();
+        const type = $('#fullNrcType').val();
+        const number = $('#fullNrcNumber').val();
+
+        if(code && township && type && number){
+            $('#fullCredential').val(`${code}/${township}(${type})${number}`);
+        } else {
+            $('#fullCredential').val('');
+        }
+    }
+
+    // Trigger generate on change
+    $('#fullNrcCode, #fullNrcTownship, #fullNrcType, #fullNrcNumber').on('change keyup', generateNRC);
+
+    // Filter Townships by selected state
+    $('#fullNrcCode').on('change', function(){
+        const code = $(this).val();
+        $('#fullNrcTownship option').each(function(){
+            const state = $(this).data('state');
+            $(this).toggle(state == code || $(this).val() == '');
+        });
+    });
+
+    // Initialize with old credential if exists
+    @if($profile->credential)
+        const cred = "{{ $profile->credential }}";
+        const match = cred.match(/(\d+)\/(.+)\((\w)\)(\d+)/);
+        if(match){
+            $('#fullNrcCode').val(match[1]);
+            $('#fullNrcTownship').val(match[2]);
+            $('#fullNrcType').val(match[3]);
+            $('#fullNrcNumber').val(match[4]);
+            generateNRC();
+        }
+    @endif
+});
+</script>
+
 @endsection
+
+

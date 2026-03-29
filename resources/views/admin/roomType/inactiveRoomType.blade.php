@@ -67,7 +67,7 @@
                                               <input type="hidden" value="active" name="status" id="">
 
                                          <button type="submit" class="btn btn-sm btn-success" onclick="return confirm('Are you sure?')" title="Delete">
-                                            <i class="fas fa-trash-alt"></i>active
+                                           active
                                         </button>
                                       @endif
                                     </form>

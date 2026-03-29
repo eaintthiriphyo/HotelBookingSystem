@@ -7,7 +7,7 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'Paradise Hotel Reservation') }}</title>
 
     <!-- Font Awesome -->
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
@@ -265,7 +265,7 @@
 
 
             @auth
-                @if (Auth::user()->role != 'Staff' || Auth::user()->roles != 'staff'))
+                @if (Auth::user()->status===0)
                     <li class="nav-item {{ request()->routeIs('admin.department.*') ? 'active' : '' }}">
                         <a class="nav-link {{ request()->routeIs('admin.department.*') ? '' : 'collapsed' }}"
                             href="#" data-toggle="collapse" data-target="#collapseDepartments"
@@ -312,11 +312,32 @@
                     </li>
 
 
+
                 @endif
             @endauth
 
 
 
+
+   <li class="nav-item {{ request()->routeIs('admin.contact.*') ? 'active' : '' }}">
+                        <a class="nav-link {{ request()->routeIs('admin.contact.*') ? '' : 'collapsed' }}" href="#"
+                            data-toggle="collapse" data-target="#collapseContact"
+                            aria-expanded="{{ request()->routeIs('admin.contact.*') ? 'true' : 'false' }}"
+                            aria-controls="collapseContact">
+                            <i class="fas fa-fw fa-envelope"></i>
+                            <span>Message</span>
+                        </a>
+
+                        <div id="collapseContact" class="collapse {{ request()->routeIs('admin.contact.*') ? 'show' : '' }}"
+                            data-parent="#accordionSidebar">
+                            <div class="bg-white py-2 collapse-inner rounded">
+                                <h6 class="collapse-header">Message</h6>
+                                <a class="collapse-item {{ request()->routeIs('admin.contact.index') ? 'active' : '' }}"
+                                    href="{{ route('admin.contact.index') }}">Contact Messages</a>
+                            </div>
+                        </div>
+
+                    </li>
 
 
             <!-- Divider -->

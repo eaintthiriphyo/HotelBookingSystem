@@ -24,7 +24,6 @@
                         <th>Department</th>
                         <th>Address</th>
                         <th>Credential</th>
-                        <th>Action</th>
                     </tr>
                 </thead>
 
@@ -47,6 +46,7 @@
                             <td>{{ $s->address }}</td>
                             <td>{{ $s->credential }}</td>
 
+                          @If(Auth::user()->status===0)
                             <td>
                                 <div class="btn-group" role="group">
                                     @if($s->status != "0" && $s->acc_status == "active")
@@ -66,6 +66,7 @@
                                     @endif
                                 </div>
                             </td>
+                          @endif
                         </tr>
                         @endif
                     @endforeach

@@ -27,7 +27,7 @@
                 </div>
                 <div class="col-md-6 mb-3">
                     <label>Email</label>
-                    <input type="email" id="fullEmail" name="email" class="form-control" value="{{ old('email') }}">
+                    <input type="email" id="fullEmail" name="email" class="form-control" value="{{ Auth::user()->email }}" readonly>
                     @error('email') <span class="text-danger">{{ $message }}</span> @enderror
                 </div>
             </div>

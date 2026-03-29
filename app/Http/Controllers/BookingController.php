@@ -56,7 +56,7 @@ return view('user.roomBooking',compact('roomTypes','initialRoomTypeId','nrcData'
      */
     public function create()
     {
-            $roomTypes=RoomType::with('images')->get();
+            $roomTypes=RoomType::with('RoomTypeImages')->get();
  $json = file_get_contents(public_path('json/nrc.json'));
     $nrcData = json_decode($json, true);
 

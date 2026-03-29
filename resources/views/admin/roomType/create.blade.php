@@ -65,7 +65,7 @@
                                 </div>
                             </div>
 
-                            <button type="button" class="btn btn-primary mb-2" onclick="addMoreImage()">Add More
+                            <button type="button" class="btn btn-sm my-2" style="background-color:navy;color:white" onclick="addMoreImage()">Add More
                                 Image</button>
 
                             <!-- Preview container -->

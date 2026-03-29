@@ -119,17 +119,17 @@ class CustomerController extends Controller
     public function viewProfile($email)
     {
 
-
         $profile = User::where('email', $email)->firstOrFail();
-        // return $profile;
-        return view('user.viewProfile', compact('profile'));
+
+       return view('user.viewProfile', compact('profile'));
     }
 
     public function viewEditProfile($email)
     {
         $profile = User::where('email', $email)->firstOrFail();
-
-        return view('user.viewEditProfile', compact('profile'));
+$json = file_get_contents(public_path('json/nrc.json'));
+    $nrcData = json_decode($json, true);
+        return view('user.viewEditProfile', compact('profile', 'nrcData'));
     }
 
 
@@ -153,7 +153,7 @@ class CustomerController extends Controller
             $file->move(public_path('images/user'), $filename);
 
             $profile->image = $filename;
-          
+
         }
 
           $profile->name = $request->name;

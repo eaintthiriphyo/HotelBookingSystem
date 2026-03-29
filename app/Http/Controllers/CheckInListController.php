@@ -104,7 +104,7 @@ class CheckInListController extends Controller
         $room->is_avaliable = 'booked';
         $room->save();
 
-        return redirect()->back()->with('succBook','Check In  successfully');
+        return redirect()->back()->with('success','Check In  successfully');
     }
 
     public function checkUser(Request $request)
@@ -149,13 +149,13 @@ class CheckInListController extends Controller
 
             $booking=Booking::findOrFail($id);
             $status=$request->status;
-            
+
             $room=Room::findOrFail($request->room_id);
 
 
              if($status=='check-out'){
                 $booking->status=$status;
-               
+
             }
 $booking->update();
             return redirect()->back();

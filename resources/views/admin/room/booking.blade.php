@@ -27,7 +27,7 @@
                 </div>
                 <div class="col-md-6 mb-3">
                     <label>Email</label>
-                    <input type="email" id="fullEmail" name="email" class="form-control" value="{{ old('email') }}">
+                    <input type="email" id="fullEmail" name="email" class="form-control" value="{{ Auth::user()->email }}" readonly>
                     @error('email') <span class="text-danger">{{ $message }}</span> @enderror
                 </div>
             </div>
@@ -98,9 +98,9 @@
                 <label class="form-label fw-bold">Choose Room Type</label>
                 <div id="fullRoomTypeButtons" class="d-flex flex-wrap gap-2 mt-2">
                     @foreach ($roomTypes as $type)
-                        <button type="button" class="room-type-btn btn btn-outline-dark" 
-                                data-id="{{ $type->id }}" 
-                                data-images='@json($type->images)' 
+                        <button type="button" class="room-type-btn btn btn-outline-dark"
+                                data-id="{{ $type->id }}"
+                                data-images='@json($type->images)'
                                 data-price="{{ $type->price }}">
                             {{ $type->room_type }}
                         </button>
