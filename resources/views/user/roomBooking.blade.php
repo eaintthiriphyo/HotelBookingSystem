@@ -115,6 +115,9 @@
                     <div class="card-body">
                         <h5 class="card-title" id="roomName"></h5>
                         <p id="roomPrice"></p>
+                        <p id="roomBedType"></p>
+                        <p id="roomCapacity"></p>
+                        <p id="roomFacility"></p>
                         <p id="roomDescription"></p>
                     </div>
                 </div>
@@ -448,8 +451,11 @@
                 let roomData = @json($roomTypes->keyBy('id'));
                 let selected = roomData[selectedRoomType];
                 $('#roomName').text(selected.room_type);
-                $('#roomPrice').text(selected.price);
-                $('#roomDescription').text(selected.description);
+                $('#roomPrice').text('1 night :' + selected.price+" kyats");
+                $('#roomBedType').text('Bed Type: '+selected.bed);
+                $('#roomCapacity').text('Capacity: '+selected.capacity);
+                $('#roomFacility').text('Facility: '+selected.facility);
+                $('#roomDescription').text('Description: '+selected.description);
 
                 fetchAvailableRooms();
             }

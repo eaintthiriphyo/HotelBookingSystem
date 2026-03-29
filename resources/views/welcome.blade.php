@@ -252,8 +252,11 @@
 
                         <div class="card-body">
                             <h5 class="card-title">{{ $rt->room_type }}</h5>
-                            <p>$ {{ $rt->price }}</p>
-                            <p>{{ $rt->description }}</p>
+                            <p>1 night :  {{ $rt->price }} kyats</p>
+                            <p>Bed Type: {{ $rt->bed }}</p>
+                            <p>Capacity: {{ $rt->capacity }}</p>
+                            <p>Facility: {{ $rt->facility }}</p>
+                            <p>Description: {{ $rt->description }}</p>
                             <a href="{{ route('login') }}" class="btn " style="background-color:orangered;color:white">Book Now</a>
                         </div>
                     </div>

@@ -23,6 +23,34 @@
                     </h5>
                 </div>
 
+
+
+                            <div class="col-md-6 mb-2">
+                                <h5>Price:</h5>
+                                <p class="badge bg-dark text-white fs-3">1 night : {{ $room->room_type->price }} kyats</p>
+                            </div>
+
+                            <div class="col-12 mb-3">
+                                <h5>Bed Type:</h5>
+                                <p>{{ $room->room_type->bed }}</p>
+                            </div>
+                            <div class="col-12 mb-3">
+                                <h5>Capacity:</h5>
+                                <p>{{ $room->room_type->capacity }}</p>
+                            </div>
+                            <div class="col-12 mb-3">
+                                <h5>Facility:</h5>
+                                <p>{{ $room->room_type->facility }}</p>
+                            </div>
+                            <div class="col-12 mb-3">
+                                <h5>Status:</h5>
+                                <p>{{ $room->room_type->status }}</p>
+                            </div>
+                             <div class="col-12 mb-3">
+                                <h5>Description:</h5>
+                                <p>{{ $room->room_type->description }}</p>
+                            </div>
+
             </div>
 
             <h5 class="fw-bold mb-3">Room Features:</h5>
@@ -77,7 +105,13 @@
     .hover-effect:hover .feature-img {
         transform: scale(1.05);
     }
+    h5{
+        color: black
+    }
 
+    p{
+        color:black
+    }
     @media (max-width: 768px) {
         .card-body img {
             max-height: 100px;

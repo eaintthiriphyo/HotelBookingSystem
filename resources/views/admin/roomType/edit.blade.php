@@ -37,6 +37,37 @@
                             @enderror
                         </div>
 
+                                 <div class="col-12">
+                            <label for="bed" class="form-label">Bed Type</label>
+                            <input type="text" name="bed" id="bed" class="form-control"
+                                placeholder="Enter bed type" value="{{ old('bed',$roomType->bed) }}">
+                            @error('bed')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
+
+                         <div class="col-12">
+                            <label for="capacity" class="form-label">Capacity</label>
+                            <input type="text" name="capacity" id="capacity" class="form-control"
+                                placeholder="Enter capacity" value="{{ old('capacity', $roomType->capacity) }}">
+                            @error('capacity')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
+
+
+                         <div class="col-12">
+                            <label for="facility" class="form-label">Facility</label>
+                            <input type="text" name="facility" id="facility" class="form-control"
+                                placeholder="Enter facility" value="{{ old('facility', $roomType->facility) }}">
+                            @error('facility')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
+
+                      
+
+
                         <div class="col-12">
                             <label for="description" class="form-label">Description</label>
                             <input type="text" name="description" id="description" class="form-control"

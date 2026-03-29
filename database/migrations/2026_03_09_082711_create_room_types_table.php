@@ -17,6 +17,9 @@ class CreateRoomTypesTable extends Migration
             $table->id();
             $table->string('room_type')->unique();
             $table->decimal('price',10,2);
+            $table->string('capacity');
+            $table->string('bed');
+            $table->string('facility');
             $table->string('description')->nullable();
             $table->string('status')->default('active');
             $table->string('kitchen')->nullable();

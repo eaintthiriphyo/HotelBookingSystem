@@ -46,6 +46,12 @@ class RoomTypeController extends Controller
         $roomType->room_type=$request->room_type;
         $roomType->price=$request->price;
         $roomType->description=$request->description;
+         $roomType->capacity=$request->capacity;
+          $roomType->facility=$request->facility;
+         $roomType->bed=$request->bed;
+
+
+
              $roomType->save();
 
 
@@ -68,47 +74,12 @@ class RoomTypeController extends Controller
         $roomTypeImage->save();
     }
 }
-        if($request->hasFile('kitchen')){
-            $kitchenImage=$request->file('kitchen');
-
-            $kitchenPath=time().'_'.$kitchenImage->getClientOriginalName();
-            $kitchenImage->move(public_path('images'), $kitchenPath);
-            $roomType->kitchen=$kitchenPath;
-        }else{
-    $roomType->kitchen = 'default.jpg';
-}
-
-  if($request->hasFile('bedroom')){
-            $bedroomImage=$request->file('bedroom');
-
-            $bedroomPath=time().'_'.$bedroomImage->getClientOriginalName();
-            $bedroomImage->move(public_path('images'), $bedroomPath);
-            $roomType->bedroom=$bedroomPath;
-        }else{
-    $roomType->bedroom = 'default.jpg';
-}
 
 
-  if($request->hasFile('bathroom')){
-            $bathroomImage=$request->file('bathroom');
-
-            $bathroomPath=time().'_'.$bathroomImage->getClientOriginalName();
-            $bathroomImage->move(public_path('images'), $bathroomPath);
-            $roomType->bathroom=$bathroomPath;
-        }else{
-    $roomType->bathroom = 'default.jpg';
-}
 
 
-  if($request->hasFile('view')){
-            $viewImage=$request->file('view');
 
-            $viewPath=time().'_'.$viewImage->getClientOriginalName();
-            $viewImage->move(public_path('images'), $viewPath);
-            $roomType->view=$viewPath;
-        }else{
-    $roomType->view = 'default.jpg';
-}
+
 
 
 
@@ -155,6 +126,10 @@ class RoomTypeController extends Controller
        $roomType->room_type=$request->room_type;
        $roomType->price=$request->price;
        $roomType->description=$request->description;
+        $roomType->capacity=$request->capacity;
+          $roomType->facility=$request->facility;
+         $roomType->bed=$request->bed;
+
        $roomType->save();
 
        $roomTypeId=$roomType->id;

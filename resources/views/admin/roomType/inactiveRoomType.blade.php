@@ -30,6 +30,9 @@
                         <tr >
                             <th>Room Type</th>
                             <th>Price</th>
+                            <th>Bed Type</th>
+                            <th>Capacity</th>
+                            <th>Facility</th>
                             <th>Description</th>
                             <th>Status</th>
                             <th>Action</th>
@@ -41,6 +44,9 @@
                         <tr>
                             <td class="fw-semibold">{{ $rt->room_type }}</td>
                             <td>${{ number_format($rt->price, 2) }}</td>
+                            <td>{{ $rt->bed }}</td>
+                            <td>{{ $rt->capacity }}</td>
+                            <td>{{ $rt->facility }}</td>
                             <td>{{ $rt->description }}</td>
                             <td>{{ $rt->status }}</td>
 

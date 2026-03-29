@@ -1,8 +1,6 @@
 @extends('layouts.userLayout')
 
 @section('content')
-
-
     <!-- Rooms -->
 
     <!-- Hero Section -->
@@ -44,7 +42,8 @@
                         Experience our modern amenities, relaxing spa, fine dining, and personalized services
                         designed to create memorable moments.
                     </p>
-                    <a href="#rooms" class="btn  btn-custom mt-3"  style="background-color: orangered;color:white">Explore Rooms</a>
+                    <a href="#rooms" class="btn  btn-custom mt-3" style="background-color: orangered;color:white">Explore
+                        Rooms</a>
                 </div>
             </div>
         </div>
@@ -60,8 +59,8 @@
                         <div id="roomCarousel{{ $rt->id }}" class="carousel slide" data-bs-ride="carousel">
                             <div class="carousel-inner">
                                 @if ($rt->RoomTypeImages->count() > 0)
-                                    @foreach ($rt->RoomTypeImages as  $img)
-                                        <div class="carousel-item {{$loop->first ? 'active':''}}">
+                                    @foreach ($rt->RoomTypeImages as $img)
+                                        <div class="carousel-item {{ $loop->first ? 'active' : '' }}">
                                             <img src="{{ asset($img->img_src) }}" class="d-block w-100"
                                                 style="height:250px; object-fit:cover;">
                                         </div>
@@ -84,9 +83,13 @@
 
                         <div class="card-body">
                             <h5 class="card-title">{{ $rt->room_type }}</h5>
-                            <p>$ {{ $rt->price }}</p>
+                            <p> 1 night : {{ $rt->price }} kyats </p>
+                            <p>Bed Type: {{ $rt->bed }}</p>
+                            <p>Capacity: {{ $rt->capacity }}</p>
+                            <p>Facility: {{ $rt->facility }}</p>
                             <p>{{ $rt->description }}</p>
-                            <a href="{{ route('user.bookingRoom') }}" class="btn " style="background-color: orangered;color:white" >Book Now</a>
+                            <a href="{{ route('user.bookingRoom') }}" class="btn "
+                                style="background-color: orangered;color:white">Book Now</a>
                         </div>
                     </div>
                 </div>
@@ -194,7 +197,7 @@
         </div>
     </section>
 
-      <section id="contact" class="py-5">
+    <section id="contact" class="py-5">
         <div class="container">
             <h1 class="section-title text-center mb-4">Contact Us</h1>
             <div class="row justify-content-center">
@@ -209,31 +212,32 @@
                                 @csrf
                                 <div class="mb-3">
                                     <label class="form-label">Full Name</label>
-                                    <input type="text" name="name" class="form-control" >
-                                   @error('name')
-                                    <p class="text-danger">{{$message}}</p>
+                                    <input type="text" name="name" class="form-control">
+                                    @error('name')
+                                        <p class="text-danger">{{ $message }}</p>
                                     @enderror
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label">Email</label>
-                                    <input type="email" name="email" class="form-control" >
+                                    <input type="email" name="email" class="form-control">
                                     @error('email')
-                                    <p class="text-danger">{{$message}}</p>
+                                        <p class="text-danger">{{ $message }}</p>
                                     @enderror
                                 </div>
-                                    <div class="mb-3">
+                                <div class="mb-3">
                                     <label class="form-label">Phone</label>
-                                    <input type="text" name="phone" class="form-control" >
+                                    <input type="text" name="phone" class="form-control">
                                     @error('phone')
-                                    <p class="text-danger">{{$message}}</p>
+                                        <p class="text-danger">{{ $message }}</p>
                                     @enderror
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label">Message</label>
-                                    <textarea name="message" class="form-control" rows="4" ></textarea>
+                                    <textarea name="message" class="form-control" rows="4"></textarea>
                                 </div>
                                 <div class="text-center">
-                                    <button type="submit" class="btn px-4" style="background-color:orangered;color:white">Send Message</button>
+                                    <button type="submit" class="btn px-4"
+                                        style="background-color:orangered;color:white">Send Message</button>
                                 </div>
                             </form>
                         </div>
@@ -253,4 +257,4 @@
             </div>
         </div>
     </section>
-        @endsection
+@endsection

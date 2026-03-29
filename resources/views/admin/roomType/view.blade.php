@@ -34,13 +34,26 @@
                                 <h5>Price:</h5>
                                 <p class="badge bg-dark text-white fs-3">$ {{ $roomType->price }}</p>
                             </div>
+
                             <div class="col-12 mb-3">
-                                <h5>Description:</h5>
-                                <p>{{ $roomType->description }}</p>
+                                <h5>Bed Type:</h5>
+                                <p>{{ $roomType->bed }}</p>
+                            </div>
+                            <div class="col-12 mb-3">
+                                <h5>Capacity:</h5>
+                                <p>{{ $roomType->capacity }}</p>
+                            </div>
+                            <div class="col-12 mb-3">
+                                <h5>Facility:</h5>
+                                <p>{{ $roomType->facility }}</p>
                             </div>
                             <div class="col-12 mb-3">
                                 <h5>Status:</h5>
                                 <p>{{ $roomType->status }}</p>
+                            </div>
+                             <div class="col-12 mb-3">
+                                <h5>Description:</h5>
+                                <p>{{ $roomType->description }}</p>
                             </div>
                         </div>
 
@@ -52,26 +65,26 @@
 
 
 
-<div class="mb-3">
-    <div id="allPreview" class="d-flex flex-wrap gap-3">
-        @forelse($roomType->RoomTypeImages ?? [] as $img)
-            <div class="col-md-4 col-sm-6">
-                <div class="card shadow-sm text-center mb-3" style="width: 200px; border-radius:12px;">
-                <div class="card-header bg-light py-1">
-                    <b>Image</b>
-                </div>
-                <div class="card-body d-flex align-items-center justify-content-center p-2">
-                    <img src="{{ asset($img->img_src) }}"
-                         class="img-fluid rounded"
-                         style="max-height:120px; object-fit:cover;">
-                </div>
-            </div>
-            </div>
-        @empty
-            <p class="text-muted">No images available.</p>
-        @endforelse
-    </div>
-</div>
+                        <div class="mb-3">
+                            <div id="allPreview" class="d-flex flex-wrap gap-3">
+                                @forelse($roomType->RoomTypeImages ?? [] as $img)
+                                    <div class="col-md-4 col-sm-6">
+                                        <div class="card shadow-sm text-center mb-3"
+                                            style="width: 200px; border-radius:12px;">
+                                            <div class="card-header bg-light py-1">
+                                                <b>Image</b>
+                                            </div>
+                                            <div class="card-body d-flex align-items-center justify-content-center p-2">
+                                                <img src="{{ asset($img->img_src) }}" class="img-fluid rounded"
+                                                    style="max-height:120px; object-fit:cover;">
+                                            </div>
+                                        </div>
+                                    </div>
+                                @empty
+                                    <p class="text-muted">No images available.</p>
+                                @endforelse
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -107,6 +120,9 @@
         h5 {
             font-weight: 600;
             color: black;
+        }
+        p{
+            font-size: 1rem;  color: black;
         }
     </style>
 @endsection
