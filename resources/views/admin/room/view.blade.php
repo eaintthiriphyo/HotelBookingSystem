@@ -26,26 +26,27 @@
             </div>
 
             <h5 class="fw-bold mb-3">Room Features:</h5>
-            <div class="row g-3">
-                @php $features = ['kitchen', 'bedroom', 'bathroom', 'view']; @endphp
 
-                @foreach($features as $feature)
-                @if(!empty($room->room_type->$feature) && $room->room_type->$feature != 'default.jpg')
-                <div class="col-md-3 col-sm-6">
-                    <div class="card h-100 text-center shadow-sm hover-effect">
-                        <div class="card-header bg-secondary text-white">
-                            <b>{{ ucfirst($feature) }}</b>
-                        </div>
-
-                        <div class="card-body d-flex align-items-center justify-content-center" style="min-height:120px;">
-                            <img src="{{ asset('images/'.$room->room_type->$feature) }}"
-                                class="img-fluid rounded shadow feature-img">
-                        </div>
-                    </div>
+<div class="mb-3">
+    <div id="allPreview" class="d-flex flex-wrap gap-3">
+        @forelse($room->room_type->RoomTypeImages ?? [] as $img)
+            <div class="col-md-4 col-sm-6">
+                <div class="card shadow-sm text-center mb-3" style="width: 200px; border-radius:12px;">
+                <div class="card-header bg-light py-1">
+                    <b>Image</b>
                 </div>
-                @endif
-                @endforeach
+                <div class="card-body d-flex align-items-center justify-content-center p-2">
+                    <img src="{{ asset($img->img_src) }}"
+                         class="img-fluid rounded"
+                         style="max-height:120px; object-fit:cover;">
+                </div>
             </div>
+            </div>
+        @empty
+            <p class="text-muted">No images available.</p>
+        @endforelse
+    </div>
+</div>
 
         </div>
     </div>

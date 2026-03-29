@@ -21,9 +21,7 @@
     </form>
 
     <a href="{{ route('admin.roomType.index') }}" class="btn ms-3" style="background-color:navy;color:white"><i class="fas fa-list"></i>All </a>
-
 </div>
-        <a href="{{ route('admin.roomTypes.inactiveList') }}" class="btn  ms-3" style="background-color:navy;color:white" ><i class="fas fa-list"></i>Inactive List </a>
 
             <!-- Room Types Table -->
             <div class="table-responsive">
@@ -33,19 +31,16 @@
                             <th>Room Type</th>
                             <th>Price</th>
                             <th>Description</th>
-                            <th>Status</th>
                             <th>Action</th>
                         </tr>
                     </thead>
                     <tbody class="text-dark">
                         @forelse ($roomTypes as $rt)
-                       @if($rt->status=="active")
+                        @if($rt->status==="active")
                         <tr>
                             <td class="fw-semibold">{{ $rt->room_type }}</td>
                             <td>${{ number_format($rt->price, 2) }}</td>
                             <td>{{ $rt->description }}</td>
-                            <td>{{ $rt->status }}</td>
-
                             <td>
                                 <div class="btn-group" role="group">
                                     <!-- View Icon -->
@@ -57,26 +52,17 @@
                                         <i class="fas fa-edit"></i>
                                     </a>
                                     <!-- Delete Icon -->
-                                    <form action="{{ route('admin.roomTypes.delete', $rt->id) }}" method="POST" class="d-inline">
+                                    <form action="{{ route('admin.roomType.destroy', $rt->id) }}" method="POST" class="d-inline">
                                         @csrf
-                                        @method('PUT')
-                                      @if($rt->status==="active")
-                                      <input type="hidden" value="inactive" name="status" id="">
+                                        @method('DELETE')
                                         <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure?')" title="Delete">
-                                            <i class="fas fa-trash-alt"></i>Inactive
+                                            <i class="fas fa-trash-alt"></i>
                                         </button>
-                                        @else
-                                              <input type="hidden" value="active" name="status" id="">
-
-                                         <button type="submit" class="btn btn-sm btn-success" onclick="return confirm('Are you sure?')" title="Delete">
-                                            <i class="fas fa-trash-alt"></i>active
-                                        </button>
-                                      @endif
                                     </form>
                                 </div>
                             </td>
                         </tr>
-                       @endif
+                        @endif
                         @empty
                         <tr>
                             <td colspan="4" class="text-center text-muted">No room types found.</td>

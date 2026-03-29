@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\RoomType;
+use App\Models\RoomTypeImage;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Storage;
 
 class RoomTypeController extends Controller
 {
@@ -20,7 +22,7 @@ class RoomTypeController extends Controller
     }
 
 
-    
+
     /**
      * Show the form for creating a new resource.
      *
@@ -44,7 +46,28 @@ class RoomTypeController extends Controller
         $roomType->room_type=$request->room_type;
         $roomType->price=$request->price;
         $roomType->description=$request->description;
+             $roomType->save();
 
+
+
+
+        $roomTypeId = $roomType->id;
+
+        if ($request->hasFile('image')) {
+    foreach ($request->file('image') as $image) {
+        if ($image == null) continue;
+
+       $imgName = time() . '_' . $image->getClientOriginalName();
+        $image->move(public_path('images'), $imgName);
+
+
+        $roomTypeImage = new RoomTypeImage();
+        $roomTypeImage->img_src = 'images/' . $imgName;
+        $roomTypeImage->img_alt = $request->room_type;
+        $roomTypeImage->room_type_id = $roomTypeId;
+        $roomTypeImage->save();
+    }
+}
         if($request->hasFile('kitchen')){
             $kitchenImage=$request->file('kitchen');
 
@@ -88,7 +111,7 @@ class RoomTypeController extends Controller
 }
 
 
-        $roomType->save();
+
         return redirect()->back()->with('succRT',"Room Type created successufully");
     }
 
@@ -112,7 +135,8 @@ class RoomTypeController extends Controller
      */
     public function edit($id)
     {
-        $roomType=RoomType::findOrFail($id);
+       $roomType = RoomType::with('RoomTypeImages')->findOrFail($id);
+
          return view('admin.roomType.edit',compact('roomType'));
     }
 
@@ -125,29 +149,85 @@ class RoomTypeController extends Controller
      */
     public function update(Request $request, $id)
     {
-       $this->validator($request->all(), $id)->validate();
        $roomType=RoomType::findOrFail($id);
+              $this->validator($request->all(), $id)->validate();
+
        $roomType->room_type=$request->room_type;
        $roomType->price=$request->price;
        $roomType->description=$request->description;
+       $roomType->save();
 
-       $imageFields=['kitchen','bedroom','bathroom','view'];
-       foreach($imageFields as $field){
-         if ($request->hasFile($field)) {
-            $image = $request->file($field);
-              if($roomType->$field && $roomType->$field != 'default.jpg' && file_exists(public_path('images/'.$roomType->$field))){
-                unlink(public_path('images/'.$roomType->$field));
+       $roomTypeId=$roomType->id;
+
+
+
+   if ($request->has('images_to_delete')) {
+    $imagesToDelete = json_decode($request->images_to_delete, true);
+    foreach ($imagesToDelete as $imgId) {
+        $img = RoomTypeImage::find($imgId);
+        if ($img) {
+            // Delete file from public/images
+            $filePath = public_path($img->img_src);
+            if (file_exists($filePath)) {
+                unlink($filePath); // remove physical file
             }
-            $name = time().'_'.$field.'.'.$image->getClientOriginalExtension();
-            $image->move(public_path('images'), $name);
-            $roomType->$field = $name;
+
+            // Delete from database
+            $img->delete();
         }
-       }
+    }
+}
+
+ if ($request->hasFile('replace_images')) {
+    foreach ($request->file('replace_images') as $imgId => $file) {
+        $img = RoomTypeImage::find($imgId);
+        if ($img) {
+            // Delete old file from public/images
+            $filePath = public_path($img->img_src);
+            if (file_exists($filePath)) {
+                unlink($filePath);
+            }
+
+            // Store new file in public/images
+            $imgName = time() . '_' . $file->getClientOriginalName();
+            $file->move(public_path('images'), $imgName);
+
+            // Update DB
+            $img->img_src = 'images/' . $imgName;
+            $img->img_alt="image";
+            $img->room_type_id=$roomTypeId;
+            $img->save();
+        }
+    }
+}
+
+ if ($request->hasFile('image')) {
+    foreach ($request->file('image') as $file) {
+        $imgName = time() . '_' . $file->getClientOriginalName();
+        $file->move(public_path('images'), $imgName);
+
+        $roomType->RoomTypeImages()->create([
+            'img_src' => 'images/' . $imgName,
+            'img_alt' => "image",
+            'room_type_id' => $roomTypeId
+        ]);
+    }
+}
+
+
        $roomType->update();
         return redirect()->route('admin.roomType.index')
                      ->with('success', 'Room Type updated successfully!');
 
     }
+
+    public function deleteImage($id)
+{
+    $image = RoomTypeImage::findOrFail($id);
+    Storage::delete($image->img_src);
+    $image->delete();
+    return back()->with('success', 'Image deleted successfully!');
+}
 
     /**
      * Remove the specified resource from storage.
@@ -170,14 +250,14 @@ class RoomTypeController extends Controller
         if($status=="active"){
             $roomType->status=$status;
         }
-    
+
                 $roomType->update();
                 return redirect()->route('admin.roomType.index');
     }
 
 
     public function search(Request $request){
-        
+
             $search = $request->input('search');
             $roomTypes = RoomType::when($search, function ($query, $search) {
         $query->where('room_type', 'like', "%{$search}%");

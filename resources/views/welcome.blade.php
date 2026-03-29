@@ -227,10 +227,10 @@
                     <div class="card card-room">
                         <div id="roomCarousel{{ $rt->id }}" class="carousel slide" data-bs-ride="carousel">
                             <div class="carousel-inner">
-                                @if ($rt->images->count() > 0)
-                                    @foreach ($rt->images as $index => $img)
-                                        <div class="carousel-item {{ $index == 0 ? 'active' : '' }}">
-                                            <img src="{{ asset('images/' . $img) }}" class="d-block w-100"
+                                @if ($rt->RoomTypeImages->count() > 0)
+                                @forelse($rt->RoomTypeImages ?? [] as $img)
+                                        <div class="carousel-item {{$loop->first ? 'active':''}}">
+                                            <img src="{{ asset( $img->img_src) }}" class="d-block w-100"
                                                 style="height:250px; object-fit:cover;">
                                         </div>
                                     @endforeach

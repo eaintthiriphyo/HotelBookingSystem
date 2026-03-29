@@ -265,7 +265,7 @@
 
 
             @auth
-                @if (Auth::user()->status == '0' || (Auth::user()->roles != 'staff' && Auth::user()->role != 'user'))
+                @if (Auth::user()->role != 'Staff' || Auth::user()->roles != 'staff'))
                     <li class="nav-item {{ request()->routeIs('admin.department.*') ? 'active' : '' }}">
                         <a class="nav-link {{ request()->routeIs('admin.department.*') ? '' : 'collapsed' }}"
                             href="#" data-toggle="collapse" data-target="#collapseDepartments"
@@ -308,10 +308,10 @@
                                     href="{{ route('admin.staff.create') }}">Add Staff</a>
                             </div>
                         </div>
-                       
+
                     </li>
 
-                    
+
                 @endif
             @endauth
 

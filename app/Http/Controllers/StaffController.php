@@ -20,7 +20,7 @@ class StaffController extends Controller
     public function index()
     {
         $staff = User::where('status', '!=', '2')->paginate(5);
-        
+
         return view('admin.staff.index',compact('staff'));
     }
 
@@ -31,10 +31,12 @@ class StaffController extends Controller
      */
     public function create()
     {
+        $json = file_get_contents(public_path('json/nrc.json'));
+    $nrcData = json_decode($json, true);
 
            $department=Department::where('status','active')->get();
 
-        return view('admin.staff.create',compact('department'));
+        return view('admin.staff.create',compact('department','nrcData'));
     }
 
     /**
@@ -45,7 +47,7 @@ class StaffController extends Controller
      */
     public function store(Request $request)
     {
-       
+
 
         $this->userValidator($request->all())->validate();
 
@@ -121,7 +123,7 @@ class StaffController extends Controller
      */
     public function destroy($id)
     {
-        
+
         $staff=User::findOrFail($id);
         $staff->delete();
         return redirect()->back();
@@ -140,7 +142,7 @@ class StaffController extends Controller
         return view('admin.staff.viewEditProfile',compact('profile'));
      }
 
-     
+
       public function profileUpdate(Request $request,$email){
         $profile=User::where('email',$email)->firstOrFail();
 
@@ -160,7 +162,7 @@ class StaffController extends Controller
         $file->move(public_path('images/user'), $filename);
 
         $profile->image = $filename;
-     
+
 
     }
        $profile->name = $request->name;

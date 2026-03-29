@@ -25,7 +25,7 @@ class HomeController extends Controller
         $this->middleware('auth');
     }
 
-    
+
 
 
     /**
@@ -36,7 +36,7 @@ class HomeController extends Controller
     public function index()
     {
 
-    $roomType=RoomType::all();
+    $roomType=RoomType::with('RoomTypeImages')->get();
      $roomType->map(function($type){
             $type->images=collect([
                 $type->kitchen,

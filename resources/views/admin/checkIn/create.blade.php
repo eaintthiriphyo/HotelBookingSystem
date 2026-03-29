@@ -8,7 +8,7 @@
         @if(session('success'))
         <div class="alert alert-success alert-dismissible fade show" role="alert">
             {{ session('success') }}
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
         </div>
         @endif
 
@@ -98,9 +98,9 @@
                 <label class="form-label fw-bold">Choose Room Type</label>
                 <div id="fullRoomTypeButtons" class="d-flex flex-wrap gap-2 mt-2">
                     @foreach ($roomTypes as $type)
-                        <button type="button" class="room-type-btn btn btn-outline-dark" 
-                                data-id="{{ $type->id }}" 
-                                data-images='@json($type->images)' 
+                        <button type="button" class="room-type-btn btn btn-outline-dark"
+                                data-id="{{ $type->id }}"
+                                data-images='@json($type->images)'
                                 data-price="{{ $type->price }}">
                             {{ $type->room_type }}
                         </button>

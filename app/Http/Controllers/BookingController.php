@@ -56,7 +56,7 @@ return view('user.roomBooking',compact('roomTypes','initialRoomTypeId','nrcData'
      */
     public function create()
     {
-            $roomTypes=RoomType::all();
+            $roomTypes=RoomType::with('images')->get();
  $json = file_get_contents(public_path('json/nrc.json'));
     $nrcData = json_decode($json, true);
 
@@ -101,86 +101,96 @@ public function availableRooms(Request $request)
 
 
 
-    public function store(Request $request)
-    {
+
+
+
+
+       public function store(Request $request)
+{
+    try {
         $email = $request->email;
         $user = User::where('email', $email)->first();
 
-        // Validation rules
+        // Base validation rules
         $rules = [
             'check_in' => 'required|date|after_or_equal:today',
             'check_out' => 'required|date|after:check_in',
             'room_id' => 'required|exists:rooms,id',
         ];
 
-        if(!$user){
+        // If user doesn't exist, require all user info
+        if (!$user) {
             $rules = array_merge($rules, [
                 'name' => 'required|string',
                 'email' => 'required|email|unique:users,email',
                 'phone' => 'required|string',
                 'credential' => 'required|string',
-                 'address' => 'required|string',
+                'address' => 'required|string',
             ]);
-        }
-
-        if($user){
+        } else {
+            // If user exists, still require phone, credential, address
             $rules = array_merge($rules, [
-
                 'phone' => 'required|string',
                 'credential' => 'required|string',
-                'address'=>'required|string'
+                'address' => 'required|string'
             ]);
         }
 
+        // Validate request
         $validated = $request->validate($rules);
 
         // Create user if new
-        if(!$user){
+        if (!$user) {
             $user = User::create([
                 'name' => $request->name,
                 'email' => $request->email,
                 'phone' => $request->phone,
                 'credential' => $request->credential,
-                'address'=>$request->address,
+                'address' => $request->address,
                 'role' => 'user',
-                'roles'=>'user',
+                'roles' => 'user',
                 'status' => '2',
                 'password' => Hash::make('12345678'),
             ]);
-        }else{
-            $user->name=$request->name;
-            $user->email=$request->email;
-            $user->phone=$request->phone;
-            $user->address=$request->address;
-            $user->credential=$request->credential;
-            $user->update();
-
+        } else {
+            // Update existing user info
+            $user->update([
+                'name' => $request->name,
+                'email' => $request->email,
+                'phone' => $request->phone,
+                'credential' => $request->credential,
+                'address' => $request->address,
+            ]);
         }
 
         // Booking status
         $status = (Auth::check() && Auth::user()->status == '2') ? 'pending' : 'booked';
 
         // Create booking
-       Booking::create([
+        $booking = Booking::create([
             'user_id' => $user->id,
             'room_id' => $request->room_id,
             'check_in' => $request->check_in,
             'check_out' => $request->check_out,
-
             'status' => $status,
             'booked_date' => now(),
         ]);
 
         // Update room availability
-        $room = Room::find($request->room_id);
+        $room = Room::findOrFail($request->room_id);
         $room->is_avaliable = 'booked';
-
         $room->save();
 
-    return redirect()->back()->with('success', 'Booking Complete!');
+        return redirect()->back()->with('success', 'Booking Complete!');
 
-      }
-
+    } catch (\Illuminate\Validation\ValidationException $e) {
+        // Validation failed
+        return redirect()->back()->withErrors($e->validator)->withInput();
+    } catch (\Exception $e) {
+        // Other errors
+        return redirect()->back()->with('error', 'Something went wrong: ' . $e->getMessage());
+    }
+}
 
  public function viewTodayBook(){
 $todayDay = Carbon::today();
@@ -301,7 +311,7 @@ return redirect()->back();
 
 
         }
-       
+
         $checkInRoom->update();
         return redirect()->back();
 

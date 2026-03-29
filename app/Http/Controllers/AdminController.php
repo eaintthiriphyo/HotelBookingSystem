@@ -18,24 +18,14 @@ class AdminController extends Controller
      public function welcome()
     {
 
-    $roomType=RoomType::all();
-     $roomType->map(function($type){
-            $type->images=collect([
-                $type->kitchen,
-                $type->bedroom,
-                $type->bathroom,
-                $type->view,
-           ])->filter(function ($img){
-            return $img && $img!=='default.jpg';
-           })->values();
-            return $type;
-        });
+    $roomType=RoomType::with('RoomTypeImages')->get();
+
     $room=Room::all();
         return view('welcome',compact('roomType','room'));
     }
     public function index()
     {
-        
+
     }
 
     /**
