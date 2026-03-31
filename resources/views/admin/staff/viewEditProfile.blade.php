@@ -34,8 +34,7 @@
                             @endphp
                             <img src="{{ $imgSrc }}" class="rounded-circle shadow mb-2" width="150">
                             <div>
-                                <input type="file" name="image" class="form-control form-control-sm mt-2">
-                                @error('image') <span class="text-danger small">{{ $message }}</span> @enderror
+<input type="file" name="image" class="form-control form-control-sm mt-2" accept="image/*">                                @error('image') <span class="text-danger small">{{ $message }}</span> @enderror
                             </div>
                         </div>
 
@@ -102,7 +101,6 @@
                             </div>
                             @error('credential') <span class="text-danger mt-1">{{ $message }}</span> @enderror
 
-                            {{-- Hidden field for form submission --}}
                             <input type="hidden" name="credential" id="fullCredential">
                         </div>
 

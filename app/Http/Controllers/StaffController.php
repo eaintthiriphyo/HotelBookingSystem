@@ -157,15 +157,8 @@ class StaffController extends Controller
 public function profileUpdate(Request $request, $email){
     $profile = User::where('email', $email)->firstOrFail();
 
-    // Image upload
-    if ($request->hasFile('image')) {
-        $file = $request->file('image');
-        $filename = time().'.'.$file->getClientOriginalExtension();
-        $file->move(public_path('images/user'), $filename);
-        $profile->image = $filename;
-    }
 
-    // Validate form
+        // Validate form
     $request->validate([
         'name' => 'required|string|max:255',
         'phone' => 'required|string|max:20',
@@ -173,6 +166,19 @@ public function profileUpdate(Request $request, $email){
         'credential' => 'required|string|max:50',
         'image' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
     ]);
+    // Image upload
+    if ($request->hasFile('image')) {
+
+     if ($profile->image && $profile->image != 'default.png') {
+            @unlink(public_path('images/user/'.$profile->image));
+        }
+        $file = $request->file('image');
+        $filename = time().'.'.$file->getClientOriginalExtension();
+        $file->move(public_path('images/user'), $filename);
+        $profile->image = $filename;
+    }
+
+
 
     // Update
     $profile->name = $request->name;

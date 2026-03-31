@@ -165,6 +165,7 @@
                                         data-images='@json($type->RoomTypeImages, JSON_HEX_APOS | JSON_HEX_QUOT)' data-price="{{ $type->price }}">
                                         {{ $type->room_type }}
                                     </button>
+                                    <input type="hidden" name="price" id="price" value="{{$type->price}}">
                                 @endforeach
                             </div>
                         </div>
@@ -501,7 +502,6 @@
                 $('#finalRoomId').val(selectedRoomId);
             });
 
-            // Step navigation
             $('#goToCustomer').click(function() {
                 if (!$('#checkIn').val() || !$('#checkOut').val() || !$('#finalRoomId').val()) {
                     alert('Please select all booking details!');
@@ -511,12 +511,12 @@
                 $('#customerStep').show();
             });
 
-            // Save profile -> show summary
+            // Save profile 
             $('#saveProfile').click(function() {
                 const checkIn = $('#checkIn').val();
                 const checkOut = $('#checkOut').val();
                 const roomName = $('#roomName').text();
-                const price = parseFloat($('#roomPrice').text());
+        var price = $('#price').val();
                 const nights = Math.ceil((new Date(checkOut) - new Date(checkIn)) / (1000 * 60 * 60 * 24));
                 const total = price * nights;
 
