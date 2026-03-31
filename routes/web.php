@@ -91,6 +91,8 @@ Route::middleware(['auth','role:admin'])
     Route::get('/booking/create',[BookingController::class,'create'])->name('booking.create');
 
     Route::post('/booking',[BookingController::class,'store'])->name('booking.store');
+        Route::get('/booking/alls',[BookingController::class,'all'])->name('booking.alls');
+
     Route::get('/booking/check-user', [BookingController::class, 'checkUser'])->name('booking.checkUser');
     Route::get('booking/available-rooms', [BookingController::class, 'availableRooms'])->name('booking.availableRooms');
 

@@ -32,7 +32,6 @@
         .navbar-custom .nav-link {
             color: white !important;
             border-radius: 5px;
-            padding: 5px 10px;
             text-decoration: none;
         }
 
@@ -40,7 +39,7 @@
             background-color: white;
             color: navy !important;
             border-radius: 5px;
-            padding: 5px 10px;
+            padding: 3px 5px;
         }
 
         /* Active link */
@@ -125,10 +124,9 @@
 
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-custom mb-3 shadow-lg ">
-        <div class="container pt-3">
+        <div class="container >
             <a class="navbar-brand" href="{{ route('welcome') }}">
-                <h4>Paradise</h4>
-                <p>Luxury Hotel</p>
+               <img src="{{ asset('images/hotel-logo5.png') }}" alt="Hotel Logo" width="150px">
             </a>
             <button class="navbar-toggler bg-white" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarNav">

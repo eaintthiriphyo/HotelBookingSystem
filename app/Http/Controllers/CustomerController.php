@@ -141,7 +141,6 @@ $json = file_get_contents(public_path('json/nrc.json'));
             'name' => 'required|string|max:255',
             'phone' => 'required|string',
             'address' => 'required|string',
-            'credential' => 'required|string',
 
             'image' => 'nullable|image|mimes:jpg,jpeg,png|max:2048'
         ]);
@@ -159,7 +158,6 @@ $json = file_get_contents(public_path('json/nrc.json'));
           $profile->name = $request->name;
             $profile->phone = $request->phone;
             $profile->address=$request->address;
-            $profile->credential = $request->credential;
             $profile->update();
         // return $profile;
         return redirect()->back()->with('succUpdateProfile', "Profile Update Successfully");

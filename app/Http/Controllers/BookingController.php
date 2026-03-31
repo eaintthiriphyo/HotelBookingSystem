@@ -31,23 +31,17 @@ class BookingController extends Controller
     public function index(Request $request)
     {
         $roomTypes=RoomType::all();
-        $roomTypes->map(function($type){
-            $type->images=collect([
-                $type->kitchen,
-                $type->bedroom,
-                $type->bathroom,
-                $type->view,
-           ])->filter(function ($img){
-            return $img && $img!=='default.jpg';
-           })->values();
-            return $type;
-        });
+      
         $initialRoomTypeId=$request->query('room_type_id');
          $json = file_get_contents(public_path('json/nrc.json'));
     $nrcData = json_decode($json, true);
 
 return view('user.roomBooking',compact('roomTypes','initialRoomTypeId','nrcData'));
     }
+
+
+
+    
 
     /**
      * Show the form for creating a new resource.
@@ -61,11 +55,7 @@ return view('user.roomBooking',compact('roomTypes','initialRoomTypeId','nrcData'
     $nrcData = json_decode($json, true);
 
     return view('admin.room.booking', compact('roomTypes', 'nrcData'));    }
- public function checkUser(Request $request)
-    {
-        $user = User::where('email', $request->email)->first();
-        return response()->json(['user' => $user]);
-    }
+ 
     /**
      * Store a newly created resource in storage.
      *
@@ -85,8 +75,7 @@ public function availableRooms(Request $request)
         return response()->json(['rooms' => []]);
     }
 
-    // Only consider active bookings
-    $activeStatuses = ['check-in', 'booked', 'pending']; // add other active statuses if needed
+    $activeStatuses = ['check-in', 'booked', 'pending'];
 
     $rooms = Room::where('room_type_id', $roomTypeId)
         ->whereDoesntHave('bookings', function ($query) use ($checkIn, $checkOut, $activeStatuses) {
@@ -111,14 +100,12 @@ public function availableRooms(Request $request)
         $email = $request->email;
         $user = User::where('email', $email)->first();
 
-        // Base validation rules
         $rules = [
             'check_in' => 'required|date|after_or_equal:today',
             'check_out' => 'required|date|after:check_in',
             'room_id' => 'required|exists:rooms,id',
         ];
 
-        // If user doesn't exist, require all user info
         if (!$user) {
             $rules = array_merge($rules, [
                 'name' => 'required|string',
@@ -128,7 +115,6 @@ public function availableRooms(Request $request)
                 'address' => 'required|string',
             ]);
         } else {
-            // If user exists, still require phone, credential, address
             $rules = array_merge($rules, [
                 'phone' => 'required|string',
                 'credential' => 'required|string',
@@ -136,10 +122,8 @@ public function availableRooms(Request $request)
             ]);
         }
 
-        // Validate request
         $validated = $request->validate($rules);
 
-        // Create user if new
         if (!$user) {
             $user = User::create([
                 'name' => $request->name,
@@ -153,7 +137,6 @@ public function availableRooms(Request $request)
                 'password' => Hash::make('12345678'),
             ]);
         } else {
-            // Update existing user info
             $user->update([
                 'name' => $request->name,
                 'email' => $request->email,
@@ -163,10 +146,8 @@ public function availableRooms(Request $request)
             ]);
         }
 
-        // Booking status
         $status = (Auth::check() && Auth::user()->status == '2') ? 'pending' : 'booked';
 
-        // Create booking
         $booking = Booking::create([
             'user_id' => $user->id,
             'room_id' => $request->room_id,
@@ -176,7 +157,6 @@ public function availableRooms(Request $request)
             'booked_date' => now(),
         ]);
 
-        // Update room availability
         $room = Room::findOrFail($request->room_id);
         $room->is_avaliable = 'booked';
         $room->save();
@@ -184,10 +164,9 @@ public function availableRooms(Request $request)
         return redirect()->back()->with('success', 'Booking Complete!');
 
     } catch (\Illuminate\Validation\ValidationException $e) {
-        // Validation failed
+        
         return redirect()->back()->withErrors($e->validator)->withInput();
     } catch (\Exception $e) {
-        // Other errors
         return redirect()->back()->with('error', 'Something went wrong: ' . $e->getMessage());
     }
 }
@@ -199,6 +178,14 @@ $todayBooks = Booking::where('check_in', $todayDay)
  ->where('status', 'booked')
 ->paginate(5);
 return view('admin.checkList.index',compact('todayBooks'));
+}
+
+ public function all(){
+
+
+$todayBooks = Booking::paginate(7);
+
+return view('admin.room.all',compact('todayBooks'));
 }
 
 

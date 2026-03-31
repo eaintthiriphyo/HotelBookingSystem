@@ -8,17 +8,17 @@
         @if(session('success'))
         <div class="alert alert-success alert-dismissible fade show" role="alert">
             {{ session('success') }}
-        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
         </div>
         @endif
 
-        <form id="fullBookingForm" action="{{ route('admin.checkin.store') }}" method="post">
+        <form id="fullBookingForm" method="post">
             @csrf
             <input type="hidden" name="room_id" id="fullFinalRoomId" value="{{ old('room_id') }}">
             <input type="hidden" name="credential" id="fullCredential" value="{{ old('credential') }}">
 
+            <!-- Customer Details -->
             <h5 class="mb-3 text-dark">Customer Details</h5>
-
             <div class="row">
                 <div class="col-md-6 mb-3">
                     <label>Name</label>
@@ -81,6 +81,7 @@
                 @error('address') <span class="text-danger">{{ $message }}</span> @enderror
             </div>
 
+            <!-- Dates -->
             <div class="row g-3 mb-4">
                 <div class="col-md-6">
                     <label class="form-label fw-bold">Check-In</label>
@@ -94,6 +95,7 @@
                 </div>
             </div>
 
+            <!-- Room Type -->
             <div class="mb-4">
                 <label class="form-label fw-bold">Choose Room Type</label>
                 <div id="fullRoomTypeButtons" class="d-flex flex-wrap gap-2 mt-2">
@@ -103,19 +105,81 @@
                                 data-images='@json($type->images)'
                                 data-price="{{ $type->price }}">
                             {{ $type->room_type }}
+                        <input type="hidden" id="price" value="{{$type->price}}">
                         </button>
                     @endforeach
                 </div>
                 @error('room_id') <span class="text-danger">{{ $message }}</span> @enderror
             </div>
 
+            <!-- Available Rooms -->
             <div class="mb-4">
                 <label class="form-label fw-bold">Available Rooms</label>
                 <div id="fullAvailableRooms" class="d-flex flex-wrap gap-2 mt-2"></div>
             </div>
 
-            <button type="submit" class="btn w-100" style="background-color:navy;color:white">Book Room</button>
+            <!-- Book Room Button -->
+            <button type="button" id="btnBookRoom" class="btn w-100" style="background-color:navy;color:white">
+                Check-in Room
+            </button>
         </form>
+
+        <!-- Booking Summary -->
+        <div class="card shadow-sm mb-4 border-0" id="bookingSummary" style="display:none; border-radius:12px;">
+            <div class="card-header text-white d-flex justify-content-between align-items-center" style="background-color: navy;">
+                <h3 class="mb-0">Booking Summary</h3>
+            </div>
+            <div class="card-body">
+                <!-- Customer Info -->
+                <div class="mb-3 p-3 rounded" style="background-color:#f8f9fa;">
+                    <p class="mb-1"><b>Name:</b> <span id="summaryName"></span></p>
+                    <p class="mb-1"><b>Email:</b> <span id="summaryEmail"></span></p>
+                    <p class="mb-0"><b>Phone:</b> <span id="summaryPhone"></span></p>
+                </div>
+
+                <!-- Room Info -->
+                <div class="mb-3 p-3 rounded" style="background-color:#f8f9fa;">
+                    <h5 class="mb-2" id="summaryRoom"></h5>
+                    <p class="mb-1"><b>Check-In:</b> <span id="summaryCheckIn"></span></p>
+                    <p class="mb-1"><b>Check-Out:</b> <span id="summaryCheckOut"></span></p>
+                    <p class="mb-0"><b>Nights:</b> <span id="summaryNights"></span></p>
+                </div>
+
+                <!-- Price Section -->
+                <div class="mb-3 p-3 rounded" style="background-color:#fff3f0;">
+                    <div class="d-flex justify-content-between">
+                        <span>Price / Night</span>
+                        <span id="summaryPrice"></span>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <span>Total Nights</span>
+                        <span id="summaryNights"></span>
+                    </div>
+                    <hr>
+                    <div class="d-flex justify-content-between fw-bold" style="font-size:18px;">
+                        <span>Total Cost</span>
+                        <span style="color:orangered;" id="summaryTotal"></span>
+                    </div>
+                </div>
+
+                <!-- Confirm Booking Form -->
+                <form id="bookingForm" action="{{ route('admin.checkin.store') }}" method="POST">
+                    @csrf
+                    <input type="hidden" name="check_in" id="finalCheckIn">
+                    <input type="hidden" name="check_out" id="finalCheckOut">
+                    <input type="hidden" name="room_id" id="finalRoomIdForm">
+                    <input type="hidden" name="name" id="finalName">
+                    <input type="hidden" name="email" id="finalEmail">
+                    <input type="hidden" name="phone" id="finalPhone">
+                    <input type="hidden" name="credential" id="finalCredential">
+                    <input type="hidden" name="address" id="finalAddress">
+
+                    <button type="submit" class="w-100 mt-3" style="background-color: orangered; color:white; padding:12px; border:none; border-radius:10px; font-size:16px;">
+                        Confirm Check-in
+                    </button>
+                </form>
+            </div>
+        </div>
     </div>
 </div>
 
@@ -181,39 +245,106 @@ $(document).ready(function(){
     });
 
     // Fetch Available Rooms
-   function fetchRooms() {
-    if (!selectedRoomType) return;
-    const checkIn = $('#fullCheckIn').val();
-    const checkOut = $('#fullCheckOut').val();
+    function fetchRooms() {
+        if (!selectedRoomType) return;
+        const checkIn = $('#fullCheckIn').val();
+        const checkOut = $('#fullCheckOut').val();
 
-    console.log('Fetching rooms for type:', selectedRoomType, 'from', checkIn, 'to', checkOut);
+        $.get("{{ route('admin.booking.availableRooms') }}", {
+            room_type_id: selectedRoomType,
+            check_in: checkIn,
+            check_out: checkOut
+        }, function(data) {
+            const container = $('#fullAvailableRooms');
+            container.empty();
 
-    $.get("{{ route('admin.booking.availableRooms') }}", {
-        room_type_id: selectedRoomType,
-        check_in: checkIn,
-        check_out: checkOut
-    }, function(data) {
-        const container = $('#fullAvailableRooms');
-        container.empty();
+            if (!data.rooms || data.rooms.length === 0) {
+                container.append('<span class="text-danger">No rooms available</span>');
+                $('#fullFinalRoomId').val('');
+                return;
+            }
 
-        if (!data.rooms || data.rooms.length === 0) {
-            container.append('<span class="text-danger">No rooms available</span>');
-            $('#fullFinalRoomId').val('');
-            return;
-        }
-
-        data.rooms.forEach((room, i) => {
-            const btnClass = i === 0 ? 'btn-primary' : 'btn-outline-primary';
-            container.append(`<button type="button" class="btn ${btnClass} me-2 mb-2 room-btn" data-id="${room.id}">${room.room_number}</button>`);
-            if (i === 0) $('#fullFinalRoomId').val(room.id);
+            data.rooms.forEach((room, i) => {
+                const btnClass = i === 0 ? 'btn-primary' : 'btn-outline-primary';
+                container.append(`<button type="button" class="btn ${btnClass} me-2 mb-2 room-btn" data-id="${room.id}">${room.room_number}</button>`);
+                if (i === 0) $('#fullFinalRoomId').val(room.id);
+            });
         });
-    });
-}
+    }
+
     // Room Selection
     $(document).on('click', '.room-btn', function(){
         $('.room-btn').removeClass('btn-primary').addClass('btn-outline-primary');
         $(this).removeClass('btn-outline-primary').addClass('btn-primary');
         $('#fullFinalRoomId').val($(this).data('id'));
+    });
+
+    // Validate form
+    function validateBookingForm() {
+        let name = $('#fullName').val().trim();
+        let phone = $('#fullPhone').val().trim();
+        let address = $('#fullAddress').val().trim();
+        let credential = $('#fullCredential').val().trim();
+        let checkIn = $('#fullCheckIn').val();
+        let checkOut = $('#fullCheckOut').val();
+        let roomTypeSelected = $('.room-type-btn.btn-dark').length > 0;
+        let roomId = $('#fullFinalRoomId').val();
+
+        if(name === ''){ alert('Please enter your name.'); return false; }
+        if(phone === ''){ alert('Please enter your phone number.'); return false; }
+        if(credential === ''){ alert('Please complete your NRC information.'); return false; }
+        if(address === ''){ alert('Please enter your address.'); return false; }
+        if(checkIn === '' || checkOut === ''){ alert('Please select check-in and check-out dates.'); return false; }
+        if(!roomTypeSelected){ alert('Please select a room type.'); return false; }
+        if(!roomId){ alert('Please select a room.'); return false; }
+
+        return true;
+    }
+
+    // Show summary
+    function showSummary() {
+        const name = $('#fullName').val();
+        const email = $('#fullEmail').val();
+        const phone = $('#fullPhone').val();
+        const address = $('#fullAddress').val();
+        const credential = $('#fullCredential').val();
+        const roomText = $('.room-type-btn.btn-dark').text() || 'N/A';
+        const roomId = $('#fullFinalRoomId').val();
+        const checkIn = $('#fullCheckIn').val();
+        const checkOut = $('#fullCheckOut').val();
+        const nights = (new Date(checkOut) - new Date(checkIn)) / (1000*60*60*24);
+        const price = $('.room-type-btn.btn-dark').data('price') || 0;
+
+        // Fill summary
+        $('#summaryName').text(name);
+        $('#summaryEmail').text(email);
+        $('#summaryPhone').text(phone);
+        $('#summaryRoom').text(roomText);
+        $('#summaryCheckIn').text(checkIn);
+        $('#summaryCheckOut').text(checkOut);
+        $('#summaryNights').text(nights);
+        $('#summaryPrice').text(price);
+        $('#summaryTotal').text(price * nights);
+
+        // Fill final form
+        $('#finalName').val(name);
+        $('#finalEmail').val(email);
+        $('#finalPhone').val(phone);
+        $('#finalAddress').val(address);
+        $('#finalCredential').val(credential);
+        $('#finalCheckIn').val(checkIn);
+        $('#finalCheckOut').val(checkOut);
+        $('#finalRoomIdForm').val(roomId);
+
+        $('#bookingSummary').show();
+        $('html, body').animate({scrollTop: $('#bookingSummary').offset().top}, 500);
+    }
+
+    // Book Room button click
+    $('#btnBookRoom').on('click', function(){
+        if(validateBookingForm()){
+            showSummary();
+        }
     });
 
 });

@@ -133,10 +133,10 @@ class RoomController extends Controller
 
     $hasActiveOrFutureBooking = Booking::where('room_id', $id)
         ->where(function ($query) use ($today) {
-            $query->where('status', 'check-in') // currently occupied
+            $query->where('status', 'check-in') 
                   ->orWhere(function($q) use ($today) {
                       $q->whereIn('status', ['booked', 'pending'])
-                        ->where('check_in', '>=', $today); // future bookings
+                        ->where('check_in', '>=', $today); 
                   });
         })
         ->exists();

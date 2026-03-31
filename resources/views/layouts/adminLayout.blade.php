@@ -112,7 +112,8 @@
             <a class="sidebar-brand d-flex align-items-center justify-content-center "
                 href="{{ route('admin.viewDashboard') }}">
 
-                <div class="sidebar-brand-text mx-1"><h5>Paradise Hotel</h5> </div>
+                <div class="sidebar-brand-text mx-1">               <img src="{{ asset('images/hotel-logo5.png') }}" alt="Hotel Logo" width="150px">
+</div>
             </a>
 
             <!-- Divider -->
@@ -190,6 +191,10 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Bookings</h6>
 
+                          <a class="collapse-item {{ request()->routeIs('admin.booking.alls') ? 'active' : '' }}"
+                            href="{{ route('admin.booking.alls') }}">
+                            All Lists
+                        </a>
                         <a class="collapse-item {{ request()->routeIs('admin.bookingList.*') ? 'active' : '' }}"
                             href="{{ route('admin.bookingList.index') }}">
                             All Booking List
@@ -197,7 +202,7 @@
 
                         <a class="collapse-item {{ request()->routeIs('admin.booking.todayBook') ? 'active' : '' }}"
                             href="{{ route('admin.booking.todayBook') }}">
-                            Today Booking List
+                            Today Check in List
                         </a>
 
                         <a class="collapse-item {{ request()->routeIs('admin.booking.pending') ? 'active' : '' }}"

@@ -86,10 +86,8 @@ class CheckInListController extends Controller
             ]);
         }
 
-        // Booking status
         $status = (Auth::check() && Auth::user()->status == '2') ? 'pending' : 'check-in';
 
-        // Create booking
         Booking::create([
             'user_id' => $user->id,
             'room_id' => $request->room_id,
@@ -99,7 +97,6 @@ class CheckInListController extends Controller
             'booked_date' => now(),
         ]);
 
-        // Update room availability
         $room = Room::find($request->room_id);
         $room->is_avaliable = 'booked';
         $room->save();
@@ -145,7 +142,6 @@ class CheckInListController extends Controller
     public function update(Request $request, $id)
     {
 
-    // return $request;
 
             $booking=Booking::findOrFail($id);
             $status=$request->status;

@@ -37,17 +37,7 @@ class HomeController extends Controller
     {
 
     $roomType=RoomType::with('RoomTypeImages')->get();
-     $roomType->map(function($type){
-            $type->images=collect([
-                $type->kitchen,
-                $type->bedroom,
-                $type->bathroom,
-                $type->view,
-           ])->filter(function ($img){
-            return $img && $img!=='default.jpg';
-           })->values();
-            return $type;
-        });
+   
     $room=Room::all();
         return view('user.dashboard',compact('roomType','room'));
     }

@@ -68,16 +68,7 @@
                                                     <i class="fas fa-edit"></i>
                                                 </a>
                                                 <!-- Delete Icon -->
-                                                <form action="{{ route('admin.roomTypes.delete', $rt->id) }}"
-                                                    method="POST" class="d-inline">
-                                                    @csrf
-                                                    @method('PUT')
-                                                    <button type="submit" class="btn btn-sm btn-danger"
-                                                        onclick="return confirm('Are you sure?')" title="Delete">
-                                                        Inactive
-                                                        <input type="hidden" name="status" value="inactive">
-                                                    </button>
-                                                </form>
+                                                
                                             </div>
                                         </td>
                                     </tr>

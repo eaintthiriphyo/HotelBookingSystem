@@ -14,7 +14,7 @@
     <div class="row justify-content-center">
         <div class="col-lg-8">
             <div class="card shadow-sm">
-                <div class="card-header d-flex justify-content-between align-items-center bg-primary text-white">
+                <div class="card-header d-flex justify-content-between align-items-center " style="background-color: navy; color:white">
                     <h4 class="mb-0"><b>Edit Profile</b></h4>
                     <a href="{{ route('admin.staff.viewProfile', Auth::user()->email) }}" class="btn btn-light btn-sm text-primary">View Profile</a>
                 </div>
@@ -107,7 +107,7 @@
                         </div>
 
                         <div class="text-center mt-4">
-                            <button type="submit" class="btn btn-primary px-5">Update Profile</button>
+                            <button type="submit" class="btn  px-5" style="background-color: navy; color:white">Update Profile</button>
                         </div>
 
                     </form>

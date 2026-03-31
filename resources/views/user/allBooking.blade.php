@@ -49,9 +49,9 @@
                             <div class="col-md-6">
                                 <div class="p-3 rounded" style="background-color:#f8f9fa;">
                                     <h5 class="mb-3">Room Info</h5>
-                                    <p class="mb-1"><b>🏨 Room No:</b> {{ $item->room->room_number ?? 'N/A' }}</p>
-                                    <p class="mb-1"><b>🛏 Type:</b> {{ $item->room->room_type->room_type ?? 'N/A' }}</p>
-                                    <p class="mb-0"><b>💵 Price/Night:</b> ${{ number_format($roomPrice,2) }}</p>
+                                    <p class="mb-1"><b>Room No:</b> {{ $item->room->room_number ?? 'N/A' }}</p>
+                                    <p class="mb-1"><b>Type:</b> {{ $item->room->room_type->room_type ?? 'N/A' }}</p>
+                                    <p class="mb-0"><b> Price/Night:</b> {{ number_format($roomPrice,2) }} kyats</p>
                                 </div>
                             </div>
 
@@ -59,10 +59,10 @@
                             <div class="col-md-6">
                                 <div class="p-3 rounded" style="background-color:#fff3f0;">
                                     <h5 class="mb-3">Booking Info</h5>
-                                    <p class="mb-1"><b>📅 Date:</b> {{ $item->created_at->format('d M Y') }}</p>
-                                    <p class="mb-1"><b>📥 Check-in:</b> {{ $item->check_in }}</p>
-                                    <p class="mb-1"><b>📤 Check-out:</b> {{ $item->check_out }}</p>
-                                    <p class="mb-0"><b>🛌 Nights:</b> {{ $nights }}</p>
+                                    <p class="mb-1"><b> Date:</b> {{ $item->created_at->format('d M Y') }}</p>
+                                    <p class="mb-1"><b> Check-in:</b> {{ $item->check_in }}</p>
+                                    <p class="mb-1"><b> Check-out:</b> {{ $item->check_out }}</p>
+                                    <p class="mb-0"><b> Nights:</b> {{ $nights }}</p>
 
                                     <hr>
 
