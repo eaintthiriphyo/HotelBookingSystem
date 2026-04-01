@@ -51,7 +51,7 @@
                 </div>
 
                 <div class="text-center">
-                    <button type="submit" class="btn px-5 py-2 shadow-sm rounded-3" style="background-color: orangered ;color:white">
+                    <button type="submit" class="btn px-5 py-2 shadow-sm rounded-3" style="background-color: navy ;color:white">
                         <i class="fa fa-save me-2"></i>Update Password
                     </button>
                 </div>

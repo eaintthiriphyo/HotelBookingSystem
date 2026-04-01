@@ -119,7 +119,7 @@
         </form>
 
         <!-- Step 3: Booking Summary -->
-        <div class="card shadow-sm mb-4 border-0" id="bookingSummary" style="display:none; border-radius:12px;">
+        <div class="card shadow-sm mb-4  mt-3 border-0" id="bookingSummary" style="display:none; border-radius:12px;">
             <div class="card-header text-white d-flex justify-content-between align-items-center" style="background-color: navy;">
                 <h3 class="mb-0">Booking Summary</h3>
             </div>
@@ -169,7 +169,7 @@
                     <input type="hidden" name="credential" id="finalCredential">
                     <input type="hidden" name="address" id="finalAddress">
 
-                    <button type="submit" class="w-100 mt-3" style="background-color: orangered; color:white; padding:12px; border:none; border-radius:10px; font-size:16px;">
+                    <button type="submit" class="w-100 mt-3" style="background-color: navy; color:white; padding:12px; border:none; border-radius:10px; font-size:16px;">
                         Confirm Booking
                     </button>
                 </form>

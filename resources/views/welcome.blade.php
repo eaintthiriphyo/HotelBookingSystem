@@ -44,9 +44,9 @@
 
         /* Active link */
         .navbar-custom .nav-link.active {
-            background-color: #ff4500;
+            background-color:white;
             /* highlight active page */
-            color: white !important;
+            color: navy !important;
             border-radius: 5px;
         }
 
@@ -210,7 +210,7 @@
                         Experience our modern amenities, relaxing spa, fine dining, and personalized services
                         designed to create memorable moments.
                     </p>
-                    <a href="#rooms" class="btn  btn-custom mt-3"  style="background-color:orangered;color:white">Explore Rooms</a>
+                    <a href="#rooms" class="btn  btn-custom mt-3"  style="background-color:navy;color:white">Explore Rooms</a>
                 </div>
             </div>
         </div>
@@ -255,7 +255,7 @@
                             <p>Capacity: {{ $rt->capacity }}</p>
                             <p>Facility: {{ $rt->facility }}</p>
                             <p>Description: {{ $rt->description }}</p>
-                            <a href="{{ route('login') }}" class="btn " style="background-color:orangered;color:white">Book Now</a>
+                            <a href="{{ route('login') }}" class="btn " style="background-color:navy;color:white">Book Now</a>
                         </div>
                     </div>
                 </div>
@@ -403,7 +403,7 @@
                                     <textarea name="message" class="form-control" rows="4" ></textarea>
                                 </div>
                                 <div class="text-center">
-                                    <button type="submit" class="btn px-4" style="background-color:orangered;color:white">Send Message</button>
+                                    <button type="submit" class="btn px-4" style="background-color:navy;color:white">Send Message</button>
                                 </div>
                             </form>
                         </div>

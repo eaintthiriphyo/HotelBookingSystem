@@ -162,7 +162,6 @@ Route::resource('roomType', RoomTypeController::class);
 Route::get('roomTypes/search', [RoomTypeController::class, 'search'])->name('roomTypes.search');
 Route::put('roomTypes/delete/{id}', [RoomTypeController::class, 'delete'])->name('roomTypes.delete');
 Route::get('/roomType/image/delete/{id}', [RoomTypeController::class, 'deleteImage'])->name('roomTypeImage.delete');
-Route::get('roomTypes/inactiveList',[RoomTypeController::class,'inactiveList'])->name('roomTypes.inactiveList');
 });
 Auth::routes();
 Route::middleware(['auth','role:user'])

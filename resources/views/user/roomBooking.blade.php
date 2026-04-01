@@ -12,8 +12,8 @@
         .room-type-btn {
             background-color: white;
             /* default bg */
-            color: orangered;
-            border: 2px solid orangered;
+            color: navy;
+            border: 2px solid navy;
             padding: 10px 18px;
             border-radius: 10px;
             transition: 0.3s;
@@ -21,13 +21,13 @@
 
         /* Hover effect */
         .room-type-btn:hover {
-            background-color: orangered;
+            background-color: navy;
             color: white;
         }
 
         /* Selected (active) */
         .room-type-btn.active {
-            background-color: orangered;
+            background-color: navy;
             color: white;
         }
     </style>
@@ -42,7 +42,7 @@
                 style="background-color: navy;">
                 <h3 class="mb-0">Room Booking</h3>
                 <a href="{{ route('user.booking.viewAllList', Auth::user()->id) }}" class="btn  "
-                    style="background-color: orangered ;color:white">
+                    style="background-color: white ;color:navy">
                     All My Bookings
                 </a>
 
@@ -180,7 +180,7 @@
 
                         <!-- Button -->
                         <button type="button" id="goToCustomer" class="w-100 mt-2"
-                            style="background-color: orangered; color:white; padding:12px; border:none; border-radius:10px; font-size:16px;">
+                            style="background-color: navy; color:white; padding:12px; border:none; border-radius:10px; font-size:16px;">
                             Continue →
                         </button>
 
@@ -290,7 +290,7 @@
 
                         <!-- Button -->
                         <button type="button" id="saveProfile" class="w-100 mt-4"
-                            style="background-color: orangered; color:white; padding:12px; border:none; border-radius:10px; font-size:16px;">
+                            style="background-color: navy; color:white; padding:12px; border:none; border-radius:10px; font-size:16px;">
                             Continue to Summary →
                         </button>
 
@@ -305,7 +305,7 @@
                         style="background-color: navy;">
                         <h3 class="mb-0">Booking Summary</h3>
                         <a href="{{ route('user.bookingRoom') }}" class="btn  "
-                            style="background-color: orangered ;color:white">
+                            style="background-color: white ;color:navy">
                             Back
                         </a>
 
@@ -361,7 +361,7 @@
                             <input type="hidden" name="address" id="finalAddress">
 
                             <button type="button" id="confirmBooking" class="w-100 mt-3"
-                                style="background-color: orangered; color:white; padding:12px; border:none; border-radius:10px; font-size:16px;">
+                                style="background-color: navy; color:white; padding:12px; border:none; border-radius:10px; font-size:16px;">
                                 Confirm Booking
                             </button>
                         </form>

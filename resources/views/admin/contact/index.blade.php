@@ -26,12 +26,14 @@
     <td>{{ $c->name }}</td>
     <td>{{ $c->email }}</td>
     <td>{{ $c->phone }}</td>
-    <td>{{ $c->message }}</td>
+    <td><span title="{{ $c->message }}">
+    {{ \Illuminate\Support\Str::limit($c->message, 30) }}
+</span></td>
     <td>
         <div class="btn btn-group">
       <a href="{{route('admin.viewMail',$c->id)}}" class="btn btn-success">Send Mail</a>
 
-            <a href="{{route('admin.contact.view', $c->id) }}" class="btn btn-warning">View</a>
+    <a href="{{route('admin.contact.view', $c->id) }}" class="btn btn-warning">View</a>
         <form action="{{route('admin.contact.destroy',$c->id)}}" method="post">
             @csrf
             @method('DELETE')

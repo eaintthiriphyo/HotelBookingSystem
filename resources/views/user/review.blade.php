@@ -6,9 +6,9 @@
 <section class="container py-5" id="reviews">
     <h2 class="section-title text-center mb-5"> Guest Reviews</h2>
 
-    <div class="row g-4">
+    <div class="row ">
         @forelse($review ?? [] as $r)
-            <div class="col-md-6 col-lg-4">
+            <div class="col-10 mx-auto mb-3">
                 <div class="card shadow-sm border-0 h-100 hover-card">
                     <div class="card-body">
                         <div class="d-flex align-items-center mb-3">
@@ -71,7 +71,7 @@
                         @enderror
                     </div>
 
-                    <button class="btn w-100" type="submit" style="background-color: orangered; color:white;">Submit Review</button>
+                    <button class="btn w-100" type="submit" style="background-color: navy; color:white;">Submit Review</button>
                 </form>
             @else
                 <div class="text-center py-4">

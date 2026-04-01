@@ -40,8 +40,8 @@
         }
 
         .navbar-custom .nav-link.active {
-            background-color: #ff4500;
-            color: white !important;
+            background-color:white;
+            color: navy !important;
         }
 
         .hero-section {

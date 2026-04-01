@@ -15,7 +15,7 @@
         <!-- Header -->
         <div class="card-header text-white d-flex justify-content-between align-items-center" style="background-color:navy;" >
             <h4 class="mb-0"><i class="fa fa-user-edit me-2"></i>Edit Profile</h4>
-            <a href="{{ route('user.viewProfile', Auth::user()->email) }}" class="btn  shadow-sm" style="background-color:orangered;color:white">
+            <a href="{{ route('user.viewProfile', Auth::user()->email) }}" class="btn  shadow-sm" style="background-color:white;color:navy">
                 <i class="fa fa-user me-1"></i> View Profile
             </a>
         </div>
@@ -79,51 +79,9 @@
                 </div>
 
 
-                        {{-- NRC / Credential --}}
-                        <div class="mb-3">
-                            <label class="form-label">Credential / NRC</label>
-                            <div class="row g-2">
-                                {{-- State --}}
-                                <div class="col-3">
-                                    <select id="fullNrcCode" class="form-control">
-                                        <option value="">State/Region</option>
-                                        @for($i=1; $i<=14; $i++)
-                                            <option value="{{ $i }}">{{ $i }}/</option>
-                                        @endfor
-                                    </select>
-                                </div>
-                                {{-- Township --}}
-                                <div class="col-5">
-                                    <select id="fullNrcTownship" class="form-control">
-                                        <option value="">Township</option>
-                                        @foreach($nrcData['data'] as $item)
-                                            <option value="{{ $item['name_en'] }}" data-state="{{ $item['nrc_code'] }}">
-                                                {{ $item['name_mm'] }}
-                                            </option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                                {{-- Type --}}
-                                <div class="col-2">
-                                    <select id="fullNrcType" class="form-control">
-                                        <option value="N">(N)</option>
-                                        <option value="E">(E)</option>
-                                        <option value="P">(P)</option>
-                                    </select>
-                                </div>
-                                {{-- Number --}}
-                                <div class="col-2">
-                                    <input type="text" id="fullNrcNumber" class="form-control" maxlength="6" placeholder="123456">
-                                </div>
-                            </div>
-                            @error('credential') <span class="text-danger mt-1">{{ $message }}</span> @enderror
-
-                            {{-- Hidden field for form submission --}}
-                            <input type="hidden" name="credential" id="fullCredential">
-                        </div>
                 <!-- Submit -->
                 <div class="text-center">
-                    <button type="submit" class="btn px-5 py-2 shadow-sm rounded-3"  style="background-color:orangered;color:white">
+                    <button type="submit" class="btn px-5 py-2 shadow-sm rounded-3"  style="background-color:navy;color:white">
                         <i class="fa fa-save me-1"></i> Update Profile
                     </button>
                 </div>
@@ -155,48 +113,6 @@
     }
 </style>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script>
-$(document).ready(function(){
-
-    function generateNRC(){
-        const code = $('#fullNrcCode').val();
-        const township = $('#fullNrcTownship').val();
-        const type = $('#fullNrcType').val();
-        const number = $('#fullNrcNumber').val();
-
-        if(code && township && type && number){
-            $('#fullCredential').val(`${code}/${township}(${type})${number}`);
-        } else {
-            $('#fullCredential').val('');
-        }
-    }
-
-    // Trigger generate on change
-    $('#fullNrcCode, #fullNrcTownship, #fullNrcType, #fullNrcNumber').on('change keyup', generateNRC);
-
-    // Filter Townships by selected state
-    $('#fullNrcCode').on('change', function(){
-        const code = $(this).val();
-        $('#fullNrcTownship option').each(function(){
-            const state = $(this).data('state');
-            $(this).toggle(state == code || $(this).val() == '');
-        });
-    });
-
-    // Initialize with old credential if exists
-    @if($profile->credential)
-        const cred = "{{ $profile->credential }}";
-        const match = cred.match(/(\d+)\/(.+)\((\w)\)(\d+)/);
-        if(match){
-            $('#fullNrcCode').val(match[1]);
-            $('#fullNrcTownship').val(match[2]);
-            $('#fullNrcType').val(match[3]);
-            $('#fullNrcNumber').val(match[4]);
-            generateNRC();
-        }
-    @endif
-});
-</script>
 
 @endsection
 

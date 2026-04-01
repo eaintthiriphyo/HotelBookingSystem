@@ -42,7 +42,7 @@
                         Experience our modern amenities, relaxing spa, fine dining, and personalized services
                         designed to create memorable moments.
                     </p>
-                    <a href="#rooms" class="btn  btn-custom mt-3" style="background-color: orangered;color:white">Explore
+                    <a href="#rooms" class="btn  btn-custom mt-3" style="background-color: navy;color:white">Explore
                         Rooms</a>
                 </div>
             </div>
@@ -89,7 +89,7 @@
                             <p>Facility: {{ $rt->facility }}</p>
                             <p>{{ $rt->description }}</p>
                             <a href="{{ route('user.bookingRoom') }}" class="btn "
-                                style="background-color: orangered;color:white">Book Now</a>
+                                style="background-color: navy;color:white">Book Now</a>
                         </div>
                     </div>
                 </div>
@@ -237,7 +237,7 @@
                                 </div>
                                 <div class="text-center">
                                     <button type="submit" class="btn px-4"
-                                        style="background-color:orangered;color:white">Send Message</button>
+                                        style="background-color:navy;color:white">Send Message</button>
                                 </div>
                             </form>
                         </div>

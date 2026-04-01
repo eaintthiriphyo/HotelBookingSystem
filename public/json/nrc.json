@@ -4,7 +4,7 @@
       {
          "id":"1",
          "name_en":"AhGaYa",
-         "name_mm":"(အဂယ) အင်ဂျန်းယန်",
+         "name_mm":"(AhGaYa) Injangyang",
          "nrc_code":"1",
          "created_at":"2019-01-31 20:03:05",
          "updated_at":"2019-01-31 20:03:24"
@@ -12,7 +12,7 @@
       {
          "id":"2",
          "name_en":"BaMaNa",
-         "name_mm":"(ဗမန) ဗန်းမော်",
+         "name_mm":"(BaMaNa) Bhamo",
          "nrc_code":"1",
          "created_at":"2019-01-31 20:03:05",
          "updated_at":"2019-01-31 20:03:24"
@@ -20,7 +20,7 @@
       {
          "id":"3",
          "name_en":"KhaPhaNa",
-         "name_mm":"(ခဖန) ချီဖွေ",
+         "name_mm":"(KhaPhaNa) Chipwi",
          "nrc_code":"1",
          "created_at":"2019-01-31 20:03:05",
          "updated_at":"2019-01-31 20:03:24"
@@ -28,7 +28,7 @@
       {
          "id":"4",
          "name_en":"DaPhaYa",
-         "name_mm":"(ဒဖယ) ဒေါ့ဖုန်းယန်",
+         "name_mm":"(DaPhaYa) Dawthponeyan",
          "nrc_code":"1",
          "created_at":"2019-01-31 20:03:05",
          "updated_at":"2019-01-31 20:03:24"
@@ -36,7 +36,7 @@
       {
          "id":"5",
          "name_en":"HaPaNa",
-         "name_mm":"(ဟပန) ဟိုပင်",
+         "name_mm":"(HaPaNa) Hopin",
          "nrc_code":"1",
          "created_at":"2019-01-31 20:03:05",
          "updated_at":"2019-01-31 20:03:24"
@@ -44,7 +44,7 @@
       {
          "id":"6",
          "name_en":"KaMaNa",
-         "name_mm":"(ကမန) ကာမီ",
+         "name_mm":"(KaMaNa) kamaing",
          "nrc_code":"1",
          "created_at":"2019-01-31 20:03:05",
          "updated_at":"2019-01-31 20:03:05"
@@ -52,7 +52,7 @@
       {
          "id":"7",
          "name_en":"KhaLaPha",
-         "name_mm":"(ခလဖ) ခေါင်လန်ဖူး",
+         "name_mm":"(KhaLaPha) KaungLanhpu",
          "nrc_code":"1",
          "created_at":"2019-01-31 20:03:05",
          "updated_at":"2019-01-31 20:03:24"
@@ -60,7 +60,7 @@
       {
          "id":"8",
          "name_en":"LaGaNa",
-         "name_mm":"(လဂန) လွယ်ဂျယ်",
+         "name_mm":"(LaGaNa) Lwegei",
          "nrc_code":"1",
          "created_at":"2019-01-31 20:03:05",
          "updated_at":"2019-01-31 20:03:24"
@@ -68,7 +68,7 @@
       {
          "id":"9",
          "name_en":"MaKhaBa",
-         "name_mm":"(မခဘ) မချမ်းဘော",
+         "name_mm":"(MaKhaBa) Machanbaw",
          "nrc_code":"1",
          "created_at":"2019-01-31 20:03:05",
          "updated_at":"2019-01-31 20:03:24"
@@ -76,7 +76,7 @@
       {
          "id":"10",
          "name_en":"MaSaNa",
-         "name_mm":"(မစန) မံစီ",
+         "name_mm":"(MaSaNa) Mansi",
          "nrc_code":"1",
          "created_at":"2019-01-31 20:03:05",
          "updated_at":"2019-01-31 20:03:05"
@@ -84,7 +84,7 @@
       {
          "id":"11",
          "name_en":"MaNyaNa",
-         "name_mm":"(မညန) မိုးညင်း",
+         "name_mm":"(MaNyaNa) Mohnyin ",
          "nrc_code":"1",
          "created_at":"2019-01-31 20:03:05",
          "updated_at":"2019-01-31 20:03:24"
@@ -92,7 +92,7 @@
       {
          "id":"12",
          "name_en":"MaKaTa",
-         "name_mm":"(မကတ) မိုးကောင်း",
+         "name_mm":"(MaKaTa) Mogaung",
          "nrc_code":"1",
          "created_at":"2019-01-31 20:03:05",
          "updated_at":"2019-01-31 20:03:24"
@@ -100,7 +100,7 @@
       {
          "id":"13",
          "name_en":"MaMaNa",
-         "name_mm":"(မမန) မိုးမောက်",
+         "name_mm":"(MaMaNa) Momauk",
          "nrc_code":"1",
          "created_at":"2019-01-31 20:03:05",
          "updated_at":"2019-01-31 20:03:24"
@@ -108,7 +108,7 @@
       {
          "id":"14",
          "name_en":"MaKaNa",
-         "name_mm":"(မကန) မြစ်ကြီးနား",
+         "name_mm":"(MaKaNa) Myitkyina",
          "nrc_code":"1",
          "created_at":"2019-01-31 20:03:05",
          "updated_at":"2019-01-31 20:03:24"
@@ -116,7 +116,7 @@
       {
          "id":"15",
          "name_en":"NaMaNa",
-         "name_mm":"(နမန) နောင်မွန်း",
+         "name_mm":"(NaMaNa) Nawngmun",
          "nrc_code":"1",
          "created_at":"2019-01-31 20:03:05",
          "updated_at":"2019-01-31 20:03:24"
@@ -124,7 +124,7 @@
       {
          "id":"16",
          "name_en":"PhaKaNa",
-         "name_mm":"(ဖကန) ဖားကန့်",
+         "name_mm":"(PhaKaNa) Hpakant",
          "nrc_code":"1",
          "created_at":"2019-01-31 20:03:05",
          "updated_at":"2019-01-31 20:03:24"
@@ -132,7 +132,7 @@
       {
          "id":"17",
          "name_en":"PaTaAh",
-         "name_mm":"(ပတအ) ပူတာအို",
+         "name_mm":"(PaTaAh) PutaO",
          "nrc_code":"1",
          "created_at":"2019-01-31 20:03:05",
          "updated_at":"2019-01-31 20:03:05"
@@ -140,7 +140,7 @@
       {
          "id":"18",
          "name_en":"YaKaNa",
-         "name_mm":"(ရကန) ရွှေကူ",
+         "name_mm":"(YaKaNa) Shwegu",
          "nrc_code":"1",
          "created_at":"2019-01-31 20:03:05",
          "updated_at":"2019-01-31 20:03:24"
@@ -148,7 +148,7 @@
       {
          "id":"19",
          "name_en":"SaBaNa",
-         "name_mm":"(ဆဘန) ဆင်ဘို",
+         "name_mm":"(SaBaNa) Sinbo",
          "nrc_code":"1",
          "created_at":"2019-01-31 20:03:05",
          "updated_at":"2019-01-31 20:03:24"
@@ -156,7 +156,7 @@
       {
          "id":"20",
          "name_en":"SaLaNa",
-         "name_mm":"(ဆလန) ဆော့လော",
+         "name_mm":"(SaLaNa) Tsawlaw",
          "nrc_code":"1",
          "created_at":"2019-01-31 20:03:05",
          "updated_at":"2019-01-31 20:03:24"
@@ -164,7 +164,7 @@
       {
          "id":"21",
          "name_en":"SaPaBa",
-         "name_mm":"(ဆပဘ) ဆွမ်ပရာဘွမ်",
+         "name_mm":"(SaPaBa) Sumprabum",
          "nrc_code":"1",
          "created_at":"2019-01-31 20:03:05",
          "updated_at":"2019-01-31 20:03:24"
@@ -172,7 +172,7 @@
       {
          "id":"22",
          "name_en":"TaNaNa",
-         "name_mm":"(တနန) တနိုင်း",
+         "name_mm":"(TaNaNa) Tanai",
          "nrc_code":"1",
          "created_at":"2019-01-31 20:03:05",
          "updated_at":"2019-01-31 20:03:24"
@@ -180,7 +180,7 @@
       {
          "id":"23",
          "name_en":"WaMaNa",
-         "name_mm":"(ဝမန) ဝင်းမော်",
+         "name_mm":"(WaMaNa) Waingmaw",
          "nrc_code":"1",
          "created_at":"2019-01-31 20:03:05",
          "updated_at":"2019-01-31 20:03:24"
@@ -188,7 +188,7 @@
       {
          "id":"24",
          "name_en":"BaLaKha",
-         "name_mm":"(ဘလခ) ဘော်လခဲ",
+         "name_mm":"(BaLaKha) Bawlakhe",
          "nrc_code":"2",
          "created_at":"2019-01-31 20:03:05",
          "updated_at":"2019-01-31 20:03:24"
@@ -196,7 +196,7 @@
       {
          "id":"25",
          "name_en":"DaMaSa",
-         "name_mm":"(ဒမဆ) ဒီမောဆိုး",
+         "name_mm":"(DaMaSa) Demoso",
          "nrc_code":"2",
          "created_at":"2019-01-31 20:03:05",
          "updated_at":"2019-01-31 20:03:24"
@@ -204,7 +204,7 @@
       {
          "id":"26",
          "name_en":"LaKaNa",
-         "name_mm":"(လကန) လွိုင်ကော်",
+         "name_mm":"(LaKaNa) Loikaw",
          "nrc_code":"2",
          "created_at":"2019-01-31 20:03:05",
          "updated_at":"2019-01-31 20:03:24"
@@ -212,7 +212,7 @@
       {
          "id":"27",
          "name_en":"MaSaNa",
-         "name_mm":"(မဆန) မယ်ဆည်နန်",
+         "name_mm":"(MaSaNa) Mese",
          "nrc_code":"2",
          "created_at":"2019-01-31 20:03:05",
          "updated_at":"2019-01-31 20:03:24"
@@ -220,7 +220,7 @@
       {
          "id":"28",
          "name_en":"PhaSaNa",
-         "name_mm":"(ဖဆန) ဖားဆောင်း",
+         "name_mm":"(PhaSaNa) Hpasawng",
          "nrc_code":"2",
          "created_at":"2019-01-31 20:03:05",
          "updated_at":"2019-01-31 20:03:24"
@@ -228,7 +228,7 @@
       {
          "id":"29",
          "name_en":"PhaYaSa",
-         "name_mm":"(ဖရဆ) ဖရူးဆိုး",
+         "name_mm":"(PhaYaSa) Hpruso",
          "nrc_code":"2",
          "created_at":"2019-01-31 20:03:05",
          "updated_at":"2019-01-31 20:03:05"
@@ -236,7 +236,7 @@
       {
          "id":"30",
          "name_en":"YaTaNa",
-         "name_mm":"(ရတန) ရှားတော်",
+         "name_mm":"(YaTaNa) Shadaw",
          "nrc_code":"2",
          "created_at":"2019-01-31 20:03:05",
          "updated_at":"2019-01-31 20:03:24"
@@ -244,7 +244,7 @@
       {
          "id":"31",
          "name_en":"LaBaNa",
-         "name_mm":"(လဘန) လှိုင်းဘွဲ့",
+         "name_mm":"(LaBaNa) Hlaingbwe",
          "nrc_code":"3",
          "created_at":"2019-01-31 20:03:05",
          "updated_at":"2019-01-31 20:03:24"
@@ -252,7 +252,7 @@
       {
          "id":"32",
          "name_en":"KaKaYa",
-         "name_mm":"(ကကရ) ကော့ကရိတ်",
+         "name_mm":"(KaKaYa) Kawkareik",
          "nrc_code":"3",
          "created_at":"2019-01-31 20:03:05",
          "updated_at":"2019-01-31 20:03:24"
@@ -260,7 +260,7 @@
       {
          "id":"33",
          "name_en":"KaSaKa",
-         "name_mm":"(ကဆက) ကြာအင်းဆိပ်ကြီး",
+         "name_mm":"(KaSaKa) Kyainseikgyi",
          "nrc_code":"3",
          "created_at":"2019-01-31 20:03:05",
          "updated_at":"2019-01-31 20:03:24"
@@ -268,7 +268,7 @@
       {
          "id":"34",
          "name_en":"KaDaNa",
-         "name_mm":"(ကဒန) ကျုံဒိုး",
+         "name_mm":"(KaDaNa) Kyondoe",
          "nrc_code":"3",
          "created_at":"2019-01-31 20:03:05",
          "updated_at":"2019-01-31 20:03:24"
@@ -276,23 +276,16 @@
       {
          "id":"35",
          "name_en":"MaWaTa",
-         "name_mm":"(မဝတ) မြဝတီ",
+         "name_mm":"(MaWaTa) Myawaddy",
          "nrc_code":"3",
          "created_at":"2019-01-31 20:03:05",
          "updated_at":"2019-01-31 20:03:24"
       },
-      {
-         "id":"36",
-         "name_en":"PhaAhNa",
-         "name_mm":"(ဖအန) ဖားအံ",
-         "nrc_code":"3",
-         "created_at":"2019-01-31 20:03:05",
-         "updated_at":"2019-01-31 20:03:05"
-      },
+     
       {
          "id":"37",
          "name_en":"BaAhNa",
-         "name_mm":"(ဘအန) ဘားအံ",
+         "name_mm":"(BaAhNa) Hpa-an",
          "nrc_code":"3",
          "created_at":"2019-01-31 20:03:05",
          "updated_at":"2019-01-31 20:03:05"
@@ -300,7 +293,7 @@
       {
          "id":"38",
          "name_en":"PhaPaNa",
-         "name_mm":"(ဖပန) ဖျာပွန်",
+         "name_mm":"(PhaPaNa) Hpapun",
          "nrc_code":"3",
          "created_at":"2019-01-31 20:03:05",
          "updated_at":"2019-01-31 20:03:24"
@@ -308,7 +301,7 @@
       {
          "id":"39",
          "name_en":"ThaTaNa",
-         "name_mm":"(သတန) သံတောင်",
+         "name_mm":"(ThaTaNa) Thandaung",
          "nrc_code":"3",
          "created_at":"2019-01-31 20:03:05",
          "updated_at":"2019-01-31 20:03:24"
@@ -316,7 +309,7 @@
       {
          "id":"40",
          "name_en":"HaKhaNa",
-         "name_mm":"(ဟခန) ဟားခါး",
+         "name_mm":"(HaKhaNa) Hakha",
          "nrc_code":"4",
          "created_at":"2019-01-31 20:03:05",
          "updated_at":"2019-01-31 20:03:05"
@@ -324,7 +317,7 @@
       {
          "id":"41",
          "name_en":"HtaTaLa",
-         "name_mm":"(ထတလ) ထန်တလန်",
+         "name_mm":"(HtaTaLa) Thantlang",
          "nrc_code":"4",
          "created_at":"2019-01-31 20:03:05",
          "updated_at":"2019-01-31 20:03:24"
@@ -332,7 +325,7 @@
       {
          "id":"42",
          "name_en":"KaPaLa",
-         "name_mm":"(ကပလ) ကန်ပက်လက်",
+         "name_mm":"(KaPaLa) Kanpetlet",
          "nrc_code":"4",
          "created_at":"2019-01-31 20:03:05",
          "updated_at":"2019-01-31 20:03:24"
@@ -340,7 +333,7 @@
       {
          "id":"43",
          "name_en":"MaTaPa",
-         "name_mm":"(မတပ) မတူပီ",
+         "name_mm":"(MaTaPa) Matupi",
          "nrc_code":"4",
          "created_at":"2019-01-31 20:03:05",
          "updated_at":"2019-01-31 20:03:05"
@@ -348,7 +341,7 @@
       {
          "id":"44",
          "name_en":"MaTaNa",
-         "name_mm":"(မတန) မင်းတပ်",
+         "name_mm":"(MaTaNa) Mindat",
          "nrc_code":"4",
          "created_at":"2019-01-31 20:03:05",
          "updated_at":"2019-01-31 20:03:24"
@@ -356,7 +349,7 @@
       {
          "id":"45",
          "name_en":"PhaLaNa",
-         "name_mm":"(ဖလန) ဖလမ်း",
+         "name_mm":"(PhaLaNa) Falam",
          "nrc_code":"4",
          "created_at":"2019-01-31 20:03:05",
          "updated_at":"2019-01-31 20:03:24"
@@ -364,7 +357,7 @@
       {
          "id":"46",
          "name_en":"PaLaWa",
-         "name_mm":"(ပလဝ) ပလက်ဝ",
+         "name_mm":"(PaLaWa) Paletwa",
          "nrc_code":"4",
          "created_at":"2019-01-31 20:03:05",
          "updated_at":"2019-01-31 20:03:24"
@@ -372,7 +365,7 @@
       {
          "id":"47",
          "name_en":"TaTaNa",
-         "name_mm":"(တတန) တီးတိန်",
+         "name_mm":"(TaTaNa) Tedim",
          "nrc_code":"4",
          "created_at":"2019-01-31 20:03:05",
          "updated_at":"2019-01-31 20:03:24"
@@ -380,7 +373,7 @@
       {
          "id":"48",
          "name_en":"TaZaNa",
-         "name_mm":"(တဇန) တွန်းဇံ",
+         "name_mm":"(TaZaNa) Tonzang",
          "nrc_code":"4",
          "created_at":"2019-01-31 20:03:05",
          "updated_at":"2019-01-31 20:03:24"
@@ -388,7 +381,7 @@
       {
          "id":"49",
          "name_en":"AhYaTa",
-         "name_mm":"(အရတ) အရာတော်",
+         "name_mm":"(AhYaTa) Ayaadaw",
          "nrc_code":"5",
          "created_at":"2019-01-31 20:03:05",
          "updated_at":"2019-01-31 20:03:24"
@@ -396,7 +389,7 @@
       {
          "id":"50",
          "name_en":"BaMaNa",
-         "name_mm":"(ဗမန) ဗန်းမောက်",
+         "name_mm":"(BaMaNa) Banmauk",
          "nrc_code":"5",
          "created_at":"2019-01-31 20:03:05",
          "updated_at":"2019-01-31 20:03:24"
@@ -404,7 +397,7 @@
       {
          "id":"51",
          "name_en":"BaTaLa",
-         "name_mm":"(ဘတလ) ဘုတလင်",
+         "name_mm":"(BaTaLa) Budalin",
          "nrc_code":"5",
          "created_at":"2019-01-31 20:03:05",
          "updated_at":"2019-01-31 20:03:24"
@@ -412,7 +405,7 @@
       {
          "id":"52",
          "name_en":"KhaOuNa",
-         "name_mm":"(ခဥန) ချောင်းဦး",
+         "name_mm":"(KhaOuNa) Chaung-O",
          "nrc_code":"5",
          "created_at":"2019-01-31 20:03:05",
          "updated_at":"2020-11-25 23:37:39"
@@ -420,7 +413,7 @@
       {
          "id":"53",
          "name_en":"DaPaYa",
-         "name_mm":"(ဒပယ) ဒီပဲယင်း",
+         "name_mm":"(DaPaYa) Tabayin",
          "nrc_code":"5",
          "created_at":"2019-01-31 20:03:05",
          "updated_at":"2019-01-31 20:03:24"
@@ -428,7 +421,7 @@
       {
          "id":"54",
          "name_en":"HaMaLa",
-         "name_mm":"(ဟမလ) ဟုမ္မလင်း",
+         "name_mm":"(HaMaLa) Homalin",
          "nrc_code":"5",
          "created_at":"2019-01-31 20:03:05",
          "updated_at":"2019-01-31 20:03:24"
@@ -436,7 +429,7 @@
       {
          "id":"55",
          "name_en":"HtaKhaNa",
-         "name_mm":"(ထခန) ထီးချိုင့်",
+         "name_mm":"(HtaKhaNa) Tigyaing",
          "nrc_code":"5",
          "created_at":"2019-01-31 20:03:05",
          "updated_at":"2019-01-31 20:03:24"
@@ -444,7 +437,7 @@
       {
          "id":"56",
          "name_en":"AhTaNa",
-         "name_mm":"(အတန) အင်းတော်",
+         "name_mm":"(AhTaNa) Indaw",
          "nrc_code":"5",
          "created_at":"2019-01-31 20:03:05",
          "updated_at":"2019-01-31 20:03:24"
@@ -452,7 +445,7 @@
       {
          "id":"57",
          "name_en":"KaNaNa",
-         "name_mm":"(ကနန) ကနီ",
+         "name_mm":"(KaNaNa) Kani",
          "nrc_code":"5",
          "created_at":"2019-01-31 20:03:05",
          "updated_at":"2019-01-31 20:03:05"
@@ -460,7 +453,7 @@
       {
          "id":"58",
          "name_en":"KaThaNa",
-         "name_mm":"(ကသန) ကသာ",
+         "name_mm":"(KaThaNa) Katha",
          "nrc_code":"5",
          "created_at":"2019-01-31 20:03:05",
          "updated_at":"2019-01-31 20:03:05"
@@ -468,7 +461,7 @@
       {
          "id":"59",
          "name_en":"KaLaHta",
-         "name_mm":"(ကလထ) ကလေး",
+         "name_mm":"(KaLaHta) Kalay",
          "nrc_code":"5",
          "created_at":"2019-01-31 20:03:05",
          "updated_at":"2019-01-31 20:03:24"
@@ -476,7 +469,7 @@
       {
          "id":"60",
          "name_en":"KaLaWa",
-         "name_mm":"(ကလဝ) ကလေးဝ",
+         "name_mm":"(KaLaWa) Kalaywa",
          "nrc_code":"5",
          "created_at":"2019-01-31 20:03:05",
          "updated_at":"2019-01-31 20:03:24"
@@ -484,7 +477,7 @@
       {
          "id":"61",
          "name_en":"KaBaLa",
-         "name_mm":"(ကဘန) ကန့်ဘလူ",
+         "name_mm":"(KaBaLa) kanbalu",
          "nrc_code":"5",
          "created_at":"2019-01-31 20:03:05",
          "updated_at":"2019-01-31 20:03:24"
@@ -492,7 +485,7 @@
       {
          "id":"62",
          "name_en":"KaLaTa",
-         "name_mm":"(ကလတ) ကောလင်း",
+         "name_mm":"(KaLaTa) Kawlin",
          "nrc_code":"5",
          "created_at":"2019-01-31 20:03:05",
          "updated_at":"2019-01-31 20:03:24"
@@ -500,7 +493,7 @@
       {
          "id":"63",
          "name_en":"KhaTaNa",
-         "name_mm":"(ခတန) ခန္တီး",
+         "name_mm":"(KhaTaNa) Hkanti",
          "nrc_code":"5",
          "created_at":"2019-01-31 20:03:05",
          "updated_at":"2019-01-31 20:03:24"
@@ -508,7 +501,7 @@
       {
          "id":"64",
          "name_en":"KhaOuTa",
-         "name_mm":"(ခဥတ) ခင်ဦး",
+         "name_mm":"(KhaOuTa) Khin-U",
          "nrc_code":"5",
          "created_at":"2019-01-31 20:03:05",
          "updated_at":"2019-01-31 20:03:24"
@@ -516,7 +509,7 @@
       {
          "id":"65",
          "name_en":"KaLaNa",
-         "name_mm":"(ကလန) ကျွန်းလှ",
+         "name_mm":"(KaLaNa) kyunhla",
          "nrc_code":"5",
          "created_at":"2019-01-31 20:03:05",
          "updated_at":"2019-01-31 20:03:24"
@@ -524,7 +517,7 @@
       {
          "id":"66",
          "name_en":"MaLaNa",
-         "name_mm":"(မလန) မော်လိုက်",
+         "name_mm":"(MaLaNa) Mawlaik",
          "nrc_code":"5",
          "created_at":"2019-01-31 20:03:05",
          "updated_at":"2019-01-31 20:03:24"
@@ -532,7 +525,7 @@
       {
          "id":"67",
          "name_en":"MaKaNa",
-         "name_mm":"(မကန) မင်းကင်း",
+         "name_mm":"(MaKaNa) Mingin",
          "nrc_code":"5",
          "created_at":"2019-01-31 20:03:05",
          "updated_at":"2019-01-31 20:03:24"
@@ -540,7 +533,7 @@
       {
          "id":"68",
          "name_en":"MaYaNa",
-         "name_mm":"(မရန) မုံရွာ",
+         "name_mm":"(MaYaNa) ]Monywa",
          "nrc_code":"5",
          "created_at":"2019-01-31 20:03:05",
          "updated_at":"2019-01-31 20:03:24"
@@ -548,7 +541,7 @@
       {
          "id":"69",
          "name_en":"MaMaNa",
-         "name_mm":"(မမန) မြောင်",
+         "name_mm":"(MaMaNa) Myaung",
          "nrc_code":"5",
          "created_at":"2019-01-31 20:03:05",
          "updated_at":"2019-01-31 20:03:24"
@@ -556,7 +549,7 @@
       {
          "id":"70",
          "name_en":"NaYaNa",
-         "name_mm":"(နယန) နန်းယွန်း",
+         "name_mm":"(NaYaNa) Nanyun",
          "nrc_code":"5",
          "created_at":"2019-01-31 20:03:05",
          "updated_at":"2019-01-31 20:03:24"
@@ -564,7 +557,7 @@
       {
          "id":"71",
          "name_en":"NgaZaNa",
-         "name_mm":"(ငဇန) ငါးန်ဇွန်",
+         "name_mm":"(NgaZaNa) Ngazun",
          "nrc_code":"5",
          "created_at":"2019-01-31 20:03:05",
          "updated_at":"2019-01-31 20:03:24"
@@ -572,7 +565,7 @@
       {
          "id":"72",
          "name_en":"PaLaNa",
-         "name_mm":"(ပလန) ပုလဲ",
+         "name_mm":"(PaLaNa) Pale",
          "nrc_code":"5",
          "created_at":"2019-01-31 20:03:05",
          "updated_at":"2019-01-31 20:03:05"
@@ -580,7 +573,7 @@
       {
          "id":"73",
          "name_en":"PhaPaNa",
-         "name_mm":"(ဖပန) ဖောင်ပျင်း",
+         "name_mm":"(PhaPaNa) Paungbyin",
          "nrc_code":"5",
          "created_at":"2019-01-31 20:03:05",
          "updated_at":"2019-01-31 20:03:24"
@@ -588,7 +581,7 @@
       {
          "id":"74",
          "name_en":"PaLanBa",
-         "name_mm":"(ပလဘ) ပင်လယ်ဘူး",
+         "name_mm":"(PaLanBa) Pinlebu",
          "nrc_code":"5",
          "created_at":"2019-01-31 20:03:05",
          "updated_at":"2019-01-31 20:03:24"
@@ -596,7 +589,7 @@
       {
          "id":"75",
          "name_en":"SaKaNa",
-         "name_mm":"(စကန) စစ်ကိုင်း",
+         "name_mm":"(SaKaNa) Sagaing",
          "nrc_code":"5",
          "created_at":"2019-01-31 20:03:05",
          "updated_at":"2019-01-31 20:03:24"
@@ -604,7 +597,7 @@
       {
          "id":"76",
          "name_en":"SaLaKa",
-         "name_mm":"(ဆလက) ဆားလင်းကြီး",
+         "name_mm":"(SaLaKa) Salingyi",
          "nrc_code":"5",
          "created_at":"2019-01-31 20:03:05",
          "updated_at":"2019-01-31 20:03:24"
@@ -612,7 +605,7 @@
       {
          "id":"77",
          "name_en":"YaBaNa",
-         "name_mm":"(ရဘန) ရွှေဘို",
+         "name_mm":"(YaBaNa) ShweBo",
          "nrc_code":"5",
          "created_at":"2019-01-31 20:03:05",
          "updated_at":"2019-01-31 20:03:24"
@@ -620,7 +613,7 @@
       {
          "id":"78",
          "name_en":"TaMaNa",
-         "name_mm":"(တမန) တမူး",
+         "name_mm":"(TaMaNa) Tamu",
          "nrc_code":"5",
          "created_at":"2019-01-31 20:03:05",
          "updated_at":"2019-01-31 20:03:05"
@@ -628,7 +621,7 @@
       {
          "id":"79",
          "name_en":"TaSaNa",
-         "name_mm":"(တဆန) တန့်ဆည်",
+         "name_mm":"(TaSaNa) Taze",
          "nrc_code":"5",
          "created_at":"2019-01-31 20:03:05",
          "updated_at":"2019-01-31 20:03:24"
@@ -636,7 +629,7 @@
       {
          "id":"80",
          "name_en":"WaLaNa",
-         "name_mm":"(ဝလန) ဝက်လက်",
+         "name_mm":"(WaLaNa) Wetleet",
          "nrc_code":"5",
          "created_at":"2019-01-31 20:03:05",
          "updated_at":"2019-01-31 20:03:24"
@@ -644,7 +637,7 @@
       {
          "id":"81",
          "name_en":"WaThaNa",
-         "name_mm":"(ဝသန) ဝမ်းသို",
+         "name_mm":"(WaThaNa) Wuntho",
          "nrc_code":"5",
          "created_at":"2019-01-31 20:03:05",
          "updated_at":"2019-01-31 20:03:24"
@@ -652,7 +645,7 @@
       {
          "id":"82",
          "name_en":"YaOuNa",
-         "name_mm":"(ရဥန) ရေဦး",
+         "name_mm":"(YaOuNa) Ye-U",
          "nrc_code":"5",
          "created_at":"2019-01-31 20:03:05",
          "updated_at":"2019-01-31 20:03:24"
@@ -660,7 +653,7 @@
       {
          "id":"83",
          "name_en":"YaMaPa",
-         "name_mm":"(ယမပ) ယင်းမာပင်",
+         "name_mm":"(YaMaPa) Yinmabin",
          "nrc_code":"5",
          "created_at":"2019-01-31 20:03:05",
          "updated_at":"2019-01-31 20:03:24"
@@ -668,7 +661,7 @@
       {
          "id":"84",
          "name_en":"YaThaKa",
-         "name_mm":"(ရသက) ရွာသစ်ကြီး",
+         "name_mm":"(YaThaKa) Ywathitgyi",
          "nrc_code":"5",
          "created_at":"2019-01-31 20:03:05",
          "updated_at":"2019-01-31 20:03:24"
@@ -676,7 +669,7 @@
       {
          "id":"85",
          "name_en":"BaPaNa",
-         "name_mm":"(ဘပန) ဘုတ်ပြင်း",
+         "name_mm":"(BaPaNa) Bokpyin",
          "nrc_code":"6",
          "created_at":"2019-01-31 20:03:05",
          "updated_at":"2019-01-31 20:03:24"
@@ -684,7 +677,7 @@
       {
          "id":"86",
          "name_en":"HtaWaNa",
-         "name_mm":"(ထဝန) ထားဝယ်",
+         "name_mm":"(HtaWaNa) Dawei",
          "nrc_code":"6",
          "created_at":"2019-01-31 20:03:05",
          "updated_at":"2019-01-31 20:03:24"
@@ -692,7 +685,7 @@
       {
          "id":"87",
          "name_en":"KaThaNa",
-         "name_mm":"(ကသန) ကော့သောင်း",
+         "name_mm":"(KaThaNa) Kawthoung",
          "nrc_code":"6",
          "created_at":"2019-01-31 20:03:05",
          "updated_at":"2019-01-31 20:03:24"
@@ -700,7 +693,7 @@
       {
          "id":"88",
          "name_en":"KaSaNa",
-         "name_mm":"(ကစန) ကျွန်းစု",
+         "name_mm":"(KaSaNa) Kyunsu",
          "nrc_code":"6",
          "created_at":"2019-01-31 20:03:05",
          "updated_at":"2019-01-31 20:03:24"
@@ -708,7 +701,7 @@
       {
          "id":"89",
          "name_en":"LaLaNa",
-         "name_mm":"(လလန) လောင်းလုံ",
+         "name_mm":"(LaLaNa) Langlon",
          "nrc_code":"6",
          "created_at":"2019-01-31 20:03:05",
          "updated_at":"2019-01-31 20:03:24"
@@ -716,7 +709,7 @@
       {
          "id":"90",
          "name_en":"MaMaNa",
-         "name_mm":"(မမန) မြိတ်",
+         "name_mm":"(MaMaNa) Myeik",
          "nrc_code":"6",
          "created_at":"2019-01-31 20:03:05",
          "updated_at":"2019-01-31 20:03:24"
@@ -724,39 +717,25 @@
       {
          "id":"91",
          "name_en":"MaAhYa",
-         "name_mm":"(မအရ) မြိတ်အရှေ့",
+         "name_mm":"(MaAhYa) MyeikEast",
          "nrc_code":"6",
          "created_at":"2019-01-31 20:03:05",
          "updated_at":"2019-01-31 20:03:24"
       },
-      {
-         "id":"92",
-         "name_en":"NgaYaKa",
-         "name_mm":"(ငရက) ငရုတ်ကောင်း",
-         "nrc_code":"6",
-         "created_at":"2019-01-31 20:03:05",
-         "updated_at":"2019-01-31 20:03:24"
-      },
+    
       {
          "id":"93",
          "name_en":"PaLaNa",
-         "name_mm":"(ပလန) ပုလော",
+         "name_mm":"(PaLaNa) Pulaw",
          "nrc_code":"6",
          "created_at":"2019-01-31 20:03:05",
          "updated_at":"2019-01-31 20:03:24"
       },
-      {
-         "id":"94",
-         "name_en":"TaNaTha",
-         "name_mm":"(တနသ) တနသာၤရီ",
-         "nrc_code":"6",
-         "created_at":"2019-01-31 20:03:05",
-         "updated_at":"2019-01-31 20:03:05"
-      },
+     
       {
          "id":"95",
          "name_en":"TaThaYa",
-         "name_mm":"(တသရ) တနသာၤရီ",
+         "name_mm":"(TaThaYa) Thanintaryi",
          "nrc_code":"6",
          "created_at":"2019-01-31 20:03:05",
          "updated_at":"2019-01-31 20:03:05"
@@ -764,7 +743,7 @@
       {
          "id":"96",
          "name_en":"ThaYaKha",
-         "name_mm":"(သရခ) သရက်ချောင်း",
+         "name_mm":"(ThaYaKha) Thayetchaung",
          "nrc_code":"6",
          "created_at":"2019-01-31 20:03:05",
          "updated_at":"2019-01-31 20:03:24"
@@ -772,7 +751,7 @@
       {
          "id":"97",
          "name_en":"YaPhaNa",
-         "name_mm":"(ရဖန) ရေဖြူ",
+         "name_mm":"(YaPhaNa) Yephyu",
          "nrc_code":"6",
          "created_at":"2019-01-31 20:03:05",
          "updated_at":"2019-01-31 20:03:24"
@@ -780,23 +759,16 @@
       {
          "id":"98",
          "name_en":"AhPhaNa",
-         "name_mm":"(အဖန) အုတ်ဖို",
+         "name_mm":"(AhPhaNa) Okpho",
          "nrc_code":"7",
          "created_at":"2019-01-31 20:03:05",
          "updated_at":"2019-01-31 20:03:24"
       },
-      {
-         "id":"99",
-         "name_en":"AhPhaNa",
-         "name_mm":"(အဖန) အုတ်ဖြတ်",
-         "nrc_code":"7",
-         "created_at":"2019-01-31 20:03:06",
-         "updated_at":"2019-01-31 20:03:24"
-      },
+     
       {
          "id":"100",
          "name_en":"AhTaNa",
-         "name_mm":"(အတန) အုတ်တွင်း",
+         "name_mm":"(AhTaNa) Oktwin",
          "nrc_code":"7",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -804,7 +776,7 @@
       {
          "id":"101",
          "name_en":"DaOuNa",
-         "name_mm":"(ဒဥန) ဒိုက်ဦး",
+         "name_mm":"(DaOuNa) Daik-U",
          "nrc_code":"7",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -812,7 +784,7 @@
       {
          "id":"102",
          "name_en":"HtaTaPa",
-         "name_mm":"(ထတပ) ထန်းတပင်",
+         "name_mm":"(HtaTaPa) Htantapin",
          "nrc_code":"7",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -820,7 +792,7 @@
       {
          "id":"103",
          "name_en":"KaTaTa",
-         "name_mm":"(ကတတ) ကေတုမတီ",
+         "name_mm":"(KaTaTa) ကေတုမတီ",
          "nrc_code":"7",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -828,7 +800,7 @@
       {
          "id":"104",
          "name_en":"KaPaKa",
-         "name_mm":"(ကပက) ကြို့ပင်ကောက်",
+         "name_mm":"(KaPaKa) Gyobingauk",
          "nrc_code":"7",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -836,7 +808,7 @@
       {
          "id":"105",
          "name_en":"KaKaNa",
-         "name_mm":"(ကကန) ကျောက်ကြီး",
+         "name_mm":"(KaKaNa) Kyaukkyi",
          "nrc_code":"7",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -844,23 +816,16 @@
       {
          "id":"106",
          "name_en":"KaTaKha",
-         "name_mm":"(ကတခ) ကျောက်တံခါး",
+         "name_mm":"(KaTaKha) Kyauktaga",
          "nrc_code":"7",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
       },
-      {
-         "id":"107",
-         "name_en":"KaKaNa",
-         "name_mm":"(ကကန) ကျောက်ကုန်း",
-         "nrc_code":"7",
-         "created_at":"2019-01-31 20:03:06",
-         "updated_at":"2019-01-31 20:03:24"
-      },
+   
       {
          "id":"108",
          "name_en":"MaDaNa",
-         "name_mm":"(မဒန) မဒေါက်",
+         "name_mm":"(MaDaNa) Madauk",
          "nrc_code":"7",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -868,7 +833,7 @@
       {
          "id":"109",
          "name_en":"MaLaNa",
-         "name_mm":"(မလန) မင်းလှ",
+         "name_mm":"(MaLaNa) MinHla",
          "nrc_code":"7",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -876,7 +841,7 @@
       {
          "id":"110",
          "name_en":"MaNyaNa",
-         "name_mm":"(မညန) မိုးညို",
+         "name_mm":"(MaNyaNa) Monyo",
          "nrc_code":"7",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -884,7 +849,7 @@
       {
          "id":"111",
          "name_en":"NaTaLa",
-         "name_mm":"(နတလ) နတ်တလင်း",
+         "name_mm":"(NaTaLa) Nattalin",
          "nrc_code":"7",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -892,7 +857,7 @@
       {
          "id":"112",
          "name_en":"NyaLaPa",
-         "name_mm":"(ညလပ) ညောင်လေးပင်",
+         "name_mm":"(NyaLaPa) Nyaunglebin",
          "nrc_code":"7",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -900,7 +865,7 @@
       {
          "id":"113",
          "name_en":"PaNaKa",
-         "name_mm":"(ပနက) ပဲနွယ်ကုန်း",
+         "name_mm":"(PaNaKa) Pennwegone",
          "nrc_code":"7",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -908,7 +873,7 @@
       {
          "id":"114",
          "name_en":"PaKhaNa",
-         "name_mm":"(ပခန) ပဲခူး",
+         "name_mm":"(PaKhaNa) Bago",
          "nrc_code":"7",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:06"
@@ -916,7 +881,7 @@
       {
          "id":"115",
          "name_en":"PaTaNa",
-         "name_mm":"(ပတန) ပန်တောင်း",
+         "name_mm":"(PaTaNa) Pandaung",
          "nrc_code":"7",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -924,7 +889,7 @@
       {
          "id":"116",
          "name_en":"PaKhaTa",
-         "name_mm":"(ပခန) ပေါက်ခေါင်း",
+         "name_mm":"(PaKhaTa) Paukkaung",
          "nrc_code":"7",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2020-12-12 00:06:22"
@@ -932,7 +897,7 @@
       {
          "id":"117",
          "name_en":"PaTaTa",
-         "name_mm":"(ပတတ) ပေါင်းတည်",
+         "name_mm":"(PaTaTa) Paungde",
          "nrc_code":"7",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -940,7 +905,7 @@
       {
          "id":"118",
          "name_en":"PhaMaNa",
-         "name_mm":"(ဖမန) ဖြူး",
+         "name_mm":"(PhaMaNa) Phyu",
          "nrc_code":"7",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -948,7 +913,7 @@
       {
          "id":"119",
          "name_en":"PaMaNa",
-         "name_mm":"(ပမန) ပြည်",
+         "name_mm":"(PaMaNa) Pyay",
          "nrc_code":"7",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -956,7 +921,7 @@
       {
          "id":"120",
          "name_en":"PaTaSa",
-         "name_mm":"(ပတစ) ပြွန်တဆာ",
+         "name_mm":"(PaTaSa) Pyontahsar",
          "nrc_code":"7",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -964,7 +929,7 @@
       {
          "id":"121",
          "name_en":"YaKaNa",
-         "name_mm":"(ရကန) ရွှေကျင်",
+         "name_mm":"(YaKaNa) Shwegyin",
          "nrc_code":"7",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -972,7 +937,7 @@
       {
          "id":"122",
          "name_en":"YaTaNa",
-         "name_mm":"(ရတန) ရွှေတောင်",
+         "name_mm":"(YaTaNa) ShweTaung",
          "nrc_code":"7",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -980,7 +945,7 @@
       {
          "id":"123",
          "name_en":"TaNgaNa",
-         "name_mm":"(တငန) တောင်ငူ",
+         "name_mm":"(TaNgaNa) Taungoo",
          "nrc_code":"7",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -988,7 +953,7 @@
       {
          "id":"124",
          "name_en":"ThaNaPa",
-         "name_mm":"(သနပ) သနပ်ပင်",
+         "name_mm":"(ThaNaPa) Thanatpin",
          "nrc_code":"7",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -996,7 +961,7 @@
       {
          "id":"125",
          "name_en":"ThaKaNa",
-         "name_mm":"(သကန) သဲကုန်း",
+         "name_mm":"(ThaKaNa) Thegon",
          "nrc_code":"7",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -1004,7 +969,7 @@
       {
          "id":"126",
          "name_en":"ThaWaTa",
-         "name_mm":"(သဝတ) သာယာဝတီ",
+         "name_mm":"(ThaWaTa) Thayarwady",
          "nrc_code":"7",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:06"
@@ -1012,7 +977,7 @@
       {
          "id":"127",
          "name_en":"ThaSaNa",
-         "name_mm":"(သဆန) သုံးဆယ်",
+         "name_mm":"(ThaSaNa) Thonze",
          "nrc_code":"7",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -1020,7 +985,7 @@
       {
          "id":"128",
          "name_en":"WaMaNa",
-         "name_mm":"(ဝမန) ဝေါ",
+         "name_mm":"(WaMaNa) Waw",
          "nrc_code":"7",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -1028,7 +993,7 @@
       {
          "id":"129",
          "name_en":"YaTaYa",
-         "name_mm":"(ရတရ) ရေတာရှည်",
+         "name_mm":"(YaTaYa) Yedashe",
          "nrc_code":"7",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -1036,7 +1001,7 @@
       {
          "id":"130",
          "name_en":"ZaKaNa",
-         "name_mm":"(ဇကန) ဇီးကုန်း",
+         "name_mm":"(ZaKaNa) Zigon",
          "nrc_code":"7",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -1044,7 +1009,7 @@
       {
          "id":"131",
          "name_en":"AhLaNa",
-         "name_mm":"(အလန) အောင်လံ",
+         "name_mm":"(AhLaNa) Aunglan",
          "nrc_code":"8",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -1052,7 +1017,7 @@
       {
          "id":"132",
          "name_en":"KhaMaNa",
-         "name_mm":"(ခမန) ချောက်",
+         "name_mm":"(KhaMaNa) Chauk",
          "nrc_code":"8",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -1060,7 +1025,7 @@
       {
          "id":"133",
          "name_en":"GaGaNa",
-         "name_mm":"(ဂဂန) ဂန့်ဂေါ",
+         "name_mm":"(GaGaNa) Gangaw",
          "nrc_code":"8",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -1068,7 +1033,7 @@
       {
          "id":"134",
          "name_en":"SaPhaNa",
-         "name_mm":"(ဆဖန) ဆိပ်ဖြူ",
+         "name_mm":"(SaPhaNa) Seikphyu",
          "nrc_code":"8",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -1076,7 +1041,7 @@
       {
          "id":"135",
          "name_en":"SaPaWa",
-         "name_mm":"(ဆပဝ) ဆင်ပေါင်ဝဲ",
+         "name_mm":"(SaPaWa) Sinbaungbwe",
          "nrc_code":"8",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -1084,7 +1049,7 @@
       {
          "id":"136",
          "name_en":"HtaLaNa",
-         "name_mm":"(ထလန) ထီးလင်း",
+         "name_mm":"(HtaLaNa) Htinlin",
          "nrc_code":"8",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -1092,7 +1057,7 @@
       {
          "id":"137",
          "name_en":"KaMaNa",
-         "name_mm":"(ကမန) ကံမ",
+         "name_mm":"(KaMaNa) Kamma",
          "nrc_code":"8",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:06"
@@ -1100,7 +1065,7 @@
       {
          "id":"138",
          "name_en":"MaKaNa",
-         "name_mm":"(မကန) မကွေး",
+         "name_mm":"(MaKaNa) Magwe",
          "nrc_code":"8",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -1108,7 +1073,7 @@
       {
          "id":"139",
          "name_en":"MaBaNa",
-         "name_mm":"(မဘန) မင်းဘူး",
+         "name_mm":"(MaBaNa) Minbu",
          "nrc_code":"8",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -1116,7 +1081,7 @@
       {
          "id":"140",
          "name_en":"MaLaNa",
-         "name_mm":"(မလန) မင်းလှ",
+         "name_mm":"(MaLaNa) Minhla",
          "nrc_code":"8",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -1124,7 +1089,7 @@
       {
          "id":"141",
          "name_en":"MaTaNa",
-         "name_mm":"(မတန) မင်းတုန်း",
+         "name_mm":"(MaTaNa) Mindon",
          "nrc_code":"8",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -1132,7 +1097,7 @@
       {
          "id":"142",
          "name_en":"MaMaNa",
-         "name_mm":"(မမန) မြိုင်",
+         "name_mm":"(MaMaNa) Myaing",
          "nrc_code":"8",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -1140,7 +1105,7 @@
       {
          "id":"143",
          "name_en":"MaHtaNa",
-         "name_mm":"(မထန) မြေထဲ",
+         "name_mm":"(MaHtaNa) Myayhtae",
          "nrc_code":"8",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -1148,7 +1113,7 @@
       {
          "id":"144",
          "name_en":"MaThaNa",
-         "name_mm":"(မသန) မြို့သစ်",
+         "name_mm":"(MaThaNa) Myothit",
          "nrc_code":"8",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -1156,7 +1121,7 @@
       {
          "id":"145",
          "name_en":"NaMaNa",
-         "name_mm":"(နမန) နတ်မောက်",
+         "name_mm":"(NaMaNa) Natmauk",
          "nrc_code":"8",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -1164,7 +1129,7 @@
       {
          "id":"146",
          "name_en":"NgaPhaNa",
-         "name_mm":"(ငဖန) ငါးဖယ်",
+         "name_mm":"(NgaPhaNa) Ngape",
          "nrc_code":"8",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -1172,7 +1137,7 @@
       {
          "id":"147",
          "name_en":"PaKhaKa",
-         "name_mm":"(ပခက) ပခုက္ကူ",
+         "name_mm":"(PaKhaKa) Pakokku",
          "nrc_code":"8",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -1180,7 +1145,7 @@
       {
          "id":"148",
          "name_en":"PaMaNa",
-         "name_mm":"(ပမန) ပေါက်",
+         "name_mm":"(PaMaNa) Pauk",
          "nrc_code":"8",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -1188,7 +1153,7 @@
       {
          "id":"149",
          "name_en":"PaPhaNa",
-         "name_mm":"(ပဖန) ပွင့်ဖြူ",
+         "name_mm":"(PaPhaNa) Pwintphyu",
          "nrc_code":"8",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -1196,7 +1161,7 @@
       {
          "id":"150",
          "name_en":"SaLaNa",
-         "name_mm":"(စလန) စလင်း",
+         "name_mm":"(SaLaNa) Salin",
          "nrc_code":"8",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -1204,7 +1169,7 @@
       {
          "id":"151",
          "name_en":"SaTaYa",
-         "name_mm":"(စတရ) စေတုတ္တရာ",
+         "name_mm":"(SaTaYa) Sidoktaua",
          "nrc_code":"8",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -1212,7 +1177,7 @@
       {
          "id":"152",
          "name_en":"SaKaNa",
-         "name_mm":"(စကန) စကု",
+         "name_mm":"(SaKaNa) Sagu",
          "nrc_code":"8",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:06"
@@ -1220,7 +1185,7 @@
       {
          "id":"153",
          "name_en":"TaTaKa",
-         "name_mm":"(တတက) တောင်တွင်းကြီး",
+         "name_mm":"(TaTaKa) Taungdwingyi",
          "nrc_code":"8",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -1228,7 +1193,7 @@
       {
          "id":"154",
          "name_en":"ThaYaNa",
-         "name_mm":"(သရန) သရက်",
+         "name_mm":"(ThaYaNa) Thayet",
          "nrc_code":"8",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -1236,7 +1201,7 @@
       {
          "id":"155",
          "name_en":"SaMaNa",
-         "name_mm":"(ဆမန) ဆော",
+         "name_mm":"(SaMaNa) Saw",
          "nrc_code":"8",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -1244,7 +1209,7 @@
       {
          "id":"156",
          "name_en":"YaNaKha",
-         "name_mm":"(ရနခ) ရေနံချောင်း",
+         "name_mm":"(YaNaKha) Yanangyang",
          "nrc_code":"8",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2020-11-25 23:49:33"
@@ -1252,7 +1217,7 @@
       {
          "id":"157",
          "name_en":"YaSaKa",
-         "name_mm":"(ရစက) ရေစကြို",
+         "name_mm":"(YaSaKa) Yesagyo",
          "nrc_code":"8",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2021-01-25 17:22:00"
@@ -1260,7 +1225,7 @@
       {
          "id":"158",
          "name_en":"DaKhaTha",
-         "name_mm":"(ဒခသ) ဒက္ခိဏသီရိ",
+         "name_mm":"(DaKhaTha) Dekhinathiri",
          "nrc_code":"9",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -1268,7 +1233,7 @@
       {
          "id":"159",
          "name_en":"LaWaNa",
-         "name_mm":"(လဝန) လယ်ဝေး",
+         "name_mm":"(LaWaNa) Lewe",
          "nrc_code":"9",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -1276,7 +1241,7 @@
       {
          "id":"160",
          "name_en":"OuTaTha",
-         "name_mm":"(ဥတသ) ဥတ္တရသီရိ",
+         "name_mm":"(OuTaTha) Ottarathiri",
          "nrc_code":"9",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -1284,7 +1249,7 @@
       {
          "id":"161",
          "name_en":"PaBaTha",
-         "name_mm":"(ပဗသ) ပုဗ္ဗသီရိ",
+         "name_mm":"(PaBaTha) Popathiri",
          "nrc_code":"9",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -1292,7 +1257,7 @@
       {
          "id":"162",
          "name_en":"PaMaNa",
-         "name_mm":"(ပမန) ပျဉ်းမနား",
+         "name_mm":"(PaMaNa) Pyinmana",
          "nrc_code":"9",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -1300,7 +1265,7 @@
       {
          "id":"163",
          "name_en":"TaKaNa",
-         "name_mm":"(တကန) တပ်ကုန်း",
+         "name_mm":"(TaKaNa) Tatkon",
          "nrc_code":"9",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -1308,7 +1273,7 @@
       {
          "id":"164",
          "name_en":"ZaBaTha",
-         "name_mm":"(ဇဗသ) ဇမ္ဗူသီရိ",
+         "name_mm":"(ZaBaTha) Zabuthiri",
          "nrc_code":"9",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -1316,7 +1281,7 @@
       {
          "id":"165",
          "name_en":"ZaYaTha",
-         "name_mm":"(ဇယသ) ဇေယျာသီရိ",
+         "name_mm":"(ZaYaTha) Zayyarthiri",
          "nrc_code":"9",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -1324,7 +1289,7 @@
       {
          "id":"166",
          "name_en":"AhMaYa",
-         "name_mm":"(အမရ) အမရပူရ",
+         "name_mm":"(AhMaYa) Amarapura",
          "nrc_code":"9",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:06"
@@ -1332,7 +1297,7 @@
       {
          "id":"167",
          "name_en":"AhMaZa",
-         "name_mm":"(အမဇ) အောင်မြေသာဇံ",
+         "name_mm":"(AhMaZa) Aungmyathazan",
          "nrc_code":"9",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -1340,7 +1305,7 @@
       {
          "id":"168",
          "name_en":"KhaAhZa",
-         "name_mm":"(ခအစ) ချမ်းအေးသာစည်",
+         "name_mm":"(KhaAhZa) Chanayethazan",
          "nrc_code":"9",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -1348,7 +1313,7 @@
       {
          "id":"169",
          "name_en":"KhaMaSa",
-         "name_mm":"(ခမစ) ချမ်းမြသာစည်",
+         "name_mm":"(KhaMaSa) Chanmyathazi",
          "nrc_code":"9",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -1356,7 +1321,7 @@
       {
          "id":"170",
          "name_en":"KaPaTa",
-         "name_mm":"(ကပတ) ကျောက်ပန်းတောင်း",
+         "name_mm":"(KaPaTa) Kyukpadaung",
          "nrc_code":"9",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -1364,7 +1329,7 @@
       {
          "id":"171",
          "name_en":"KaSaNa",
-         "name_mm":"(ကဆန) ကျောက်ဆည်",
+         "name_mm":"(KaSaNa) Kyukse",
          "nrc_code":"9",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -1372,7 +1337,7 @@
       {
          "id":"172",
          "name_en":"MaLaNa",
-         "name_mm":"(မလန) မလိူင်",
+         "name_mm":"(MaLaNa) Mahlaing",
          "nrc_code":"9",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -1380,47 +1345,18 @@
       {
          "id":"173",
          "name_en":"MaHaMa",
-         "name_mm":"(မဟမ) မဟာအောင်မြေ",
+         "name_mm":"(MaHaMa) Mahaaungmyay",
          "nrc_code":"9",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
       },
-      {
-         "id":"174",
-         "name_en":"MaNaMa",
-         "name_mm":"(မနမ) မန်းနောက်မြောက်",
-         "nrc_code":"9",
-         "created_at":"2019-01-31 20:03:06",
-         "updated_at":"2019-01-31 20:03:24"
-      },
-      {
-         "id":"175",
-         "name_en":"MaNaTa",
-         "name_mm":"(မနတ) မန်းနောက်တောင်",
-         "nrc_code":"9",
-         "created_at":"2019-01-31 20:03:06",
-         "updated_at":"2019-01-31 20:03:24"
-      },
-      {
-         "id":"176",
-         "name_en":"MaYaMa",
-         "name_mm":"(မရမ) မန်းရှေ့မြောက်",
-         "nrc_code":"9",
-         "created_at":"2019-01-31 20:03:06",
-         "updated_at":"2019-01-31 20:03:24"
-      },
-      {
-         "id":"177",
-         "name_en":"MaYaTa",
-         "name_mm":"(မရတ) မန်းရှေ့တောင်",
-         "nrc_code":"9",
-         "created_at":"2019-01-31 20:03:06",
-         "updated_at":"2019-01-31 20:03:24"
-      },
+    
+     
+   
       {
          "id":"178",
          "name_en":"MaTaYa",
-         "name_mm":"(မတရ) မတ္တရာ",
+         "name_mm":"(MaTaYa) Madaya",
          "nrc_code":"9",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -1428,7 +1364,7 @@
       {
          "id":"179",
          "name_en":"MaMaNa",
-         "name_mm":"(မမန) မေမြို့",
+         "name_mm":"(MaMaNa) Maymyot",
          "nrc_code":"9",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -1436,7 +1372,7 @@
       {
          "id":"180",
          "name_en":"MaHtaLa",
-         "name_mm":"(မထလ) မိတ္ထီလာ",
+         "name_mm":"(MaHtaLa) Meiktilia",
          "nrc_code":"9",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -1444,7 +1380,7 @@
       {
          "id":"181",
          "name_en":"MaKaNa",
-         "name_mm":"(မကန) မိုးကုတ်",
+         "name_mm":"(MaKaNa) Mogoke",
          "nrc_code":"9",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -1452,7 +1388,7 @@
       {
          "id":"182",
          "name_en":"MaKhaNa",
-         "name_mm":"(မခန) မြင်းခြံ",
+         "name_mm":"(MaKhaNa) Myingyan",
          "nrc_code":"9",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -1460,7 +1396,7 @@
       {
          "id":"183",
          "name_en":"MaThaNa",
-         "name_mm":"(မသန) မြစ်သား",
+         "name_mm":"(MaThaNa) Myittha",
          "nrc_code":"9",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -1468,7 +1404,7 @@
       {
          "id":"184",
          "name_en":"NaHtaKa",
-         "name_mm":"(နထက) နွားထိုးကြီး",
+         "name_mm":"(NaHtaKa) Natogyi",
          "nrc_code":"9",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -1476,7 +1412,7 @@
       {
          "id":"185",
          "name_en":"NgaTaYa",
-         "name_mm":"(ငသရ) င့ါသရောက်",
+         "name_mm":"(NgaTaYa) Ngathayouk",
          "nrc_code":"9",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -1484,23 +1420,16 @@
       {
          "id":"186",
          "name_en":"NyaOuNa",
-         "name_mm":"(ညဥန) ညောင်ဦး",
+         "name_mm":"(NyaOuNa) Nyaung-U",
          "nrc_code":"9",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
       },
-      {
-         "id":"187",
-         "name_en":"PaLaNa",
-         "name_mm":"(ပလန) ပုလိပ်",
-         "nrc_code":"9",
-         "created_at":"2019-01-31 20:03:06",
-         "updated_at":"2019-01-31 20:03:24"
-      },
+     
       {
          "id":"188",
          "name_en":"PaThaKa",
-         "name_mm":"(ပသက) ပုသိမ်ကြီး",
+         "name_mm":"(PaThaKa) Patheingyi",
          "nrc_code":"9",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -1508,7 +1437,7 @@
       {
          "id":"189",
          "name_en":"PaBaNa",
-         "name_mm":"(ပဖန) ပျော်ဖွယ်",
+         "name_mm":"(PaBaNa) Pyawbwe",
          "nrc_code":"9",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -1516,7 +1445,7 @@
       {
          "id":"190",
          "name_en":"PaKaKha",
-         "name_mm":"(ပကခ) ပြည်ကြီးတံခွန်",
+         "name_mm":"(PaKaKha) Pyigyitagon",
          "nrc_code":"9",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -1524,7 +1453,7 @@
       {
          "id":"191",
          "name_en":"PaOuLa",
-         "name_mm":"(ပဥလ) ပြင်ဦးလွင်",
+         "name_mm":"(PaOuLa) Pyinoolwin",
          "nrc_code":"9",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -1532,7 +1461,7 @@
       {
          "id":"192",
          "name_en":"PaMaNa",
-         "name_mm":"(ပမန) ပျဉ်းမနား",
+         "name_mm":"(PaMaNa) Pyinmana",
          "nrc_code":"9",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -1540,7 +1469,7 @@
       {
          "id":"193",
          "name_en":"SaKaTa",
-         "name_mm":"(စကတ) စဉ့်ကိုင်",
+         "name_mm":"(SaKaTa) Sintgaing",
          "nrc_code":"9",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -1548,7 +1477,7 @@
       {
          "id":"194",
          "name_en":"SaKaNa",
-         "name_mm":"(ဆကန) စဉ့်ကူး",
+         "name_mm":"(SaKaNa) Singu",
          "nrc_code":"9",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -1564,7 +1493,7 @@
       {
          "id":"196",
          "name_en":"TaTaOu",
-         "name_mm":"(တတဥ) တံတားဦး",
+         "name_mm":"(TaTaOu) Tada-U",
          "nrc_code":"9",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -1572,7 +1501,7 @@
       {
          "id":"197",
          "name_en":"TaThaNa",
-         "name_mm":"(တသန) တောင်သာ",
+         "name_mm":"(TaThaNa) Taungtha",
          "nrc_code":"9",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -1580,7 +1509,7 @@
       {
          "id":"198",
          "name_en":"ThaPaKa",
-         "name_mm":"(သပက) သပိတ်ကျင်း",
+         "name_mm":"(ThaPaKa) Tabeikkyin",
          "nrc_code":"9",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -1588,7 +1517,7 @@
       {
          "id":"199",
          "name_en":"ThaSaNa",
-         "name_mm":"(သစန) သာစည်",
+         "name_mm":"(ThaSaNa) Thazi",
          "nrc_code":"9",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -1596,7 +1525,7 @@
       {
          "id":"200",
          "name_en":"WaTaNa",
-         "name_mm":"(ဝတန) ဝမ်းတွင်း",
+         "name_mm":"(WaTaNa) Wundwin",
          "nrc_code":"9",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -1604,7 +1533,7 @@
       {
          "id":"201",
          "name_en":"YaMaTha",
-         "name_mm":"(ရမသ) ရမည်းသင်း",
+         "name_mm":"(YaMaTha) Yemathin",
          "nrc_code":"9",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -1612,7 +1541,7 @@
       {
          "id":"202",
          "name_en":"BaLaNa",
-         "name_mm":"(ဘလန) ဘီးလင်း",
+         "name_mm":"(BaLaNa) Billin",
          "nrc_code":"10",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -1620,7 +1549,7 @@
       {
          "id":"203",
          "name_en":"KhaSaNa",
-         "name_mm":"(ခဆန) ချောင်းဆုံ",
+         "name_mm":"(KhaSaNa) Chaungzon",
          "nrc_code":"10",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -1628,7 +1557,7 @@
       {
          "id":"204",
          "name_en":"KaMaYa",
-         "name_mm":"(ကမရ) ကျိုက်မရော",
+         "name_mm":"(KaMaYa) Kyaikmaraw",
          "nrc_code":"10",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -1636,7 +1565,7 @@
       {
          "id":"205",
          "name_en":"KaHtaNa",
-         "name_mm":"(ကထန) ကျိုက်ထို",
+         "name_mm":"(KaHtaNa) Kyaikto",
          "nrc_code":"10",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -1644,7 +1573,7 @@
       {
          "id":"206",
          "name_en":"MaLaMa",
-         "name_mm":"(မလမ) မော်လမြိုင်",
+         "name_mm":"(MaLaMa) Mawlawmyine",
          "nrc_code":"10",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -1652,7 +1581,7 @@
       {
          "id":"207",
          "name_en":"MaDaNa",
-         "name_mm":"(မဒန) မုဒုံ",
+         "name_mm":"(MaDaNa) Mudon",
          "nrc_code":"10",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -1660,7 +1589,7 @@
       {
          "id":"208",
          "name_en":"PaMaNa",
-         "name_mm":"(ပမန) ပေါင်",
+         "name_mm":"(PaMaNa) Paung",
          "nrc_code":"10",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -1668,7 +1597,7 @@
       {
          "id":"209",
          "name_en":"ThaPhaYa",
-         "name_mm":"(သဖရ) သံဖြူဇရပ်",
+         "name_mm":"(ThaPhaYa) Thanbyuzayat",
          "nrc_code":"10",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -1676,7 +1605,7 @@
       {
          "id":"210",
          "name_en":"ThaHtaNa",
-         "name_mm":"(သထန) သထုံ",
+         "name_mm":"(ThaHtaNa) Thaton",
          "nrc_code":"10",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -1684,7 +1613,7 @@
       {
          "id":"211",
          "name_en":"KhaZaNa",
-         "name_mm":"(ခဇန) ခေါဇာ",
+         "name_mm":"(KhaZaNa) Khawzar",
          "nrc_code":"10",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -1692,7 +1621,7 @@
       {
          "id":"212",
          "name_en":"LaMaNa",
-         "name_mm":"(လမန) လမိုင်း",
+         "name_mm":"(LaMaNa) Lamine",
          "nrc_code":"10",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -1700,7 +1629,7 @@
       {
          "id":"213",
          "name_en":"YaMaNa",
-         "name_mm":"(ရမန) ရေး",
+         "name_mm":"(YaMaNa) Ye",
          "nrc_code":"10",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -1708,7 +1637,7 @@
       {
          "id":"214",
          "name_en":"AaMaNa",
-         "name_mm":"(အမန) အမ်း",
+         "name_mm":"(AaMaNa) Ann",
          "nrc_code":"11",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -1716,7 +1645,7 @@
       {
          "id":"215",
          "name_en":"BaThaTa",
-         "name_mm":"(ဘသတ) ဘူးသီးတောင်",
+         "name_mm":"(BaThaTa) Buthudaung",
          "nrc_code":"11",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -1724,7 +1653,7 @@
       {
          "id":"216",
          "name_en":"GaMaNa",
-         "name_mm":"(ဂမန) ဂွ",
+         "name_mm":"(GaMaNa) Gwa",
          "nrc_code":"11",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -1732,7 +1661,7 @@
       {
          "id":"217",
          "name_en":"KaPhaNa",
-         "name_mm":"(ကဖန) ကျောက်ဖြူ",
+         "name_mm":"(KaPhaNa) Kyaukphyu",
          "nrc_code":"11",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -1740,7 +1669,7 @@
       {
          "id":"218",
          "name_en":"KaTaNa",
-         "name_mm":"(ကတန) ကျောက်တော်",
+         "name_mm":"(KaTaNa) Kyauktaw",
          "nrc_code":"11",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -1748,7 +1677,7 @@
       {
          "id":"219",
          "name_en":"MaAhNa",
-         "name_mm":"(မအန) မာန်အောင်",
+         "name_mm":"(MaAhNa) Munaung",
          "nrc_code":"11",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -1756,7 +1685,7 @@
       {
          "id":"220",
          "name_en":"MaTaNa",
-         "name_mm":"(မတန) မောင်းတော",
+         "name_mm":"(MaTaNa) Maungdaw",
          "nrc_code":"11",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -1764,7 +1693,7 @@
       {
          "id":"221",
          "name_en":"MaPaNa",
-         "name_mm":"(မပန) မင်းပြား",
+         "name_mm":"(MaPaNa) Minbya",
          "nrc_code":"11",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -1772,7 +1701,7 @@
       {
          "id":"222",
          "name_en":"MaOuNa",
-         "name_mm":"(မဥန) မြောက်ဦး",
+         "name_mm":"(MaOuNa) Myauk-U",
          "nrc_code":"11",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -1780,7 +1709,7 @@
       {
          "id":"223",
          "name_en":"MaPaTa",
-         "name_mm":"(မပတ) မြေပုံ",
+         "name_mm":"(MaPaTa) Myebon",
          "nrc_code":"11",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -1788,7 +1717,7 @@
       {
          "id":"224",
          "name_en":"PaTaNa",
-         "name_mm":"(ပတန) ပေါက်တော",
+         "name_mm":"(PaTaNa) Pauktaw",
          "nrc_code":"11",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -1796,7 +1725,7 @@
       {
          "id":"225",
          "name_en":"PaNaKa",
-         "name_mm":"(ပဏက) ပုဏ္ဏကျွန်း",
+         "name_mm":"(PaNaKa) Ponnagyun",
          "nrc_code":"11",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -1804,7 +1733,7 @@
       {
          "id":"226",
          "name_en":"SaTaNa",
-         "name_mm":"(စတန) စစ်တွေ",
+         "name_mm":"(SaTaNa) Sittwe",
          "nrc_code":"11",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -1812,7 +1741,7 @@
       {
          "id":"227",
          "name_en":"TaKaNa",
-         "name_mm":"(တကန) တောင်ကုတ်",
+         "name_mm":"(TaKaNa) Toungup",
          "nrc_code":"11",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -1820,7 +1749,7 @@
       {
          "id":"228",
          "name_en":"ThaTaNa",
-         "name_mm":"(သတန) သံတွဲ",
+         "name_mm":"(ThaTaNa) Thandwe",
          "nrc_code":"11",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -1828,7 +1757,7 @@
       {
          "id":"229",
          "name_en":"YaBaNa",
-         "name_mm":"(ရဗန) ရမ်းဗြဲ",
+         "name_mm":"(YaBaNa) Ramree",
          "nrc_code":"11",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -1836,7 +1765,7 @@
       {
          "id":"230",
          "name_en":"YaThaTa",
-         "name_mm":"(ရသတ) ရသေ့တောင်",
+         "name_mm":"(YaThaTa) Rathedaung",
          "nrc_code":"11",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -1844,7 +1773,7 @@
       {
          "id":"231",
          "name_en":"AaLaNa",
-         "name_mm":"(အလန) အလုံ",
+         "name_mm":"(AaLaNa) Ahlone",
          "nrc_code":"12",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:06"
@@ -1852,7 +1781,7 @@
       {
          "id":"232",
          "name_en":"BaHaNa",
-         "name_mm":"(ဗဟန) ဗဟန်း",
+         "name_mm":"(BaHaNa) Bahan",
          "nrc_code":"12",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -1860,7 +1789,7 @@
       {
          "id":"233",
          "name_en":"BaTaHta",
-         "name_mm":"(ဗတထ) ဗိုလ်တထောင်",
+         "name_mm":"(BaTaHta) Botahtaung",
          "nrc_code":"12",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -1868,7 +1797,7 @@
       {
          "id":"234",
          "name_en":"KaKaKa",
-         "name_mm":"(ကကက) ကိုကိုးကျွန်း",
+         "name_mm":"(KaKaKa) Cocokyun",
          "nrc_code":"12",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -1876,7 +1805,7 @@
       {
          "id":"235",
          "name_en":"DaGaNa",
-         "name_mm":"(ဒဂန) ဒဂုံ",
+         "name_mm":"(DaGaNa) Dagon",
          "nrc_code":"12",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:06"
@@ -1884,7 +1813,7 @@
       {
          "id":"236",
          "name_en":"DaGaYa",
-         "name_mm":"(ဒဂရ) ဒဂုံမြို့သစ်(အရှေ့ပိုင်း)",
+         "name_mm":"(ဒဂရ) DagonMyothit(East)",
          "nrc_code":"12",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -1892,15 +1821,15 @@
       {
          "id":"237",
          "name_en":"DaGaMa",
-         "name_mm":"(ဒဂမ) ဒဂုံမြို့သစ်(မြောက်ပိုင်း)",
+         "name_mm":"(DaGaMa) DagonMyothit(North)",
          "nrc_code":"12",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-02-14 23:53:07"
       },
       {
          "id":"238",
-         "name_en":"DaSaKa",
-         "name_mm":"(ဒဆက) ဒဂုံမြို့သစ်ဆိပ်ကမ်း",
+         "name_en":"DaGaSa",
+         "name_mm":"(DaGaSa) DagonMyothit(Seikkan)",
          "nrc_code":"12",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -1908,7 +1837,7 @@
       {
          "id":"239",
          "name_en":"DaGaTa",
-         "name_mm":"(ဒဂတ) ဒဂုံမြို့သစ်(တောင်ပိုင်း)",
+         "name_mm":"(DaGaTa) DagonMyothit(South)",
          "nrc_code":"12",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -1916,7 +1845,7 @@
       {
          "id":"240",
          "name_en":"DaLaNa",
-         "name_mm":"(ဒလန) ဒလ",
+         "name_mm":"(DaLaNa) Dala",
          "nrc_code":"12",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:06"
@@ -1924,7 +1853,7 @@
       {
          "id":"241",
          "name_en":"DaPaNa",
-         "name_mm":"(ဒပန) ဒေါပုံ",
+         "name_mm":"(DaPaNa) Dawbon",
          "nrc_code":"12",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -1932,7 +1861,7 @@
       {
          "id":"242",
          "name_en":"LaMaNa",
-         "name_mm":"(လမန) လှိုင်",
+         "name_mm":"(LaMaNa) Hlaing",
          "nrc_code":"12",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -1940,7 +1869,7 @@
       {
          "id":"243",
          "name_en":"LaThaYa",
-         "name_mm":"(လသယ) လှိုင်သာယာ",
+         "name_mm":"(LaThaYa) Hlaingtharya",
          "nrc_code":"12",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -1948,7 +1877,7 @@
       {
          "id":"244",
          "name_en":"LaKaNa",
-         "name_mm":"(လကန) လှည်းကူး",
+         "name_mm":"(LaKaNa) Hlegu",
          "nrc_code":"12",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -1956,7 +1885,7 @@
       {
          "id":"245",
          "name_en":"MaBaNa",
-         "name_mm":"(မဘန) မှော်ဘီ",
+         "name_mm":"(MaBaNa) Hmawbi",
          "nrc_code":"12",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -1964,7 +1893,7 @@
       {
          "id":"246",
          "name_en":"HtaTaPa",
-         "name_mm":"(ထတပ) ထန်းတပင်",
+         "name_mm":"(HtaTaPa) Htantabin",
          "nrc_code":"12",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -1972,7 +1901,7 @@
       {
          "id":"247",
          "name_en":"AhSaNa",
-         "name_mm":"(အစန) အင်းစိန်",
+         "name_mm":"(AhSaNa) Insein",
          "nrc_code":"12",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -1980,7 +1909,7 @@
       {
          "id":"248",
          "name_en":"KaMaYa",
-         "name_mm":"(ကမရ) ကမာရွတ်",
+         "name_mm":"(KaMaYa) Kamayut",
          "nrc_code":"12",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -1988,7 +1917,7 @@
       {
          "id":"249",
          "name_en":"KaMaNa",
-         "name_mm":"(ကမန) ကော့မှုုး",
+         "name_mm":"(KaMaNa) Kawhmu",
          "nrc_code":"12",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -1996,7 +1925,7 @@
       {
          "id":"250",
          "name_en":"KhaYaNa",
-         "name_mm":"(ခရန) ခရမ်း",
+         "name_mm":"(KhaYaNa) Kayan",
          "nrc_code":"12",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -2004,7 +1933,7 @@
       {
          "id":"251",
          "name_en":"KaKhaKa",
-         "name_mm":"(ကခက) ကွမ်းခြံကုန်း",
+         "name_mm":"(KaKhaKa) Kungyangon",
          "nrc_code":"12",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -2012,7 +1941,7 @@
       {
          "id":"252",
          "name_en":"KaTaTa",
-         "name_mm":"(ကတတ) ကျောက်တံတား",
+         "name_mm":"(KaTaTa) Kyauktada",
          "nrc_code":"12",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -2020,7 +1949,7 @@
       {
          "id":"253",
          "name_en":"KaTaNa",
-         "name_mm":"(ကတန) ကျောက်တန်း",
+         "name_mm":"(KaTaNa) Kyauktan",
          "nrc_code":"12",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -2028,7 +1957,7 @@
       {
          "id":"254",
          "name_en":"KaMaTa",
-         "name_mm":"(ကမတ) ကြည့်မြင်တိုင်",
+         "name_mm":"(KaMaTa) Kyimyindaubg",
          "nrc_code":"12",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -2036,7 +1965,7 @@
       {
          "id":"255",
          "name_en":"LaMata",
-         "name_mm":"(လမတ) လမ်းမတော်",
+         "name_mm":"(LaMata) Lanmadaw",
          "nrc_code":"12",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -2044,7 +1973,7 @@
       {
          "id":"256",
          "name_en":"LaThaNa",
-         "name_mm":"(လသန) လသာ",
+         "name_mm":"(LaThaNa) Latha",
          "nrc_code":"12",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:06"
@@ -2052,7 +1981,7 @@
       {
          "id":"257",
          "name_en":"MaYaKa",
-         "name_mm":"(မရက) မရမ်းကုန်း",
+         "name_mm":"(MaYaKa) Mayangone",
          "nrc_code":"12",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -2060,7 +1989,7 @@
       {
          "id":"258",
          "name_en":"MaGaTa",
-         "name_mm":"(မဂတ) မင်္ဂလာတောင်ညွှန့်",
+         "name_mm":"(MaGaTa) Mingalartaungnyut",
          "nrc_code":"12",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -2068,7 +1997,7 @@
       {
          "id":"259",
          "name_en":"MaGaDa",
-         "name_mm":"(မဂဒ) မင်္ဂလာဒုံ",
+         "name_mm":"(MaGaDa) Mingalardon",
          "nrc_code":"12",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -2076,7 +2005,7 @@
       {
          "id":"260",
          "name_en":"OuKaMa",
-         "name_mm":"(ဥကမ) မြောက်ဥက္ကလာပ",
+         "name_mm":"(OuKaMa) North Oakkalapa",
          "nrc_code":"12",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -2084,7 +2013,7 @@
       {
          "id":"261",
          "name_en":"PaBaTa",
-         "name_mm":"(ပဘတ) ပန်းဘဲတန်း",
+         "name_mm":"(PaBaTa) Pabedan",
          "nrc_code":"12",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -2092,7 +2021,7 @@
       {
          "id":"262",
          "name_en":"PaZaDa",
-         "name_mm":"(ပဇတ) ပုဇွန်တောင်",
+         "name_mm":"(PaZaDa) Pazundaung",
          "nrc_code":"12",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -2100,7 +2029,7 @@
       {
          "id":"263",
          "name_en":"SaKhaNa",
-         "name_mm":"(စခန) စမ်းချောင်း",
+         "name_mm":"(SaKhaNa) Sanchaung",
          "nrc_code":"12",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -2108,7 +2037,7 @@
       {
          "id":"264",
          "name_en":"SaKakha",
-         "name_mm":"(ဆကခ) ဆိပ်ကြီးခနောင်တို",
+         "name_mm":"(SaKakha) Seikayikanaungto",
          "nrc_code":"12",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -2116,7 +2045,7 @@
       {
          "id":"265",
          "name_en":"SaKaNa",
-         "name_mm":"(ဆကန) ဆိပ်ကမ်း",
+         "name_mm":"(SaKaNa) Seikkan",
          "nrc_code":"12",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -2124,7 +2053,7 @@
       {
          "id":"266",
          "name_en":"YaPaKa",
-         "name_mm":"(ရပက) ရွှေပေါက်ကံ",
+         "name_mm":"(YaPaKa) ShwePaukakn",
          "nrc_code":"12",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -2132,7 +2061,7 @@
       {
          "id":"267",
          "name_en":"YaPaTha",
-         "name_mm":"(ရပသ) ရွှေပြည်သာ",
+         "name_mm":"(YaPaTha) ShwePyiThar",
          "nrc_code":"12",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -2140,7 +2069,7 @@
       {
          "id":"268",
          "name_en":"OuKaTa",
-         "name_mm":"(ဥကတ) တောင်ဥက္ကလာပ",
+         "name_mm":"(OuKaTa) South Okkalarpa",
          "nrc_code":"12",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -2148,7 +2077,7 @@
       {
          "id":"269",
          "name_en":"TaKaNa",
-         "name_mm":"(တကန) တိုက်ကြီး",
+         "name_mm":"(TaKaNa) Taikkyi",
          "nrc_code":"12",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -2156,7 +2085,7 @@
       {
          "id":"270",
          "name_en":"TaMaNa",
-         "name_mm":"(တမန) တာမွေ",
+         "name_mm":"(TaMaNa) Tamwe",
          "nrc_code":"12",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -2164,7 +2093,7 @@
       {
          "id":"271",
          "name_en":"ThaKaTa",
-         "name_mm":"(သကတ) သာကေတ",
+         "name_mm":"(ThaKaTa) Thaketa",
          "nrc_code":"12",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -2172,7 +2101,7 @@
       {
          "id":"272",
          "name_en":"ThaLaNa",
-         "name_mm":"(သလန) သန်လျင်",
+         "name_mm":"(ThaLaNa) Thanlyin",
          "nrc_code":"12",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -2180,7 +2109,7 @@
       {
          "id":"273",
          "name_en":"ThaGaKa",
-         "name_mm":"(သဃက) သင်္ဃန်းကျွန်း",
+         "name_mm":"(ThaGaKa) Thingankuun",
          "nrc_code":"12",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -2188,7 +2117,7 @@
       {
          "id":"274",
          "name_en":"ThaKhaNa",
-         "name_mm":"(သခန) သုံးခွ",
+         "name_mm":"(ThaKhaNa) Thongwa",
          "nrc_code":"12",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -2196,7 +2125,7 @@
       {
          "id":"275",
          "name_en":"TaTaNa",
-         "name_mm":"(တတန) တွံတေး",
+         "name_mm":"(TaTaNa) Twantay",
          "nrc_code":"12",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -2204,7 +2133,7 @@
       {
          "id":"276",
          "name_en":"YaKaNa",
-         "name_mm":"(ရကန) ရန်ကင်း",
+         "name_mm":"(YaKaNa) Yankin",
          "nrc_code":"12",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -2212,7 +2141,7 @@
       {
          "id":"277",
          "name_en":"KhaYaHa",
-         "name_mm":"(ခရဟ) ချင်းရွှေဟော် မြို့နယ်ခွဲ",
+         "name_mm":"(KhaYaHa) Chinshwehaw Sub",
          "nrc_code":"13",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -2220,7 +2149,7 @@
       {
          "id":"278",
          "name_en":"HaPaTa",
-         "name_mm":"(ဟပတ) ဟိုပန်",
+         "name_mm":"(HaPaTa) Hopang",
          "nrc_code":"13",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -2228,7 +2157,7 @@
       {
          "id":"279",
          "name_en":"HaPaNa",
-         "name_mm":"(ဟပန) ဟိုပုံး",
+         "name_mm":"(HaPaNa) Hopong",
          "nrc_code":"13",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:06"
@@ -2236,7 +2165,7 @@
       {
          "id":"280",
          "name_en":"KaLaNa",
-         "name_mm":"(ကလန) ကလော",
+         "name_mm":"(KaLaNa) Kalaw",
          "nrc_code":"13",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -2244,7 +2173,7 @@
       {
          "id":"281",
          "name_en":"KaLaTa",
-         "name_mm":"(ကလတ) ကွမ်းလုံ",
+         "name_mm":"(KaLaTa) Kuniong",
          "nrc_code":"13",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -2252,7 +2181,7 @@
       {
          "id":"282",
          "name_en":"KaHaNa",
-         "name_mm":"(ကဟန) ကွန်ဟိန်း",
+         "name_mm":"(KaHaNa) Kunhing",
          "nrc_code":"13",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -2260,7 +2189,7 @@
       {
          "id":"283",
          "name_en":"KaThaNa",
-         "name_mm":"(ကသန) ကျေးသီး",
+         "name_mm":"(KaThaNa) Kyethi",
          "nrc_code":"13",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -2268,7 +2197,7 @@
       {
          "id":"284",
          "name_en":"KaTaTa",
-         "name_mm":"(ကတတ) ကျိုင်းတောင်း",
+         "name_mm":"(KaTaTa) Kyaing Taung",
          "nrc_code":"13",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -2276,7 +2205,7 @@
       {
          "id":"285",
          "name_en":"KaTaNa",
-         "name_mm":"(ကတန) ကျိုင်းတုံ",
+         "name_mm":"(KaTaNa) Kengtung",
          "nrc_code":"13",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -2284,7 +2213,7 @@
       {
          "id":"286",
          "name_en":"KaMaNa",
-         "name_mm":"(ကမန) ကျောက်မဲ",
+         "name_mm":"(KaMaNa) Kyaukme",
          "nrc_code":"13",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -2292,7 +2221,7 @@
       {
          "id":"287",
          "name_en":"KaKhaNa",
-         "name_mm":"(ကခန) ကွတ်ခိုင်",
+         "name_mm":"(KaKhaNa) Kutkai",
          "nrc_code":"13",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -2300,7 +2229,7 @@
       {
          "id":"288",
          "name_en":"LaYaNa",
-         "name_mm":"(လရန) လားရှိုး",
+         "name_mm":"(LaYaNa) Lahio",
          "nrc_code":"13",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -2308,7 +2237,7 @@
       {
          "id":"289",
          "name_en":"LaKaNa",
-         "name_mm":"(လကန) လောက်ကိုင်",
+         "name_mm":"(LaKaNa) Laukkaing",
          "nrc_code":"13",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -2316,7 +2245,7 @@
       {
          "id":"290",
          "name_en":"LaKhaTa",
-         "name_mm":"(လခတ) လဲချား",
+         "name_mm":"(LaKhaTa) Laihka",
          "nrc_code":"13",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -2324,7 +2253,7 @@
       {
          "id":"291",
          "name_en":"LaKhaNa",
-         "name_mm":"(လခန) လင်းခေး",
+         "name_mm":"(LaKhaNa) langkho",
          "nrc_code":"13",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -2332,7 +2261,7 @@
       {
          "id":"292",
          "name_en":"LaLaNa",
-         "name_mm":"(လလန) လွိုင်လင်",
+         "name_mm":"(LaLaNa) Loilen",
          "nrc_code":"13",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -2340,7 +2269,7 @@
       {
          "id":"293",
          "name_en":"MaBaNa",
-         "name_mm":"(မဘန) မဘိမ်း",
+         "name_mm":"(MaBaNa) Mabein",
          "nrc_code":"13",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -2348,7 +2277,7 @@
       {
          "id":"294",
          "name_en":"MaKaNa",
-         "name_mm":"(မကန) မိုင်းကိုင်",
+         "name_mm":"(MaKaNa) Mongkung",
          "nrc_code":"13",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -2356,7 +2285,7 @@
       {
          "id":"295",
          "name_en":"MaKhaNa",
-         "name_mm":"(မခန) မိုင်းခတ်",
+         "name_mm":"(MaKhaNa) Mongkhet",
          "nrc_code":"13",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -2364,7 +2293,7 @@
       {
          "id":"296",
          "name_en":"MaPHaNa",
-         "name_mm":"(မဖန) မိုင်းဖြတ်",
+         "name_mm":"(MaPHaNa) Monghpak",
          "nrc_code":"13",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -2372,7 +2301,7 @@
       {
          "id":"297",
          "name_en":"MaPaTa",
-         "name_mm":"(မပတ) မိုင်းပြင်း",
+         "name_mm":"(MaPaTa) Mongping",
          "nrc_code":"13",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -2380,7 +2309,7 @@
       {
          "id":"298",
          "name_en":"MaSaNa",
-         "name_mm":"(မဆန) မိုင်းဆတ်",
+         "name_mm":"(MaSaNa) MongHsat",
          "nrc_code":"13",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -2388,7 +2317,7 @@
       {
          "id":"299",
          "name_en":"MaYaNa",
-         "name_mm":"(မရန) မိုင်းရှုး",
+         "name_mm":"(MaYaNa) Monghsu",
          "nrc_code":"13",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -2396,7 +2325,7 @@
       {
          "id":"300",
          "name_en":"MaYaTa",
-         "name_mm":"(မရတ) မိုင်းရယ်",
+         "name_mm":"(MaYaTa) Mongyai",
          "nrc_code":"13",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -2404,7 +2333,7 @@
       {
          "id":"301",
          "name_en":"MaTaTa",
-         "name_mm":"(မတတ) မန်တုန်",
+         "name_mm":"(MaTaTa) Manton",
          "nrc_code":"13",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -2412,7 +2341,7 @@
       {
          "id":"302",
          "name_en":"MaMaTa",
-         "name_mm":"(မမတ) မိုးမိတ်",
+         "name_mm":"(MaMaTa) Mongmit",
          "nrc_code":"13",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -2420,7 +2349,7 @@
       {
          "id":"303",
          "name_en":"MaNaNa",
-         "name_mm":"(မနန) မိုးနဲ",
+         "name_mm":"(MaNaNa) Mongnai",
          "nrc_code":"13",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:06"
@@ -2428,7 +2357,7 @@
       {
          "id":"304",
          "name_en":"MaKaNa",
-         "name_mm":"(မကန) မုန်းကိုး",
+         "name_mm":"(MaKaNa) Mongkung",
          "nrc_code":"13",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -2436,7 +2365,7 @@
       {
          "id":"305",
          "name_en":"MaSaTa",
-         "name_mm":"(မဆတ) မူဆယ်",
+         "name_mm":"(MaSaTa) Muse",
          "nrc_code":"13",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -2444,7 +2373,7 @@
       {
          "id":"306",
          "name_en":"NaMaTa",
-         "name_mm":"(နမတ) နမ့်မတူ",
+         "name_mm":"(NaMaTa) Namtu",
          "nrc_code":"13",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -2452,7 +2381,7 @@
       {
          "id":"307",
          "name_en":"NaKhaNa",
-         "name_mm":"(နခန) နမ့်ခမ်း",
+         "name_mm":"(NaKhaNa) Namhkan",
          "nrc_code":"13",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -2460,7 +2389,7 @@
       {
          "id":"308",
          "name_en":"NaSaNa",
-         "name_mm":"(နဆန) နမ့်ဆန်",
+         "name_mm":"(NaSaNa) Nanhsan",
          "nrc_code":"13",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -2468,7 +2397,7 @@
       {
          "id":"309",
          "name_en":"NaPaNa",
-         "name_mm":"(နဖန) နမ့်ဖိုင်",
+         "name_mm":"(NaPaNa) NanHpai",
          "nrc_code":"13",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -2476,7 +2405,7 @@
       {
          "id":"310",
          "name_en":"NaKhaTa",
-         "name_mm":"(နခတ) နောင်ချို",
+         "name_mm":"(NaKhaTa) Nawnghkio",
          "nrc_code":"13",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -2484,7 +2413,7 @@
       {
          "id":"311",
          "name_en":"NyaYaNa",
-         "name_mm":"(ညရန) ညောင်ရွှေ",
+         "name_mm":"(NyaYaNa) Nyaungshwe",
          "nrc_code":"13",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -2492,7 +2421,7 @@
       {
          "id":"312",
          "name_en":"PhaKhaNa",
-         "name_mm":"(ဖခန) ဖယ်ခုံ",
+         "name_mm":"(PhaKhaNa) Pekon",
          "nrc_code":"13",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -2500,7 +2429,7 @@
       {
          "id":"313",
          "name_en":"PaLaNa",
-         "name_mm":"(ပလန) ပင်လုံ",
+         "name_mm":"(PaLaNa) Pinlon",
          "nrc_code":"13",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -2508,7 +2437,7 @@
       {
          "id":"314",
          "name_en":"PaTaYa",
-         "name_mm":"(ပတရ) ပင်းတယ",
+         "name_mm":"(PaTaYa) Pintaya",
          "nrc_code":"13",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -2516,7 +2445,7 @@
       {
          "id":"315",
          "name_en":"SaSaNa",
-         "name_mm":"(ဆဆန) ဆီဆိုင်",
+         "name_mm":"(SaSaNa) Hsihseng",
          "nrc_code":"13",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -2524,7 +2453,7 @@
       {
          "id":"316",
          "name_en":"YaNyaNa",
-         "name_mm":"(ရညန) ရွှေညောင်",
+         "name_mm":"(YaNyaNa) Shwenyoung",
          "nrc_code":"13",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -2532,7 +2461,7 @@
       {
          "id":"317",
          "name_en":"TaYaNa",
-         "name_mm":"(တယန) တန့်ယန်း",
+         "name_mm":"(TaYaNa) Tantgyan",
          "nrc_code":"13",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -2540,7 +2469,7 @@
       {
          "id":"318",
          "name_en":"TaMaNya",
-         "name_mm":"(တမည) တာမိုးညဲ",
+         "name_mm":"(TaMaNya) တာမိုးညဲ",
          "nrc_code":"13",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:06"
@@ -2548,7 +2477,7 @@
       {
          "id":"319",
          "name_en":"TaKhaLa",
-         "name_mm":"(တခလ) တာချီလိတ်",
+         "name_mm":"(TaKhaLa) Tachileik",
          "nrc_code":"13",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -2564,7 +2493,7 @@
       {
          "id":"321",
          "name_en":"TaKaNa",
-         "name_mm":"(တကန) တောင်ကြီး",
+         "name_mm":"(TaKaNa) Taunggyi",
          "nrc_code":"13",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -2572,7 +2501,7 @@
       {
          "id":"322",
          "name_en":"ThaNaNa",
-         "name_mm":"(သနန) သိန္နီ",
+         "name_mm":"(ThaNaNa) Hseni",
          "nrc_code":"13",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -2580,7 +2509,7 @@
       {
          "id":"323",
          "name_en":"ThaPaNa",
-         "name_mm":"(သပန) သီပေါ",
+         "name_mm":"(ThaPaNa) Hsipaw",
          "nrc_code":"13",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -2588,7 +2517,7 @@
       {
          "id":"324",
          "name_en":"YaNgaNa",
-         "name_mm":"(ရငန) ရွာငံ",
+         "name_mm":"(YaNgaNa) Ywangan",
          "nrc_code":"13",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -2596,7 +2525,7 @@
       {
          "id":"325",
          "name_en":"YaSaNa",
-         "name_mm":"(ရစန) ရပ်စောက်",
+         "name_mm":"(YaSaNa) Yetsawk",
          "nrc_code":"13",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -2604,7 +2533,7 @@
       {
          "id":"326",
          "name_en":"BaKaLa",
-         "name_mm":"(ဘကလ) ဘိုကလေး",
+         "name_mm":"(BaKaLa) Bogale",
          "nrc_code":"14",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -2612,7 +2541,7 @@
       {
          "id":"327",
          "name_en":"DaNaPha",
-         "name_mm":"(ဓနဖ) ဓနုဖြူ",
+         "name_mm":"(DaNaPha) Danuphyu",
          "nrc_code":"14",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -2620,7 +2549,7 @@
       {
          "id":"328",
          "name_en":"DaDaYa",
-         "name_mm":"(ဒဒရ) ဒေးဒရဲ",
+         "name_mm":"(DaDaYa) Dedaye",
          "nrc_code":"14",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -2628,7 +2557,7 @@
       {
          "id":"329",
          "name_en":"PaThaYa",
-         "name_mm":"(ပသရ) ပုသိမ်(အရှေ့)",
+         "name_mm":"(PaThaYa) Pathein",
          "nrc_code":"14",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -2636,7 +2565,7 @@
       {
          "id":"330",
          "name_en":"AhMaNa",
-         "name_mm":"(အမန) အိမ်မဲ",
+         "name_mm":"(AhMaNa) Einme",
          "nrc_code":"14",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -2644,7 +2573,7 @@
       {
          "id":"331",
          "name_en":"HaKaKa",
-         "name_mm":"(ဟကက) ဟိုင်းကြီးကျွန်း",
+         "name_mm":"(HaKaKa) HaigyiIsland",
          "nrc_code":"14",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -2652,7 +2581,7 @@
       {
          "id":"332",
          "name_en":"HaThaTa",
-         "name_mm":"(ဟသတ) ဟင်္သာတ",
+         "name_mm":"(HaThaTa) Hinthada",
          "nrc_code":"14",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -2660,7 +2589,7 @@
       {
          "id":"333",
          "name_en":"AhGaPa",
-         "name_mm":"(အဂပ) အင်္ဂပူ",
+         "name_mm":"(AhGaPa) Ingapu",
          "nrc_code":"14",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -2676,7 +2605,7 @@
       {
          "id":"335",
          "name_en":"KaLaNa",
-         "name_mm":"(ကလန) ကျိုက်လတ်",
+         "name_mm":"(KaLaNa) kyaiklat",
          "nrc_code":"14",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -2684,7 +2613,7 @@
       {
          "id":"336",
          "name_en":"KaKhaNa",
-         "name_mm":"(ကခန) ကြံခင်း",
+         "name_mm":"(KaKhaNa) Kyangin",
          "nrc_code":"14",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -2692,7 +2621,7 @@
       {
          "id":"337",
          "name_en":"KaKaNa",
-         "name_mm":"(ကကန) ကျောင်းကုန်း",
+         "name_mm":"(KaKaNa) Kyaunggon",
          "nrc_code":"14",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -2700,7 +2629,7 @@
       {
          "id":"338",
          "name_en":"KaPaNa",
-         "name_mm":"(ကပန) ကျုံပျော်",
+         "name_mm":"(KaPaNa) Kyonpyaw",
          "nrc_code":"14",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -2708,7 +2637,7 @@
       {
          "id":"339",
          "name_en":"LaPaTa",
-         "name_mm":"(လပတ) လပွတ္တာ",
+         "name_mm":"(LaPaTa) Labutta",
          "nrc_code":"14",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -2716,7 +2645,7 @@
       {
          "id":"340",
          "name_en":"LaMaNa",
-         "name_mm":"(လမန) လေးမျက်နှာ",
+         "name_mm":"(LaMaNa) Lemyetthan",
          "nrc_code":"14",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -2724,7 +2653,7 @@
       {
          "id":"341",
          "name_en":"MaAhPa",
-         "name_mm":"(မအပ) မအူပင်",
+         "name_mm":"(MaAhPa) Maubin",
          "nrc_code":"14",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -2732,7 +2661,7 @@
       {
          "id":"342",
          "name_en":"MaMaKa",
-         "name_mm":"(မမက) မော်လမြိုင်ကျွန်း",
+         "name_mm":"(MaMaKa) Mawlamyinegyun",
          "nrc_code":"14",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -2740,7 +2669,7 @@
       {
          "id":"343",
          "name_en":"MaAhaNa",
-         "name_mm":"(မအန) မြန်အောင်",
+         "name_mm":"(MaAhaNa) Myaungaung",
          "nrc_code":"14",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -2748,7 +2677,7 @@
       {
          "id":"344",
          "name_en":"MaMaNa",
-         "name_mm":"(မမန) မြောင်းမြ",
+         "name_mm":"(MaMaNa) Myaungmya",
          "nrc_code":"14",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -2756,7 +2685,7 @@
       {
          "id":"345",
          "name_en":"NgaPaTa",
-         "name_mm":"(ငပတ) ငပုတော",
+         "name_mm":"(NgaPaTa) Ngapudaw",
          "nrc_code":"14",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -2764,7 +2693,7 @@
       {
          "id":"346",
          "name_en":"NgaThaKha",
-         "name_mm":"(ငသခ) ငါးသိုင်းချောင်း",
+         "name_mm":"(NgaThaKha) Ngathinechaung",
          "nrc_code":"14",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -2772,7 +2701,7 @@
       {
          "id":"347",
          "name_en":"NyaTaNa",
-         "name_mm":"(ညတန) ညောင်တုန်း",
+         "name_mm":"(NyaTaNa) Nyaungdon",
          "nrc_code":"14",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -2780,7 +2709,7 @@
       {
          "id":"348",
          "name_en":"PaTaNa",
-         "name_mm":"(ပတန) ပန်းတနော်",
+         "name_mm":"(PaTaNa) Pantanaw",
          "nrc_code":"14",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -2788,7 +2717,7 @@
       {
          "id":"349",
          "name_en":"PhaPaNa",
-         "name_mm":"(ဖပန) ဖျာပုံ",
+         "name_mm":"(PhaPaNa) Pyapon",
          "nrc_code":"14",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -2796,7 +2725,7 @@
       {
          "id":"350",
          "name_en":"ThaPaNa",
-         "name_mm":"(သပန) သာပေါင်း",
+         "name_mm":"(ThaPaNa) Thabaung",
          "nrc_code":"14",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"

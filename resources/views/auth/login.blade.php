@@ -84,13 +84,13 @@
                             <label class="form-check-label">Remember Me</label>
                         </div>
 
-                        <button type="submit" class="btn w-100" style="background-color:orangered;color:white">
+                        <button type="submit" class="btn w-100" style="background-color:navy;color:white">
                             Login
                         </button>
 
                         <div class="text-center mt-3">
                             @if (Route::has('password.request'))
-                                <a href="{{ route('password.request') }}">
+                                <a href="{{ route('password.request') }}" class="text-white">
                                     Forgot Password?
                                 </a>
                             @endif

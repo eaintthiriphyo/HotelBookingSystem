@@ -29,8 +29,6 @@
 
                 <!-- Room Types Table -->
 
-                <a href="{{ route('admin.roomTypes.inactiveList') }}" class="btn ms-3"
-                    style="background-color:navy;color:white"><i class="fas fa-list"></i>All Inactive Lists</a>
 
                 <div class="table-responsive">
                     <table class="table table-bordered table-hover align-middle text-center">

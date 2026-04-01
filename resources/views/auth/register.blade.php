@@ -104,12 +104,12 @@ body{
                 name="password_confirmation">
             </div>
 
-            <button type="submit" class="btn w-100" style="background-color:orangered;color:white">
+            <button type="submit" class="btn w-100" style="background-color:navy;color:white">
                 Register
             </button>
 
             <div class="text-center mt-3">
-                <a href="{{ route('login') }}" class="text-primary">
+                <a href="{{ route('login') }}" class="text-white">
                     Already have an account? Login
                 </a>
             </div>

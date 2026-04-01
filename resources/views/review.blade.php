@@ -83,7 +83,7 @@
         <p class="text-danger">{{$message}}</p>
         @enderror
 
-        <button class="btn  w-100" type="submit"  style="background-color: orangered;color:white">Submit Review</button>
+        <button class="btn  w-100" type="submit"  style="background-color: navy;color:white">Submit Review</button>
         </form>
     </div>
     </div>
@@ -91,7 +91,7 @@
     @else
     <div class="text-center">
         <p>Please login to write a review</p>
-        <a href="{{ route('login') }}" class="btn " style="background-color:orangered;color:white">Login</a>
+        <a href="{{ route('login') }}" class="btn " style="background-color:navy;color:white">Login</a>
     </div>
     @endauth
     </div>

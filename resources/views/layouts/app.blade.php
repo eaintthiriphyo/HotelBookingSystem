@@ -45,9 +45,9 @@
 
         /* Active link */
         .navbar-custom .nav-link.active {
-            background-color: #ff4500;
+            background-color: white;
             /* highlight active page */
-            color: white !important;
+            color: navy !important;
             border-radius: 5px;
         }
 
