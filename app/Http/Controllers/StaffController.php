@@ -133,15 +133,15 @@ class StaffController extends Controller
 
     }
 
-    public function viewProfile($email){
-        $profile=User::where('email',$email)->firstOrFail();
+    public function viewProfile($id){
+        $profile=User::findOrFail($id);
          $json = file_get_contents(public_path('json/nrc.json'));
         $nrcData = json_decode($json, true);
         return view('admin.staff.viewProfile',compact('profile','nrcData'));
      }
 
-      public function viewEditProfile($email){
-        $profile=User::where('email',$email)->firstOrFail();
+      public function viewEditProfile($id){
+        $profile=User::findOrFail($id);
          $json = file_get_contents(public_path('json/nrc.json'));
         $nrcData = json_decode($json, true);
 
@@ -151,11 +151,11 @@ class StaffController extends Controller
 
 
 
-     public function viewChangePassword($email){
+     public function viewChangePassword($id){
         return view('admin.staff.viewChangePassword');
      }
-public function profileUpdate(Request $request, $email){
-    $profile = User::where('email', $email)->firstOrFail();
+public function profileUpdate(Request $request, $id){
+    $profile = User::findOrFail($id);
 
 
         // Validate form

@@ -16,12 +16,12 @@
             <div class="card shadow-sm">
                 <div class="card-header d-flex justify-content-between align-items-center " style="background-color: navy; color:white">
                     <h4 class="mb-0"><b>Edit Profile</b></h4>
-                    <a href="{{ route('admin.staff.viewProfile', Auth::user()->email) }}" class="btn btn-light btn-sm text-primary">View Profile</a>
+                    <a href="{{ route('admin.staff.viewProfile', Auth::user()->id) }}" class="btn btn-light btn-sm text-primary">View Profile</a>
                 </div>
 
                 <div class="card-body">
 
-                    <form action="{{ route('admin.staff.profileUpdate', Auth::user()->email) }}" method="POST" enctype="multipart/form-data">
+                    <form action="{{ route('admin.staff.profileUpdate', Auth::user()->id) }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
 
@@ -60,7 +60,7 @@
                         </div>
 
                         {{-- Roles --}}
-                       
+
 
                         {{-- NRC / Credential --}}
                         <div class="mb-3">

@@ -15,14 +15,14 @@
         <!-- Header -->
         <div class="card-header text-white d-flex justify-content-between align-items-center" style="background-color:navy;" >
             <h4 class="mb-0"><i class="fa fa-user-edit me-2"></i>Edit Profile</h4>
-            <a href="{{ route('user.viewProfile', Auth::user()->email) }}" class="btn  shadow-sm" style="background-color:white;color:navy">
+            <a href="{{ route('user.viewProfile', Auth::user()->id) }}" class="btn  shadow-sm" style="background-color:white;color:navy">
                 <i class="fa fa-user me-1"></i> View Profile
             </a>
         </div>
 
         <!-- Body -->
         <div class="card-body p-4">
-            <form action="{{ route('user.profileUpdate', Auth::user()->email) }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('user.profileUpdate', Auth::user()->id) }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
 

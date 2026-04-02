@@ -45,7 +45,7 @@
             <h3 class="text-center mb-4">Write a Review</h3>
 
             @auth
-                <form method="POST" action="{{ route('review.store') }}">
+                <form method="POST" action="{{ route('user.dashboard.review.store') }}">
                     @csrf
                     <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
                     <div class="mb-4">

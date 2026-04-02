@@ -304,7 +304,7 @@
                     <div class="card-header text-white d-flex justify-content-between align-items-center"
                         style="background-color: navy;">
                         <h3 class="mb-0">Booking Summary</h3>
-                        <a href="{{ route('user.bookingRoom') }}" class="btn  "
+                        <a href="{{ route('user.dashboard.bookingRoom') }}" class="btn  "
                             style="background-color: white ;color:navy">
                             Back
                         </a>
@@ -511,7 +511,7 @@
                 $('#customerStep').show();
             });
 
-            // Save profile 
+            // Save profile
             $('#saveProfile').click(function() {
                 const checkIn = $('#checkIn').val();
                 const checkOut = $('#checkOut').val();

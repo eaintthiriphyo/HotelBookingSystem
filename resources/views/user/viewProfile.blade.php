@@ -11,7 +11,7 @@
                 <!-- Header -->
                 <div class="card-header text-white d-flex justify-content-between align-items-center"  style="background-color:navy;">
                     <h4 class="mb-0"><i class="fa fa-user me-2"></i>Profile Details</h4>
-                    <a href="{{ route('user.viewEditProfile', Auth::user()->email) }}" class="btn  shadow-sm"  style="background-color:white; color:navy">
+                    <a href="{{ route('user.viewEditProfile', Auth::user()->id) }}" class="btn  shadow-sm"  style="background-color:white; color:navy">
                         <i class="fa fa-edit me-1"></i> Edit
                     </a>
                 </div>
@@ -45,7 +45,7 @@
                         <div class="col-8">{{ $profile->address }}</div>
                     </div>
 
-                   
+
                 </div>
 
             </div>

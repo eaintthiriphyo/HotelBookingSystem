@@ -3,7 +3,7 @@
 @section('content')
 
 <!-- Review List -->
-<section class="container py-5" id="reviews">
+<section class="container py-5" id="review">
     <h2 class="section-title text-center mb-5">Guest Reviews</h2>
 
     <div class="row">

@@ -18,7 +18,11 @@ class ContactController extends Controller
      */
     public function index()
     {
+          Contact::where('status', 'unread')->update([
+        'status' => 'read'
+    ]);
  $contact = Contact::latest()->paginate(7);
+
         return view('admin.contact.index',compact('contact'));
     }
 

@@ -116,26 +116,25 @@ class CustomerController extends Controller
     }
 
 
-    public function viewProfile($email)
+    public function viewProfile($id)
     {
 
-        $profile = User::where('email', $email)->firstOrFail();
-
+        $profile = User::findOrFail($id);
        return view('user.viewProfile', compact('profile'));
     }
 
-    public function viewEditProfile($email)
+    public function viewEditProfile($id)
     {
-        $profile = User::where('email', $email)->firstOrFail();
+        $profile = User::findOrFail($id);
 $json = file_get_contents(public_path('json/nrc.json'));
     $nrcData = json_decode($json, true);
         return view('user.viewEditProfile', compact('profile', 'nrcData'));
     }
 
 
-    public function profileUpdate(Request $request, $email)
+    public function profileUpdate(Request $request, $id)
     {
-        $profile = User::where('email', $email)->firstOrFail();
+        $profile =User::findOrFail($id);
 
         $request->validate([
             'name' => 'required|string|max:255',
@@ -164,7 +163,7 @@ $json = file_get_contents(public_path('json/nrc.json'));
     }
 
 
-    public function viewChangePassword($email)
+    public function viewChangePassword($id)
     {
         return view('user.viewChangePassword');
     }

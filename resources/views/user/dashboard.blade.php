@@ -88,7 +88,7 @@
                             <p>Capacity: {{ $rt->capacity }}</p>
                             <p>Facility: {{ $rt->facility }}</p>
                             <p>{{ $rt->description }}</p>
-                            <a href="{{ route('user.bookingRoom') }}" class="btn "
+                            <a href="{{ route('user.dashboard.bookingRoom') }}" class="btn "
                                 style="background-color: navy;color:white">Book Now</a>
                         </div>
                     </div>

@@ -138,10 +138,10 @@ Route::delete('staff/destroy/{id}',[StaffController::class,'destroy'])->name('st
 
 
 
-Route::get('staff/viewProfile/{email}',[StaffController::class,'viewProfile'])->name('staff.viewProfile');
-Route::get('staff/viewEditProfile/{email}',[StaffController::class,'viewEditProfile'])->name('staff.viewEditProfile');
-Route::put('staff/profileUpdate/{email}',[StaffController::class,'profileUpdate'])->name('staff.profileUpdate');
-Route::get('staff/profile/changePassword/{email}',[StaffController::class,'viewChangePassword'])->name('staff.viewChangePassword');
+Route::get('staff/viewProfile/{id}',[StaffController::class,'viewProfile'])->name('staff.viewProfile');
+Route::get('staff/viewEditProfile/{id}',[StaffController::class,'viewEditProfile'])->name('staff.viewEditProfile');
+Route::put('staff/profileUpdate/{id}',[StaffController::class,'profileUpdate'])->name('staff.profileUpdate');
+Route::get('staff/profile/changePassword/{id}',[StaffController::class,'viewChangePassword'])->name('staff.viewChangePassword');
 Route::put('staff/profile/changePassword',[StaffController::class,'ChangePassword'])->name('staff.changePassword');
 
 
@@ -171,21 +171,21 @@ Route::middleware(['auth','role:user'])
     Route::get('/dashboard',[HomeController::class,'index'])->name('dashboard');
 
 
- Route::get('/viewProfile/{email}',[CustomerController::class,'viewProfile'])->name('viewProfile');
-Route::get('/viewEditProfile/{email}',[CustomerController::class,'viewEditProfile'])->name('viewEditProfile');
-Route::put('/profileUpdate/{email}',[CustomerController::class,'profileUpdate'])->name('profileUpdate');
-Route::get('/profile/changePassword/{email}',[CustomerController::class,'viewChangePassword'])->name('viewChangePassword');
+ Route::get('/viewProfile/{id}',[CustomerController::class,'viewProfile'])->name('viewProfile');
+Route::get('/viewEditProfile/{id}',[CustomerController::class,'viewEditProfile'])->name('viewEditProfile');
+Route::put('/profileUpdate/{id}',[CustomerController::class,'profileUpdate'])->name('profileUpdate');
+Route::get('/profile/changePassword/{id}',[CustomerController::class,'viewChangePassword'])->name('viewChangePassword');
 Route::put('staff/profile/changePassword',[CustomerController::class,'ChangePassword'])->name('changePassword');
 
 Route::get('/contact',[ContactController::class,'index'])->name('contact');
-Route::get('/booking/room',[BookingController::class,'index'])->name('bookingRoom');
+Route::get('dashboard/booking/room',[BookingController::class,'index'])->name('dashboard.bookingRoom');
  Route::get('booking/available-rooms', [BookingController::class, 'availableRooms'])->name('booking.availableRooms');
   Route::post('booking/store', [BookingController::class, 'store'])->name('booking.store');
 
-Route::get('/booing/List/{id}',[BookingController::class,'viewAllList'])->name('booking.viewAllList');
+Route::get('dashboard/booking/List/{id}',[BookingController::class,'viewAllList'])->name('booking.viewAllList');
 Route::get('/booking/{id}',[BookingController::class,'viewbooking'])->name('booking');
-Route::get('/reviews',[ReviewController::class,'index'])->name('viewReview');
-Route::post('/reviews',[ReviewController::class,'store'])->name('review.store');
+Route::get('dashboard/reviews',[ReviewController::class,'index'])->name('dashboard.viewReview');
+Route::post('dashboard/reviews',[ReviewController::class,'store'])->name('dashboard.review.store');
 
 
 });

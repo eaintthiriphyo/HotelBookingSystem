@@ -55,7 +55,6 @@
 
         .sidebar .nav-item.active>.nav-link i {
             color: #4e73df !important;
-            font-size: 1.2rem;
         }
 
 
@@ -63,7 +62,6 @@
         .collapse-inner .collapse-item.active {
             color: #4e73df;
             font-weight: 600;
-            font-size: 1rem;
 
         }
 
@@ -183,7 +181,10 @@
                     aria-expanded="{{ request()->routeIs('admin.booking*') ? 'true' : 'false' }}"
                     aria-controls="collapseBooking">
                     <i class="fas fa-fw fa-calendar-check"></i>
-                    <span>Bookings</span>
+                    <span> Booking
+                         @if ($newBookingsCount > 0)
+                                    <span class="badge badge-danger badge-counter">{{ $newBookingsCount }}</span>
+                                @endif </span>
                 </a>
 
                 <div id="collapseBooking" class="collapse {{ request()->routeIs('admin.booking*') ? 'show' : '' }}"
@@ -207,7 +208,19 @@
 
                         <a class="collapse-item {{ request()->routeIs('admin.booking.pending') ? 'active' : '' }}"
                             href="{{ route('admin.booking.pending') }}">
+
                             Pending Booking List
+
+                            <span>
+
+                                @if ($newBookingsCount > 0)
+                                    <span class="badge badge-danger badge-counter">{{ $newBookingsCount }}</span>
+                                @endif
+
+                            </span>
+
+
+
                         </a>
                         <a class="collapse-item {{ request()->routeIs('admin.booking.create') ? 'active' : '' }}"
                             href="{{ route('admin.booking.create') }}">
@@ -330,7 +343,11 @@
                             aria-expanded="{{ request()->routeIs('admin.contact.*') ? 'true' : 'false' }}"
                             aria-controls="collapseContact">
                             <i class="fas fa-fw fa-envelope"></i>
-                            <span>Message</span>
+                            <span>Message  @if ($newMessagesCount > 0)
+                                    <span class="badge badge-danger badge-counter">
+                                        {{ $newMessagesCount }}
+                                    </span>
+                                @endif</span>
                         </a>
 
                         <div id="collapseContact" class="collapse {{ request()->routeIs('admin.contact.*') ? 'show' : '' }}"
@@ -520,17 +537,17 @@
                                         <div class="text-muted small">{{ Auth::user()->email }}</div>
                                     </div>
                                     <a class="dropdown-item"
-                                        href="{{ route('admin.staff.viewProfile', Auth::user()->email) }}"><i
+                                        href="{{ route('admin.staff.viewProfile', Auth::user()->id) }}"><i
                                             class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>Profile</a>
 
 
                                     <a class="dropdown-item"
-                                        href="{{ route('admin.staff.viewEditProfile', Auth::user()->email) }}"><i
+                                        href="{{ route('admin.staff.viewEditProfile', Auth::user()->id) }}"><i
                                             class="fas fa-edit fa-sm fa-fw mr-2 text-gray-400"></i>Edit Profile</a>
 
 
                                     <a class="dropdown-item"
-                                        href="{{ route('admin.staff.viewChangePassword', Auth::user()->email) }}"><i
+                                        href="{{ route('admin.staff.viewChangePassword', Auth::user()->id) }}"><i
                                             class="fas fa-lock fa-sm fa-fw mr-2 text-gray-400"></i>Change Password</a>
                                     <div class="dropdown-divider"></div>
 

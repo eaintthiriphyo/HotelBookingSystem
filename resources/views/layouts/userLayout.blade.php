@@ -133,15 +133,15 @@
                         <a class="nav-link" href="{{ route('user.dashboard') }}#contact">Contact</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {{ request()->routeIs('user.viewReview') ? 'active' : '' }}"
-                            href="{{ route('user.viewReview') }}">Reviews</a>
+                        <a class="nav-link {{ request()->routeIs('user.dashboard.viewReview') ? 'active' : '' }}"
+                            href="{{ route('user.dashboard.viewReview') }}">Reviews</a>
                     </li>
 
 
                     @auth
                         <li class="nav-item">
-                            <a class="nav-link {{ request()->routeIs('user.bookingRoom') ? 'active' : '' }}"
-                                href="{{ route('user.bookingRoom') }}">Booking</a>
+                            <a class="nav-link {{ request()->routeIs('user.dashborad,bookingRoom') ? 'active' : '' }}"
+                                href="{{ route('user.dashboard.bookingRoom') }}">Booking</a>
                         </li>
                     @endauth
                 </ul>
@@ -170,13 +170,13 @@
                                     <div class="fw-bold">{{ Auth::user()->name }}</div>
                                     <div class="text-muted small">{{ Auth::user()->email }}</div>
                                 </li>
-                                <li><a class="dropdown-item" href="{{ route('user.viewProfile', Auth::user()->email) }}"><i
+                                <li><a class="dropdown-item" href="{{ route('user.viewProfile', Auth::user()->id) }}"><i
                                             class="fa fa-user me-2"></i>Profile</a></li>
                                 <li><a class="dropdown-item"
-                                        href="{{ route('user.viewEditProfile', Auth::user()->email) }}"><i
+                                        href="{{ route('user.viewEditProfile', Auth::user()->id) }}"><i
                                             class="fa fa-edit me-2"></i>Edit Profile</a></li>
                                 <li><a class="dropdown-item"
-                                        href="{{ route('user.viewChangePassword', Auth::user()->email) }}"><i
+                                        href="{{ route('user.viewChangePassword', Auth::user()->id) }}"><i
                                             class="fa fa-lock me-2"></i>Change Password</a></li>
                                 <li>
                                     <hr class="dropdown-divider">
