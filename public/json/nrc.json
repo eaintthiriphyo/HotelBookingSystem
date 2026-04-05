@@ -792,7 +792,7 @@
       {
          "id":"103",
          "name_en":"KaTaTa",
-         "name_mm":"(KaTaTa) ကေတုမတီ",
+         "name_mm":"(KaTaTa) KayTuMadi",
          "nrc_code":"7",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -1813,7 +1813,7 @@
       {
          "id":"236",
          "name_en":"DaGaYa",
-         "name_mm":"(ဒဂရ) DagonMyothit(East)",
+         "name_mm":"(DaGaYa) DagonMyothit(East)",
          "nrc_code":"12",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -2590,7 +2590,7 @@
       {
          "id":"334",
          "name_en":"KaNaNa",
-         "name_mm":"(KaNaNa) ခနောင်",
+         "name_mm":"(KaNaNa) Kanaung",
          "nrc_code":"14",
          "created_at":"2019-01-31 20:03:06",
          "updated_at":"2019-01-31 20:03:24"
@@ -3034,7 +3034,7 @@
       {
          "id":"393",
          "name_en":"PaLaTa",
-         "name_mm":"(ပလတ) ပလောက်",
+         "name_mm":"(PaLaTa) Palouk",
          "nrc_code":"6",
          "created_at":"2020-11-26 05:54:12",
          "updated_at":"2020-11-26 05:54:12"
